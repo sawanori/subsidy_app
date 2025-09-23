@@ -1,0 +1,738 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// User model for authentication and authorization
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  role      UserRole @default(VIEWER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  applications Application[]
+
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+// Applicant data model - personal information (12 months retention)
+model Applicant {
+  id                  String    @id @default(cuid())
+  companyName         String // internal classification
+  representativeName  String // personal classification - masked in logs
+  phoneNumber         String // personal classification 
+  email               String // personal classification
+  address             String // personal classification
+  establishedYear     Int?
+  employeeCount       Int?
+  capital             Decimal?
+  businessDescription String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  deletedAt           DateTime? // for soft delete - personal data 12 months
+
+  // Relations
+  applications Application[]
+  bankAccounts BankAccount[]
+
+  @@map("applicants")
+}
+
+// Bank account - personal classification, display only last 4 digits
+model BankAccount {
+  id            String      @id @default(cuid())
+  applicantId   String
+  bankName      String
+  branchName    String
+  accountType   AccountType
+  accountNumber String // personal - show only last 4 digits in UI/logs
+  accountHolder String // personal classification
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  deletedAt     DateTime? // 12 months retention
+
+  // Relations
+  applicant Applicant @relation(fields: [applicantId], references: [id])
+
+  @@map("bank_accounts")
+}
+
+enum AccountType {
+  NORMAL // 普通
+  CURRENT // 当座
+  SAVINGS // 貯蓄
+}
+
+// Application data model
+model Application {
+  id          String            @id @default(cuid())
+  userId      String
+  applicantId String
+  title       String
+  status      ApplicationStatus @default(DRAFT)
+  locale      String            @default("ja") @db.VarChar(10) // personal classification - i18n support, 12 months retention
+  submittedAt DateTime?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  deletedAt   DateTime? // soft delete for personal data (locale) compliance
+
+  // Relations
+  user        User         @relation(fields: [userId], references: [id])
+  applicant   Applicant    @relation(fields: [applicantId], references: [id])
+  budget      Budget?
+  kpis        KPI[]
+  plan        Plan?
+  evidences   Evidence[]
+  competitors Competitor[]
+  
+  // Phase 1 Extension Relations
+  purposeBackground    PurposeBackground?
+  detailedPlans        DetailedPlan[]
+  kpiTargets           KpiTarget[]
+  ganttTasks           GanttTask[]
+  organizationStructure OrganizationStructure?
+  riskAssessments      RiskAssessment[]
+  supplementaryMaterials SupplementaryMaterial[]
+
+  @@map("applications")
+}
+
+enum ApplicationStatus {
+  DRAFT
+  SUBMITTED
+  UNDER_REVIEW
+  APPROVED
+  REJECTED
+}
+
+// Budget data model - internal classification
+model Budget {
+  id             String   @id @default(cuid())
+  applicationId  String   @unique
+  totalAmount    Decimal // JPY with no decimals
+  subsidyRate    Decimal // percentage
+  subsidyAmount  Decimal // calculated: totalAmount * subsidyRate
+  targetExpenses Json // structured expense breakdown
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id])
+
+  @@map("budgets")
+}
+
+// KPI data model - internal classification  
+model KPI {
+  id                String    @id @default(cuid())
+  applicationId     String
+  name              String
+  unit              String
+  baselineValue     Decimal?
+  targetValue       Decimal
+  achievementDate   DateTime?
+  rationale         String // justification
+  measurementMethod String
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id])
+
+  @@map("kpis")
+}
+
+// Plan data model - internal classification
+model Plan {
+  id              String   @id @default(cuid())
+  applicationId   String   @unique
+  background      String // project background
+  solution        String // solution approach
+  expectedOutcome String // expected effects
+  summary         String? // auto-generated 200 char summary
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  application  Application   @relation(fields: [applicationId], references: [id])
+  actions      Action[]
+  schedules    Schedule[]
+  organization Organization?
+  risks        Risk[]
+
+  @@map("plans")
+}
+
+// Action data model - structured 5W1H
+model Action {
+  id          String       @id @default(cuid())
+  planId      String
+  name        String // What
+  purpose     String // Why
+  deliverable String // deliverable/outcome
+  evidence    String // supporting rationale
+  assignee    String // Who
+  location    String? // Where
+  scheduledAt DateTime? // When
+  method      String? // How
+  status      ActionStatus @default(PLANNED)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  // Relations
+  plan Plan @relation(fields: [planId], references: [id])
+
+  @@map("actions")
+}
+
+enum ActionStatus {
+  PLANNED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+// Schedule data model - Gantt chart support
+model Schedule {
+  id           String   @id @default(cuid())
+  planId       String
+  taskName     String
+  startDate    DateTime
+  endDate      DateTime
+  duration     Int // days
+  dependencies Json? // dependency relationships
+  assignee     String
+  progress     Int      @default(0) // 0-100%
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  plan Plan @relation(fields: [planId], references: [id])
+
+  @@map("schedules")
+}
+
+// Organization/Team structure - internal classification
+model Organization {
+  id        String   @id @default(cuid())
+  planId    String   @unique
+  structure Json // org chart data for SVG generation
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  plan    Plan         @relation(fields: [planId], references: [id])
+  members TeamMember[]
+
+  @@map("organizations")
+}
+
+// Team member data - internal classification
+model TeamMember {
+  id               String   @id @default(cuid())
+  organizationId   String
+  name             String
+  role             String
+  workloadPercent  Decimal // allocation percentage
+  responsibilities String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  organization Organization @relation(fields: [organizationId], references: [id])
+
+  @@map("team_members")
+}
+
+// Risk data model - internal classification
+model Risk {
+  id          String     @id @default(cuid())
+  planId      String
+  content     String // risk description
+  probability RiskLevel
+  impact      RiskLevel
+  mitigation  String // mitigation strategy
+  owner       String // responsible person
+  status      RiskStatus @default(IDENTIFIED)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  // Relations
+  plan Plan @relation(fields: [planId], references: [id])
+
+  @@map("risks")
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum RiskStatus {
+  IDENTIFIED
+  MITIGATED
+  RESOLVED
+  MONITORING
+}
+
+// Evidence/Document data model - internal classification
+model Evidence {
+  id               String       @id @default(cuid())
+  applicationId    String?      // Optional for standalone evidence
+  type             EvidenceType
+  source           EvidenceSource
+  status           ProcessingStatus @default(PROCESSING)
+  
+  // File information
+  originalFilename String?
+  mimeType         String?
+  size             Int?         // bytes
+  checksum         String?      // SHA256 hash
+  
+  // Storage
+  fileUrl          String?      // S3-compatible storage URL
+  sourceUrl        String?      // external URL reference
+  
+  // Content extraction
+  content          Json         // ExtractedContent structure
+  metadata         Json         // EvidenceMetadata
+  securityScan     Json?        // SecurityScanResult
+  
+  // Processing metrics
+  processingTime   Int          @default(0) // milliseconds
+  qualityScore     Float?       // OCR/extraction quality (0-1)
+  
+  // Legacy fields for compatibility
+  title            String?
+  description      String?
+  fileType         String?      // MIME type (use mimeType instead)
+  footnotes        Json?        // auto-generated citations
+  
+  // Timestamps
+  createdAt        DateTime     @default(now())
+  processedAt      DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+  deletedAt        DateTime?    // soft delete for compliance
+
+  // Relations
+  application Application? @relation(fields: [applicationId], references: [id])
+
+  @@index([type, source])
+  @@index([status])
+  @@index([createdAt])
+  @@map("evidences")
+}
+
+enum EvidenceType {
+  CSV
+  EXCEL
+  PDF  
+  IMAGE
+  URL
+  TEXT
+  UNKNOWN
+}
+
+enum EvidenceSource {
+  UPLOAD
+  URL_FETCH
+  API_IMPORT
+}
+
+enum ProcessingStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  QUARANTINED
+}
+
+// Competitor analysis data model - internal classification
+model Competitor {
+  id            String   @id @default(cuid())
+  applicationId String
+  name          String
+  description   String?
+  strengths     Json? // competitive advantages
+  weaknesses    Json? // areas of concern
+  marketShare   Decimal?
+  analysisData  Json? // structured competitive data
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id])
+
+  @@map("competitors")
+}
+
+// ====== PHASE 1 EXTENSION: Advanced Application Features ======
+
+// Purpose & Background - 目的・背景（現状課題→解決策）
+model PurposeBackground {
+  id            String   @id @default(cuid())
+  applicationId String   @unique
+  
+  // 現状課題
+  currentIssues Json     // {category: string, description: string, impact: string}[]
+  painPoints    String   // 具体的な困りごと
+  rootCause     String?  // 根本原因分析
+  
+  // 解決策
+  solution      String   // 提案する解決策
+  approach      String   // アプローチ方法
+  uniqueValue   String?  // 独自性・差別化ポイント
+  
+  // ロジック
+  logicTree     Json?    // 課題→原因→解決策のツリー構造
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id])
+  
+  @@map("purpose_backgrounds")
+}
+
+// Detailed Plans - 具体的な取組内容（5W1H）
+model DetailedPlan {
+  id            String   @id @default(cuid())
+  applicationId String
+  
+  // 5W1H
+  what          String   // 何を
+  why           String   // なぜ
+  who           String   // 誰が
+  where         String   // どこで
+  when          String   // いつまでに
+  how           String   // どのように
+  
+  // 詳細
+  priority      Priority @default(MEDIUM)
+  category      String   // 施策カテゴリ
+  expectedResult String  // 期待される成果
+  prerequisite  String?  // 前提条件
+  
+  // 関連タスク
+  relatedTaskIds Json?   // 関連するガントチャートタスクID
+  
+  orderIndex    Int      // 表示順序
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id])
+  
+  @@index([applicationId, orderIndex])
+  @@map("detailed_plans")
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+// KPI Targets - 数値目標（売上/客数/単価/CV等）
+model KpiTarget {
+  id            String   @id @default(cuid())
+  applicationId String
+  
+  // KPI詳細
+  category      KpiCategory
+  metric        String   // 指標名（カスタム可能）
+  unit          String   // 単位
+  
+  // 目標値
+  currentValue  Decimal  // 現在値
+  year1Target   Decimal  // 1年目目標
+  year2Target   Decimal? // 2年目目標
+  year3Target   Decimal? // 3年目目標
+  
+  // 計算ロジック
+  formula       String?  // 計算式
+  assumptions   Json?    // 前提条件
+  
+  // ビジュアル
+  chartType     ChartType @default(LINE)
+  displayOrder  Int
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id])
+  
+  @@index([applicationId, displayOrder])
+  @@map("kpi_targets")
+}
+
+enum KpiCategory {
+  SALES         // 売上
+  CUSTOMERS     // 客数
+  UNIT_PRICE    // 単価
+  CONVERSION    // CV率
+  RETENTION     // リテンション
+  EFFICIENCY    // 効率性
+  QUALITY       // 品質
+  CUSTOM        // カスタム
+}
+
+enum ChartType {
+  LINE
+  BAR
+  AREA
+  PIE
+  GAUGE
+}
+
+// Gantt Tasks - ガントチャート用タスク
+model GanttTask {
+  id            String   @id @default(cuid())
+  applicationId String
+  
+  // タスク情報
+  taskName      String
+  description   String?
+  taskType      TaskType @default(TASK)
+  
+  // スケジュール
+  startDate     DateTime
+  endDate       DateTime
+  duration      Int      // 日数
+  progress      Int      @default(0) // 0-100%
+  
+  // 依存関係
+  dependencies  Json?    // {taskId: string, type: 'FS'|'SS'|'FF'|'SF'}[]
+  parentTaskId  String?  // 親タスクID（サブタスク用）
+  
+  // 担当
+  assignee      String
+  assigneeRole  String?
+  resources     Json?    // 必要リソース
+  
+  // ビジュアル
+  color         String?  // #RRGGBB
+  milestone     Boolean  @default(false)
+  critical      Boolean  @default(false) // クリティカルパス
+  
+  orderIndex    Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id])
+  
+  @@index([applicationId, startDate])
+  @@index([applicationId, orderIndex])
+  @@map("gantt_tasks")
+}
+
+enum TaskType {
+  PHASE
+  TASK
+  SUBTASK
+  MILESTONE
+}
+
+// Organization Structure - 体制図・組織構造
+model OrganizationStructure {
+  id            String   @id @default(cuid())
+  applicationId String   @unique
+  
+  // 組織構造
+  chartData     Json     // D3.js/mermaid用の階層データ
+  chartType     OrgChartType @default(HIERARCHY)
+  
+  // RACI マトリックス
+  raciMatrix    Json?    // {task: string, responsible: string[], accountable: string, consulted: string[], informed: string[]}[]
+  
+  // 外部協力
+  externalPartners Json?  // {name: string, role: string, expertise: string}[]
+  advisors      Json?    // アドバイザー情報
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id])
+  roles       OrganizationRole[]
+  
+  @@map("organization_structures")
+}
+
+enum OrgChartType {
+  HIERARCHY   // 階層型
+  MATRIX      // マトリックス型
+  FLAT        // フラット型
+  NETWORK     // ネットワーク型
+}
+
+// Organization Roles - 組織内の役割
+model OrganizationRole {
+  id            String   @id @default(cuid())
+  structureId   String
+  
+  // 役割情報
+  name          String
+  title         String
+  department    String?
+  level         Int      // 階層レベル
+  reportsTo     String?  // 上司ID
+  
+  // 責任範囲
+  responsibilities Json  // 責任事項リスト
+  authorities   Json?    // 権限リスト
+  kpis          Json?    // 担当KPI
+  
+  // リソース
+  allocation    Decimal  // 工数割合 (%)
+  startDate     DateTime?
+  endDate       DateTime?
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  structure OrganizationStructure @relation(fields: [structureId], references: [id])
+  
+  @@index([structureId, level])
+  @@map("organization_roles")
+}
+
+// Risk Assessment - リスク評価（既存のRiskモデルを拡張）
+model RiskAssessment {
+  id            String   @id @default(cuid())
+  applicationId String
+  
+  // リスク詳細
+  category      RiskCategory
+  title         String
+  description   String
+  
+  // 評価
+  probability   Int      // 1-5
+  impact        Int      // 1-5
+  riskScore     Int      // probability * impact
+  
+  // 対策
+  preventiveMeasures Json  // 予防策リスト
+  contingencyPlan String?  // コンティンジェンシープラン
+  triggerPoints Json?     // 発動条件
+  
+  // 管理
+  owner         String
+  reviewer      String?
+  status        RiskAssessmentStatus @default(OPEN)
+  reviewDate    DateTime?
+  
+  // 影響範囲
+  affectedAreas Json?    // 影響を受ける領域
+  dependencies  Json?    // 他リスクとの依存関係
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id])
+  
+  @@index([applicationId, riskScore])
+  @@map("risk_assessments")
+}
+
+enum RiskCategory {
+  TECHNICAL     // 技術リスク
+  MARKET        // 市場リスク
+  FINANCIAL     // 財務リスク
+  OPERATIONAL   // 運用リスク
+  LEGAL         // 法的リスク
+  REPUTATIONAL  // 評判リスク
+  STRATEGIC     // 戦略リスク
+}
+
+enum RiskAssessmentStatus {
+  OPEN
+  MITIGATING
+  MONITORING
+  CLOSED
+  ESCALATED
+}
+
+// Supplementary Materials - 補足資料
+model SupplementaryMaterial {
+  id            String   @id @default(cuid())
+  applicationId String
+  
+  // 資料タイプ
+  materialType  MaterialType
+  title         String
+  description   String?
+  
+  // コンテンツ
+  content       Json     // 構造化データ
+  visualData    Json?    // グラフ/チャート用データ
+  
+  // 市場分析
+  marketSize    Decimal? // 市場規模
+  growthRate    Decimal? // 成長率
+  targetSegment String?  // ターゲットセグメント
+  
+  // 競合分析
+  competitiveData Json?  // {company: string, strengths: string[], weaknesses: string[], share: number}[]
+  positioning   String?  // ポジショニング戦略
+  
+  // Before/After
+  beforeState   Json?    // 現状
+  afterState    Json?    // 改善後
+  improvements  Json?    // 改善指標
+  
+  // メタデータ
+  source        String?  // データソース
+  validUntil    DateTime? // 有効期限
+  confidence    Float?   // 信頼度 (0-1)
+  
+  orderIndex    Int
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  application Application @relation(fields: [applicationId], references: [id])
+  
+  @@index([applicationId, materialType])
+  @@index([applicationId, orderIndex])
+  @@map("supplementary_materials")
+}
+
+enum MaterialType {
+  MARKET_ANALYSIS     // 市場分析
+  COMPETITIVE_ANALYSIS // 競合分析
+  BEFORE_AFTER        // Before/After
+  CASE_STUDY          // 事例
+  EXTERNAL_VALIDATION // 外部検証
+  FINANCIAL_PROJECTION // 財務予測
+  TECHNICAL_SPEC      // 技術仕様
+  CUSTOM              // カスタム
+}

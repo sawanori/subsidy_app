@@ -1,0 +1,267 @@
+import { Injectable } from '@nestjs/common';
+import * as fs from 'fs/promises';
+import * as path from 'path';
+import * as handlebars from 'handlebars';
+import * as puppeteer from 'puppeteer';
+import { ChartGenerator } from '../utils/chart-generator';
+import { ExtendedApplicationService } from '../../extended-application/extended-application.service';
+import { ApplicationsService } from '../../../applications/applications.service';
+
+@Injectable()
+export class ExtendedPdfService {
+  constructor(
+    private readonly extendedAppService: ExtendedApplicationService,
+    private readonly applicationsService: ApplicationsService,
+  ) {
+    this.registerHandlebarsHelpers();
+  }
+
+  /**
+   * 拡張申請書PDFを生成
+   */
+  async generateExtendedApplicationPdf(applicationId: string): Promise<Buffer> {
+    // データ取得
+    const applicationData = await this.collectApplicationData(applicationId);
+    
+    // チャート生成
+    const charts = await this.generateCharts(applicationData);
+    
+    // HTMLテンプレート読み込み
+    const templatePath = path.join(
+      __dirname,
+      '../templates/extended-application.template.html'
+    );
+    const templateContent = await fs.readFile(templatePath, 'utf-8');
+    
+    // Handlebarsでレンダリング
+    const template = handlebars.compile(templateContent);
+    const html = template({
+      ...applicationData,
+      ...charts,
+      generatedAt: new Date().toLocaleString('ja-JP'),
+      year: new Date().getFullYear(),
+    });
+    
+    // PDFに変換
+    return this.convertHtmlToPdf(html);
+  }
+
+  /**
+   * 申請データを収集
+   */
+  private async collectApplicationData(applicationId: string) {
+    // 基本データと拡張データを並列で取得
+    const [
+      application,
+      extendedData,
+    ] = await Promise.all([
+      this.applicationsService.findOne(applicationId, null, null, null),
+      this.extendedAppService.getPurposeBackground(applicationId),
+    ]);
+
+    return {
+      // 基本情報
+      applicationId,
+      applicationDate: new Date().toLocaleDateString('ja-JP'),
+      companyName: application.applicant?.companyName || '',
+      representativeName: application.applicant?.representativeName || '',
+      postalCode: application.applicant?.postalCode || '',
+      address: application.applicant?.address || '',
+      phone: application.applicant?.phoneNumber || '',
+      email: application.applicant?.email || '',
+      employeeCount: application.applicant?.employeeCount || 0,
+      capital: application.applicant?.capital || 0,
+      
+      // 事業計画
+      projectTitle: application.plan?.projectTitle || '',
+      projectSummary: application.plan?.summary || '',
+      requestedAmount: application.budget?.subsidyAmount || 0,
+      totalProjectCost: application.budget?.totalAmount || 0,
+      subsidyRate: application.budget?.subsidyRate || 0,
+      
+      // 拡張データ
+      currentIssues: extendedData.purposeBackground?.currentIssues || [],
+      painPoints: extendedData.purposeBackground?.painPoints || '',
+      rootCause: extendedData.purposeBackground?.rootCause || '',
+      solution: extendedData.purposeBackground?.solution || '',
+      approach: extendedData.purposeBackground?.approach || '',
+      uniqueValue: extendedData.purposeBackground?.uniqueValue || '',
+      
+      detailedPlans: extendedData.detailedPlans || [],
+      kpiTargets: extendedData.kpiTargets || [],
+      ganttTasks: extendedData.ganttTasks || [],
+      riskAssessments: extendedData.riskAssessments || [],
+    };
+  }
+
+  /**
+   * チャートを生成
+   */
+  private async generateCharts(data: any) {
+    const charts: any = {};
+    
+    // KPIグラフ
+    if (data.kpiTargets && data.kpiTargets.length > 0) {
+      charts.kpiChartConfig = ChartGenerator.generateKPIChartConfig(data.kpiTargets);
+    }
+    
+    // ガントチャート
+    if (data.ganttTasks && data.ganttTasks.length > 0) {
+      charts.ganttChartSvg = ChartGenerator.generateGanttChartSVG(data.ganttTasks);
+    }
+    
+    // 組織図
+    if (data.organizationStructure) {
+      charts.orgChartSvg = ChartGenerator.generateOrgChartSVG(data.organizationStructure);
+    }
+    
+    // リスクマトリックス
+    if (data.riskAssessments && data.riskAssessments.length > 0) {
+      charts.riskMatrixSvg = ChartGenerator.generateRiskMatrixSVG(data.riskAssessments);
+    }
+    
+    return charts;
+  }
+
+  /**
+   * HTMLをPDFに変換
+   */
+  private async convertHtmlToPdf(html: string): Promise<Buffer> {
+    let browser;
+    
+    try {
+      // Puppeteerでブラウザ起動
+      browser = await puppeteer.launch({
+        headless: true,
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--font-render-hinting=none',
+        ],
+      });
+      
+      const page = await browser.newPage();
+      
+      // HTMLをセット
+      await page.setContent(html, {
+        waitUntil: 'networkidle0',
+      });
+      
+      // 日本語フォント対応
+      await page.addStyleTag({
+        content: `
+          @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+          * { font-family: 'Noto Sans JP', sans-serif !important; }
+        `,
+      });
+      
+      // PDF生成
+      const pdf = await page.pdf({
+        format: 'A4',
+        printBackground: true,
+        margin: {
+          top: '20mm',
+          right: '20mm',
+          bottom: '20mm',
+          left: '20mm',
+        },
+      });
+      
+      return pdf;
+    } catch (error) {
+      console.error('PDF generation error:', error);
+      throw new Error('PDF生成に失敗しました');
+    } finally {
+      if (browser) {
+        await browser.close();
+      }
+    }
+  }
+
+  /**
+   * Handlebarsヘルパー登録
+   */
+  private registerHandlebarsHelpers() {
+    // 数値フォーマット
+    handlebars.registerHelper('formatNumber', (num: number) => {
+      return new Intl.NumberFormat('ja-JP').format(num);
+    });
+    
+    // 日付フォーマット
+    handlebars.registerHelper('formatDate', (date: Date | string) => {
+      if (!date) return '';
+      const d = typeof date === 'string' ? new Date(date) : date;
+      return d.toLocaleDateString('ja-JP');
+    });
+    
+    // 小文字変換
+    handlebars.registerHelper('toLowerCase', (str: string) => {
+      return str ? str.toLowerCase() : '';
+    });
+    
+    // リスクレベル判定
+    handlebars.registerHelper('getRiskLevel', (score: number) => {
+      if (score >= 15) return 'high';
+      if (score >= 8) return 'medium';
+      return 'low';
+    });
+    
+    // 条件付きクラス
+    handlebars.registerHelper('conditionalClass', (condition: boolean, trueClass: string, falseClass: string) => {
+      return condition ? trueClass : falseClass;
+    });
+  }
+
+  /**
+   * サマリーレポートPDF生成
+   */
+  async generateSummaryReport(applicationId: string): Promise<Buffer> {
+    const data = await this.collectApplicationData(applicationId);
+    
+    // サマリー用の簡易HTML
+    const summaryHtml = `
+      <!DOCTYPE html>
+      <html lang="ja">
+      <head>
+        <meta charset="UTF-8">
+        <style>
+          body { font-family: 'Noto Sans JP', sans-serif; padding: 20px; }
+          h1 { color: #2563eb; }
+          .summary-box { background: #f3f4f6; padding: 20px; border-radius: 10px; }
+          .metric { display: inline-block; margin: 10px; padding: 10px; background: white; border-radius: 5px; }
+          .metric-value { font-size: 24px; font-weight: bold; color: #2563eb; }
+          .metric-label { color: #6b7280; font-size: 12px; }
+        </style>
+      </head>
+      <body>
+        <h1>補助金申請サマリー</h1>
+        <div class="summary-box">
+          <h2>${data.projectTitle}</h2>
+          <p>${data.projectSummary}</p>
+          <div class="metrics">
+            <div class="metric">
+              <div class="metric-value">¥${this.formatNumber(data.requestedAmount)}</div>
+              <div class="metric-label">申請額</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">${data.kpiTargets.length}</div>
+              <div class="metric-label">KPI数</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">${data.detailedPlans.length}</div>
+              <div class="metric-label">施策数</div>
+            </div>
+          </div>
+        </div>
+      </body>
+      </html>
+    `;
+    
+    return this.convertHtmlToPdf(summaryHtml);
+  }
+
+  private formatNumber(num: number): string {
+    return new Intl.NumberFormat('ja-JP').format(num);
+  }
+}

@@ -1,0 +1,124 @@
+governance:
+  dor:
+    - 受入基準(AC)が明文化されている
+    - 依存チケットが解消 or 明記
+    - テンプレ/データが入手済み
+  dod:
+    - 単体/統合テストパス
+    - アクセシビリティ簡易チェック通過
+    - ドキュメント更新済み（README/ops）
+    - ステージングでPM確認済み
+  review_gates:
+    - lint_test_build
+    - security_scan
+    - performance_smoke
+    - pm_acceptance
+
+security_baseline:
+  app:
+    - "CSP導入: default-src 'self'; img-src 'self' data: blob:"
+    - "RateLimit: 100 req/5min/IP（/generate は 10/5min）"
+    - "FileScan: AV + MIME/拡張子/サイズ検証"
+    - "SignedURL: ダウンロードは署名付URL(15分)"
+  data:
+    - "AtRest: AES256（S3互換暗号化）"
+    - "InTransit: TLS1.2+"
+    - "Access: RBAC + 最小権限原則"
+  testing:
+    - OWASP ASVS/Lite チェックリスト
+    - 依存ライブラリ脆弱性自動スキャン
+
+compliance:
+  classification:
+    - public: マニュアル/雛形
+    - internal: 見積/相見積理由
+    - personal: 代表者名/口座情報/連絡先
+  retention:
+    personal: 12 months
+    logs: 90 days
+  masking:
+    - 口座番号はUI/ログで下4桁のみ表示
+  deletion_flow:
+    - 退会or案件完了で自動削除ジョブ実行
+
+observability:
+  slo:
+    generate_success_rate: ">= 99.0%"
+    ttfp_preview_seconds: "<= 2.0"
+    api_error_rate: "<= 0.5%"
+  sli:
+    - name: pdf_generate_time_ms
+    - name: storage_usage_gb
+    - name: queue_depth
+  dashboards:
+    - latency_histogram
+    - error_rate_timeseries
+    - cost_per_generate
+
+cost_controls:
+  per_generate_max_jpy: 15
+  monthly_storage_budget_gb: 20
+  alerts:
+    - when: "storage_usage_gb > 0.8 * monthly_storage_budget_gb"
+      action: "boss1通知 + LTSへ自動アーカイブ"
+
+env_matrix:
+  - env: dev
+    vercel_project: grantpack-dev
+    api_base: https://api-dev.example.com
+    bucket: gp-dev
+    secrets: [DB_URL, S3_KEY, S3_SECRET, JWT_SECRET]
+    owner: worker2
+  - env: stg
+    vercel_project: grantpack-stg
+    api_base: https://api-stg.example.com
+    bucket: gp-stg
+    secrets: [DB_URL, S3_KEY, S3_SECRET, JWT_SECRET]
+    owner: boss1
+  - env: prod
+    vercel_project: grantpack
+    api_base: https://api.example.com
+    bucket: gp-prod
+    secrets: [DB_URL, S3_KEY, S3_SECRET, JWT_SECRET]
+    owner: boss1
+
+template_governance:
+  sources:
+    - 中央官公庁/自治体の公募ページURL
+  check_cycle: weekly
+  procedure:
+    - fetch最新版
+    - diff
+    - プレースホルダ検証
+    - 回帰生成
+    - PM承認
+    - リリース
+  versioning: "yosiki2-ja@2025.09.01"
+
+risk_register:
+  fields: [id, content, prob, impact, mitigation, owner]
+  example:
+    - id: R-01
+      content: 様式改訂に伴う体裁崩れ
+      prob: medium
+      impact: high
+      mitigation: 自動回帰生成・差分検知
+      owner: worker1
+    - id: R-02
+      content: PDF生成のタイムアウト
+      prob: low
+      impact: medium
+      mitigation: キュー化/並列制御/リトライ
+      owner: worker2
+
+acceptance_checklist:
+  pdf:
+    - 和文禁則で孤立禁則なし
+    - A4印刷時はみ出し/改ページ崩れなし
+    - 代表者印の座標誤差 ±2mm
+  data:
+    - 交付額=対象経費×補助率（端数処理一致）
+    - KPI件数3〜5、単位と根拠定義済み
+  evidence:
+    - 全主張にEvidence紐付け
+    - 出典・取得日・URL脚注あり

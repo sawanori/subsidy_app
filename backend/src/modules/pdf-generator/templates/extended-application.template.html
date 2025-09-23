@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補助金申請書</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm;
+    }
+    
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px 0;
+      border-bottom: 3px solid #2563eb;
+    }
+    
+    .header h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #1e40af;
+    }
+    
+    .header .subtitle {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+    
+    .section {
+      margin-bottom: 30px;
+      page-break-inside: avoid;
+    }
+    
+    .section-title {
+      background: linear-gradient(to right, #2563eb, #3b82f6);
+      color: white;
+      padding: 10px 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    .subsection {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .subsection-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #2563eb;
+      margin-bottom: 8px;
+      border-left: 4px solid #2563eb;
+      padding-left: 10px;
+    }
+    
+    .content-box {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+    
+    .issue-card {
+      background: white;
+      border-left: 4px solid #ef4444;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .solution-card {
+      background: white;
+      border-left: 4px solid #10b981;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .plan-item {
+      background: white;
+      border: 1px solid #d1d5db;
+      border-radius: 5px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .plan-5w1h {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    
+    .plan-5w1h .label {
+      font-weight: bold;
+      color: #6b7280;
+    }
+    
+    .priority-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: bold;
+      color: white;
+    }
+    
+    .priority-critical { background: #dc2626; }
+    .priority-high { background: #ea580c; }
+    .priority-medium { background: #eab308; }
+    .priority-low { background: #6b7280; }
+    
+    .kpi-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    
+    .kpi-table th {
+      background: #f3f4f6;
+      padding: 8px;
+      text-align: left;
+      border: 1px solid #d1d5db;
+      font-weight: bold;
+    }
+    
+    .kpi-table td {
+      padding: 8px;
+      border: 1px solid #d1d5db;
+    }
+    
+    .kpi-growth {
+      color: #10b981;
+      font-weight: bold;
+    }
+    
+    .gantt-container {
+      margin-top: 15px;
+      overflow-x: auto;
+    }
+    
+    .risk-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .risk-item {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #d1d5db;
+    }
+    
+    .risk-high {
+      background: #fee2e2;
+      border-color: #ef4444;
+    }
+    
+    .risk-medium {
+      background: #fef3c7;
+      border-color: #f59e0b;
+    }
+    
+    .risk-low {
+      background: #dbeafe;
+      border-color: #3b82f6;
+    }
+    
+    .summary-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    
+    .footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 2px solid #e5e7eb;
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+    }
+    
+    @media print {
+      .section {
+        page-break-inside: avoid;
+      }
+      
+      .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>補助金申請書</h1>
+    <div class="subtitle">
+      申請日: {{applicationDate}} | 申請者: {{companyName}}
+    </div>
+  </div>
+
+  <!-- 1. 基本情報 -->
+  <div class="section">
+    <div class="section-title">1. 申請者基本情報</div>
+    <div class="content-box">
+      <table style="width: 100%;">
+        <tr>
+          <td style="width: 30%; font-weight: bold;">事業者名</td>
+          <td>{{companyName}}</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">代表者名</td>
+          <td>{{representativeName}}</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">所在地</td>
+          <td>〒{{postalCode}} {{address}}</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">連絡先</td>
+          <td>TEL: {{phone}} / Email: {{email}}</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">従業員数</td>
+          <td>{{employeeCount}}名</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold;">資本金</td>
+          <td>{{capital}}円</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 2. 目的・背景 -->
+  <div class="section">
+    <div class="section-title">2. 事業の目的・背景</div>
+    
+    <div class="subsection">
+      <div class="subsection-title">現状の課題</div>
+      {{#each currentIssues}}
+      <div class="issue-card">
+        <strong>【{{this.category}}】</strong> {{this.description}}
+        <div style="margin-top: 5px; color: #dc2626;">
+          影響: {{this.impact}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">根本原因</div>
+      <div class="content-box">
+        {{rootCause}}
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">解決策</div>
+      <div class="solution-card">
+        <strong>提案する解決策:</strong> {{solution}}
+        <div style="margin-top: 10px;">
+          <strong>アプローチ方法:</strong> {{approach}}
+        </div>
+        {{#if uniqueValue}}
+        <div style="margin-top: 10px; color: #2563eb;">
+          <strong>独自性:</strong> {{uniqueValue}}
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 具体的な取組内容 -->
+  <div class="section">
+    <div class="section-title">3. 具体的な取組内容（5W1H）</div>
+    {{#each detailedPlans}}
+    <div class="plan-item">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+        <strong style="font-size: 16px;">{{this.category}}</strong>
+        <span class="priority-badge priority-{{toLowerCase this.priority}}">{{this.priority}}</span>
+      </div>
+      <div class="plan-5w1h">
+        <div class="label">What（何を）</div>
+        <div>{{this.what}}</div>
+        <div class="label">Why（なぜ）</div>
+        <div>{{this.why}}</div>
+        <div class="label">Who（誰が）</div>
+        <div>{{this.who}}</div>
+        <div class="label">Where（どこで）</div>
+        <div>{{this.where}}</div>
+        <div class="label">When（いつ）</div>
+        <div>{{this.when}}</div>
+        <div class="label">How（どのように）</div>
+        <div>{{this.how}}</div>
+      </div>
+      <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #e5e7eb;">
+        <strong>期待される成果:</strong> {{this.expectedResult}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+  <!-- 4. 数値目標（KPI） -->
+  <div class="section">
+    <div class="section-title">4. 数値目標（KPI）</div>
+    <table class="kpi-table">
+      <thead>
+        <tr>
+          <th>指標</th>
+          <th>現在値</th>
+          <th>1年目目標</th>
+          <th>2年目目標</th>
+          <th>3年目目標</th>
+          <th>成長率</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each kpiTargets}}
+        <tr>
+          <td>
+            <strong>{{this.metric}}</strong>
+            <br>
+            <small>{{this.unit}}</small>
+          </td>
+          <td>{{this.currentValue}}</td>
+          <td>{{this.year1Target}}</td>
+          <td>{{this.year2Target}}</td>
+          <td>{{this.year3Target}}</td>
+          <td class="kpi-growth">
+            {{#if this.growthRateYear1}}+{{this.growthRateYear1}}%{{/if}}
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 5. 実施スケジュール -->
+  <div class="section">
+    <div class="section-title">5. 実施スケジュール</div>
+    <div class="gantt-container">
+      <!-- ガントチャートはSVGまたは画像として挿入 -->
+      <div id="gantt-chart-placeholder">
+        {{#each ganttTasks}}
+        <div style="margin-bottom: 10px; padding: 10px; background: #f9fafb; border-radius: 5px;">
+          <div style="display: flex; justify-content: space-between;">
+            <strong>{{this.taskName}}</strong>
+            <span style="color: #6b7280;">{{this.startDate}} 〜 {{this.endDate}}</span>
+          </div>
+          <div style="margin-top: 5px;">
+            担当: {{this.assignee}} | 進捗: {{this.progress}}%
+            {{#if this.milestone}}
+            <span style="color: #ef4444; font-weight: bold;"> [マイルストーン]</span>
+            {{/if}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. リスク評価 -->
+  {{#if riskAssessments}}
+  <div class="section">
+    <div class="section-title">6. リスク評価と対策</div>
+    <div class="risk-matrix">
+      {{#each riskAssessments}}
+      <div class="risk-item risk-{{getRiskLevel this.riskScore}}">
+        <strong>{{this.title}}</strong>
+        <div style="font-size: 12px; margin-top: 5px;">
+          カテゴリ: {{this.category}}<br>
+          リスクスコア: {{this.riskScore}}<br>
+          対策: {{this.preventiveMeasures.[0]}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- 7. 申請サマリー -->
+  <div class="section">
+    <div class="section-title">7. 申請サマリー</div>
+    <div class="summary-box">
+      <h3 style="margin-top: 0;">補助事業名: {{projectTitle}}</h3>
+      <p>{{projectSummary}}</p>
+      <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+        <div>
+          <strong>補助金申請額:</strong> ¥{{formatNumber requestedAmount}}
+        </div>
+        <div>
+          <strong>総事業費:</strong> ¥{{formatNumber totalProjectCost}}
+        </div>
+        <div>
+          <strong>補助率:</strong> {{subsidyRate}}%
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>この申請書は自動生成されました | 生成日時: {{generatedAt}}</p>
+    <p>© {{year}} {{companyName}} - All rights reserved</p>
+  </div>
+</body>
+</html>

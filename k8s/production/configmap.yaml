@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: subsidyapp-config
+  namespace: subsidyapp-prod
+  labels:
+    app: subsidyapp
+    environment: production
+data:
+  # Application URLs
+  api-url: "https://api.subsidyapp.com"
+  nextauth-url: "https://subsidyapp.com"
+  
+  # AWS Configuration
+  aws-region: "ap-northeast-1"
+  s3-bucket-name: "subsidyapp-prod-storage"
+  
+  # Database Configuration
+  database-name: "subsidyapp_prod"
+  database-host: "subsidyapp-postgres-prod"
+  database-port: "5432"
+  
+  # Redis Configuration
+  redis-host: "subsidyapp-redis-prod"
+  redis-port: "6379"
+  
+  # Application Configuration
+  node-env: "production"
+  log-level: "info"
+  max-file-size: "10MB"
+  session-timeout: "24h"
+  
+  # Rate Limiting
+  api-rate-limit: "100"
+  pdf-rate-limit: "10"
+  
+  # Feature Flags
+  enable-ai-assistant: "true"
+  enable-pdf-generation: "true"
+  enable-ocr-processing: "true"
+  enable-audit-logging: "true"
+  
+  # Monitoring
+  enable-metrics: "true"
+  enable-tracing: "true"
+  metrics-port: "9090"

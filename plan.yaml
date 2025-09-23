@@ -1,0 +1,505 @@
+project: 申請ドキュメント自動生成アプリ
+version: 0.2
+timezone: Asia/Tokyo
+owners:
+  boss1: PM
+  worker1: FE
+  worker2: BE
+  worker3: DB
+
+milestones:
+  - id: M1
+    name: スプリント1完了（基盤と入力ウィザード）
+    date: 2025-09-22
+  - id: M2
+    name: スプリント2完了（生成とバリデーション/i18n基礎）
+    date: 2025-10-06
+  - id: M3
+    name: スプリント3完了（補助資料・図版・取り込み）
+    date: 2025-10-20
+  - id: M4
+    name: スプリント4完了（QA/デプロイ/運用）
+    date: 2025-11-03
+
+sprints:
+  - id: S1
+    name: スプリント1：基盤/ウィザード/デザインシステム
+    start: 2025-09-09
+    end: 2025-09-22
+    goal: MVP土台（FE/BE/DB）+ Step1〜計画入力 + デザイン/アクセシビリティの骨格
+    tickets: [APP-001, APP-002, APP-003, APP-010, APP-011, APP-030, APP-031, APP-032, APP-033, APP-034, APP-035, APP-201, APP-202, APP-203, APP-210, APP-211, APP-212, APP-213, PM-001]
+  - id: S2
+    name: スプリント2：生成/バリデーション/i18n基礎
+    start: 2025-09-23
+    end: 2025-10-06
+    goal: HTML→PDF/DOCX→PDF/スタンプ押印/ルール検証 + 文言多言語化の土台
+    tickets: [APP-023, APP-040, APP-041, APP-042, APP-043, APP-044, APP-045, APP-046, APP-080, APP-214, APP-215, APP-216, APP-217, APP-220, APP-221, APP-222, PM-002]
+  - id: S3
+    name: スプリント3：補助資料/図版/取り込み
+    start: 2025-10-07
+    end: 2025-10-20
+    goal: 補助資料(OCR/表化/脚注)と付録A/B/Cを同梱生成・プレビュー
+    tickets: [APP-050, APP-051, APP-061, APP-060, APP-240, APP-250, APP-260, APP-270, PM-003]
+  - id: S4
+    name: スプリント4：QA/デプロイ/運用
+    start: 2025-10-21
+    end: 2025-11-03
+    goal: e2e/ユニット70%+、ステージング稼働、運用ドキュメント
+    tickets: [APP-100, APP-101, APP-110, APP-120, APP-290, OPS-001, PM-004]
+
+tickets:
+  - id: APP-001
+    epic: scaffold
+    title: Next.js(14+) FEプロジェクトの初期化（App Router, Tailwind, shadcn/ui）
+    owner: worker1
+    deps: []
+    estimate_h: 6
+    status: todo
+
+  - id: APP-002
+    epic: scaffold
+    title: NestJS BEプロジェクト初期化（REST, OpenAPI, validation）
+    owner: worker2
+    deps: []
+    estimate_h: 6
+    status: todo
+
+  - id: APP-003
+    epic: scaffold
+    title: DB基盤（Neon/Supabase）+ Prisma 初期設定
+    owner: worker3
+    deps: [APP-002]
+    estimate_h: 5
+    status: todo
+
+  - id: APP-010
+    epic: data-model
+    title: 申請者/申請/予算/KPI/口座のデータモデル実装
+    owner: worker3
+    deps: [APP-003]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-011
+    epic: data-model
+    title: 計画・アクション・スケジュール・体制・リスク・証跡・競合モデル追加
+    owner: worker3
+    deps: [APP-010]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-020
+    epic: api
+    title: Applications CRUD API + DTO/Zod Validation
+    owner: worker2
+    deps: [APP-010]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-021
+    epic: api
+    title: Plans CRUD & nested resources (Actions/Schedule/KPI/Org/Risks)
+    owner: worker2
+    deps: [APP-011]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-022
+    epic: api
+    title: Evidence登録API（ファイル/URL）+ S3互換ストレージ連携
+    owner: worker2
+    deps: [APP-011]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-023
+    epic: api
+    title: 生成API（/applications/{id}/generate）雛形
+    owner: worker2
+    deps: [APP-021]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-030
+    epic: fe-wizard
+    title: 入力ウィザード（Step1 事業者/申請 基本）
+    owner: worker1
+    deps: [APP-001, APP-020]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-031
+    epic: fe-wizard
+    title: 計画エディタ（背景/解決策/期待効果 + 200字要約オート）
+    owner: worker1
+    deps: [APP-021]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-032
+    epic: fe-wizard
+    title: アクション分解（5W1H, 成果物, 根拠, 担当）
+    owner: worker1
+    deps: [APP-021]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-033
+    epic: fe-wizard
+    title: KPI設計＆SMARTチェック（3〜5件）
+    owner: worker1
+    deps: [APP-021]
+    estimate_h: 5
+    status: todo
+
+  - id: APP-034
+    epic: fe-wizard
+    title: スケジュール編集（ガント編集UI, 依存関係）
+    owner: worker1
+    deps: [APP-021]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-035
+    epic: fe-wizard
+    title: 体制図エディタ（役割/稼働%）+ SVGプレビュー
+    owner: worker1
+    deps: [APP-021]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-040
+    epic: generation
+    title: テンプレ解決エンジン（Handlebars互換）+ placeholder mapping
+    owner: worker2
+    deps: [APP-023]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-041
+    epic: generation
+    title: HTML→PDF（Playwright）レンダリング実装（A4/余白/フォント埋込）
+    owner: worker2
+    deps: [APP-040]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-042
+    epic: generation
+    title: DOCXテンプレ（docxtemplater）→PDF変換
+    owner: worker2
+    deps: [APP-040]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-043
+    epic: generation
+    title: 押印PNGスタンプの自動配置（pdf-lib）
+    owner: worker2
+    deps: [APP-041, APP-042]
+    estimate_h: 5
+    status: todo
+
+  - id: APP-044
+    epic: generation
+    title: ガントSVG生成（Mermaid server-side）→PDF埋込
+    owner: worker2
+    deps: [APP-021, APP-041]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-045
+    epic: generation
+    title: 体制図SVG生成（Dagre）→PDF埋込
+    owner: worker2
+    deps: [APP-021, APP-041]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-046
+    epic: generation
+    title: KPIチャート画像生成（node-canvas or chart.js）→PDF埋込
+    owner: worker2
+    deps: [APP-021, APP-041]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-050
+    epic: evidence
+    title: Evidenceインポート（CSV/Excel/PDF/画像/URL）+ OCR（日本語）
+    owner: worker2
+    deps: [APP-022]
+    estimate_h: 10
+    status: todo
+
+  - id: APP-051
+    epic: evidence
+    title: 市場/競合データの表化・脚注自動付与
+    owner: worker2
+    deps: [APP-050]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-060
+    epic: fe-preview
+    title: 出力プレビュー（右ペイン）—様式1/2/4/確認シートの即時反映
+    owner: worker1
+    deps: [APP-041, APP-042, APP-023]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-061
+    epic: fe-evidence
+    title: 補助資料アップロードUI + 自動要約/グラフプレビュー
+    owner: worker1
+    deps: [APP-050, APP-051]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-070
+    epic: packaging
+    title: 生成物の命名規則とZIP一括ダウンロード
+    owner: worker2
+    deps: [APP-041, APP-042, APP-043]
+    estimate_h: 4
+    status: todo
+
+  - id: APP-080
+    epic: validation
+    title: バリデーション実装（R001〜R003, V101〜V104）
+    owner: worker2
+    deps: [APP-021, APP-041]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-090
+    epic: auth
+    title: 認証（Email OTP or Google OAuth）+ 役割（Admin/Editor/Viewer）
+    owner: worker2
+    deps: [APP-002, APP-003]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-100
+    epic: qa
+    title: CI（lint/test/build）+ Playwright e2e（ウィザード通し）
+    owner: worker1
+    deps: [APP-030, APP-031, APP-032, APP-033, APP-034, APP-035, APP-060]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-101
+    epic: qa
+    title: BEのユニット/統合テスト（生成API/表生成/ZIP）
+    owner: worker2
+    deps: [APP-040, APP-041, APP-042, APP-070]
+    estimate_h: 8
+    status: todo
+
+  - id: APP-110
+    epic: deploy
+    title: デプロイ（Vercel FE / Railway or Render BE / Neon DB）
+    owner: worker2
+    deps: [APP-060, APP-070, APP-090]
+    estimate_h: 6
+    status: todo
+
+  - id: APP-120
+    epic: docs
+    title: 利用ガイド & テンプレ差替え手順（運用ドキュメント）
+    owner: worker1
+    deps: [APP-040, APP-041, APP-042]
+    estimate_h: 5
+    status: todo
+
+  - id: APP-201
+    epic: design-system
+    title: デザインTokens（色/間隔/角丸/影/ブレークポイント）
+    owner: worker1
+    deps: [APP-001]
+    estimate_h: 4
+    status: todo
+
+  - id: APP-202
+    epic: design-system
+    title: shadcn/uiテーマ適用とコンポーネント基盤
+    owner: worker1
+    deps: [APP-201]
+    estimate_h: 4
+    status: todo
+
+  - id: APP-203
+    epic: design-system
+    title: タイポグラフィ設計（画面/PDF両用）
+    owner: worker1
+    deps: [APP-001]
+    estimate_h: 4
+    status: todo
+
+  - id: APP-210
+    epic: design-system
+    title: Storybook整備＆ドキュメント化
+    owner: worker1
+    deps: [APP-201, APP-202]
+    estimate_h: 4
+    status: todo
+
+  - id: APP-211
+    epic: a11y
+    title: アクセシビリティ基盤（eslint-plugin-jsx-a11y）
+    owner: worker1
+    deps: [APP-001]
+    estimate_h: 3
+    status: todo
+
+  - id: APP-212
+    epic: a11y
+    title: キーボード操作/フォーカス制御/スキップリンク
+    owner: worker1
+    deps: [APP-211]
+    estimate_h: 3
+    status: todo
+
+  - id: APP-213
+    epic: a11y
+    title: コントラスト最適化/エラーメッセージの可視性
+    owner: worker1
+    deps: [APP-211]
+    estimate_h: 3
+    status: todo
+
+  - id: APP-214
+    epic: i18n
+    title: FE国際化導入（next-intl 又は lingui）
+    owner: worker1
+    deps: [APP-001]
+    estimate_h: 4
+    status: todo
+
+  - id: APP-215
+    epic: i18n
+    title: BE国際化（日付/数値/テンプレ文言）
+    owner: worker2
+    deps: [APP-002]
+    estimate_h: 4
+    status: todo
+
+  - id: APP-216
+    epic: i18n
+    title: DBロケール列追加（Application.locale）
+    owner: worker3
+    deps: [APP-010]
+    estimate_h: 2
+    status: todo
+
+  - id: APP-217
+    epic: i18n
+    title: テンプレ多言語化（docx/htmlのキー化と辞書）
+    owner: worker2
+    deps: [APP-040]
+    estimate_h: 4
+    status: todo
+
+  - id: APP-220
+    epic: platform
+    title: タイムゾーン正規化（DBはUTC/表示はJST）
+    owner: worker2
+    deps: [APP-002, APP-003]
+    estimate_h: 2
+    status: todo
+
+  - id: APP-221
+    epic: platform
+    title: 通貨書式の統一（JPYは小数なし/桁区切り）
+    owner: worker2
+    deps: [APP-002]
+    estimate_h: 2
+    status: todo
+
+  - id: APP-222
+    epic: i18n
+    title: 疑似ロケールテスト（zz-ZZでUI幅検証）
+    owner: worker1
+    deps: [APP-214]
+    estimate_h: 2
+    status: todo
+
+  - id: APP-240
+    epic: performance
+    title: プレビュー差分再描画/キャッシュ
+    owner: worker1
+    deps: [APP-060]
+    estimate_h: 5
+    status: todo
+
+  - id: APP-250
+    epic: security
+    title: アップロード検査（MIME/拡張子/サイズ/AV/Rate-limit）
+    owner: worker2
+    deps: [APP-022]
+    estimate_h: 4
+    status: todo
+
+  - id: APP-260
+    epic: observability
+    title: ログ/トレース/メトリクス/監査ログ
+    owner: worker2
+    deps: [APP-002]
+    estimate_h: 5
+    status: todo
+
+  - id: APP-270
+    epic: cost
+    title: 生成並列制御/ストレージLTS/画像圧縮
+    owner: worker2
+    deps: [APP-041, APP-042]
+    estimate_h: 4
+    status: todo
+
+  - id: APP-290
+    epic: pdf-a11y
+    title: PDFタグ構造としおり（将来拡張）
+    owner: worker2
+    deps: [APP-041]
+    estimate_h: 3
+    status: todo
+
+  - id: OPS-001
+    epic: ops
+    title: SLO/アラート/Runbook（On-call手順）
+    owner: boss1
+    deps: []
+    estimate_h: 3
+    status: todo
+
+  - id: PM-001
+    epic: pm
+    title: 受入基準/Definition of Done/レビュー観点定義
+    owner: boss1
+    deps: []
+    estimate_h: 3
+    status: todo
+
+  - id: PM-002
+    epic: pm
+    title: テンプレ受入/生成クオリティ基準の明文化
+    owner: boss1
+    deps: []
+    estimate_h: 3
+    status: todo
+
+  - id: PM-003
+    epic: pm
+    title: 中間デモ/ステークホルダー合意形成
+    owner: boss1
+    deps: []
+    estimate_h: 3
+    status: todo
+
+  - id: PM-004
+    epic: pm
+    title: リリース判定/レトロスペクティブ
+    owner: boss1
+    deps: []
+    estimate_h: 3
+    status: todo

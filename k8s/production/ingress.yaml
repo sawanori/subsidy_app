@@ -1,0 +1,83 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: subsidyapp-ingress
+  namespace: subsidyapp-prod
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      more_set_headers "X-Frame-Options: SAMEORIGIN";
+      more_set_headers "X-XSS-Protection: 1; mode=block";
+      more_set_headers "X-Content-Type-Options: nosniff";
+      more_set_headers "Referrer-Policy: strict-origin-when-cross-origin";
+      more_set_headers "Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; connect-src 'self' https:; font-src 'self' https:; object-src 'none'; media-src 'self' https:; frame-src 'none';";
+spec:
+  tls:
+  - hosts:
+    - subsidyapp.com
+    - api.subsidyapp.com
+    secretName: subsidyapp-tls
+  rules:
+  - host: subsidyapp.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: subsidyapp-frontend
+            port:
+              number: 3000
+  - host: api.subsidyapp.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: subsidyapp-backend
+            port:
+              number: 3001
+---
+# Main service selectors (Blue-Green switching target)
+apiVersion: v1
+kind: Service
+metadata:
+  name: subsidyapp-frontend
+  namespace: subsidyapp-prod
+  labels:
+    app: subsidyapp-frontend
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3000
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: subsidyapp-frontend
+    color: blue  # This will be updated during blue-green deployments
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: subsidyapp-backend
+  namespace: subsidyapp-prod
+  labels:
+    app: subsidyapp-backend
+spec:
+  type: ClusterIP
+  ports:
+  - port: 3001
+    targetPort: 3001
+    protocol: TCP
+    name: http
+  selector:
+    app: subsidyapp-backend
+    color: blue  # This will be updated during blue-green deployments
