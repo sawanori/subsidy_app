@@ -1,18 +1,18 @@
 name: 'APP-100: CI/CD Pipeline - governance.yaml Compliant'
 
+# Temporarily disabled - use backend-ci.yml instead
+# Re-enable when frontend tests are ready
 on:
-  push:
-    branches: [ main, develop ]
-    paths:
-      - 'frontend/**'
-      - '.github/workflows/**'
-    # Temporarily disabled - backend changes only
-  pull_request:
-    branches: [ main ]
-    paths:
-      - 'frontend/**'
-      - '.github/workflows/**'
   workflow_dispatch:
+  # push:
+  #   branches: [ main, develop ]
+  #   paths:
+  #     - 'frontend/**'
+  #     - '.github/workflows/ci.yml'
+  # pull_request:
+  #   branches: [ main ]
+  #   paths:
+  #     - 'frontend/**'
 
 env:
   NODE_VERSION: '18'
