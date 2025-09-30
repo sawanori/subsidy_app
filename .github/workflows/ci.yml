@@ -3,14 +3,16 @@ name: 'APP-100: CI/CD Pipeline - governance.yaml Compliant'
 on:
   push:
     branches: [ main, develop ]
-    paths: 
+    paths:
       - 'frontend/**'
       - '.github/workflows/**'
+    # Temporarily disabled - backend changes only
   pull_request:
     branches: [ main ]
     paths:
       - 'frontend/**'
       - '.github/workflows/**'
+  workflow_dispatch:
 
 env:
   NODE_VERSION: '18'
