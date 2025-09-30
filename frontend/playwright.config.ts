@@ -96,9 +96,11 @@ export default defineConfig({
   expect: {
     /* governance.yaml: 2秒以内表示確認 */
     timeout: 5000,
-    
-    /* スクリーンショット比較閾値 */
-    threshold: 0.2,
+
+    /* スクリーンショット比較設定 */
+    toHaveScreenshot: {
+      threshold: 0.2,
+    },
   },
   
   /* メタデータ */

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>補助金申請書</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm 15mm;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif;
+      font-size: 10pt;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 3px solid #2c3e50;
+    }
+
+    .header h1 {
+      font-size: 20pt;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .header .scheme-name {
+      font-size: 14pt;
+      color: #7f8c8d;
+      margin-bottom: 5px;
+    }
+
+    .header .draft-info {
+      font-size: 9pt;
+      color: #95a5a6;
+    }
+
+    .section {
+      margin-bottom: 25px;
+      page-break-inside: avoid;
+    }
+
+    .section-title {
+      font-size: 14pt;
+      font-weight: bold;
+      color: #2c3e50;
+      background: #ecf0f1;
+      padding: 8px 12px;
+      border-left: 5px solid #3498db;
+      margin-bottom: 12px;
+    }
+
+    .section-content {
+      padding: 10px 15px;
+      line-height: 1.8;
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+
+    table th {
+      background: #34495e;
+      color: white;
+      padding: 10px;
+      text-align: left;
+      font-weight: bold;
+      font-size: 10pt;
+      border: 1px solid #2c3e50;
+    }
+
+    table td {
+      padding: 8px 10px;
+      border: 1px solid #bdc3c7;
+      font-size: 9pt;
+    }
+
+    table tr:nth-child(even) {
+      background: #f8f9fa;
+    }
+
+    .chart-container {
+      text-align: center;
+      margin: 20px 0;
+      page-break-inside: avoid;
+    }
+
+    .chart-container img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+    }
+
+    .chart-title {
+      font-size: 11pt;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 15px 0;
+    }
+
+    .kpi-card {
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 4px;
+      border-left: 4px solid #3498db;
+    }
+
+    .kpi-label {
+      font-size: 9pt;
+      color: #7f8c8d;
+      margin-bottom: 5px;
+    }
+
+    .kpi-value {
+      font-size: 16pt;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .kpi-unit {
+      font-size: 9pt;
+      color: #95a5a6;
+    }
+
+    .budget-summary {
+      background: #fff3cd;
+      padding: 15px;
+      border-radius: 4px;
+      border-left: 5px solid #ffc107;
+      margin: 15px 0;
+    }
+
+    .budget-total {
+      font-size: 18pt;
+      font-weight: bold;
+      color: #e67e22;
+      text-align: right;
+    }
+
+    .footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 2px solid #bdc3c7;
+      text-align: center;
+      font-size: 8pt;
+      color: #95a5a6;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <div class="header">
+    <h1>補助金申請書</h1>
+    <div class="scheme-name">{{schemeName}}</div>
+    <div class="draft-info">
+      申請日: {{submissionDate}} | バージョン: {{version}} | Draft ID: {{draftId}}
+    </div>
+  </div>
+
+  <!-- 1. 事業概要 -->
+  {{#if sections.overview}}
+  <div class="section">
+    <div class="section-title">1. 事業概要</div>
+    <div class="section-content">
+      <p><strong>事業名:</strong> {{sections.overview.title}}</p>
+      <p><strong>事業目的:</strong> {{sections.overview.purpose}}</p>
+      <p><strong>実施期間:</strong> {{sections.overview.startDate}} 〜 {{sections.overview.endDate}}</p>
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- 2. 背景・課題 -->
+  {{#if sections.background}}
+  <div class="section">
+    <div class="section-title">2. 背景・課題</div>
+    <div class="section-content">
+      {{{sections.background}}}
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- 3. 解決策・差別化 -->
+  {{#if sections.problemSolution}}
+  <div class="section">
+    <div class="section-title">3. 解決策・差別化</div>
+    <div class="section-content">
+      {{{sections.problemSolution}}}
+    </div>
+  </div>
+  {{/if}}
+
+  {{#if sections.differentiation}}
+  <div class="section">
+    <div class="section-title">4. 差別化ポイント</div>
+    <div class="section-content">
+      {{{sections.differentiation}}}
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- ページブレーク -->
+  <div class="page-break"></div>
+
+  <!-- 5. 予算計画 -->
+  {{#if sections.budget}}
+  <div class="section">
+    <div class="section-title">5. 予算計画</div>
+    <div class="section-content">
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>カテゴリ</th>
+              <th>項目</th>
+              <th>数量</th>
+              <th>単価（円）</th>
+              <th>金額（円）</th>
+              <th>備考</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each sections.budget}}
+            <tr>
+              <td>{{this.category}}</td>
+              <td>{{this.item}}</td>
+              <td>{{this.quantity}}</td>
+              <td>{{formatNumber this.unitPrice}}</td>
+              <td>{{formatNumber this.amount}}</td>
+              <td>{{this.note}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="budget-summary">
+        <div class="budget-total">
+          予算総額: {{formatNumber budgetTotal}} 円
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- 6. KPI目標 -->
+  {{#if sections.kpi}}
+  <div class="section">
+    <div class="section-title">6. KPI目標</div>
+    <div class="section-content">
+      <div class="kpi-grid">
+        {{#each sections.kpi}}
+        <div class="kpi-card">
+          <div class="kpi-label">{{this.metric}}</div>
+          <div class="kpi-value">
+            {{this.target}}
+            <span class="kpi-unit">{{this.unit}}</span>
+          </div>
+          <div class="kpi-label" style="margin-top: 5px;">
+            現状: {{this.baseline}} {{this.unit}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+
+      {{#if kpiChartUrl}}
+      <div class="chart-container">
+        <div class="chart-title">KPI目標推移</div>
+        <img src="{{kpiChartUrl}}" alt="KPI Chart">
+      </div>
+      {{/if}}
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- ページブレーク -->
+  <div class="page-break"></div>
+
+  <!-- 7. 実施スケジュール -->
+  {{#if sections.roadmap}}
+  <div class="section">
+    <div class="section-title">7. 実施スケジュール</div>
+    <div class="section-content">
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>フェーズ</th>
+              <th>タスク</th>
+              <th>開始日</th>
+              <th>終了日</th>
+              <th>成果物</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each sections.roadmap}}
+            <tr>
+              <td>{{this.phase}}</td>
+              <td>{{this.task}}</td>
+              <td>{{this.startDate}}</td>
+              <td>{{this.endDate}}</td>
+              <td>{{this.deliverable}}</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      {{#if ganttChartUrl}}
+      <div class="chart-container">
+        <div class="chart-title">ガントチャート</div>
+        <img src="{{ganttChartUrl}}" alt="Gantt Chart">
+      </div>
+      {{/if}}
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- 8. 実施体制 -->
+  {{#if sections.team}}
+  <div class="section">
+    <div class="section-title">8. 実施体制</div>
+    <div class="section-content">
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>氏名</th>
+              <th>役割</th>
+              <th>経験・スキル</th>
+              <th>工数割合</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each sections.team}}
+            <tr>
+              <td>{{this.name}}</td>
+              <td>{{this.role}}</td>
+              <td>{{this.expertise}}</td>
+              <td>{{this.allocation}}%</td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      {{#if orgChartUrl}}
+      <div class="chart-container">
+        <div class="chart-title">組織図</div>
+        <img src="{{orgChartUrl}}" alt="Organization Chart">
+      </div>
+      {{/if}}
+    </div>
+  </div>
+  {{/if}}
+
+  <!-- フッター -->
+  <div class="footer">
+    本申請書は補助金申請書自動生成システムにより生成されました。<br>
+    生成日時: {{generationDate}}
+  </div>
+</body>
+</html>

@@ -59,7 +59,7 @@ export class ChartGenerator {
     const totalDays = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
     const dayWidth = (width - 200) / totalDays;
 
-    let svg = `
+    const svg = `
       <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
         <style>
           .task-bar { fill: #3b82f6; opacity: 0.8; }
@@ -102,7 +102,7 @@ export class ChartGenerator {
     const levelHeight = 100;
 
     // 簡易的な組織図（階層型）
-    let svg = `
+    const svg = `
       <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
         <style>
           .org-node { fill: white; stroke: #2563eb; stroke-width: 2; }
@@ -151,7 +151,7 @@ export class ChartGenerator {
     const height = 500;
     const cellSize = 100;
 
-    let svg = `
+    const svg = `
       <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
         <style>
           .risk-cell-low { fill: #dbeafe; }

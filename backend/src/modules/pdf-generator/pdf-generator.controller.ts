@@ -17,30 +17,30 @@ import {
 import { ExtendedPdfService } from './services/extended-pdf.service';
 
 @ApiTags('PDF Generator')
-@Controller('api/pdf-generator')
+@Controller('pdf-generator')
 export class PdfGeneratorController {
   constructor(private readonly pdfService: ExtendedPdfService) {}
 
-  @Get('application/:applicationId')
-  @ApiOperation({ summary: '拡張申請書PDFを生成' })
-  @ApiParam({ name: 'applicationId', description: '申請ID' })
+  @Get('draft/:draftId')
+  @ApiOperation({ summary: '草案からPDF生成' })
+  @ApiParam({ name: 'draftId', description: '草案ID' })
   @ApiResponse({ status: 200, description: 'PDF生成成功' })
-  @ApiResponse({ status: 404, description: '申請が見つかりません' })
+  @ApiResponse({ status: 404, description: '草案が見つかりません' })
   @Header('Content-Type', 'application/pdf')
   @Header('Content-Disposition', 'attachment; filename="application.pdf"')
   async generateApplicationPdf(
-    @Param('applicationId') applicationId: string,
+    @Param('draftId') draftId: string,
     @Res() res: Response,
   ) {
     try {
-      const pdfBuffer = await this.pdfService.generateExtendedApplicationPdf(applicationId);
-      
+      const pdfBuffer = await this.pdfService.generateExtendedApplicationPdf(draftId);
+
       res.set({
         'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="application_${applicationId}.pdf"`,
+        'Content-Disposition': `attachment; filename="application_${draftId}.pdf"`,
         'Content-Length': pdfBuffer.length,
       });
-      
+
       res.send(pdfBuffer);
     } catch (error) {
       console.error('PDF generation error:', error);
@@ -51,25 +51,25 @@ export class PdfGeneratorController {
     }
   }
 
-  @Get('application/:applicationId/preview')
-  @ApiOperation({ summary: '拡張申請書PDFをプレビュー' })
-  @ApiParam({ name: 'applicationId', description: '申請ID' })
+  @Get('draft/:draftId/preview')
+  @ApiOperation({ summary: '草案PDFプレビュー' })
+  @ApiParam({ name: 'draftId', description: '草案ID' })
   @ApiResponse({ status: 200, description: 'PDFプレビュー成功' })
   @Header('Content-Type', 'application/pdf')
   @Header('Content-Disposition', 'inline')
   async previewApplicationPdf(
-    @Param('applicationId') applicationId: string,
+    @Param('draftId') draftId: string,
     @Res() res: Response,
   ) {
     try {
-      const pdfBuffer = await this.pdfService.generateExtendedApplicationPdf(applicationId);
-      
+      const pdfBuffer = await this.pdfService.generateExtendedApplicationPdf(draftId);
+
       res.set({
         'Content-Type': 'application/pdf',
         'Content-Disposition': 'inline',
         'Content-Length': pdfBuffer.length,
       });
-      
+
       res.send(pdfBuffer);
     } catch (error) {
       console.error('PDF preview error:', error);
@@ -80,25 +80,25 @@ export class PdfGeneratorController {
     }
   }
 
-  @Get('application/:applicationId/summary')
-  @ApiOperation({ summary: 'サマリーレポートPDFを生成' })
-  @ApiParam({ name: 'applicationId', description: '申請ID' })
+  @Get('draft/:draftId/summary')
+  @ApiOperation({ summary: 'サマリーレポートPDF生成' })
+  @ApiParam({ name: 'draftId', description: '草案ID' })
   @ApiResponse({ status: 200, description: 'サマリーPDF生成成功' })
   @Header('Content-Type', 'application/pdf')
   @Header('Content-Disposition', 'attachment; filename="summary.pdf"')
   async generateSummaryPdf(
-    @Param('applicationId') applicationId: string,
+    @Param('draftId') draftId: string,
     @Res() res: Response,
   ) {
     try {
-      const pdfBuffer = await this.pdfService.generateSummaryReport(applicationId);
-      
+      const pdfBuffer = await this.pdfService.generateSummaryReport(draftId);
+
       res.set({
         'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="summary_${applicationId}.pdf"`,
+        'Content-Disposition': `attachment; filename="summary_${draftId}.pdf"`,
         'Content-Length': pdfBuffer.length,
       });
-      
+
       res.send(pdfBuffer);
     } catch (error) {
       console.error('Summary PDF generation error:', error);

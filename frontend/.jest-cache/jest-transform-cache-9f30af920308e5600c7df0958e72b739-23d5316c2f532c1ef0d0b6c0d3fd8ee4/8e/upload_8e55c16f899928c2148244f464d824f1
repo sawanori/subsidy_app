@@ -1,0 +1,60 @@
+9db91773bfd475f73f66ef46fe59ecca
+// worker2のEvidence新機能に対応した型定義
+"use strict";
+
+/* istanbul ignore next */
+function cov_apnisrn9x() {
+  var path = "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/types/upload.ts";
+  var hash = "a4fe4dd055b3d5e2d50d44dacd31964ab1a359d4";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/types/upload.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 3
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: {
+      version: 3,
+      sources: ["/Users/noritakasawada/AI_P/subsidyApp/frontend/src/types/upload.ts"],
+      sourcesContent: ["// worker2\u306EEvidence\u65B0\u6A5F\u80FD\u306B\u5BFE\u5FDC\u3057\u305F\u578B\u5B9A\u7FA9\nexport interface UploadedFile {\n  id: string;\n  name: string;\n  size: number;\n  type: string;\n  lastModified: number;\n  uploadedAt: string;\n  status: 'uploading' | 'processing' | 'completed' | 'error';\n  \n  // worker2\u306EqualityScore\u30FBmetadata\u6D3B\u7528\n  qualityScore?: number;\n  metadata?: FileMetadata;\n  \n  // OCR\u30FB\u69CB\u9020\u5316\u30C7\u30FC\u30BF\n  ocrResult?: OCRResult;\n  structuredData?: StructuredData;\n  \n  // \u30D7\u30EC\u30D3\u30E5\u30FC\u30FB\u30B5\u30E0\u30CD\u30A4\u30EB\n  previewUrl?: string;\n  thumbnailUrl?: string;\n}\n\n// worker2\u306Emetadata\u65B0\u6A5F\u80FD\u5BFE\u5FDC\nexport interface FileMetadata {\n  author?: string;\n  createdDate?: string;\n  modifiedDate?: string;\n  title?: string;\n  subject?: string;\n  keywords?: string[];\n  \n  // \u6280\u8853\u30E1\u30BF\u30C7\u30FC\u30BF\n  pageCount?: number;\n  dimensions?: { width: number; height: number };\n  fileFormat: string;\n  fileVersion?: string;\n}\n\n// OCR\u7D50\u679C\uFF08worker2\u306EAPP-050\u9023\u643A\uFF09\nexport interface OCRResult {\n  text: string;\n  confidence: number;\n  language: string;\n  boundingBoxes?: BoundingBox[];\n  \n  // \u69CB\u9020\u5316\u62BD\u51FA\n  extractedData?: {\n    tables?: TableData[];\n    forms?: FormData[];\n    headers?: string[];\n  };\n}\n\nexport interface BoundingBox {\n  x: number;\n  y: number;\n  width: number;\n  height: number;\n  text: string;\n  confidence: number;\n}\n\n// APP-051\u8868\u5316\u30FB\u811A\u6CE8\u5BFE\u5FDC\nexport interface StructuredData {\n  tables: TableData[];\n  footnotes: FootnoteData[];\n  charts: ChartData[];\n  summary: DocumentSummary;\n}\n\nexport interface TableData {\n  id: string;\n  title?: string;\n  headers: string[];\n  rows: string[][];\n  position: { page: number; x: number; y: number };\n  confidence: number;\n}\n\nexport interface FootnoteData {\n  id: string;\n  reference: string;\n  text: string;\n  page: number;\n  position: { x: number; y: number };\n}\n\nexport interface ChartData {\n  id: string;\n  type: 'bar' | 'line' | 'pie' | 'scatter' | 'unknown';\n  title?: string;\n  data: ChartDataPoint[];\n  labels?: string[];\n  extractedValues?: number[];\n}\n\nexport interface ChartDataPoint {\n  label: string;\n  value: number;\n  color?: string;\n}\n\n// \u81EA\u52D5\u8981\u7D04\uFF08worker2\u9769\u65B0\u6280\u8853\u6D3B\u7528\uFF09\nexport interface DocumentSummary {\n  title: string;\n  abstract: string;\n  keyPoints: string[];\n  categories: string[];\n  relevanceScore: number;\n  \n  // \u88DC\u52A9\u91D1\u7533\u8ACB\u95A2\u9023\u5EA6\n  subsidyRelevance?: {\n    category: 'budget' | 'plan' | 'evidence' | 'other';\n    confidence: number;\n    suggestedForm?: 'form1' | 'form2' | 'form4';\n  };\n}\n\n// \u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u8A2D\u5B9A\nexport interface UploadConfig {\n  maxFileSize: number; // bytes\n  maxFiles: number;\n  allowedTypes: string[];\n  enableOCR: boolean;\n  enableAutoSummary: boolean;\n  enableChartExtraction: boolean;\n}\n\n// \u30C9\u30E9\u30C3\u30B0&\u30C9\u30ED\u30C3\u30D7\u72B6\u614B\nexport interface DropzoneState {\n  isDragActive: boolean;\n  isDragAccept: boolean;\n  isDragReject: boolean;\n  draggedFiles: File[];\n}\n\n// Chart.js\u8868\u793A\u7528\u30C7\u30FC\u30BF\nexport interface ChartDisplayData {\n  id: string;\n  title: string;\n  type: 'bar' | 'line' | 'pie' | 'doughnut';\n  data: {\n    labels: string[];\n    datasets: {\n      label: string;\n      data: number[];\n      backgroundColor?: string[];\n      borderColor?: string[];\n      borderWidth?: number;\n    }[];\n  };\n  options?: Record<string, unknown>;\n}\n\n// \u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u9032\u6357\u72B6\u614B\nexport interface UploadProgress {\n  fileId: string;\n  fileName: string;\n  progress: number; // 0-100\n  stage: 'uploading' | 'ocr' | 'processing' | 'analyzing' | 'completed';\n  error?: string;\n}"],
+      names: [],
+      mappings: "AAAA,8BAA8B"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "a4fe4dd055b3d5e2d50d44dacd31964ab1a359d4"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_apnisrn9x = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_apnisrn9x();
+cov_apnisrn9x().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiL1VzZXJzL25vcml0YWthc2F3YWRhL0FJX1Avc3Vic2lkeUFwcC9mcm9udGVuZC9zcmMvdHlwZXMvdXBsb2FkLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIHdvcmtlcjLjga5FdmlkZW5jZeaWsOapn+iDveOBq+WvvuW/nOOBl+OBn+Wei+Wumue+qVxuZXhwb3J0IGludGVyZmFjZSBVcGxvYWRlZEZpbGUge1xuICBpZDogc3RyaW5nO1xuICBuYW1lOiBzdHJpbmc7XG4gIHNpemU6IG51bWJlcjtcbiAgdHlwZTogc3RyaW5nO1xuICBsYXN0TW9kaWZpZWQ6IG51bWJlcjtcbiAgdXBsb2FkZWRBdDogc3RyaW5nO1xuICBzdGF0dXM6ICd1cGxvYWRpbmcnIHwgJ3Byb2Nlc3NpbmcnIHwgJ2NvbXBsZXRlZCcgfCAnZXJyb3InO1xuICBcbiAgLy8gd29ya2VyMuOBrnF1YWxpdHlTY29yZeODu21ldGFkYXRh5rS755SoXG4gIHF1YWxpdHlTY29yZT86IG51bWJlcjtcbiAgbWV0YWRhdGE/OiBGaWxlTWV0YWRhdGE7XG4gIFxuICAvLyBPQ1Ljg7vmp4vpgKDljJbjg4fjg7zjgr9cbiAgb2NyUmVzdWx0PzogT0NSUmVzdWx0O1xuICBzdHJ1Y3R1cmVkRGF0YT86IFN0cnVjdHVyZWREYXRhO1xuICBcbiAgLy8g44OX44Os44OT44Ol44O844O744K144Og44ON44Kk44OrXG4gIHByZXZpZXdVcmw/OiBzdHJpbmc7XG4gIHRodW1ibmFpbFVybD86IHN0cmluZztcbn1cblxuLy8gd29ya2VyMuOBrm1ldGFkYXRh5paw5qmf6IO95a++5b+cXG5leHBvcnQgaW50ZXJmYWNlIEZpbGVNZXRhZGF0YSB7XG4gIGF1dGhvcj86IHN0cmluZztcbiAgY3JlYXRlZERhdGU/OiBzdHJpbmc7XG4gIG1vZGlmaWVkRGF0ZT86IHN0cmluZztcbiAgdGl0bGU/OiBzdHJpbmc7XG4gIHN1YmplY3Q/OiBzdHJpbmc7XG4gIGtleXdvcmRzPzogc3RyaW5nW107XG4gIFxuICAvLyDmioDooZPjg6Hjgr/jg4fjg7zjgr9cbiAgcGFnZUNvdW50PzogbnVtYmVyO1xuICBkaW1lbnNpb25zPzogeyB3aWR0aDogbnVtYmVyOyBoZWlnaHQ6IG51bWJlciB9O1xuICBmaWxlRm9ybWF0OiBzdHJpbmc7XG4gIGZpbGVWZXJzaW9uPzogc3RyaW5nO1xufVxuXG4vLyBPQ1LntZDmnpzvvIh3b3JrZXIy44GuQVBQLTA1MOmAo+aQuu+8iVxuZXhwb3J0IGludGVyZmFjZSBPQ1JSZXN1bHQge1xuICB0ZXh0OiBzdHJpbmc7XG4gIGNvbmZpZGVuY2U6IG51bWJlcjtcbiAgbGFuZ3VhZ2U6IHN0cmluZztcbiAgYm91bmRpbmdCb3hlcz86IEJvdW5kaW5nQm94W107XG4gIFxuICAvLyDmp4vpgKDljJbmir3lh7pcbiAgZXh0cmFjdGVkRGF0YT86IHtcbiAgICB0YWJsZXM/OiBUYWJsZURhdGFbXTtcbiAgICBmb3Jtcz86IEZvcm1EYXRhW107XG4gICAgaGVhZGVycz86IHN0cmluZ1tdO1xuICB9O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEJvdW5kaW5nQm94IHtcbiAgeDogbnVtYmVyO1xuICB5OiBudW1iZXI7XG4gIHdpZHRoOiBudW1iZXI7XG4gIGhlaWdodDogbnVtYmVyO1xuICB0ZXh0OiBzdHJpbmc7XG4gIGNvbmZpZGVuY2U6IG51bWJlcjtcbn1cblxuLy8gQVBQLTA1MeihqOWMluODu+iEmuazqOWvvuW/nFxuZXhwb3J0IGludGVyZmFjZSBTdHJ1Y3R1cmVkRGF0YSB7XG4gIHRhYmxlczogVGFibGVEYXRhW107XG4gIGZvb3Rub3RlczogRm9vdG5vdGVEYXRhW107XG4gIGNoYXJ0czogQ2hhcnREYXRhW107XG4gIHN1bW1hcnk6IERvY3VtZW50U3VtbWFyeTtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBUYWJsZURhdGEge1xuICBpZDogc3RyaW5nO1xuICB0aXRsZT86IHN0cmluZztcbiAgaGVhZGVyczogc3RyaW5nW107XG4gIHJvd3M6IHN0cmluZ1tdW107XG4gIHBvc2l0aW9uOiB7IHBhZ2U6IG51bWJlcjsgeDogbnVtYmVyOyB5OiBudW1iZXIgfTtcbiAgY29uZmlkZW5jZTogbnVtYmVyO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEZvb3Rub3RlRGF0YSB7XG4gIGlkOiBzdHJpbmc7XG4gIHJlZmVyZW5jZTogc3RyaW5nO1xuICB0ZXh0OiBzdHJpbmc7XG4gIHBhZ2U6IG51bWJlcjtcbiAgcG9zaXRpb246IHsgeDogbnVtYmVyOyB5OiBudW1iZXIgfTtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBDaGFydERhdGEge1xuICBpZDogc3RyaW5nO1xuICB0eXBlOiAnYmFyJyB8ICdsaW5lJyB8ICdwaWUnIHwgJ3NjYXR0ZXInIHwgJ3Vua25vd24nO1xuICB0aXRsZT86IHN0cmluZztcbiAgZGF0YTogQ2hhcnREYXRhUG9pbnRbXTtcbiAgbGFiZWxzPzogc3RyaW5nW107XG4gIGV4dHJhY3RlZFZhbHVlcz86IG51bWJlcltdO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIENoYXJ0RGF0YVBvaW50IHtcbiAgbGFiZWw6IHN0cmluZztcbiAgdmFsdWU6IG51bWJlcjtcbiAgY29sb3I/OiBzdHJpbmc7XG59XG5cbi8vIOiHquWLleimgee0hO+8iHdvcmtlcjLpnanmlrDmioDooZPmtLvnlKjvvIlcbmV4cG9ydCBpbnRlcmZhY2UgRG9jdW1lbnRTdW1tYXJ5IHtcbiAgdGl0bGU6IHN0cmluZztcbiAgYWJzdHJhY3Q6IHN0cmluZztcbiAga2V5UG9pbnRzOiBzdHJpbmdbXTtcbiAgY2F0ZWdvcmllczogc3RyaW5nW107XG4gIHJlbGV2YW5jZVNjb3JlOiBudW1iZXI7XG4gIFxuICAvLyDoo5zliqnph5HnlLPoq4vplqLpgKPluqZcbiAgc3Vic2lkeVJlbGV2YW5jZT86IHtcbiAgICBjYXRlZ29yeTogJ2J1ZGdldCcgfCAncGxhbicgfCAnZXZpZGVuY2UnIHwgJ290aGVyJztcbiAgICBjb25maWRlbmNlOiBudW1iZXI7XG4gICAgc3VnZ2VzdGVkRm9ybT86ICdmb3JtMScgfCAnZm9ybTInIHwgJ2Zvcm00JztcbiAgfTtcbn1cblxuLy8g44Ki44OD44OX44Ot44O844OJ6Kit5a6aXG5leHBvcnQgaW50ZXJmYWNlIFVwbG9hZENvbmZpZyB7XG4gIG1heEZpbGVTaXplOiBudW1iZXI7IC8vIGJ5dGVzXG4gIG1heEZpbGVzOiBudW1iZXI7XG4gIGFsbG93ZWRUeXBlczogc3RyaW5nW107XG4gIGVuYWJsZU9DUjogYm9vbGVhbjtcbiAgZW5hYmxlQXV0b1N1bW1hcnk6IGJvb2xlYW47XG4gIGVuYWJsZUNoYXJ0RXh0cmFjdGlvbjogYm9vbGVhbjtcbn1cblxuLy8g44OJ44Op44OD44KwJuODieODreODg+ODl+eKtuaFi1xuZXhwb3J0IGludGVyZmFjZSBEcm9wem9uZVN0YXRlIHtcbiAgaXNEcmFnQWN0aXZlOiBib29sZWFuO1xuICBpc0RyYWdBY2NlcHQ6IGJvb2xlYW47XG4gIGlzRHJhZ1JlamVjdDogYm9vbGVhbjtcbiAgZHJhZ2dlZEZpbGVzOiBGaWxlW107XG59XG5cbi8vIENoYXJ0Lmpz6KGo56S655So44OH44O844K/XG5leHBvcnQgaW50ZXJmYWNlIENoYXJ0RGlzcGxheURhdGEge1xuICBpZDogc3RyaW5nO1xuICB0aXRsZTogc3RyaW5nO1xuICB0eXBlOiAnYmFyJyB8ICdsaW5lJyB8ICdwaWUnIHwgJ2RvdWdobnV0JztcbiAgZGF0YToge1xuICAgIGxhYmVsczogc3RyaW5nW107XG4gICAgZGF0YXNldHM6IHtcbiAgICAgIGxhYmVsOiBzdHJpbmc7XG4gICAgICBkYXRhOiBudW1iZXJbXTtcbiAgICAgIGJhY2tncm91bmRDb2xvcj86IHN0cmluZ1tdO1xuICAgICAgYm9yZGVyQ29sb3I/OiBzdHJpbmdbXTtcbiAgICAgIGJvcmRlcldpZHRoPzogbnVtYmVyO1xuICAgIH1bXTtcbiAgfTtcbiAgb3B0aW9ucz86IFJlY29yZDxzdHJpbmcsIHVua25vd24+O1xufVxuXG4vLyDjgqLjg4Pjg5fjg63jg7zjg4npgLLmjZfnirbmhYtcbmV4cG9ydCBpbnRlcmZhY2UgVXBsb2FkUHJvZ3Jlc3Mge1xuICBmaWxlSWQ6IHN0cmluZztcbiAgZmlsZU5hbWU6IHN0cmluZztcbiAgcHJvZ3Jlc3M6IG51bWJlcjsgLy8gMC0xMDBcbiAgc3RhZ2U6ICd1cGxvYWRpbmcnIHwgJ29jcicgfCAncHJvY2Vzc2luZycgfCAnYW5hbHl6aW5nJyB8ICdjb21wbGV0ZWQnO1xuICBlcnJvcj86IHN0cmluZztcbn0iXSwibWFwcGluZ3MiOiJBQUFBIiwiaWdub3JlTGlzdCI6W119

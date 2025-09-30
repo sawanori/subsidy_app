@@ -38,6 +38,13 @@ describe('ExtendedPdfService', () => {
 
   const mockExtendedApplicationService = {
     getAllExtendedData: jest.fn(),
+    getPurposeBackground: jest.fn(),
+    getDetailedPlans: jest.fn(),
+    getKpiTargets: jest.fn(),
+    getGanttTasks: jest.fn(),
+    getOrganizationStructure: jest.fn(),
+    getRiskAssessments: jest.fn(),
+    getSupplementaryMaterials: jest.fn(),
   };
 
   const mockApplicationsService = {

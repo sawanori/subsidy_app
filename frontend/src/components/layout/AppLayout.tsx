@@ -1,15 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import SkipLinks from '@/components/a11y/SkipLinks';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { LanguageSwitcher } from '@/components/ui/language-switcher';
 import { KeyboardNavigation } from '@/components/navigation/KeyboardNavigation';
 import { Button } from '@/components/ui/button';
-import { FileText, Home, FolderOpen, HelpCircle, Settings } from 'lucide-react';
+import { FileText, Home, FolderOpen, HelpCircle, Settings, LogOut, User } from 'lucide-react';
+import { createClient } from '@/lib/supabase/client';
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -18,7 +19,34 @@ interface AppLayoutProps {
 export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
   const t = useTranslations();
   const pathname = usePathname();
-  
+  const router = useRouter();
+  const [user, setUser] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const supabase = createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+      setIsLoading(false);
+
+      // Listen for auth state changes
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+        setUser(session?.user || null);
+      });
+
+      return () => subscription.unsubscribe();
+    };
+
+    checkUser();
+  }, []);
+
+  const handleLogout = async () => {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    router.push('/ja/login');
+  };
+
   const isActive = (path: string) => {
     return pathname.includes(path);
   };
@@ -89,24 +117,56 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
             </div>
             
             <div className="flex items-center space-x-4">
-              <Button
-                variant="default"
-                size="sm"
-                asChild
-              >
-                <Link href="/ja/application/new">
-                  <FileText className="h-4 w-4 mr-2" />
-                  新規申請
-                </Link>
-              </Button>
-              
-              <div className="flex items-center space-x-2 border-l pl-4">
-                <LanguageSwitcher />
-                <ThemeToggle />
-                <Button variant="ghost" size="icon">
-                  <Settings className="h-5 w-5" />
-                </Button>
-              </div>
+              {user ? (
+                <>
+                  <Button
+                    variant="default"
+                    size="sm"
+                    asChild
+                  >
+                    <Link href="/ja/application/new">
+                      <FileText className="h-4 w-4 mr-2" />
+                      新規申請
+                    </Link>
+                  </Button>
+
+                  <div className="flex items-center space-x-2 border-l pl-4">
+                    <LanguageSwitcher />
+                    <ThemeToggle />
+                    <Button variant="ghost" size="icon" title={user.email}>
+                      <User className="h-5 w-5" />
+                    </Button>
+                    <Button variant="ghost" size="icon" onClick={handleLogout} title="ログアウト">
+                      <LogOut className="h-5 w-5" />
+                    </Button>
+                  </div>
+                </>
+              ) : (
+                <div className="flex items-center space-x-2">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    asChild
+                  >
+                    <Link href="/ja/login">
+                      ログイン
+                    </Link>
+                  </Button>
+                  <Button
+                    variant="default"
+                    size="sm"
+                    asChild
+                  >
+                    <Link href="/ja/signup">
+                      新規登録
+                    </Link>
+                  </Button>
+                  <div className="flex items-center space-x-2 border-l pl-4">
+                    <LanguageSwitcher />
+                    <ThemeToggle />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

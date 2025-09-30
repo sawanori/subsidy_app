@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../../prisma/prisma.service';
+import { Injectable, Logger } from '@nestjs/common';
+import { PrismaService } from '@prisma/prisma.service';
 
 export interface AuditLogEntry {
   userId: string;
@@ -15,6 +15,8 @@ export interface AuditLogEntry {
 
 @Injectable()
 export class AuditService {
+  private readonly logger = new Logger(AuditService.name);
+
   constructor(private readonly prisma: PrismaService) {}
 
   async log(entry: AuditLogEntry): Promise<void> {
@@ -32,8 +34,8 @@ export class AuditService {
         userAgent: entry.userAgent,
       };
 
-      // Log to console with structured format
-      console.log('AUDIT_LOG:', JSON.stringify(logEntry));
+      // Log with structured format
+      this.logger.log(`AUDIT_LOG: ${JSON.stringify(logEntry)}`);
 
       // TODO: In production, send to centralized logging system
       // await this.sendToLoggingSystem(logEntry);

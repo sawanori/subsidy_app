@@ -36,7 +36,7 @@ import {
 } from './dto';
 
 @ApiTags('Extended Application')
-@Controller('api/extended-application')
+@Controller('extended-application')
 export class ExtendedApplicationController {
   constructor(private readonly service: ExtendedApplicationService) {}
 

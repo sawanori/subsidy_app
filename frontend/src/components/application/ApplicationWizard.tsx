@@ -1,16 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { 
-  ChevronRight, 
-  ChevronLeft, 
-  Building2, 
-  FileText, 
-  Upload, 
-  CheckCircle 
+import {
+  ChevronRight,
+  ChevronLeft,
+  Building2,
+  FileText,
+  Upload,
+  CheckCircle,
+  Sparkles
 } from 'lucide-react';
 import { BasicInfoStep } from './steps/BasicInfoStep';
 import { BusinessPlanStep } from './steps/BusinessPlanStep';
@@ -19,10 +20,13 @@ import { ReviewStep } from './steps/ReviewStep';
 import { PurposeBackgroundStep } from './steps/PurposeBackgroundStep';
 import { DetailedPlanStep } from './steps/DetailedPlanStep';
 import { KPITargetStep } from './steps/KPITargetStep';
-import type { 
-  PurposeBackground, 
-  DetailedPlan, 
-  KpiTarget 
+import { AutoPlanForm } from '../auto-plan/AutoPlanForm';
+import { createClient } from '@/lib/supabase/client';
+import { useRouter } from 'next/navigation';
+import type {
+  PurposeBackground,
+  DetailedPlan,
+  KpiTarget
 } from '@/types/application-extended';
 
 interface ApplicationWizardProps {
@@ -94,6 +98,12 @@ const STEPS = [
     icon: FileText,
   },
   {
+    id: 'auto-generate',
+    title: 'AI自動生成',
+    description: 'KPI・計画を自動生成',
+    icon: Sparkles,
+  },
+  {
     id: 'business-plan',
     title: '事業計画',
     description: '補助事業の計画を入力',
@@ -114,7 +124,10 @@ const STEPS = [
 ];
 
 export function ApplicationWizard({ onComplete }: ApplicationWizardProps) {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
+  const [user, setUser] = useState<any>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [applicationData, setApplicationData] = useState<ApplicationData>({
     basicInfo: {
       companyName: '',
@@ -161,6 +174,22 @@ export function ApplicationWizard({ onComplete }: ApplicationWizardProps) {
     kpiTargets: [],
   });
 
+  useEffect(() => {
+    const checkAuth = async () => {
+      const supabase = createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+
+      if (!user) {
+        // Redirect to login if not authenticated
+        router.push('/ja/login?redirectedFrom=/ja/application/new');
+      } else {
+        setUser(user);
+      }
+    };
+
+    checkAuth();
+  }, [router]);
+
   const progress = ((currentStep + 1) / STEPS.length) * 100;
 
   const handleNext = () => {
@@ -204,10 +233,50 @@ export function ApplicationWizard({ onComplete }: ApplicationWizardProps) {
   };
 
   const handleSubmit = async () => {
-    // TODO: Send data to backend API
-    // For now, generate a mock ID
-    const mockId = `app-${Date.now()}`;
-    onComplete(mockId);
+    if (!user) {
+      router.push('/ja/login?redirectedFrom=/ja/application/new');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Get auth token
+      const supabase = createClient();
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (!session) {
+        throw new Error('No active session');
+      }
+
+      // Create application via backend API
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/applications`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({
+          title: applicationData.businessPlan.projectTitle || '新規申請',
+          locale: 'ja',
+          status: 'DRAFT',
+          // Additional application data can be added here
+          metadata: applicationData,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create application');
+      }
+
+      const result = await response.json();
+      onComplete(result.data.id);
+    } catch (error) {
+      console.error('Failed to submit application:', error);
+      alert('申請の作成に失敗しました。もう一度お試しください。');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const renderStepContent = () => {
@@ -244,6 +313,17 @@ export function ApplicationWizard({ onComplete }: ApplicationWizardProps) {
             data={applicationData.kpiTargets || []}
             onComplete={handleStepComplete}
           />
+        );
+      case 'auto-generate':
+        // Use mock application ID for now
+        const mockAppId = `app_demo_${Date.now()}`;
+        return (
+          <div>
+            <AutoPlanForm applicationId={mockAppId} />
+            <div className="mt-4 flex justify-end">
+              <Button onClick={handleNext}>次へ進む</Button>
+            </div>
+          </div>
         );
       case 'business-plan':
         return (

@@ -1,8 +1,8 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common';
-import * as Handlebars from 'handlebars';
-import * as DOMPurify from 'dompurify';
+import Handlebars from 'handlebars';
+import DOMPurify from 'dompurify';
 import { JSDOM } from 'jsdom';
-import * as validator from 'validator';
+import validator from 'validator';
 
 export interface TemplateContext {
   application?: any;

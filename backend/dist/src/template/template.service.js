@@ -8,23 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var TemplateService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TemplateService = void 0;
 const common_1 = require("@nestjs/common");
-const Handlebars = require("handlebars");
-const DOMPurify = require("dompurify");
+const handlebars_1 = __importDefault(require("handlebars"));
+const dompurify_1 = __importDefault(require("dompurify"));
 const jsdom_1 = require("jsdom");
-const validator = require("validator");
+const validator_1 = __importDefault(require("validator"));
 let TemplateService = TemplateService_1 = class TemplateService {
     constructor() {
         this.logger = new common_1.Logger(TemplateService_1.name);
         this.MAX_TEMPLATE_SIZE = 1024 * 1024;
         this.MAX_RENDER_TIME = 10000;
         this.MAX_LOOP_ITERATIONS = 1000;
-        this.handlebars = Handlebars.create();
+        this.handlebars = handlebars_1.default.create();
         this.window = new jsdom_1.JSDOM('').window;
-        this.purify = DOMPurify(this.window);
+        this.purify = (0, dompurify_1.default)(this.window);
         this.setupSecurityHelpers();
         this.setupCustomHelpers();
     }
@@ -106,13 +109,13 @@ let TemplateService = TemplateService_1 = class TemplateService {
         this.handlebars.registerHelper('safeString', (str) => {
             if (!str)
                 return '';
-            return validator.escape(str.toString());
+            return validator_1.default.escape(str.toString());
         });
         this.handlebars.registerHelper('safeUrl', (url) => {
             if (!url)
                 return '';
             const urlStr = url.toString();
-            if (validator.isURL(urlStr, { require_protocol: true })) {
+            if (validator_1.default.isURL(urlStr, { require_protocol: true })) {
                 return urlStr.startsWith('http') ? urlStr : '';
             }
             return '';

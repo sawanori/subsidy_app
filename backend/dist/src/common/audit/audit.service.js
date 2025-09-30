@@ -8,13 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var AuditService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuditService = void 0;
 const common_1 = require("@nestjs/common");
-const prisma_service_1 = require("../../prisma/prisma.service");
-let AuditService = class AuditService {
+const prisma_service_1 = require("@prisma/prisma.service");
+let AuditService = AuditService_1 = class AuditService {
     constructor(prisma) {
         this.prisma = prisma;
+        this.logger = new common_1.Logger(AuditService_1.name);
     }
     async log(entry) {
         try {
@@ -29,7 +31,7 @@ let AuditService = class AuditService {
                 ip: this.maskIp(entry.ip),
                 userAgent: entry.userAgent,
             };
-            console.log('AUDIT_LOG:', JSON.stringify(logEntry));
+            this.logger.log(`AUDIT_LOG: ${JSON.stringify(logEntry)}`);
         }
         catch (error) {
             console.error('Audit logging failed:', error);
@@ -133,7 +135,7 @@ let AuditService = class AuditService {
     }
 };
 exports.AuditService = AuditService;
-exports.AuditService = AuditService = __decorate([
+exports.AuditService = AuditService = AuditService_1 = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService])
 ], AuditService);

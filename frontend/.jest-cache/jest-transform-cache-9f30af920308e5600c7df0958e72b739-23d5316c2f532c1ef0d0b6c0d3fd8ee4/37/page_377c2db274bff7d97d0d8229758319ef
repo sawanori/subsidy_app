@@ -1,0 +1,612 @@
+867b429ee30dae61c13c85f5bebb3ea2
+'use client';
+"use strict";
+
+/* istanbul ignore next */
+function cov_1zzl2tcfvm() {
+  var path = "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/app/[locale]/page.tsx";
+  var hash = "da82777ded6ccbbd2091700c8266203a1a6bf11f";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/app/[locale]/page.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 11,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 9,
+          column: 8
+        },
+        end: {
+          line: 9,
+          column: 24
+        }
+      },
+      "3": {
+        start: {
+          line: 12,
+          column: 20
+        },
+        end: {
+          line: 12,
+          column: 48
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 18
+        },
+        end: {
+          line: 13,
+          column: 38
+        }
+      },
+      "5": {
+        start: {
+          line: 14,
+          column: 20
+        },
+        end: {
+          line: 14,
+          column: 46
+        }
+      },
+      "6": {
+        start: {
+          line: 15,
+          column: 16
+        },
+        end: {
+          line: 15,
+          column: 53
+        }
+      },
+      "7": {
+        start: {
+          line: 16,
+          column: 14
+        },
+        end: {
+          line: 16,
+          column: 49
+        }
+      },
+      "8": {
+        start: {
+          line: 17,
+          column: 15
+        },
+        end: {
+          line: 17,
+          column: 51
+        }
+      },
+      "9": {
+        start: {
+          line: 18,
+          column: 19
+        },
+        end: {
+          line: 18,
+          column: 63
+        }
+      },
+      "10": {
+        start: {
+          line: 19,
+          column: 21
+        },
+        end: {
+          line: 19,
+          column: 44
+        }
+      },
+      "11": {
+        start: {
+          line: 21,
+          column: 14
+        },
+        end: {
+          line: 21,
+          column: 46
+        }
+      },
+      "12": {
+        start: {
+          line: 22,
+          column: 19
+        },
+        end: {
+          line: 22,
+          column: 47
+        }
+      },
+      "13": {
+        start: {
+          line: 23,
+          column: 35
+        },
+        end: {
+          line: 25,
+          column: 5
+        }
+      },
+      "14": {
+        start: {
+          line: 24,
+          column: 8
+        },
+        end: {
+          line: 24,
+          column: 43
+        }
+      },
+      "15": {
+        start: {
+          line: 26,
+          column: 4
+        },
+        end: {
+          line: 407,
+          column: 7
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 8,
+            column: 9
+          },
+          end: {
+            line: 8,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 20
+          },
+          end: {
+            line: 10,
+            column: 5
+          }
+        },
+        line: 8
+      },
+      "1": {
+        name: "HomePage",
+        decl: {
+          start: {
+            line: 20,
+            column: 9
+          },
+          end: {
+            line: 20,
+            column: 17
+          }
+        },
+        loc: {
+          start: {
+            line: 20,
+            column: 20
+          },
+          end: {
+            line: 408,
+            column: 1
+          }
+        },
+        line: 20
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 23,
+            column: 35
+          },
+          end: {
+            line: 23,
+            column: 36
+          }
+        },
+        loc: {
+          start: {
+            line: 23,
+            column: 39
+          },
+          end: {
+            line: 25,
+            column: 5
+          }
+        },
+        line: 23
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    b: {},
+    inputSourceMap: {
+      version: 3,
+      sources: ["/Users/noritakasawada/AI_P/subsidyApp/frontend/src/app/[locale]/page.tsx"],
+      sourcesContent: ["'use client';\n\nimport { useTranslations } from 'next-intl';\nimport { useRouter } from 'next/navigation';\nimport { Button } from '@/components/ui/button';\nimport { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';\nimport { Badge } from '@/components/ui/badge';\nimport { AppLayout } from '@/components/layout/AppLayout';\nimport { \n  FileText, \n  Upload, \n  CheckCircle2, \n  Download,\n  Clock,\n  Shield,\n  Zap,\n  FileCheck\n} from 'lucide-react';\n\nexport default function HomePage() {\n  const t = useTranslations();\n  const router = useRouter();\n\n  const handleStartApplication = () => {\n    router.push('/ja/application/new');\n  };\n\n  return (\n    <AppLayout>\n      <main className=\"container mx-auto px-4 py-8\">\n        <div className=\"max-w-6xl mx-auto\">\n          {/* Hero Section */}\n          <section className=\"text-center mb-12\">\n            <Badge className=\"mb-4\" variant=\"outline\">\n              \u5C0F\u898F\u6A21\u4E8B\u696D\u8005\u6301\u7D9A\u5316\u88DC\u52A9\u91D1\u5BFE\u5FDC\n            </Badge>\n            <h1 className=\"text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4\">\n              \u88DC\u52A9\u91D1\u7533\u8ACB\u66F8\u985E\u3092\u81EA\u52D5\u751F\u6210\n            </h1>\n            <p className=\"text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto\">\n              \u8907\u96D1\u306A\u7533\u8ACB\u66F8\u985E\u4F5C\u6210\u3092\u7C21\u5358\u306B\u3002\u5FC5\u8981\u306A\u60C5\u5831\u3092\u5165\u529B\u3059\u308B\u3060\u3051\u3067\u3001\n              \u5C0F\u898F\u6A21\u4E8B\u696D\u8005\u6301\u7D9A\u5316\u88DC\u52A9\u91D1\u306E\u7533\u8ACB\u66F8\u985E\u3092\u81EA\u52D5\u751F\u6210\u3057\u307E\u3059\u3002\n            </p>\n            <div className=\"flex gap-4 justify-center\">\n              <Button size=\"lg\" onClick={handleStartApplication}>\n                <FileText className=\"mr-2 h-5 w-5\" />\n                \u7533\u8ACB\u66F8\u985E\u3092\u4F5C\u6210\u3059\u308B\n              </Button>\n              <Button variant=\"outline\" size=\"lg\">\n                <Download className=\"mr-2 h-5 w-5\" />\n                \u30B5\u30F3\u30D7\u30EB\u3092\u898B\u308B\n              </Button>\n            </div>\n          </section>\n\n          {/* Process Steps */}\n          <section className=\"mb-16\">\n            <h2 className=\"text-2xl font-semibold text-center mb-8\">\n              \u7C21\u53583\u30B9\u30C6\u30C3\u30D7\u3067\u7533\u8ACB\u66F8\u985E\u3092\u4F5C\u6210\n            </h2>\n            <div className=\"grid md:grid-cols-3 gap-6\">\n              <Card>\n                <CardHeader>\n                  <div className=\"w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4\">\n                    <FileText className=\"h-6 w-6 text-primary\" />\n                  </div>\n                  <CardTitle>1. \u57FA\u672C\u60C5\u5831\u3092\u5165\u529B</CardTitle>\n                </CardHeader>\n                <CardContent>\n                  <p className=\"text-gray-600 dark:text-gray-400\">\n                    \u4E8B\u696D\u8005\u60C5\u5831\u3001\u7533\u8ACB\u91D1\u984D\u3001\u4E8B\u696D\u8A08\u753B\u306A\u3069\u5FC5\u8981\u306A\u60C5\u5831\u3092\u30A6\u30A3\u30B6\u30FC\u30C9\u5F62\u5F0F\u3067\u5165\u529B\n                  </p>\n                </CardContent>\n              </Card>\n\n              <Card>\n                <CardHeader>\n                  <div className=\"w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4\">\n                    <Upload className=\"h-6 w-6 text-primary\" />\n                  </div>\n                  <CardTitle>2. \u8A3C\u62E0\u66F8\u985E\u3092\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9</CardTitle>\n                </CardHeader>\n                <CardContent>\n                  <p className=\"text-gray-600 dark:text-gray-400\">\n                    \u898B\u7A4D\u66F8\u3001\u4E8B\u696D\u8A08\u753B\u66F8\u306A\u3069\u306E\u8A3C\u62E0\u66F8\u985E\u3092\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3002OCR\u3067\u81EA\u52D5\u8AAD\u307F\u53D6\u308A\n                  </p>\n                </CardContent>\n              </Card>\n\n              <Card>\n                <CardHeader>\n                  <div className=\"w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4\">\n                    <CheckCircle2 className=\"h-6 w-6 text-primary\" />\n                  </div>\n                  <CardTitle>3. \u66F8\u985E\u3092\u751F\u6210\u30FB\u30C0\u30A6\u30F3\u30ED\u30FC\u30C9</CardTitle>\n                </CardHeader>\n                <CardContent>\n                  <p className=\"text-gray-600 dark:text-gray-400\">\n                    \u30D7\u30EC\u30D3\u30E5\u30FC\u3067\u78BA\u8A8D\u5F8C\u3001PDF\u5F62\u5F0F\u3067\u7533\u8ACB\u66F8\u985E\u4E00\u5F0F\u3092\u30C0\u30A6\u30F3\u30ED\u30FC\u30C9\n                  </p>\n                </CardContent>\n              </Card>\n            </div>\n          </section>\n\n          {/* Features Grid */}\n          <section className=\"mb-16\">\n            <h2 className=\"text-2xl font-semibold text-center mb-8\">\n              \u4E3B\u306A\u6A5F\u80FD\n            </h2>\n            <div className=\"grid md:grid-cols-2 lg:grid-cols-4 gap-6\">\n              <Card>\n                <CardHeader>\n                  <Zap className=\"h-8 w-8 text-primary mb-2\" />\n                  <CardTitle className=\"text-lg\">\u9AD8\u901F\u51E6\u7406</CardTitle>\n                </CardHeader>\n                <CardContent>\n                  <p className=\"text-sm text-gray-600 dark:text-gray-400\">\n                    2\u79D2\u4EE5\u5185\u306B\u30D7\u30EC\u30D3\u30E5\u30FC\u751F\u6210\n                    99%\u4EE5\u4E0A\u306E\u6210\u529F\u7387\n                  </p>\n                </CardContent>\n              </Card>\n\n              <Card>\n                <CardHeader>\n                  <Shield className=\"h-8 w-8 text-primary mb-2\" />\n                  <CardTitle className=\"text-lg\">\u30BB\u30AD\u30E5\u30A2</CardTitle>\n                </CardHeader>\n                <CardContent>\n                  <p className=\"text-sm text-gray-600 dark:text-gray-400\">\n                    AES256\u6697\u53F7\u5316\n                    \u30A6\u30A4\u30EB\u30B9\u30B9\u30AD\u30E3\u30F3\u5B9F\u88C5\n                  </p>\n                </CardContent>\n              </Card>\n\n              <Card>\n                <CardHeader>\n                  <FileCheck className=\"h-8 w-8 text-primary mb-2\" />\n                  <CardTitle className=\"text-lg\">\u81EA\u52D5\u691C\u8A3C</CardTitle>\n                </CardHeader>\n                <CardContent>\n                  <p className=\"text-sm text-gray-600 dark:text-gray-400\">\n                    \u7533\u8ACB\u8981\u4EF6\u306E\u81EA\u52D5\u30C1\u30A7\u30C3\u30AF\n                    \u4E0D\u5099\u306E\u4E8B\u524D\u691C\u51FA\n                  </p>\n                </CardContent>\n              </Card>\n\n              <Card>\n                <CardHeader>\n                  <Clock className=\"h-8 w-8 text-primary mb-2\" />\n                  <CardTitle className=\"text-lg\">\u6642\u9593\u524A\u6E1B</CardTitle>\n                </CardHeader>\n                <CardContent>\n                  <p className=\"text-sm text-gray-600 dark:text-gray-400\">\n                    \u624B\u4F5C\u696D\u306E80%\u524A\u6E1B\n                    \u7533\u8ACB\u6E96\u5099\u671F\u9593\u3092\u77ED\u7E2E\n                  </p>\n                </CardContent>\n              </Card>\n            </div>\n          </section>\n\n          {/* Supported Documents */}\n          <section className=\"mb-16\">\n            <Card className=\"bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 border-0\">\n              <CardHeader>\n                <CardTitle className=\"text-2xl text-center\">\u751F\u6210\u53EF\u80FD\u306A\u66F8\u985E</CardTitle>\n                <CardDescription className=\"text-center text-base\">\n                  \u5C0F\u898F\u6A21\u4E8B\u696D\u8005\u6301\u7D9A\u5316\u88DC\u52A9\u91D1\u306E\u7533\u8ACB\u306B\u5FC5\u8981\u306A\u66F8\u985E\u3092\u4E00\u62EC\u751F\u6210\n                </CardDescription>\n              </CardHeader>\n              <CardContent>\n                <div className=\"grid md:grid-cols-2 gap-4\">\n                  <div className=\"space-y-2\">\n                    <div className=\"flex items-center gap-2\">\n                      <CheckCircle2 className=\"h-5 w-5 text-green-600\" />\n                      <span>\u69D8\u5F0F1\uFF1A\u7D4C\u55B6\u8A08\u753B\u66F8</span>\n                    </div>\n                    <div className=\"flex items-center gap-2\">\n                      <CheckCircle2 className=\"h-5 w-5 text-green-600\" />\n                      <span>\u69D8\u5F0F2\uFF1A\u88DC\u52A9\u4E8B\u696D\u8A08\u753B\u66F8</span>\n                    </div>\n                    <div className=\"flex items-center gap-2\">\n                      <CheckCircle2 className=\"h-5 w-5 text-green-600\" />\n                      <span>\u69D8\u5F0F3\uFF1A\u4E8B\u696D\u652F\u63F4\u8A08\u753B\u66F8</span>\n                    </div>\n                    <div className=\"flex items-center gap-2\">\n                      <CheckCircle2 className=\"h-5 w-5 text-green-600\" />\n                      <span>\u69D8\u5F0F4\uFF1A\u4E8B\u696D\u627F\u7D99\u8A3A\u65AD\u7968</span>\n                    </div>\n                  </div>\n                  <div className=\"space-y-2\">\n                    <div className=\"flex items-center gap-2\">\n                      <CheckCircle2 className=\"h-5 w-5 text-green-600\" />\n                      <span>\u4ED8\u9332A\uFF1A\u53CE\u652F\u8A08\u7B97\u66F8</span>\n                    </div>\n                    <div className=\"flex items-center gap-2\">\n                      <CheckCircle2 className=\"h-5 w-5 text-green-600\" />\n                      <span>\u4ED8\u9332B\uFF1A\u8CC7\u91D1\u8ABF\u9054\u8A08\u753B</span>\n                    </div>\n                    <div className=\"flex items-center gap-2\">\n                      <CheckCircle2 className=\"h-5 w-5 text-green-600\" />\n                      <span>\u4ED8\u9332C\uFF1A\u4E8B\u696D\u5B9F\u65BD\u30B9\u30B1\u30B8\u30E5\u30FC\u30EB</span>\n                    </div>\n                    <div className=\"flex items-center gap-2\">\n                      <CheckCircle2 className=\"h-5 w-5 text-green-600\" />\n                      <span>\u96FB\u5B50\u7F72\u540D\u30FB\u62BC\u5370\u5BFE\u5FDC</span>\n                    </div>\n                  </div>\n                </div>\n              </CardContent>\n            </Card>\n          </section>\n\n          {/* Call to Action */}\n          <section className=\"text-center bg-gray-50 dark:bg-gray-800 rounded-lg p-8\">\n            <h2 className=\"text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4\">\n              \u4ECA\u3059\u3050\u7533\u8ACB\u66F8\u985E\u306E\u4F5C\u6210\u3092\u958B\u59CB\n            </h2>\n            <p className=\"text-gray-600 dark:text-gray-300 mb-6\">\n              \u7121\u6599\u3067\u304A\u8A66\u3057\u3044\u305F\u3060\u3051\u307E\u3059\u3002\u30AF\u30EC\u30B8\u30C3\u30C8\u30AB\u30FC\u30C9\u4E0D\u8981\u3002\n            </p>\n            <Button size=\"lg\" onClick={handleStartApplication}>\n              <FileText className=\"mr-2 h-5 w-5\" />\n              \u7533\u8ACB\u66F8\u985E\u3092\u4F5C\u6210\u3059\u308B\n            </Button>\n          </section>\n        </div>\n      </main>\n    </AppLayout>\n  );\n}"],
+      names: ["HomePage", "t", "useTranslations", "router", "useRouter", "handleStartApplication", "push", "AppLayout", "main", "className", "div", "section", "Badge", "variant", "h1", "p", "Button", "size", "onClick", "FileText", "Download", "h2", "Card", "CardHeader", "CardTitle", "CardContent", "Upload", "CheckCircle2", "Zap", "Shield", "FileCheck", "Clock", "CardDescription", "span"],
+      mappings: "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"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "da82777ded6ccbbd2091700c8266203a1a6bf11f"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1zzl2tcfvm = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_1zzl2tcfvm();
+cov_1zzl2tcfvm().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_1zzl2tcfvm().s[1]++;
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    /* istanbul ignore next */
+    cov_1zzl2tcfvm().f[0]++;
+    cov_1zzl2tcfvm().s[2]++;
+    return HomePage;
+  }
+});
+const _jsxruntime =
+/* istanbul ignore next */
+(cov_1zzl2tcfvm().s[3]++, require("react/jsx-runtime"));
+const _nextintl =
+/* istanbul ignore next */
+(cov_1zzl2tcfvm().s[4]++, require("next-intl"));
+const _navigation =
+/* istanbul ignore next */
+(cov_1zzl2tcfvm().s[5]++, require("next/navigation"));
+const _button =
+/* istanbul ignore next */
+(cov_1zzl2tcfvm().s[6]++, require("../../components/ui/button"));
+const _card =
+/* istanbul ignore next */
+(cov_1zzl2tcfvm().s[7]++, require("../../components/ui/card"));
+const _badge =
+/* istanbul ignore next */
+(cov_1zzl2tcfvm().s[8]++, require("../../components/ui/badge"));
+const _AppLayout =
+/* istanbul ignore next */
+(cov_1zzl2tcfvm().s[9]++, require("../../components/layout/AppLayout"));
+const _lucidereact =
+/* istanbul ignore next */
+(cov_1zzl2tcfvm().s[10]++, require("lucide-react"));
+function HomePage() {
+  /* istanbul ignore next */
+  cov_1zzl2tcfvm().f[1]++;
+  const t =
+  /* istanbul ignore next */
+  (cov_1zzl2tcfvm().s[11]++, (0, _nextintl.useTranslations)());
+  const router =
+  /* istanbul ignore next */
+  (cov_1zzl2tcfvm().s[12]++, (0, _navigation.useRouter)());
+  /* istanbul ignore next */
+  cov_1zzl2tcfvm().s[13]++;
+  const handleStartApplication = () => {
+    /* istanbul ignore next */
+    cov_1zzl2tcfvm().f[2]++;
+    cov_1zzl2tcfvm().s[14]++;
+    router.push('/ja/application/new');
+  };
+  /* istanbul ignore next */
+  cov_1zzl2tcfvm().s[15]++;
+  return /*#__PURE__*/(0, _jsxruntime.jsx)(_AppLayout.AppLayout, {
+    children: /*#__PURE__*/(0, _jsxruntime.jsx)("main", {
+      className: "container mx-auto px-4 py-8",
+      children: /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+        className: "max-w-6xl mx-auto",
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("section", {
+          className: "text-center mb-12",
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_badge.Badge, {
+            className: "mb-4",
+            variant: "outline",
+            children: "小規模事業者持続化補助金対応"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("h1", {
+            className: "text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4",
+            children: "補助金申請書類を自動生成"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+            className: "text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto",
+            children: "複雑な申請書類作成を簡単に。必要な情報を入力するだけで、 小規模事業者持続化補助金の申請書類を自動生成します。"
+          }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+            className: "flex gap-4 justify-center",
+            children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_button.Button, {
+              size: "lg",
+              onClick: handleStartApplication,
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.FileText, {
+                className: "mr-2 h-5 w-5"
+              }), "申請書類を作成する"]
+            }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_button.Button, {
+              variant: "outline",
+              size: "lg",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.Download, {
+                className: "mr-2 h-5 w-5"
+              }), "サンプルを見る"]
+            })]
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)("section", {
+          className: "mb-16",
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h2", {
+            className: "text-2xl font-semibold text-center mb-8",
+            children: "簡単3ステップで申請書類を作成"
+          }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+            className: "grid md:grid-cols-3 gap-6",
+            children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+              children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+                  className: "w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4",
+                  children: /*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.FileText, {
+                    className: "h-6 w-6 text-primary"
+                  })
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+                  children: "1. 基本情報を入力"
+                })]
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+                children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-gray-600 dark:text-gray-400",
+                  children: "事業者情報、申請金額、事業計画など必要な情報をウィザード形式で入力"
+                })
+              })]
+            }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+              children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+                  className: "w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4",
+                  children: /*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.Upload, {
+                    className: "h-6 w-6 text-primary"
+                  })
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+                  children: "2. 証拠書類をアップロード"
+                })]
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+                children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-gray-600 dark:text-gray-400",
+                  children: "見積書、事業計画書などの証拠書類をアップロード。OCRで自動読み取り"
+                })
+              })]
+            }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+              children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+                  className: "w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4",
+                  children: /*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.CheckCircle2, {
+                    className: "h-6 w-6 text-primary"
+                  })
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+                  children: "3. 書類を生成・ダウンロード"
+                })]
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+                children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-gray-600 dark:text-gray-400",
+                  children: "プレビューで確認後、PDF形式で申請書類一式をダウンロード"
+                })
+              })]
+            })]
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)("section", {
+          className: "mb-16",
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h2", {
+            className: "text-2xl font-semibold text-center mb-8",
+            children: "主な機能"
+          }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+            className: "grid md:grid-cols-2 lg:grid-cols-4 gap-6",
+            children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+              children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.Zap, {
+                  className: "h-8 w-8 text-primary mb-2"
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+                  className: "text-lg",
+                  children: "高速処理"
+                })]
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+                children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-sm text-gray-600 dark:text-gray-400",
+                  children: "2秒以内にプレビュー生成 99%以上の成功率"
+                })
+              })]
+            }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+              children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.Shield, {
+                  className: "h-8 w-8 text-primary mb-2"
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+                  className: "text-lg",
+                  children: "セキュア"
+                })]
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+                children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-sm text-gray-600 dark:text-gray-400",
+                  children: "AES256暗号化 ウイルススキャン実装"
+                })
+              })]
+            }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+              children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.FileCheck, {
+                  className: "h-8 w-8 text-primary mb-2"
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+                  className: "text-lg",
+                  children: "自動検証"
+                })]
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+                children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-sm text-gray-600 dark:text-gray-400",
+                  children: "申請要件の自動チェック 不備の事前検出"
+                })
+              })]
+            }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+              children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.Clock, {
+                  className: "h-8 w-8 text-primary mb-2"
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+                  className: "text-lg",
+                  children: "時間削減"
+                })]
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+                children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-sm text-gray-600 dark:text-gray-400",
+                  children: "手作業の80%削減 申請準備期間を短縮"
+                })
+              })]
+            })]
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsx)("section", {
+          className: "mb-16",
+          children: /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+            className: "bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 border-0",
+            children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+                className: "text-2xl text-center",
+                children: "生成可能な書類"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardDescription, {
+                className: "text-center text-base",
+                children: "小規模事業者持続化補助金の申請に必要な書類を一括生成"
+              })]
+            }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+              children: /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                className: "grid md:grid-cols-2 gap-4",
+                children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                  className: "space-y-2",
+                  children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                    className: "flex items-center gap-2",
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.CheckCircle2, {
+                      className: "h-5 w-5 text-green-600"
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("span", {
+                      children: "様式1：経営計画書"
+                    })]
+                  }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                    className: "flex items-center gap-2",
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.CheckCircle2, {
+                      className: "h-5 w-5 text-green-600"
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("span", {
+                      children: "様式2：補助事業計画書"
+                    })]
+                  }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                    className: "flex items-center gap-2",
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.CheckCircle2, {
+                      className: "h-5 w-5 text-green-600"
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("span", {
+                      children: "様式3：事業支援計画書"
+                    })]
+                  }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                    className: "flex items-center gap-2",
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.CheckCircle2, {
+                      className: "h-5 w-5 text-green-600"
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("span", {
+                      children: "様式4：事業承継診断票"
+                    })]
+                  })]
+                }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                  className: "space-y-2",
+                  children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                    className: "flex items-center gap-2",
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.CheckCircle2, {
+                      className: "h-5 w-5 text-green-600"
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("span", {
+                      children: "付録A：収支計算書"
+                    })]
+                  }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                    className: "flex items-center gap-2",
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.CheckCircle2, {
+                      className: "h-5 w-5 text-green-600"
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("span", {
+                      children: "付録B：資金調達計画"
+                    })]
+                  }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                    className: "flex items-center gap-2",
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.CheckCircle2, {
+                      className: "h-5 w-5 text-green-600"
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("span", {
+                      children: "付録C：事業実施スケジュール"
+                    })]
+                  }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                    className: "flex items-center gap-2",
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.CheckCircle2, {
+                      className: "h-5 w-5 text-green-600"
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("span", {
+                      children: "電子署名・押印対応"
+                    })]
+                  })]
+                })]
+              })
+            })]
+          })
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)("section", {
+          className: "text-center bg-gray-50 dark:bg-gray-800 rounded-lg p-8",
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h2", {
+            className: "text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4",
+            children: "今すぐ申請書類の作成を開始"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+            className: "text-gray-600 dark:text-gray-300 mb-6",
+            children: "無料でお試しいただけます。クレジットカード不要。"
+          }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_button.Button, {
+            size: "lg",
+            onClick: handleStartApplication,
+            children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.FileText, {
+              className: "mr-2 h-5 w-5"
+            }), "申請書類を作成する"]
+          })]
+        })]
+      })
+    })
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJIb21lUGFnZSIsImNvdl8xenpsMnRjZnZtIiwiZiIsInQiLCJzIiwiX25leHRpbnRsIiwidXNlVHJhbnNsYXRpb25zIiwicm91dGVyIiwiX25hdmlnYXRpb24iLCJ1c2VSb3V0ZXIiLCJoYW5kbGVTdGFydEFwcGxpY2F0aW9uIiwicHVzaCIsIl9qc3hydW50aW1lIiwianN4IiwiX0FwcExheW91dCIsIkFwcExheW91dCIsImNsYXNzTmFtZSIsImpzeHMiLCJfYmFkZ2UiLCJCYWRnZSIsInZhcmlhbnQiLCJfYnV0dG9uIiwiQnV0dG9uIiwic2l6ZSIsIm9uQ2xpY2siLCJfbHVjaWRlcmVhY3QiLCJGaWxlVGV4dCIsIkRvd25sb2FkIiwiX2NhcmQiLCJDYXJkIiwiQ2FyZEhlYWRlciIsIkNhcmRUaXRsZSIsIkNhcmRDb250ZW50IiwiVXBsb2FkIiwiQ2hlY2tDaXJjbGUyIiwiWmFwIiwiU2hpZWxkIiwiRmlsZUNoZWNrIiwiQ2xvY2siLCJDYXJkRGVzY3JpcHRpb24iXSwic291cmNlcyI6WyIvVXNlcnMvbm9yaXRha2FzYXdhZGEvQUlfUC9zdWJzaWR5QXBwL2Zyb250ZW5kL3NyYy9hcHAvW2xvY2FsZV0vcGFnZS50c3giXSwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBjbGllbnQnO1xuXG5pbXBvcnQgeyB1c2VUcmFuc2xhdGlvbnMgfSBmcm9tICduZXh0LWludGwnO1xuaW1wb3J0IHsgdXNlUm91dGVyIH0gZnJvbSAnbmV4dC9uYXZpZ2F0aW9uJztcbmltcG9ydCB7IEJ1dHRvbiB9IGZyb20gJ0AvY29tcG9uZW50cy91aS9idXR0b24nO1xuaW1wb3J0IHsgQ2FyZCwgQ2FyZENvbnRlbnQsIENhcmREZXNjcmlwdGlvbiwgQ2FyZEhlYWRlciwgQ2FyZFRpdGxlIH0gZnJvbSAnQC9jb21wb25lbnRzL3VpL2NhcmQnO1xuaW1wb3J0IHsgQmFkZ2UgfSBmcm9tICdAL2NvbXBvbmVudHMvdWkvYmFkZ2UnO1xuaW1wb3J0IHsgQXBwTGF5b3V0IH0gZnJvbSAnQC9jb21wb25lbnRzL2xheW91dC9BcHBMYXlvdXQnO1xuaW1wb3J0IHsgXG4gIEZpbGVUZXh0LCBcbiAgVXBsb2FkLCBcbiAgQ2hlY2tDaXJjbGUyLCBcbiAgRG93bmxvYWQsXG4gIENsb2NrLFxuICBTaGllbGQsXG4gIFphcCxcbiAgRmlsZUNoZWNrXG59IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIEhvbWVQYWdlKCkge1xuICBjb25zdCB0ID0gdXNlVHJhbnNsYXRpb25zKCk7XG4gIGNvbnN0IHJvdXRlciA9IHVzZVJvdXRlcigpO1xuXG4gIGNvbnN0IGhhbmRsZVN0YXJ0QXBwbGljYXRpb24gPSAoKSA9PiB7XG4gICAgcm91dGVyLnB1c2goJy9qYS9hcHBsaWNhdGlvbi9uZXcnKTtcbiAgfTtcblxuICByZXR1cm4gKFxuICAgIDxBcHBMYXlvdXQ+XG4gICAgICA8bWFpbiBjbGFzc05hbWU9XCJjb250YWluZXIgbXgtYXV0byBweC00IHB5LThcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtYXgtdy02eGwgbXgtYXV0b1wiPlxuICAgICAgICAgIHsvKiBIZXJvIFNlY3Rpb24gKi99XG4gICAgICAgICAgPHNlY3Rpb24gY2xhc3NOYW1lPVwidGV4dC1jZW50ZXIgbWItMTJcIj5cbiAgICAgICAgICAgIDxCYWRnZSBjbGFzc05hbWU9XCJtYi00XCIgdmFyaWFudD1cIm91dGxpbmVcIj5cbiAgICAgICAgICAgICAg5bCP6KaP5qih5LqL5qWt6ICF5oyB57aa5YyW6KOc5Yqp6YeR5a++5b+cXG4gICAgICAgICAgICA8L0JhZGdlPlxuICAgICAgICAgICAgPGgxIGNsYXNzTmFtZT1cInRleHQtNHhsIGZvbnQtYm9sZCB0ZXh0LWdyYXktOTAwIGRhcms6dGV4dC1ncmF5LTEwMCBtYi00XCI+XG4gICAgICAgICAgICAgIOijnOWKqemHkeeUs+iri+abuOmhnuOCkuiHquWLleeUn+aIkFxuICAgICAgICAgICAgPC9oMT5cbiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteGwgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgbWItOCBtYXgtdy0zeGwgbXgtYXV0b1wiPlxuICAgICAgICAgICAgICDopIfpm5HjgarnlLPoq4vmm7jpoZ7kvZzmiJDjgpLnsKHljZjjgavjgILlv4XopoHjgarmg4XloLHjgpLlhaXlipvjgZnjgovjgaDjgZHjgafjgIFcbiAgICAgICAgICAgICAg5bCP6KaP5qih5LqL5qWt6ICF5oyB57aa5YyW6KOc5Yqp6YeR44Gu55Sz6KuL5pu46aGe44KS6Ieq5YuV55Sf5oiQ44GX44G+44GZ44CCXG4gICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggZ2FwLTQganVzdGlmeS1jZW50ZXJcIj5cbiAgICAgICAgICAgICAgPEJ1dHRvbiBzaXplPVwibGdcIiBvbkNsaWNrPXtoYW5kbGVTdGFydEFwcGxpY2F0aW9ufT5cbiAgICAgICAgICAgICAgICA8RmlsZVRleHQgY2xhc3NOYW1lPVwibXItMiBoLTUgdy01XCIgLz5cbiAgICAgICAgICAgICAgICDnlLPoq4vmm7jpoZ7jgpLkvZzmiJDjgZnjgotcbiAgICAgICAgICAgICAgPC9CdXR0b24+XG4gICAgICAgICAgICAgIDxCdXR0b24gdmFyaWFudD1cIm91dGxpbmVcIiBzaXplPVwibGdcIj5cbiAgICAgICAgICAgICAgICA8RG93bmxvYWQgY2xhc3NOYW1lPVwibXItMiBoLTUgdy01XCIgLz5cbiAgICAgICAgICAgICAgICDjgrXjg7Pjg5fjg6vjgpLopovjgotcbiAgICAgICAgICAgICAgPC9CdXR0b24+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L3NlY3Rpb24+XG5cbiAgICAgICAgICB7LyogUHJvY2VzcyBTdGVwcyAqL31cbiAgICAgICAgICA8c2VjdGlvbiBjbGFzc05hbWU9XCJtYi0xNlwiPlxuICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtc2VtaWJvbGQgdGV4dC1jZW50ZXIgbWItOFwiPlxuICAgICAgICAgICAgICDnsKHljZgz44K544OG44OD44OX44Gn55Sz6KuL5pu46aGe44KS5L2c5oiQXG4gICAgICAgICAgICA8L2gyPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIG1kOmdyaWQtY29scy0zIGdhcC02XCI+XG4gICAgICAgICAgICAgIDxDYXJkPlxuICAgICAgICAgICAgICAgIDxDYXJkSGVhZGVyPlxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LTEyIGgtMTIgYmctcHJpbWFyeS8xMCByb3VuZGVkLWZ1bGwgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgbWItNFwiPlxuICAgICAgICAgICAgICAgICAgICA8RmlsZVRleHQgY2xhc3NOYW1lPVwiaC02IHctNiB0ZXh0LXByaW1hcnlcIiAvPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8Q2FyZFRpdGxlPjEuIOWfuuacrOaDheWgseOCkuWFpeWKmzwvQ2FyZFRpdGxlPlxuICAgICAgICAgICAgICAgIDwvQ2FyZEhlYWRlcj5cbiAgICAgICAgICAgICAgICA8Q2FyZENvbnRlbnQ+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNjAwIGRhcms6dGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICDkuovmpa3ogIXmg4XloLHjgIHnlLPoq4vph5HpoY3jgIHkuovmpa3oqIjnlLvjgarjganlv4XopoHjgarmg4XloLHjgpLjgqbjgqPjgrbjg7zjg4nlvaLlvI/jgaflhaXliptcbiAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICA8L0NhcmRDb250ZW50PlxuICAgICAgICAgICAgICA8L0NhcmQ+XG5cbiAgICAgICAgICAgICAgPENhcmQ+XG4gICAgICAgICAgICAgICAgPENhcmRIZWFkZXI+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInctMTIgaC0xMiBiZy1wcmltYXJ5LzEwIHJvdW5kZWQtZnVsbCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBtYi00XCI+XG4gICAgICAgICAgICAgICAgICAgIDxVcGxvYWQgY2xhc3NOYW1lPVwiaC02IHctNiB0ZXh0LXByaW1hcnlcIiAvPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8Q2FyZFRpdGxlPjIuIOiovOaLoOabuOmhnuOCkuOCouODg+ODl+ODreODvOODiTwvQ2FyZFRpdGxlPlxuICAgICAgICAgICAgICAgIDwvQ2FyZEhlYWRlcj5cbiAgICAgICAgICAgICAgICA8Q2FyZENvbnRlbnQ+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNjAwIGRhcms6dGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICDopovnqY3mm7jjgIHkuovmpa3oqIjnlLvmm7jjgarjganjga7oqLzmi6Dmm7jpoZ7jgpLjgqLjg4Pjg5fjg63jg7zjg4njgIJPQ1Ljgafoh6rli5Xoqq3jgb/lj5bjgopcbiAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICA8L0NhcmRDb250ZW50PlxuICAgICAgICAgICAgICA8L0NhcmQ+XG5cbiAgICAgICAgICAgICAgPENhcmQ+XG4gICAgICAgICAgICAgICAgPENhcmRIZWFkZXI+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInctMTIgaC0xMiBiZy1wcmltYXJ5LzEwIHJvdW5kZWQtZnVsbCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciBtYi00XCI+XG4gICAgICAgICAgICAgICAgICAgIDxDaGVja0NpcmNsZTIgY2xhc3NOYW1lPVwiaC02IHctNiB0ZXh0LXByaW1hcnlcIiAvPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8Q2FyZFRpdGxlPjMuIOabuOmhnuOCkueUn+aIkOODu+ODgOOCpuODs+ODreODvOODiTwvQ2FyZFRpdGxlPlxuICAgICAgICAgICAgICAgIDwvQ2FyZEhlYWRlcj5cbiAgICAgICAgICAgICAgICA8Q2FyZENvbnRlbnQ+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWdyYXktNjAwIGRhcms6dGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICDjg5fjg6zjg5Pjg6Xjg7zjgafnorroqo3lvozjgIFQREblvaLlvI/jgafnlLPoq4vmm7jpoZ7kuIDlvI/jgpLjg4Djgqbjg7Pjg63jg7zjg4lcbiAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICA8L0NhcmRDb250ZW50PlxuICAgICAgICAgICAgICA8L0NhcmQ+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L3NlY3Rpb24+XG5cbiAgICAgICAgICB7LyogRmVhdHVyZXMgR3JpZCAqL31cbiAgICAgICAgICA8c2VjdGlvbiBjbGFzc05hbWU9XCJtYi0xNlwiPlxuICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtc2VtaWJvbGQgdGV4dC1jZW50ZXIgbWItOFwiPlxuICAgICAgICAgICAgICDkuLvjgarmqZ/og71cbiAgICAgICAgICAgIDwvaDI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgbWQ6Z3JpZC1jb2xzLTIgbGc6Z3JpZC1jb2xzLTQgZ2FwLTZcIj5cbiAgICAgICAgICAgICAgPENhcmQ+XG4gICAgICAgICAgICAgICAgPENhcmRIZWFkZXI+XG4gICAgICAgICAgICAgICAgICA8WmFwIGNsYXNzTmFtZT1cImgtOCB3LTggdGV4dC1wcmltYXJ5IG1iLTJcIiAvPlxuICAgICAgICAgICAgICAgICAgPENhcmRUaXRsZSBjbGFzc05hbWU9XCJ0ZXh0LWxnXCI+6auY6YCf5Yem55CGPC9DYXJkVGl0bGU+XG4gICAgICAgICAgICAgICAgPC9DYXJkSGVhZGVyPlxuICAgICAgICAgICAgICAgIDxDYXJkQ29udGVudD5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS00MDBcIj5cbiAgICAgICAgICAgICAgICAgICAgMuenkuS7peWGheOBq+ODl+ODrOODk+ODpeODvOeUn+aIkFxuICAgICAgICAgICAgICAgICAgICA5OSXku6XkuIrjga7miJDlip/njodcbiAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICA8L0NhcmRDb250ZW50PlxuICAgICAgICAgICAgICA8L0NhcmQ+XG5cbiAgICAgICAgICAgICAgPENhcmQ+XG4gICAgICAgICAgICAgICAgPENhcmRIZWFkZXI+XG4gICAgICAgICAgICAgICAgICA8U2hpZWxkIGNsYXNzTmFtZT1cImgtOCB3LTggdGV4dC1wcmltYXJ5IG1iLTJcIiAvPlxuICAgICAgICAgICAgICAgICAgPENhcmRUaXRsZSBjbGFzc05hbWU9XCJ0ZXh0LWxnXCI+44K744Kt44Ol44KiPC9DYXJkVGl0bGU+XG4gICAgICAgICAgICAgICAgPC9DYXJkSGVhZGVyPlxuICAgICAgICAgICAgICAgIDxDYXJkQ29udGVudD5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS00MDBcIj5cbiAgICAgICAgICAgICAgICAgICAgQUVTMjU25pqX5Y+35YyWXG4gICAgICAgICAgICAgICAgICAgIOOCpuOCpOODq+OCueOCueOCreODo+ODs+Wun+ijhVxuICAgICAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgICAgIDwvQ2FyZENvbnRlbnQ+XG4gICAgICAgICAgICAgIDwvQ2FyZD5cblxuICAgICAgICAgICAgICA8Q2FyZD5cbiAgICAgICAgICAgICAgICA8Q2FyZEhlYWRlcj5cbiAgICAgICAgICAgICAgICAgIDxGaWxlQ2hlY2sgY2xhc3NOYW1lPVwiaC04IHctOCB0ZXh0LXByaW1hcnkgbWItMlwiIC8+XG4gICAgICAgICAgICAgICAgICA8Q2FyZFRpdGxlIGNsYXNzTmFtZT1cInRleHQtbGdcIj7oh6rli5XmpJzoqLw8L0NhcmRUaXRsZT5cbiAgICAgICAgICAgICAgICA8L0NhcmRIZWFkZXI+XG4gICAgICAgICAgICAgICAgPENhcmRDb250ZW50PlxuICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNjAwIGRhcms6dGV4dC1ncmF5LTQwMFwiPlxuICAgICAgICAgICAgICAgICAgICDnlLPoq4vopoHku7bjga7oh6rli5Xjg4Hjgqfjg4Pjgq9cbiAgICAgICAgICAgICAgICAgICAg5LiN5YKZ44Gu5LqL5YmN5qSc5Ye6XG4gICAgICAgICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICAgICAgPC9DYXJkQ29udGVudD5cbiAgICAgICAgICAgICAgPC9DYXJkPlxuXG4gICAgICAgICAgICAgIDxDYXJkPlxuICAgICAgICAgICAgICAgIDxDYXJkSGVhZGVyPlxuICAgICAgICAgICAgICAgICAgPENsb2NrIGNsYXNzTmFtZT1cImgtOCB3LTggdGV4dC1wcmltYXJ5IG1iLTJcIiAvPlxuICAgICAgICAgICAgICAgICAgPENhcmRUaXRsZSBjbGFzc05hbWU9XCJ0ZXh0LWxnXCI+5pmC6ZaT5YmK5ribPC9DYXJkVGl0bGU+XG4gICAgICAgICAgICAgICAgPC9DYXJkSGVhZGVyPlxuICAgICAgICAgICAgICAgIDxDYXJkQ29udGVudD5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS00MDBcIj5cbiAgICAgICAgICAgICAgICAgICAg5omL5L2c5qWt44GuODAl5YmK5ribXG4gICAgICAgICAgICAgICAgICAgIOeUs+iri+a6luWCmeacn+mWk+OCkuefree4rlxuICAgICAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgICAgIDwvQ2FyZENvbnRlbnQ+XG4gICAgICAgICAgICAgIDwvQ2FyZD5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvc2VjdGlvbj5cblxuICAgICAgICAgIHsvKiBTdXBwb3J0ZWQgRG9jdW1lbnRzICovfVxuICAgICAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cIm1iLTE2XCI+XG4gICAgICAgICAgICA8Q2FyZCBjbGFzc05hbWU9XCJiZy1ncmFkaWVudC10by1yIGZyb20tYmx1ZS01MCB0by1pbmRpZ28tNTAgZGFyazpmcm9tLWJsdWUtOTUwIGRhcms6dG8taW5kaWdvLTk1MCBib3JkZXItMFwiPlxuICAgICAgICAgICAgICA8Q2FyZEhlYWRlcj5cbiAgICAgICAgICAgICAgICA8Q2FyZFRpdGxlIGNsYXNzTmFtZT1cInRleHQtMnhsIHRleHQtY2VudGVyXCI+55Sf5oiQ5Y+v6IO944Gq5pu46aGePC9DYXJkVGl0bGU+XG4gICAgICAgICAgICAgICAgPENhcmREZXNjcmlwdGlvbiBjbGFzc05hbWU9XCJ0ZXh0LWNlbnRlciB0ZXh0LWJhc2VcIj5cbiAgICAgICAgICAgICAgICAgIOWwj+imj+aooeS6i+alreiAheaMgee2muWMluijnOWKqemHkeOBrueUs+iri+OBq+W/heimgeOBquabuOmhnuOCkuS4gOaLrOeUn+aIkFxuICAgICAgICAgICAgICAgIDwvQ2FyZERlc2NyaXB0aW9uPlxuICAgICAgICAgICAgICA8L0NhcmRIZWFkZXI+XG4gICAgICAgICAgICAgIDxDYXJkQ29udGVudD5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgbWQ6Z3JpZC1jb2xzLTIgZ2FwLTRcIj5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0yXCI+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8Q2hlY2tDaXJjbGUyIGNsYXNzTmFtZT1cImgtNSB3LTUgdGV4dC1ncmVlbi02MDBcIiAvPlxuICAgICAgICAgICAgICAgICAgICAgIDxzcGFuPuanmOW8jzHvvJrntYzllrboqIjnlLvmm7g8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPENoZWNrQ2lyY2xlMiBjbGFzc05hbWU9XCJoLTUgdy01IHRleHQtZ3JlZW4tNjAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICA8c3Bhbj7mp5jlvI8y77ya6KOc5Yqp5LqL5qWt6KiI55S75pu4PC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgICAgICAgICAgIDxDaGVja0NpcmNsZTIgY2xhc3NOYW1lPVwiaC01IHctNSB0ZXh0LWdyZWVuLTYwMFwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgPHNwYW4+5qeY5byPM++8muS6i+alreaUr+aPtOioiOeUu+abuDwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8Q2hlY2tDaXJjbGUyIGNsYXNzTmFtZT1cImgtNSB3LTUgdGV4dC1ncmVlbi02MDBcIiAvPlxuICAgICAgICAgICAgICAgICAgICAgIDxzcGFuPuanmOW8jzTvvJrkuovmpa3mib/ntpnoqLrmlq3npag8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktMlwiPlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPENoZWNrQ2lyY2xlMiBjbGFzc05hbWU9XCJoLTUgdy01IHRleHQtZ3JlZW4tNjAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICA8c3Bhbj7ku5jpjLJB77ya5Y+O5pSv6KiI566X5pu4PC9zcGFuPlxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgICAgICAgICAgIDxDaGVja0NpcmNsZTIgY2xhc3NOYW1lPVwiaC01IHctNSB0ZXh0LWdyZWVuLTYwMFwiIC8+XG4gICAgICAgICAgICAgICAgICAgICAgPHNwYW4+5LuY6YyyQu+8muizh+mHkeiqv+mBlOioiOeUuzwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8Q2hlY2tDaXJjbGUyIGNsYXNzTmFtZT1cImgtNSB3LTUgdGV4dC1ncmVlbi02MDBcIiAvPlxuICAgICAgICAgICAgICAgICAgICAgIDxzcGFuPuS7mOmMskPvvJrkuovmpa3lrp/mlr3jgrnjgrHjgrjjg6Xjg7zjg6s8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICAgICAgPENoZWNrQ2lyY2xlMiBjbGFzc05hbWU9XCJoLTUgdy01IHRleHQtZ3JlZW4tNjAwXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICA8c3Bhbj7pm7vlrZDnvbLlkI3jg7vmirzljbDlr77lv5w8L3NwYW4+XG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvQ2FyZENvbnRlbnQ+XG4gICAgICAgICAgICA8L0NhcmQ+XG4gICAgICAgICAgPC9zZWN0aW9uPlxuXG4gICAgICAgICAgey8qIENhbGwgdG8gQWN0aW9uICovfVxuICAgICAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cInRleHQtY2VudGVyIGJnLWdyYXktNTAgZGFyazpiZy1ncmF5LTgwMCByb3VuZGVkLWxnIHAtOFwiPlxuICAgICAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZCB0ZXh0LWdyYXktOTAwIGRhcms6dGV4dC1ncmF5LTEwMCBtYi00XCI+XG4gICAgICAgICAgICAgIOS7iuOBmeOBkOeUs+iri+abuOmhnuOBruS9nOaIkOOCkumWi+Wni1xuICAgICAgICAgICAgPC9oMj5cbiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtZ3JheS02MDAgZGFyazp0ZXh0LWdyYXktMzAwIG1iLTZcIj5cbiAgICAgICAgICAgICAg54Sh5paZ44Gn44GK6Kmm44GX44GE44Gf44Gg44GR44G+44GZ44CC44Kv44Os44K444OD44OI44Kr44O844OJ5LiN6KaB44CCXG4gICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICA8QnV0dG9uIHNpemU9XCJsZ1wiIG9uQ2xpY2s9e2hhbmRsZVN0YXJ0QXBwbGljYXRpb259PlxuICAgICAgICAgICAgICA8RmlsZVRleHQgY2xhc3NOYW1lPVwibXItMiBoLTUgdy01XCIgLz5cbiAgICAgICAgICAgICAg55Sz6KuL5pu46aGe44KS5L2c5oiQ44GZ44KLXG4gICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICA8L3NlY3Rpb24+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9tYWluPlxuICAgIDwvQXBwTGF5b3V0PlxuICApO1xufSJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OytCQW1CQTs7Ozs7O1dBQXdCQSxRQUFBOzs7Ozs7OztrQ0FqQlE7OztrQ0FDTjs7O2tDQUNIOzs7a0NBQ21EOzs7a0NBQ3BEOzs7a0NBQ0k7OzttQ0FVbkI7QUFFUSxTQUFTQSxTQUFBO0VBQUE7RUFBQUMsY0FBQSxHQUFBQyxDQUFBO0VBQ3RCLE1BQU1DLENBQUE7RUFBQTtFQUFBLENBQUFGLGNBQUEsR0FBQUcsQ0FBQSxRQUFJLElBQUFDLFNBQUEsQ0FBQUMsZUFBZTtFQUN6QixNQUFNQyxNQUFBO0VBQUE7RUFBQSxDQUFBTixjQUFBLEdBQUFHLENBQUEsUUFBUyxJQUFBSSxXQUFBLENBQUFDLFNBQVM7RUFBQTtFQUFBUixjQUFBLEdBQUFHLENBQUE7RUFFeEIsTUFBTU0sc0JBQUEsR0FBeUJBLENBQUE7SUFBQTtJQUFBVCxjQUFBLEdBQUFDLENBQUE7SUFBQUQsY0FBQSxHQUFBRyxDQUFBO0lBQzdCRyxNQUFBLENBQU9JLElBQUksQ0FBQztFQUNkO0VBQUE7RUFBQVYsY0FBQSxHQUFBRyxDQUFBO0VBRUEsb0JBQ0UsSUFBQVEsV0FBQSxDQUFBQyxHQUFBLEVBQUNDLFVBQUEsQ0FBQUMsU0FBUztjQUNSLGlCQUFBSCxXQUFBLENBQUFDLEdBQUEsRUFBQztNQUFLRyxTQUFBLEVBQVU7Z0JBQ2QsaUJBQUFKLFdBQUEsQ0FBQUssSUFBQSxFQUFDO1FBQUlELFNBQUEsRUFBVTtnQ0FFYixJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQztVQUFRRCxTQUFBLEVBQVU7a0NBQ2pCLElBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDSyxNQUFBLENBQUFDLEtBQUs7WUFBQ0gsU0FBQSxFQUFVO1lBQU9JLE9BQUEsRUFBUTtzQkFBVTsyQkFHMUMsSUFBQVIsV0FBQSxDQUFBQyxHQUFBLEVBQUM7WUFBR0csU0FBQSxFQUFVO3NCQUEyRDsyQkFHekUsSUFBQUosV0FBQSxDQUFBQyxHQUFBLEVBQUM7WUFBRUcsU0FBQSxFQUFVO3NCQUFrRTsyQkFJL0UsSUFBQUosV0FBQSxDQUFBSyxJQUFBLEVBQUM7WUFBSUQsU0FBQSxFQUFVO29DQUNiLElBQUFKLFdBQUEsQ0FBQUssSUFBQSxFQUFDSSxPQUFBLENBQUFDLE1BQU07Y0FBQ0MsSUFBQSxFQUFLO2NBQUtDLE9BQUEsRUFBU2Qsc0JBQUE7c0NBQ3pCLElBQUFFLFdBQUEsQ0FBQUMsR0FBQSxFQUFDWSxZQUFBLENBQUFDLFFBQVE7Z0JBQUNWLFNBQUEsRUFBVTtrQkFBaUI7NkJBR3ZDLElBQUFKLFdBQUEsQ0FBQUssSUFBQSxFQUFDSSxPQUFBLENBQUFDLE1BQU07Y0FBQ0YsT0FBQSxFQUFRO2NBQVVHLElBQUEsRUFBSztzQ0FDN0IsSUFBQVgsV0FBQSxDQUFBQyxHQUFBLEVBQUNZLFlBQUEsQ0FBQUUsUUFBUTtnQkFBQ1gsU0FBQSxFQUFVO2tCQUFpQjs7O3lCQU8zQyxJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQztVQUFRRCxTQUFBLEVBQVU7a0NBQ2pCLElBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO1lBQUdHLFNBQUEsRUFBVTtzQkFBMEM7MkJBR3hELElBQUFKLFdBQUEsQ0FBQUssSUFBQSxFQUFDO1lBQUlELFNBQUEsRUFBVTtvQ0FDYixJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQ1csS0FBQSxDQUFBQyxJQUFJO3NDQUNILElBQUFqQixXQUFBLENBQUFLLElBQUEsRUFBQ1csS0FBQSxDQUFBRSxVQUFVO3dDQUNULElBQUFsQixXQUFBLENBQUFDLEdBQUEsRUFBQztrQkFBSUcsU0FBQSxFQUFVOzRCQUNiLGlCQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ1ksWUFBQSxDQUFBQyxRQUFRO29CQUFDVixTQUFBLEVBQVU7O2lDQUV0QixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ2UsS0FBQSxDQUFBRyxTQUFTOzRCQUFDOzsrQkFFYixJQUFBbkIsV0FBQSxDQUFBQyxHQUFBLEVBQUNlLEtBQUEsQ0FBQUksV0FBVzswQkFDVixpQkFBQXBCLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2tCQUFFRyxTQUFBLEVBQVU7NEJBQW1DOzs7NkJBTXBELElBQUFKLFdBQUEsQ0FBQUssSUFBQSxFQUFDVyxLQUFBLENBQUFDLElBQUk7c0NBQ0gsSUFBQWpCLFdBQUEsQ0FBQUssSUFBQSxFQUFDVyxLQUFBLENBQUFFLFVBQVU7d0NBQ1QsSUFBQWxCLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2tCQUFJRyxTQUFBLEVBQVU7NEJBQ2IsaUJBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDWSxZQUFBLENBQUFRLE1BQU07b0JBQUNqQixTQUFBLEVBQVU7O2lDQUVwQixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ2UsS0FBQSxDQUFBRyxTQUFTOzRCQUFDOzsrQkFFYixJQUFBbkIsV0FBQSxDQUFBQyxHQUFBLEVBQUNlLEtBQUEsQ0FBQUksV0FBVzswQkFDVixpQkFBQXBCLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2tCQUFFRyxTQUFBLEVBQVU7NEJBQW1DOzs7NkJBTXBELElBQUFKLFdBQUEsQ0FBQUssSUFBQSxFQUFDVyxLQUFBLENBQUFDLElBQUk7c0NBQ0gsSUFBQWpCLFdBQUEsQ0FBQUssSUFBQSxFQUFDVyxLQUFBLENBQUFFLFVBQVU7d0NBQ1QsSUFBQWxCLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2tCQUFJRyxTQUFBLEVBQVU7NEJBQ2IsaUJBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDWSxZQUFBLENBQUFTLFlBQVk7b0JBQUNsQixTQUFBLEVBQVU7O2lDQUUxQixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ2UsS0FBQSxDQUFBRyxTQUFTOzRCQUFDOzsrQkFFYixJQUFBbkIsV0FBQSxDQUFBQyxHQUFBLEVBQUNlLEtBQUEsQ0FBQUksV0FBVzswQkFDVixpQkFBQXBCLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2tCQUFFRyxTQUFBLEVBQVU7NEJBQW1DOzs7Ozt5QkFTeEQsSUFBQUosV0FBQSxDQUFBSyxJQUFBLEVBQUM7VUFBUUQsU0FBQSxFQUFVO2tDQUNqQixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztZQUFHRyxTQUFBLEVBQVU7c0JBQTBDOzJCQUd4RCxJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQztZQUFJRCxTQUFBLEVBQVU7b0NBQ2IsSUFBQUosV0FBQSxDQUFBSyxJQUFBLEVBQUNXLEtBQUEsQ0FBQUMsSUFBSTtzQ0FDSCxJQUFBakIsV0FBQSxDQUFBSyxJQUFBLEVBQUNXLEtBQUEsQ0FBQUUsVUFBVTt3Q0FDVCxJQUFBbEIsV0FBQSxDQUFBQyxHQUFBLEVBQUNZLFlBQUEsQ0FBQVUsR0FBRztrQkFBQ25CLFNBQUEsRUFBVTtpQ0FDZixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ2UsS0FBQSxDQUFBRyxTQUFTO2tCQUFDZixTQUFBLEVBQVU7NEJBQVU7OytCQUVqQyxJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ2UsS0FBQSxDQUFBSSxXQUFXOzBCQUNWLGlCQUFBcEIsV0FBQSxDQUFBQyxHQUFBLEVBQUM7a0JBQUVHLFNBQUEsRUFBVTs0QkFBMkM7Ozs2QkFPNUQsSUFBQUosV0FBQSxDQUFBSyxJQUFBLEVBQUNXLEtBQUEsQ0FBQUMsSUFBSTtzQ0FDSCxJQUFBakIsV0FBQSxDQUFBSyxJQUFBLEVBQUNXLEtBQUEsQ0FBQUUsVUFBVTt3Q0FDVCxJQUFBbEIsV0FBQSxDQUFBQyxHQUFBLEVBQUNZLFlBQUEsQ0FBQVcsTUFBTTtrQkFBQ3BCLFNBQUEsRUFBVTtpQ0FDbEIsSUFBQUosV0FBQSxDQUFBQyxHQUFBLEVBQUNlLEtBQUEsQ0FBQUcsU0FBUztrQkFBQ2YsU0FBQSxFQUFVOzRCQUFVOzsrQkFFakMsSUFBQUosV0FBQSxDQUFBQyxHQUFBLEVBQUNlLEtBQUEsQ0FBQUksV0FBVzswQkFDVixpQkFBQXBCLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2tCQUFFRyxTQUFBLEVBQVU7NEJBQTJDOzs7NkJBTzVELElBQUFKLFdBQUEsQ0FBQUssSUFBQSxFQUFDVyxLQUFBLENBQUFDLElBQUk7c0NBQ0gsSUFBQWpCLFdBQUEsQ0FBQUssSUFBQSxFQUFDVyxLQUFBLENBQUFFLFVBQVU7d0NBQ1QsSUFBQWxCLFdBQUEsQ0FBQUMsR0FBQSxFQUFDWSxZQUFBLENBQUFZLFNBQVM7a0JBQUNyQixTQUFBLEVBQVU7aUNBQ3JCLElBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDZSxLQUFBLENBQUFHLFNBQVM7a0JBQUNmLFNBQUEsRUFBVTs0QkFBVTs7K0JBRWpDLElBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDZSxLQUFBLENBQUFJLFdBQVc7MEJBQ1YsaUJBQUFwQixXQUFBLENBQUFDLEdBQUEsRUFBQztrQkFBRUcsU0FBQSxFQUFVOzRCQUEyQzs7OzZCQU81RCxJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQ1csS0FBQSxDQUFBQyxJQUFJO3NDQUNILElBQUFqQixXQUFBLENBQUFLLElBQUEsRUFBQ1csS0FBQSxDQUFBRSxVQUFVO3dDQUNULElBQUFsQixXQUFBLENBQUFDLEdBQUEsRUFBQ1ksWUFBQSxDQUFBYSxLQUFLO2tCQUFDdEIsU0FBQSxFQUFVO2lDQUNqQixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ2UsS0FBQSxDQUFBRyxTQUFTO2tCQUFDZixTQUFBLEVBQVU7NEJBQVU7OytCQUVqQyxJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ2UsS0FBQSxDQUFBSSxXQUFXOzBCQUNWLGlCQUFBcEIsV0FBQSxDQUFBQyxHQUFBLEVBQUM7a0JBQUVHLFNBQUEsRUFBVTs0QkFBMkM7Ozs7O3lCQVVoRSxJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztVQUFRRyxTQUFBLEVBQVU7b0JBQ2pCLGlCQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQ1csS0FBQSxDQUFBQyxJQUFJO1lBQUNiLFNBQUEsRUFBVTtvQ0FDZCxJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQ1csS0FBQSxDQUFBRSxVQUFVO3NDQUNULElBQUFsQixXQUFBLENBQUFDLEdBQUEsRUFBQ2UsS0FBQSxDQUFBRyxTQUFTO2dCQUFDZixTQUFBLEVBQVU7MEJBQXVCOytCQUM1QyxJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ2UsS0FBQSxDQUFBVyxlQUFlO2dCQUFDdkIsU0FBQSxFQUFVOzBCQUF3Qjs7NkJBSXJELElBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDZSxLQUFBLENBQUFJLFdBQVc7d0JBQ1YsaUJBQUFwQixXQUFBLENBQUFLLElBQUEsRUFBQztnQkFBSUQsU0FBQSxFQUFVO3dDQUNiLElBQUFKLFdBQUEsQ0FBQUssSUFBQSxFQUFDO2tCQUFJRCxTQUFBLEVBQVU7MENBQ2IsSUFBQUosV0FBQSxDQUFBSyxJQUFBLEVBQUM7b0JBQUlELFNBQUEsRUFBVTs0Q0FDYixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ1ksWUFBQSxDQUFBUyxZQUFZO3NCQUFDbEIsU0FBQSxFQUFVO3FDQUN4QixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztnQ0FBSzs7bUNBRVIsSUFBQUQsV0FBQSxDQUFBSyxJQUFBLEVBQUM7b0JBQUlELFNBQUEsRUFBVTs0Q0FDYixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ1ksWUFBQSxDQUFBUyxZQUFZO3NCQUFDbEIsU0FBQSxFQUFVO3FDQUN4QixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztnQ0FBSzs7bUNBRVIsSUFBQUQsV0FBQSxDQUFBSyxJQUFBLEVBQUM7b0JBQUlELFNBQUEsRUFBVTs0Q0FDYixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ1ksWUFBQSxDQUFBUyxZQUFZO3NCQUFDbEIsU0FBQSxFQUFVO3FDQUN4QixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztnQ0FBSzs7bUNBRVIsSUFBQUQsV0FBQSxDQUFBSyxJQUFBLEVBQUM7b0JBQUlELFNBQUEsRUFBVTs0Q0FDYixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ1ksWUFBQSxDQUFBUyxZQUFZO3NCQUFDbEIsU0FBQSxFQUFVO3FDQUN4QixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztnQ0FBSzs7O2lDQUdWLElBQUFELFdBQUEsQ0FBQUssSUFBQSxFQUFDO2tCQUFJRCxTQUFBLEVBQVU7MENBQ2IsSUFBQUosV0FBQSxDQUFBSyxJQUFBLEVBQUM7b0JBQUlELFNBQUEsRUFBVTs0Q0FDYixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ1ksWUFBQSxDQUFBUyxZQUFZO3NCQUFDbEIsU0FBQSxFQUFVO3FDQUN4QixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztnQ0FBSzs7bUNBRVIsSUFBQUQsV0FBQSxDQUFBSyxJQUFBLEVBQUM7b0JBQUlELFNBQUEsRUFBVTs0Q0FDYixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ1ksWUFBQSxDQUFBUyxZQUFZO3NCQUFDbEIsU0FBQSxFQUFVO3FDQUN4QixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztnQ0FBSzs7bUNBRVIsSUFBQUQsV0FBQSxDQUFBSyxJQUFBLEVBQUM7b0JBQUlELFNBQUEsRUFBVTs0Q0FDYixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ1ksWUFBQSxDQUFBUyxZQUFZO3NCQUFDbEIsU0FBQSxFQUFVO3FDQUN4QixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztnQ0FBSzs7bUNBRVIsSUFBQUQsV0FBQSxDQUFBSyxJQUFBLEVBQUM7b0JBQUlELFNBQUEsRUFBVTs0Q0FDYixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQ1ksWUFBQSxDQUFBUyxZQUFZO3NCQUFDbEIsU0FBQSxFQUFVO3FDQUN4QixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztnQ0FBSzs7Ozs7Ozt5QkFTbEIsSUFBQUQsV0FBQSxDQUFBSyxJQUFBLEVBQUM7VUFBUUQsU0FBQSxFQUFVO2tDQUNqQixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztZQUFHRyxTQUFBLEVBQVU7c0JBQTJEOzJCQUd6RSxJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztZQUFFRyxTQUFBLEVBQVU7c0JBQXdDOzJCQUdyRCxJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQ0ksT0FBQSxDQUFBQyxNQUFNO1lBQUNDLElBQUEsRUFBSztZQUFLQyxPQUFBLEVBQVNkLHNCQUFBO29DQUN6QixJQUFBRSxXQUFBLENBQUFDLEdBQUEsRUFBQ1ksWUFBQSxDQUFBQyxRQUFRO2NBQUNWLFNBQUEsRUFBVTtnQkFBaUI7Ozs7OztBQVFuRCIsImlnbm9yZUxpc3QiOltdfQ==

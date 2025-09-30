@@ -1,0 +1,375 @@
+a92d3103ab5575f79b8baa253cf6e81e
+// Phase 2: Extended Application Types
+// Purpose & Background Types
+"use strict";
+
+/* istanbul ignore next */
+function cov_13opn4jzjh() {
+  var path = "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/types/application-extended.ts";
+  var hash = "588ff12d04be10690d9c2cd3fca80d911bbe1d91";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/types/application-extended.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 4,
+          column: 0
+        },
+        end: {
+          line: 6,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 8,
+          column: 4
+        },
+        end: {
+          line: 11,
+          column: 7
+        }
+      },
+      "2": {
+        start: {
+          line: 8,
+          column: 24
+        },
+        end: {
+          line: 11,
+          column: 7
+        }
+      },
+      "3": {
+        start: {
+          line: 13,
+          column: 0
+        },
+        end: {
+          line: 23,
+          column: 3
+        }
+      },
+      "4": {
+        start: {
+          line: 15,
+          column: 8
+        },
+        end: {
+          line: 15,
+          column: 30
+        }
+      },
+      "5": {
+        start: {
+          line: 18,
+          column: 8
+        },
+        end: {
+          line: 18,
+          column: 30
+        }
+      },
+      "6": {
+        start: {
+          line: 21,
+          column: 8
+        },
+        end: {
+          line: 21,
+          column: 31
+        }
+      },
+      "7": {
+        start: {
+          line: 24,
+          column: 23
+        },
+        end: {
+          line: 57,
+          column: 1
+        }
+      },
+      "8": {
+        start: {
+          line: 58,
+          column: 24
+        },
+        end: {
+          line: 87,
+          column: 1
+        }
+      },
+      "9": {
+        start: {
+          line: 88,
+          column: 23
+        },
+        end: {
+          line: 121,
+          column: 1
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "_export",
+        decl: {
+          start: {
+            line: 7,
+            column: 9
+          },
+          end: {
+            line: 7,
+            column: 16
+          }
+        },
+        loc: {
+          start: {
+            line: 7,
+            column: 30
+          },
+          end: {
+            line: 12,
+            column: 1
+          }
+        },
+        line: 7
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 14,
+            column: 4
+          },
+          end: {
+            line: 14,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 14,
+            column: 26
+          },
+          end: {
+            line: 16,
+            column: 5
+          }
+        },
+        line: 14
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 17,
+            column: 4
+          },
+          end: {
+            line: 17,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 17,
+            column: 26
+          },
+          end: {
+            line: 19,
+            column: 5
+          }
+        },
+        line: 17
+      },
+      "3": {
+        name: "(anonymous_3)",
+        decl: {
+          start: {
+            line: 20,
+            column: 4
+          },
+          end: {
+            line: 20,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 20,
+            column: 27
+          },
+          end: {
+            line: 22,
+            column: 5
+          }
+        },
+        line: 20
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    b: {},
+    inputSourceMap: {
+      version: 3,
+      sources: ["/Users/noritakasawada/AI_P/subsidyApp/frontend/src/types/application-extended.ts"],
+      sourcesContent: ["// Phase 2: Extended Application Types\n\n// Purpose & Background Types\nexport interface CurrentIssue {\n  category: string;\n  description: string;\n  impact: string;\n}\n\nexport interface LogicTreeNode {\n  id: string;\n  type: 'issue' | 'cause' | 'solution';\n  content: string;\n  children?: LogicTreeNode[];\n}\n\nexport interface PurposeBackground {\n  currentIssues: CurrentIssue[];\n  painPoints: string;\n  rootCause?: string;\n  solution: string;\n  approach: string;\n  uniqueValue?: string;\n  logicTree?: LogicTreeNode;\n}\n\n// Detailed Plan Types\nexport type Priority = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';\n\nexport interface DetailedPlan {\n  id?: string;\n  what: string;\n  why: string;\n  who: string;\n  where: string;\n  when: string;\n  how: string;\n  priority: Priority;\n  category: string;\n  expectedResult: string;\n  prerequisite?: string;\n  relatedTaskIds?: string[];\n  orderIndex: number;\n}\n\n// KPI Target Types\nexport type KpiCategory = \n  | 'SALES'\n  | 'CUSTOMERS'\n  | 'UNIT_PRICE'\n  | 'CONVERSION'\n  | 'RETENTION'\n  | 'EFFICIENCY'\n  | 'QUALITY'\n  | 'CUSTOM';\n\nexport type ChartType = 'LINE' | 'BAR' | 'AREA' | 'PIE' | 'GAUGE';\n\nexport interface KpiTarget {\n  id?: string;\n  category: KpiCategory;\n  metric: string;\n  unit: string;\n  currentValue: number;\n  year1Target: number;\n  year2Target?: number;\n  year3Target?: number;\n  formula?: string;\n  assumptions?: Record<string, any>;\n  chartType: ChartType;\n  displayOrder: number;\n}\n\n// Gantt Chart Types\nexport type TaskType = 'PHASE' | 'TASK' | 'SUBTASK' | 'MILESTONE';\nexport type DependencyType = 'FS' | 'SS' | 'FF' | 'SF'; // Finish-Start, Start-Start, etc.\n\nexport interface TaskDependency {\n  taskId: string;\n  type: DependencyType;\n}\n\nexport interface GanttTask {\n  id?: string;\n  taskName: string;\n  description?: string;\n  taskType: TaskType;\n  startDate: Date | string;\n  endDate: Date | string;\n  duration: number;\n  progress: number;\n  dependencies?: TaskDependency[];\n  parentTaskId?: string;\n  assignee: string;\n  assigneeRole?: string;\n  resources?: Record<string, any>;\n  color?: string;\n  milestone: boolean;\n  critical: boolean;\n  orderIndex: number;\n}\n\n// Organization Structure Types\nexport type OrgChartType = 'HIERARCHY' | 'MATRIX' | 'FLAT' | 'NETWORK';\n\nexport interface RaciEntry {\n  task: string;\n  responsible: string[];\n  accountable: string;\n  consulted: string[];\n  informed: string[];\n}\n\nexport interface ExternalPartner {\n  name: string;\n  role: string;\n  expertise: string;\n}\n\nexport interface OrganizationStructure {\n  chartData: any; // D3.js/mermaid hierarchy data\n  chartType: OrgChartType;\n  raciMatrix?: RaciEntry[];\n  externalPartners?: ExternalPartner[];\n  advisors?: Array<{\n    name: string;\n    title: string;\n    expertise: string;\n  }>;\n}\n\nexport interface OrganizationRole {\n  id?: string;\n  name: string;\n  title: string;\n  department?: string;\n  level: number;\n  reportsTo?: string;\n  responsibilities: string[];\n  authorities?: string[];\n  kpis?: string[];\n  allocation: number; // percentage\n  startDate?: Date | string;\n  endDate?: Date | string;\n}\n\n// Risk Assessment Types\nexport type RiskCategory = \n  | 'TECHNICAL'\n  | 'MARKET'\n  | 'FINANCIAL'\n  | 'OPERATIONAL'\n  | 'LEGAL'\n  | 'REPUTATIONAL'\n  | 'STRATEGIC';\n\nexport type RiskAssessmentStatus = \n  | 'OPEN'\n  | 'MITIGATING'\n  | 'MONITORING'\n  | 'CLOSED'\n  | 'ESCALATED';\n\nexport interface RiskAssessment {\n  id?: string;\n  category: RiskCategory;\n  title: string;\n  description: string;\n  probability: number; // 1-5\n  impact: number; // 1-5\n  riskScore: number; // probability * impact\n  preventiveMeasures: string[];\n  contingencyPlan?: string;\n  triggerPoints?: string[];\n  owner: string;\n  reviewer?: string;\n  status: RiskAssessmentStatus;\n  reviewDate?: Date | string;\n  affectedAreas?: string[];\n  dependencies?: string[];\n}\n\n// Supplementary Material Types\nexport type MaterialType = \n  | 'MARKET_ANALYSIS'\n  | 'COMPETITIVE_ANALYSIS'\n  | 'BEFORE_AFTER'\n  | 'CASE_STUDY'\n  | 'EXTERNAL_VALIDATION'\n  | 'FINANCIAL_PROJECTION'\n  | 'TECHNICAL_SPEC'\n  | 'CUSTOM';\n\nexport interface CompetitiveData {\n  company: string;\n  strengths: string[];\n  weaknesses: string[];\n  share: number;\n}\n\nexport interface BeforeAfterState {\n  metrics: Record<string, number>;\n  description: string;\n  visualData?: any;\n}\n\nexport interface SupplementaryMaterial {\n  id?: string;\n  materialType: MaterialType;\n  title: string;\n  description?: string;\n  content: any; // Structured data\n  visualData?: any; // Chart/graph data\n  marketSize?: number;\n  growthRate?: number;\n  targetSegment?: string;\n  competitiveData?: CompetitiveData[];\n  positioning?: string;\n  beforeState?: BeforeAfterState;\n  afterState?: BeforeAfterState;\n  improvements?: Record<string, number>;\n  source?: string;\n  validUntil?: Date | string;\n  confidence?: number; // 0-1\n  orderIndex: number;\n}\n\n// Extended Application Data\nexport interface ExtendedApplicationData {\n  purposeBackground: PurposeBackground;\n  detailedPlans: DetailedPlan[];\n  kpiTargets: KpiTarget[];\n  ganttTasks: GanttTask[];\n  organizationStructure: OrganizationStructure;\n  organizationRoles: OrganizationRole[];\n  riskAssessments: RiskAssessment[];\n  supplementaryMaterials: SupplementaryMaterial[];\n}\n\n// Form validation schemas can be added here using zod\nexport const KPI_CATEGORIES = [\n  { value: 'SALES', label: '\u58F2\u4E0A' },\n  { value: 'CUSTOMERS', label: '\u5BA2\u6570' },\n  { value: 'UNIT_PRICE', label: '\u5358\u4FA1' },\n  { value: 'CONVERSION', label: 'CV\u7387' },\n  { value: 'RETENTION', label: '\u30EA\u30C6\u30F3\u30B7\u30E7\u30F3' },\n  { value: 'EFFICIENCY', label: '\u52B9\u7387\u6027' },\n  { value: 'QUALITY', label: '\u54C1\u8CEA' },\n  { value: 'CUSTOM', label: '\u30AB\u30B9\u30BF\u30E0' },\n] as const;\n\nexport const RISK_CATEGORIES = [\n  { value: 'TECHNICAL', label: '\u6280\u8853\u30EA\u30B9\u30AF' },\n  { value: 'MARKET', label: '\u5E02\u5834\u30EA\u30B9\u30AF' },\n  { value: 'FINANCIAL', label: '\u8CA1\u52D9\u30EA\u30B9\u30AF' },\n  { value: 'OPERATIONAL', label: '\u904B\u7528\u30EA\u30B9\u30AF' },\n  { value: 'LEGAL', label: '\u6CD5\u7684\u30EA\u30B9\u30AF' },\n  { value: 'REPUTATIONAL', label: '\u8A55\u5224\u30EA\u30B9\u30AF' },\n  { value: 'STRATEGIC', label: '\u6226\u7565\u30EA\u30B9\u30AF' },\n] as const;\n\nexport const MATERIAL_TYPES = [\n  { value: 'MARKET_ANALYSIS', label: '\u5E02\u5834\u5206\u6790' },\n  { value: 'COMPETITIVE_ANALYSIS', label: '\u7AF6\u5408\u5206\u6790' },\n  { value: 'BEFORE_AFTER', label: 'Before/After' },\n  { value: 'CASE_STUDY', label: '\u4E8B\u4F8B' },\n  { value: 'EXTERNAL_VALIDATION', label: '\u5916\u90E8\u691C\u8A3C' },\n  { value: 'FINANCIAL_PROJECTION', label: '\u8CA1\u52D9\u4E88\u6E2C' },\n  { value: 'TECHNICAL_SPEC', label: '\u6280\u8853\u4ED5\u69D8' },\n  { value: 'CUSTOM', label: '\u30AB\u30B9\u30BF\u30E0' },\n] as const;"],
+      names: ["KPI_CATEGORIES", "MATERIAL_TYPES", "RISK_CATEGORIES", "value", "label"],
+      mappings: "AAAA,sCAAsC;AAEtC,6BAA6B;;;;;;;;;;;;QA8OhBA;eAAAA;;QAqBAC;eAAAA;;QAVAC;eAAAA;;;AAXN,MAAMF,iBAAiB;IAC5B;QAAEG,OAAO;QAASC,OAAO;IAAK;IAC9B;QAAED,OAAO;QAAaC,OAAO;IAAK;IAClC;QAAED,OAAO;QAAcC,OAAO;IAAK;IACnC;QAAED,OAAO;QAAcC,OAAO;IAAM;IACpC;QAAED,OAAO;QAAaC,OAAO;IAAS;IACtC;QAAED,OAAO;QAAcC,OAAO;IAAM;IACpC;QAAED,OAAO;QAAWC,OAAO;IAAK;IAChC;QAAED,OAAO;QAAUC,OAAO;IAAO;CAClC;AAEM,MAAMF,kBAAkB;IAC7B;QAAEC,OAAO;QAAaC,OAAO;IAAQ;IACrC;QAAED,OAAO;QAAUC,OAAO;IAAQ;IAClC;QAAED,OAAO;QAAaC,OAAO;IAAQ;IACrC;QAAED,OAAO;QAAeC,OAAO;IAAQ;IACvC;QAAED,OAAO;QAASC,OAAO;IAAQ;IACjC;QAAED,OAAO;QAAgBC,OAAO;IAAQ;IACxC;QAAED,OAAO;QAAaC,OAAO;IAAQ;CACtC;AAEM,MAAMH,iBAAiB;IAC5B;QAAEE,OAAO;QAAmBC,OAAO;IAAO;IAC1C;QAAED,OAAO;QAAwBC,OAAO;IAAO;IAC/C;QAAED,OAAO;QAAgBC,OAAO;IAAe;IAC/C;QAAED,OAAO;QAAcC,OAAO;IAAK;IACnC;QAAED,OAAO;QAAuBC,OAAO;IAAO;IAC9C;QAAED,OAAO;QAAwBC,OAAO;IAAO;IAC/C;QAAED,OAAO;QAAkBC,OAAO;IAAO;IACzC;QAAED,OAAO;QAAUC,OAAO;IAAO;CAClC"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "588ff12d04be10690d9c2cd3fca80d911bbe1d91"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_13opn4jzjh = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_13opn4jzjh();
+cov_13opn4jzjh().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function _export(target, all) {
+  /* istanbul ignore next */
+  cov_13opn4jzjh().f[0]++;
+  cov_13opn4jzjh().s[1]++;
+  for (var name in all) {
+    /* istanbul ignore next */
+    cov_13opn4jzjh().s[2]++;
+    Object.defineProperty(target, name, {
+      enumerable: true,
+      get: Object.getOwnPropertyDescriptor(all, name).get
+    });
+  }
+}
+/* istanbul ignore next */
+cov_13opn4jzjh().s[3]++;
+_export(exports, {
+  get KPI_CATEGORIES() {
+    /* istanbul ignore next */
+    cov_13opn4jzjh().f[1]++;
+    cov_13opn4jzjh().s[4]++;
+    return KPI_CATEGORIES;
+  },
+  get MATERIAL_TYPES() {
+    /* istanbul ignore next */
+    cov_13opn4jzjh().f[2]++;
+    cov_13opn4jzjh().s[5]++;
+    return MATERIAL_TYPES;
+  },
+  get RISK_CATEGORIES() {
+    /* istanbul ignore next */
+    cov_13opn4jzjh().f[3]++;
+    cov_13opn4jzjh().s[6]++;
+    return RISK_CATEGORIES;
+  }
+});
+const KPI_CATEGORIES =
+/* istanbul ignore next */
+(cov_13opn4jzjh().s[7]++, [{
+  value: 'SALES',
+  label: '売上'
+}, {
+  value: 'CUSTOMERS',
+  label: '客数'
+}, {
+  value: 'UNIT_PRICE',
+  label: '単価'
+}, {
+  value: 'CONVERSION',
+  label: 'CV率'
+}, {
+  value: 'RETENTION',
+  label: 'リテンション'
+}, {
+  value: 'EFFICIENCY',
+  label: '効率性'
+}, {
+  value: 'QUALITY',
+  label: '品質'
+}, {
+  value: 'CUSTOM',
+  label: 'カスタム'
+}]);
+const RISK_CATEGORIES =
+/* istanbul ignore next */
+(cov_13opn4jzjh().s[8]++, [{
+  value: 'TECHNICAL',
+  label: '技術リスク'
+}, {
+  value: 'MARKET',
+  label: '市場リスク'
+}, {
+  value: 'FINANCIAL',
+  label: '財務リスク'
+}, {
+  value: 'OPERATIONAL',
+  label: '運用リスク'
+}, {
+  value: 'LEGAL',
+  label: '法的リスク'
+}, {
+  value: 'REPUTATIONAL',
+  label: '評判リスク'
+}, {
+  value: 'STRATEGIC',
+  label: '戦略リスク'
+}]);
+const MATERIAL_TYPES =
+/* istanbul ignore next */
+(cov_13opn4jzjh().s[9]++, [{
+  value: 'MARKET_ANALYSIS',
+  label: '市場分析'
+}, {
+  value: 'COMPETITIVE_ANALYSIS',
+  label: '競合分析'
+}, {
+  value: 'BEFORE_AFTER',
+  label: 'Before/After'
+}, {
+  value: 'CASE_STUDY',
+  label: '事例'
+}, {
+  value: 'EXTERNAL_VALIDATION',
+  label: '外部検証'
+}, {
+  value: 'FINANCIAL_PROJECTION',
+  label: '財務予測'
+}, {
+  value: 'TECHNICAL_SPEC',
+  label: '技術仕様'
+}, {
+  value: 'CUSTOM',
+  label: 'カスタム'
+}]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJLUElfQ0FURUdPUklFUyIsImNvdl8xM29wbjRqempoIiwiZiIsInMiLCJNQVRFUklBTF9UWVBFUyIsIlJJU0tfQ0FURUdPUklFUyIsInZhbHVlIiwibGFiZWwiXSwic291cmNlcyI6WyIvVXNlcnMvbm9yaXRha2FzYXdhZGEvQUlfUC9zdWJzaWR5QXBwL2Zyb250ZW5kL3NyYy90eXBlcy9hcHBsaWNhdGlvbi1leHRlbmRlZC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBQaGFzZSAyOiBFeHRlbmRlZCBBcHBsaWNhdGlvbiBUeXBlc1xuXG4vLyBQdXJwb3NlICYgQmFja2dyb3VuZCBUeXBlc1xuZXhwb3J0IGludGVyZmFjZSBDdXJyZW50SXNzdWUge1xuICBjYXRlZ29yeTogc3RyaW5nO1xuICBkZXNjcmlwdGlvbjogc3RyaW5nO1xuICBpbXBhY3Q6IHN0cmluZztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBMb2dpY1RyZWVOb2RlIHtcbiAgaWQ6IHN0cmluZztcbiAgdHlwZTogJ2lzc3VlJyB8ICdjYXVzZScgfCAnc29sdXRpb24nO1xuICBjb250ZW50OiBzdHJpbmc7XG4gIGNoaWxkcmVuPzogTG9naWNUcmVlTm9kZVtdO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFB1cnBvc2VCYWNrZ3JvdW5kIHtcbiAgY3VycmVudElzc3VlczogQ3VycmVudElzc3VlW107XG4gIHBhaW5Qb2ludHM6IHN0cmluZztcbiAgcm9vdENhdXNlPzogc3RyaW5nO1xuICBzb2x1dGlvbjogc3RyaW5nO1xuICBhcHByb2FjaDogc3RyaW5nO1xuICB1bmlxdWVWYWx1ZT86IHN0cmluZztcbiAgbG9naWNUcmVlPzogTG9naWNUcmVlTm9kZTtcbn1cblxuLy8gRGV0YWlsZWQgUGxhbiBUeXBlc1xuZXhwb3J0IHR5cGUgUHJpb3JpdHkgPSAnTE9XJyB8ICdNRURJVU0nIHwgJ0hJR0gnIHwgJ0NSSVRJQ0FMJztcblxuZXhwb3J0IGludGVyZmFjZSBEZXRhaWxlZFBsYW4ge1xuICBpZD86IHN0cmluZztcbiAgd2hhdDogc3RyaW5nO1xuICB3aHk6IHN0cmluZztcbiAgd2hvOiBzdHJpbmc7XG4gIHdoZXJlOiBzdHJpbmc7XG4gIHdoZW46IHN0cmluZztcbiAgaG93OiBzdHJpbmc7XG4gIHByaW9yaXR5OiBQcmlvcml0eTtcbiAgY2F0ZWdvcnk6IHN0cmluZztcbiAgZXhwZWN0ZWRSZXN1bHQ6IHN0cmluZztcbiAgcHJlcmVxdWlzaXRlPzogc3RyaW5nO1xuICByZWxhdGVkVGFza0lkcz86IHN0cmluZ1tdO1xuICBvcmRlckluZGV4OiBudW1iZXI7XG59XG5cbi8vIEtQSSBUYXJnZXQgVHlwZXNcbmV4cG9ydCB0eXBlIEtwaUNhdGVnb3J5ID0gXG4gIHwgJ1NBTEVTJ1xuICB8ICdDVVNUT01FUlMnXG4gIHwgJ1VOSVRfUFJJQ0UnXG4gIHwgJ0NPTlZFUlNJT04nXG4gIHwgJ1JFVEVOVElPTidcbiAgfCAnRUZGSUNJRU5DWSdcbiAgfCAnUVVBTElUWSdcbiAgfCAnQ1VTVE9NJztcblxuZXhwb3J0IHR5cGUgQ2hhcnRUeXBlID0gJ0xJTkUnIHwgJ0JBUicgfCAnQVJFQScgfCAnUElFJyB8ICdHQVVHRSc7XG5cbmV4cG9ydCBpbnRlcmZhY2UgS3BpVGFyZ2V0IHtcbiAgaWQ/OiBzdHJpbmc7XG4gIGNhdGVnb3J5OiBLcGlDYXRlZ29yeTtcbiAgbWV0cmljOiBzdHJpbmc7XG4gIHVuaXQ6IHN0cmluZztcbiAgY3VycmVudFZhbHVlOiBudW1iZXI7XG4gIHllYXIxVGFyZ2V0OiBudW1iZXI7XG4gIHllYXIyVGFyZ2V0PzogbnVtYmVyO1xuICB5ZWFyM1RhcmdldD86IG51bWJlcjtcbiAgZm9ybXVsYT86IHN0cmluZztcbiAgYXNzdW1wdGlvbnM/OiBSZWNvcmQ8c3RyaW5nLCBhbnk+O1xuICBjaGFydFR5cGU6IENoYXJ0VHlwZTtcbiAgZGlzcGxheU9yZGVyOiBudW1iZXI7XG59XG5cbi8vIEdhbnR0IENoYXJ0IFR5cGVzXG5leHBvcnQgdHlwZSBUYXNrVHlwZSA9ICdQSEFTRScgfCAnVEFTSycgfCAnU1VCVEFTSycgfCAnTUlMRVNUT05FJztcbmV4cG9ydCB0eXBlIERlcGVuZGVuY3lUeXBlID0gJ0ZTJyB8ICdTUycgfCAnRkYnIHwgJ1NGJzsgLy8gRmluaXNoLVN0YXJ0LCBTdGFydC1TdGFydCwgZXRjLlxuXG5leHBvcnQgaW50ZXJmYWNlIFRhc2tEZXBlbmRlbmN5IHtcbiAgdGFza0lkOiBzdHJpbmc7XG4gIHR5cGU6IERlcGVuZGVuY3lUeXBlO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEdhbnR0VGFzayB7XG4gIGlkPzogc3RyaW5nO1xuICB0YXNrTmFtZTogc3RyaW5nO1xuICBkZXNjcmlwdGlvbj86IHN0cmluZztcbiAgdGFza1R5cGU6IFRhc2tUeXBlO1xuICBzdGFydERhdGU6IERhdGUgfCBzdHJpbmc7XG4gIGVuZERhdGU6IERhdGUgfCBzdHJpbmc7XG4gIGR1cmF0aW9uOiBudW1iZXI7XG4gIHByb2dyZXNzOiBudW1iZXI7XG4gIGRlcGVuZGVuY2llcz86IFRhc2tEZXBlbmRlbmN5W107XG4gIHBhcmVudFRhc2tJZD86IHN0cmluZztcbiAgYXNzaWduZWU6IHN0cmluZztcbiAgYXNzaWduZWVSb2xlPzogc3RyaW5nO1xuICByZXNvdXJjZXM/OiBSZWNvcmQ8c3RyaW5nLCBhbnk+O1xuICBjb2xvcj86IHN0cmluZztcbiAgbWlsZXN0b25lOiBib29sZWFuO1xuICBjcml0aWNhbDogYm9vbGVhbjtcbiAgb3JkZXJJbmRleDogbnVtYmVyO1xufVxuXG4vLyBPcmdhbml6YXRpb24gU3RydWN0dXJlIFR5cGVzXG5leHBvcnQgdHlwZSBPcmdDaGFydFR5cGUgPSAnSElFUkFSQ0hZJyB8ICdNQVRSSVgnIHwgJ0ZMQVQnIHwgJ05FVFdPUksnO1xuXG5leHBvcnQgaW50ZXJmYWNlIFJhY2lFbnRyeSB7XG4gIHRhc2s6IHN0cmluZztcbiAgcmVzcG9uc2libGU6IHN0cmluZ1tdO1xuICBhY2NvdW50YWJsZTogc3RyaW5nO1xuICBjb25zdWx0ZWQ6IHN0cmluZ1tdO1xuICBpbmZvcm1lZDogc3RyaW5nW107XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgRXh0ZXJuYWxQYXJ0bmVyIHtcbiAgbmFtZTogc3RyaW5nO1xuICByb2xlOiBzdHJpbmc7XG4gIGV4cGVydGlzZTogc3RyaW5nO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIE9yZ2FuaXphdGlvblN0cnVjdHVyZSB7XG4gIGNoYXJ0RGF0YTogYW55OyAvLyBEMy5qcy9tZXJtYWlkIGhpZXJhcmNoeSBkYXRhXG4gIGNoYXJ0VHlwZTogT3JnQ2hhcnRUeXBlO1xuICByYWNpTWF0cml4PzogUmFjaUVudHJ5W107XG4gIGV4dGVybmFsUGFydG5lcnM/OiBFeHRlcm5hbFBhcnRuZXJbXTtcbiAgYWR2aXNvcnM/OiBBcnJheTx7XG4gICAgbmFtZTogc3RyaW5nO1xuICAgIHRpdGxlOiBzdHJpbmc7XG4gICAgZXhwZXJ0aXNlOiBzdHJpbmc7XG4gIH0+O1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIE9yZ2FuaXphdGlvblJvbGUge1xuICBpZD86IHN0cmluZztcbiAgbmFtZTogc3RyaW5nO1xuICB0aXRsZTogc3RyaW5nO1xuICBkZXBhcnRtZW50Pzogc3RyaW5nO1xuICBsZXZlbDogbnVtYmVyO1xuICByZXBvcnRzVG8/OiBzdHJpbmc7XG4gIHJlc3BvbnNpYmlsaXRpZXM6IHN0cmluZ1tdO1xuICBhdXRob3JpdGllcz86IHN0cmluZ1tdO1xuICBrcGlzPzogc3RyaW5nW107XG4gIGFsbG9jYXRpb246IG51bWJlcjsgLy8gcGVyY2VudGFnZVxuICBzdGFydERhdGU/OiBEYXRlIHwgc3RyaW5nO1xuICBlbmREYXRlPzogRGF0ZSB8IHN0cmluZztcbn1cblxuLy8gUmlzayBBc3Nlc3NtZW50IFR5cGVzXG5leHBvcnQgdHlwZSBSaXNrQ2F0ZWdvcnkgPSBcbiAgfCAnVEVDSE5JQ0FMJ1xuICB8ICdNQVJLRVQnXG4gIHwgJ0ZJTkFOQ0lBTCdcbiAgfCAnT1BFUkFUSU9OQUwnXG4gIHwgJ0xFR0FMJ1xuICB8ICdSRVBVVEFUSU9OQUwnXG4gIHwgJ1NUUkFURUdJQyc7XG5cbmV4cG9ydCB0eXBlIFJpc2tBc3Nlc3NtZW50U3RhdHVzID0gXG4gIHwgJ09QRU4nXG4gIHwgJ01JVElHQVRJTkcnXG4gIHwgJ01PTklUT1JJTkcnXG4gIHwgJ0NMT1NFRCdcbiAgfCAnRVNDQUxBVEVEJztcblxuZXhwb3J0IGludGVyZmFjZSBSaXNrQXNzZXNzbWVudCB7XG4gIGlkPzogc3RyaW5nO1xuICBjYXRlZ29yeTogUmlza0NhdGVnb3J5O1xuICB0aXRsZTogc3RyaW5nO1xuICBkZXNjcmlwdGlvbjogc3RyaW5nO1xuICBwcm9iYWJpbGl0eTogbnVtYmVyOyAvLyAxLTVcbiAgaW1wYWN0OiBudW1iZXI7IC8vIDEtNVxuICByaXNrU2NvcmU6IG51bWJlcjsgLy8gcHJvYmFiaWxpdHkgKiBpbXBhY3RcbiAgcHJldmVudGl2ZU1lYXN1cmVzOiBzdHJpbmdbXTtcbiAgY29udGluZ2VuY3lQbGFuPzogc3RyaW5nO1xuICB0cmlnZ2VyUG9pbnRzPzogc3RyaW5nW107XG4gIG93bmVyOiBzdHJpbmc7XG4gIHJldmlld2VyPzogc3RyaW5nO1xuICBzdGF0dXM6IFJpc2tBc3Nlc3NtZW50U3RhdHVzO1xuICByZXZpZXdEYXRlPzogRGF0ZSB8IHN0cmluZztcbiAgYWZmZWN0ZWRBcmVhcz86IHN0cmluZ1tdO1xuICBkZXBlbmRlbmNpZXM/OiBzdHJpbmdbXTtcbn1cblxuLy8gU3VwcGxlbWVudGFyeSBNYXRlcmlhbCBUeXBlc1xuZXhwb3J0IHR5cGUgTWF0ZXJpYWxUeXBlID0gXG4gIHwgJ01BUktFVF9BTkFMWVNJUydcbiAgfCAnQ09NUEVUSVRJVkVfQU5BTFlTSVMnXG4gIHwgJ0JFRk9SRV9BRlRFUidcbiAgfCAnQ0FTRV9TVFVEWSdcbiAgfCAnRVhURVJOQUxfVkFMSURBVElPTidcbiAgfCAnRklOQU5DSUFMX1BST0pFQ1RJT04nXG4gIHwgJ1RFQ0hOSUNBTF9TUEVDJ1xuICB8ICdDVVNUT00nO1xuXG5leHBvcnQgaW50ZXJmYWNlIENvbXBldGl0aXZlRGF0YSB7XG4gIGNvbXBhbnk6IHN0cmluZztcbiAgc3RyZW5ndGhzOiBzdHJpbmdbXTtcbiAgd2Vha25lc3Nlczogc3RyaW5nW107XG4gIHNoYXJlOiBudW1iZXI7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgQmVmb3JlQWZ0ZXJTdGF0ZSB7XG4gIG1ldHJpY3M6IFJlY29yZDxzdHJpbmcsIG51bWJlcj47XG4gIGRlc2NyaXB0aW9uOiBzdHJpbmc7XG4gIHZpc3VhbERhdGE/OiBhbnk7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgU3VwcGxlbWVudGFyeU1hdGVyaWFsIHtcbiAgaWQ/OiBzdHJpbmc7XG4gIG1hdGVyaWFsVHlwZTogTWF0ZXJpYWxUeXBlO1xuICB0aXRsZTogc3RyaW5nO1xuICBkZXNjcmlwdGlvbj86IHN0cmluZztcbiAgY29udGVudDogYW55OyAvLyBTdHJ1Y3R1cmVkIGRhdGFcbiAgdmlzdWFsRGF0YT86IGFueTsgLy8gQ2hhcnQvZ3JhcGggZGF0YVxuICBtYXJrZXRTaXplPzogbnVtYmVyO1xuICBncm93dGhSYXRlPzogbnVtYmVyO1xuICB0YXJnZXRTZWdtZW50Pzogc3RyaW5nO1xuICBjb21wZXRpdGl2ZURhdGE/OiBDb21wZXRpdGl2ZURhdGFbXTtcbiAgcG9zaXRpb25pbmc/OiBzdHJpbmc7XG4gIGJlZm9yZVN0YXRlPzogQmVmb3JlQWZ0ZXJTdGF0ZTtcbiAgYWZ0ZXJTdGF0ZT86IEJlZm9yZUFmdGVyU3RhdGU7XG4gIGltcHJvdmVtZW50cz86IFJlY29yZDxzdHJpbmcsIG51bWJlcj47XG4gIHNvdXJjZT86IHN0cmluZztcbiAgdmFsaWRVbnRpbD86IERhdGUgfCBzdHJpbmc7XG4gIGNvbmZpZGVuY2U/OiBudW1iZXI7IC8vIDAtMVxuICBvcmRlckluZGV4OiBudW1iZXI7XG59XG5cbi8vIEV4dGVuZGVkIEFwcGxpY2F0aW9uIERhdGFcbmV4cG9ydCBpbnRlcmZhY2UgRXh0ZW5kZWRBcHBsaWNhdGlvbkRhdGEge1xuICBwdXJwb3NlQmFja2dyb3VuZDogUHVycG9zZUJhY2tncm91bmQ7XG4gIGRldGFpbGVkUGxhbnM6IERldGFpbGVkUGxhbltdO1xuICBrcGlUYXJnZXRzOiBLcGlUYXJnZXRbXTtcbiAgZ2FudHRUYXNrczogR2FudHRUYXNrW107XG4gIG9yZ2FuaXphdGlvblN0cnVjdHVyZTogT3JnYW5pemF0aW9uU3RydWN0dXJlO1xuICBvcmdhbml6YXRpb25Sb2xlczogT3JnYW5pemF0aW9uUm9sZVtdO1xuICByaXNrQXNzZXNzbWVudHM6IFJpc2tBc3Nlc3NtZW50W107XG4gIHN1cHBsZW1lbnRhcnlNYXRlcmlhbHM6IFN1cHBsZW1lbnRhcnlNYXRlcmlhbFtdO1xufVxuXG4vLyBGb3JtIHZhbGlkYXRpb24gc2NoZW1hcyBjYW4gYmUgYWRkZWQgaGVyZSB1c2luZyB6b2RcbmV4cG9ydCBjb25zdCBLUElfQ0FURUdPUklFUyA9IFtcbiAgeyB2YWx1ZTogJ1NBTEVTJywgbGFiZWw6ICflo7LkuIonIH0sXG4gIHsgdmFsdWU6ICdDVVNUT01FUlMnLCBsYWJlbDogJ+WuouaVsCcgfSxcbiAgeyB2YWx1ZTogJ1VOSVRfUFJJQ0UnLCBsYWJlbDogJ+WNmOS+oScgfSxcbiAgeyB2YWx1ZTogJ0NPTlZFUlNJT04nLCBsYWJlbDogJ0NW546HJyB9LFxuICB7IHZhbHVlOiAnUkVURU5USU9OJywgbGFiZWw6ICfjg6rjg4bjg7Pjgrfjg6fjg7MnIH0sXG4gIHsgdmFsdWU6ICdFRkZJQ0lFTkNZJywgbGFiZWw6ICflirnnjofmgKcnIH0sXG4gIHsgdmFsdWU6ICdRVUFMSVRZJywgbGFiZWw6ICflk4Hos6onIH0sXG4gIHsgdmFsdWU6ICdDVVNUT00nLCBsYWJlbDogJ+OCq+OCueOCv+ODoCcgfSxcbl0gYXMgY29uc3Q7XG5cbmV4cG9ydCBjb25zdCBSSVNLX0NBVEVHT1JJRVMgPSBbXG4gIHsgdmFsdWU6ICdURUNITklDQUwnLCBsYWJlbDogJ+aKgOihk+ODquOCueOCrycgfSxcbiAgeyB2YWx1ZTogJ01BUktFVCcsIGxhYmVsOiAn5biC5aC044Oq44K544KvJyB9LFxuICB7IHZhbHVlOiAnRklOQU5DSUFMJywgbGFiZWw6ICfosqHli5njg6rjgrnjgq8nIH0sXG4gIHsgdmFsdWU6ICdPUEVSQVRJT05BTCcsIGxhYmVsOiAn6YGL55So44Oq44K544KvJyB9LFxuICB7IHZhbHVlOiAnTEVHQUwnLCBsYWJlbDogJ+azleeahOODquOCueOCrycgfSxcbiAgeyB2YWx1ZTogJ1JFUFVUQVRJT05BTCcsIGxhYmVsOiAn6KmV5Yik44Oq44K544KvJyB9LFxuICB7IHZhbHVlOiAnU1RSQVRFR0lDJywgbGFiZWw6ICfmiKbnlaXjg6rjgrnjgq8nIH0sXG5dIGFzIGNvbnN0O1xuXG5leHBvcnQgY29uc3QgTUFURVJJQUxfVFlQRVMgPSBbXG4gIHsgdmFsdWU6ICdNQVJLRVRfQU5BTFlTSVMnLCBsYWJlbDogJ+W4guWgtOWIhuaekCcgfSxcbiAgeyB2YWx1ZTogJ0NPTVBFVElUSVZFX0FOQUxZU0lTJywgbGFiZWw6ICfnq7blkIjliIbmnpAnIH0sXG4gIHsgdmFsdWU6ICdCRUZPUkVfQUZURVInLCBsYWJlbDogJ0JlZm9yZS9BZnRlcicgfSxcbiAgeyB2YWx1ZTogJ0NBU0VfU1RVRFknLCBsYWJlbDogJ+S6i+S+iycgfSxcbiAgeyB2YWx1ZTogJ0VYVEVSTkFMX1ZBTElEQVRJT04nLCBsYWJlbDogJ+WklumDqOaknOiovCcgfSxcbiAgeyB2YWx1ZTogJ0ZJTkFOQ0lBTF9QUk9KRUNUSU9OJywgbGFiZWw6ICfosqHli5nkuojmuKwnIH0sXG4gIHsgdmFsdWU6ICdURUNITklDQUxfU1BFQycsIGxhYmVsOiAn5oqA6KGT5LuV5qeYJyB9LFxuICB7IHZhbHVlOiAnQ1VTVE9NJywgbGFiZWw6ICfjgqvjgrnjgr/jg6AnIH0sXG5dIGFzIGNvbnN0OyJdLCJtYXBwaW5ncyI6IkFBQUE7QUFFQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7TUE4T2FBLGVBQUE7SUFBQTtJQUFBQyxjQUFBLEdBQUFDLENBQUE7SUFBQUQsY0FBQSxHQUFBRSxDQUFBO1dBQUFILGNBQUE7O01BcUJBSSxlQUFBO0lBQUE7SUFBQUgsY0FBQSxHQUFBQyxDQUFBO0lBQUFELGNBQUEsR0FBQUUsQ0FBQTtXQUFBQyxjQUFBOztNQVZBQyxnQkFBQTtJQUFBO0lBQUFKLGNBQUEsR0FBQUMsQ0FBQTtJQUFBRCxjQUFBLEdBQUFFLENBQUE7V0FBQUUsZUFBQTs7O0FBWE4sTUFBTUwsY0FBQTtBQUFBO0FBQUEsQ0FBQUMsY0FBQSxHQUFBRSxDQUFBLE9BQWlCLENBQzVCO0VBQUVHLEtBQUEsRUFBTztFQUFTQyxLQUFBLEVBQU87QUFBSyxHQUM5QjtFQUFFRCxLQUFBLEVBQU87RUFBYUMsS0FBQSxFQUFPO0FBQUssR0FDbEM7RUFBRUQsS0FBQSxFQUFPO0VBQWNDLEtBQUEsRUFBTztBQUFLLEdBQ25DO0VBQUVELEtBQUEsRUFBTztFQUFjQyxLQUFBLEVBQU87QUFBTSxHQUNwQztFQUFFRCxLQUFBLEVBQU87RUFBYUMsS0FBQSxFQUFPO0FBQVMsR0FDdEM7RUFBRUQsS0FBQSxFQUFPO0VBQWNDLEtBQUEsRUFBTztBQUFNLEdBQ3BDO0VBQUVELEtBQUEsRUFBTztFQUFXQyxLQUFBLEVBQU87QUFBSyxHQUNoQztFQUFFRCxLQUFBLEVBQU87RUFBVUMsS0FBQSxFQUFPO0FBQU8sRUFDbEM7QUFFTSxNQUFNRixlQUFBO0FBQUE7QUFBQSxDQUFBSixjQUFBLEdBQUFFLENBQUEsT0FBa0IsQ0FDN0I7RUFBRUcsS0FBQSxFQUFPO0VBQWFDLEtBQUEsRUFBTztBQUFRLEdBQ3JDO0VBQUVELEtBQUEsRUFBTztFQUFVQyxLQUFBLEVBQU87QUFBUSxHQUNsQztFQUFFRCxLQUFBLEVBQU87RUFBYUMsS0FBQSxFQUFPO0FBQVEsR0FDckM7RUFBRUQsS0FBQSxFQUFPO0VBQWVDLEtBQUEsRUFBTztBQUFRLEdBQ3ZDO0VBQUVELEtBQUEsRUFBTztFQUFTQyxLQUFBLEVBQU87QUFBUSxHQUNqQztFQUFFRCxLQUFBLEVBQU87RUFBZ0JDLEtBQUEsRUFBTztBQUFRLEdBQ3hDO0VBQUVELEtBQUEsRUFBTztFQUFhQyxLQUFBLEVBQU87QUFBUSxFQUN0QztBQUVNLE1BQU1ILGNBQUE7QUFBQTtBQUFBLENBQUFILGNBQUEsR0FBQUUsQ0FBQSxPQUFpQixDQUM1QjtFQUFFRyxLQUFBLEVBQU87RUFBbUJDLEtBQUEsRUFBTztBQUFPLEdBQzFDO0VBQUVELEtBQUEsRUFBTztFQUF3QkMsS0FBQSxFQUFPO0FBQU8sR0FDL0M7RUFBRUQsS0FBQSxFQUFPO0VBQWdCQyxLQUFBLEVBQU87QUFBZSxHQUMvQztFQUFFRCxLQUFBLEVBQU87RUFBY0MsS0FBQSxFQUFPO0FBQUssR0FDbkM7RUFBRUQsS0FBQSxFQUFPO0VBQXVCQyxLQUFBLEVBQU87QUFBTyxHQUM5QztFQUFFRCxLQUFBLEVBQU87RUFBd0JDLEtBQUEsRUFBTztBQUFPLEdBQy9DO0VBQUVELEtBQUEsRUFBTztFQUFrQkMsS0FBQSxFQUFPO0FBQU8sR0FDekM7RUFBRUQsS0FBQSxFQUFPO0VBQVVDLEtBQUEsRUFBTztBQUFPLEVBQ2xDIiwiaWdub3JlTGlzdCI6W119

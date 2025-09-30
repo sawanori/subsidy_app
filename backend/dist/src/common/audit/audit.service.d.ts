@@ -1,4 +1,4 @@
-import { PrismaService } from '../../prisma/prisma.service';
+import { PrismaService } from '@prisma/prisma.service';
 export interface AuditLogEntry {
     userId: string;
     userEmail?: string;
@@ -12,6 +12,7 @@ export interface AuditLogEntry {
 }
 export declare class AuditService {
     private readonly prisma;
+    private readonly logger;
     constructor(prisma: PrismaService);
     log(entry: AuditLogEntry): Promise<void>;
     private maskPersonalData;

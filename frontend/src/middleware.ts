@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
+import { createServerClient } from '@supabase/ssr';
 
 // Rate limiting configuration per governance.yaml
 // 100 req/5min/IP (generate endpoint: 10/5min)
@@ -33,9 +34,70 @@ function getRateLimitData(ip: string, isGenerateEndpoint: boolean) {
   return { count: existing.count, limit, resetTime: existing.resetTime };
 }
 
-export function middleware(request: NextRequest) {
-  // Apply internationalization first for locale detection
-  if (!request.nextUrl.pathname.startsWith('/api') && 
+export async function middleware(request: NextRequest) {
+  let response = NextResponse.next({
+    request: {
+      headers: request.headers,
+    },
+  });
+
+  // Create Supabase client for auth check
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll()
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+          response = NextResponse.next({
+            request,
+          })
+          cookiesToSet.forEach(({ name, value, options }) =>
+            response.cookies.set(name, value, options)
+          )
+        },
+      },
+    }
+  );
+
+  // Check authentication
+  const { data: { user } } = await supabase.auth.getUser();
+
+  // Protected routes that require authentication
+  const protectedPaths = ['/applications', '/profile', '/settings'];
+  const authPaths = ['/login', '/signup'];
+  const pathname = request.nextUrl.pathname;
+
+  // Check if the path is protected (considering locale prefix)
+  const isProtectedPath = protectedPaths.some(path =>
+    pathname.includes(path)
+  );
+
+  // Check if the path is an auth path
+  const isAuthPath = authPaths.some(path =>
+    pathname.includes(path)
+  );
+
+  // Redirect to login if accessing protected route without authentication
+  if (isProtectedPath && !user) {
+    // Extract locale from pathname
+    const locale = pathname.split('/')[1] || 'ja';
+    const redirectUrl = new URL(`/${locale}/login`, request.url);
+    redirectUrl.searchParams.set('redirectedFrom', pathname);
+    return NextResponse.redirect(redirectUrl);
+  }
+
+  // Redirect to applications if accessing auth pages while authenticated
+  if (isAuthPath && user) {
+    const locale = pathname.split('/')[1] || 'ja';
+    return NextResponse.redirect(new URL(`/${locale}/applications`, request.url));
+  }
+
+  // Apply internationalization for non-API routes
+  if (!request.nextUrl.pathname.startsWith('/api') &&
       !request.nextUrl.pathname.startsWith('/_next')) {
     const intlResponse = intlMiddleware(request);
     if (intlResponse) return intlResponse;
@@ -79,7 +141,7 @@ export function middleware(request: NextRequest) {
     return response;
   }
   
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {

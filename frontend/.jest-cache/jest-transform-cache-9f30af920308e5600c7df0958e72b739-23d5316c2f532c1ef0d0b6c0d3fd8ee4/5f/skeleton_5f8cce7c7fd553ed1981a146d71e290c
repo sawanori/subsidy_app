@@ -1,0 +1,196 @@
+ea6df6424d6ec848ad0834ffb9bc10fc
+"use strict";
+
+/* istanbul ignore next */
+function cov_orcx3v08y() {
+  var path = "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/components/ui/skeleton.tsx";
+  var hash = "676cac832e3e449b7206efa0a5b2730813b0de17";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/components/ui/skeleton.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 4,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 10,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 8,
+          column: 8
+        },
+        end: {
+          line: 8,
+          column: 24
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 20
+        },
+        end: {
+          line: 11,
+          column: 48
+        }
+      },
+      "4": {
+        start: {
+          line: 12,
+          column: 15
+        },
+        end: {
+          line: 12,
+          column: 41
+        }
+      },
+      "5": {
+        start: {
+          line: 14,
+          column: 4
+        },
+        end: {
+          line: 18,
+          column: 7
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 7,
+            column: 9
+          },
+          end: {
+            line: 7,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 7,
+            column: 20
+          },
+          end: {
+            line: 9,
+            column: 5
+          }
+        },
+        line: 7
+      },
+      "1": {
+        name: "Skeleton",
+        decl: {
+          start: {
+            line: 13,
+            column: 9
+          },
+          end: {
+            line: 13,
+            column: 17
+          }
+        },
+        loc: {
+          start: {
+            line: 13,
+            column: 43
+          },
+          end: {
+            line: 19,
+            column: 1
+          }
+        },
+        line: 13
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {},
+    inputSourceMap: {
+      version: 3,
+      sources: ["/Users/noritakasawada/AI_P/subsidyApp/frontend/src/components/ui/skeleton.tsx"],
+      sourcesContent: ["import { cn } from \"@/lib/utils\"\n\nfunction Skeleton({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      className={cn(\"bg-accent animate-pulse rounded-md\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Skeleton }\n"],
+      names: ["Skeleton", "className", "props", "div", "data-slot", "cn"],
+      mappings: ";;;;+BAYSA;;;eAAAA;;;;uBAZU;AAEnB,SAASA,SAAS,EAAEC,SAAS,EAAE,GAAGC,OAAoC;IACpE,qBACE,qBAACC;QACCC,aAAU;QACVH,WAAWI,IAAAA,SAAE,EAAC,sCAAsCJ;QACnD,GAAGC,KAAK;;AAGf"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "676cac832e3e449b7206efa0a5b2730813b0de17"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_orcx3v08y = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_orcx3v08y();
+cov_orcx3v08y().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_orcx3v08y().s[1]++;
+Object.defineProperty(exports, "Skeleton", {
+  enumerable: true,
+  get: function () {
+    /* istanbul ignore next */
+    cov_orcx3v08y().f[0]++;
+    cov_orcx3v08y().s[2]++;
+    return Skeleton;
+  }
+});
+const _jsxruntime =
+/* istanbul ignore next */
+(cov_orcx3v08y().s[3]++, require("react/jsx-runtime"));
+const _utils =
+/* istanbul ignore next */
+(cov_orcx3v08y().s[4]++, require("../../lib/utils"));
+function Skeleton({
+  className,
+  ...props
+}) {
+  /* istanbul ignore next */
+  cov_orcx3v08y().f[1]++;
+  cov_orcx3v08y().s[5]++;
+  return /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+    "data-slot": "skeleton",
+    className: (0, _utils.cn)("bg-accent animate-pulse rounded-md", className),
+    ...props
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3Zfb3JjeDN2MDh5IiwiYWN0dWFsQ292ZXJhZ2UiLCJzIiwiU2tlbGV0b24iLCJjbGFzc05hbWUiLCJwcm9wcyIsImYiLCJfanN4cnVudGltZSIsImpzeCIsIl91dGlscyIsImNuIl0sInNvdXJjZXMiOlsiL1VzZXJzL25vcml0YWthc2F3YWRhL0FJX1Avc3Vic2lkeUFwcC9mcm9udGVuZC9zcmMvY29tcG9uZW50cy91aS9za2VsZXRvbi50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgY24gfSBmcm9tIFwiQC9saWIvdXRpbHNcIlxuXG5mdW5jdGlvbiBTa2VsZXRvbih7IGNsYXNzTmFtZSwgLi4ucHJvcHMgfTogUmVhY3QuQ29tcG9uZW50UHJvcHM8XCJkaXZcIj4pIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2XG4gICAgICBkYXRhLXNsb3Q9XCJza2VsZXRvblwiXG4gICAgICBjbGFzc05hbWU9e2NuKFwiYmctYWNjZW50IGFuaW1hdGUtcHVsc2Ugcm91bmRlZC1tZFwiLCBjbGFzc05hbWUpfVxuICAgICAgey4uLnByb3BzfVxuICAgIC8+XG4gIClcbn1cblxuZXhwb3J0IHsgU2tlbGV0b24gfVxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztJQU1NO0lBQUFBLGFBQUEsWUFBQUEsQ0FBQTtNQUFBLE9BQUFDLGNBQUE7SUFBQTtFQUFBO0VBQUEsT0FBQUEsY0FBQTtBQUFBO0FBQUFELGFBQUE7QUFBQUEsYUFBQSxHQUFBRSxDQUFBOzs7Ozs7K0JBTUc7Ozs7OztXQUFBQyxRQUFBOzs7Ozs7OztpQ0FaVTtBQUVuQixTQUFTQSxTQUFTO0VBQUVDLFNBQVM7RUFBRSxHQUFHQztBQUFBLENBQW9DO0VBQUE7RUFBQUwsYUFBQSxHQUFBTSxDQUFBO0VBQUFOLGFBQUEsR0FBQUUsQ0FBQTtFQUNwRSxvQkFDRSxJQUFBSyxXQUFBLENBQUFDLEdBQUEsRUFBQztJQUNDLGFBQVU7SUFDVkosU0FBQSxFQUFXLElBQUFLLE1BQUEsQ0FBQUMsRUFBRSxFQUFDLHNDQUFzQ04sU0FBQTtJQUNuRCxHQUFHQzs7QUFHViIsImlnbm9yZUxpc3QiOltdfQ==

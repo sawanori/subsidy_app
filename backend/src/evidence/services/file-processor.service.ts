@@ -1,9 +1,9 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common';
 import { OCRService } from './ocr.service';
 import * as XLSX from 'xlsx';
-import * as pdf from 'pdf-parse';
+import pdf from 'pdf-parse';
 import * as cheerio from 'cheerio';
-import * as sharp from 'sharp';
+import sharp from 'sharp';
 import { 
   ProcessedEvidence, 
   EvidenceType, 

@@ -6,23 +6,24 @@ export declare class ApplicationsController {
     private readonly applicationsService;
     constructor(applicationsService: ApplicationsService);
     create(createApplicationDto: CreateApplicationDto, req: any): Promise<BaseResponseDto<{
-        status: import("@generated/prisma").$Enums.ApplicationStatus;
+        id: string;
+        applicantId: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
-        submittedAt: Date | null;
-        id: string;
         title: string;
-        locale: string;
         userId: string;
-        applicantId: string;
+        status: import("@generated/prisma").$Enums.ApplicationStatus;
+        locale: string;
+        baselines: import("@generated/prisma/runtime/library").JsonValue | null;
+        submittedAt: Date | null;
     }>>;
     findAll(pagination: PaginationDto, req: any): Promise<BaseResponseDto<{
         data: ({
             user: {
                 id: string;
-                email: string;
                 role: import("@generated/prisma").$Enums.UserRole;
+                email: string;
             };
             applicant: {
                 id: string;
@@ -33,16 +34,17 @@ export declare class ApplicationsController {
                 evidences: number;
             };
         } & {
-            status: import("@generated/prisma").$Enums.ApplicationStatus;
+            id: string;
+            applicantId: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
-            submittedAt: Date | null;
-            id: string;
             title: string;
-            locale: string;
             userId: string;
-            applicantId: string;
+            status: import("@generated/prisma").$Enums.ApplicationStatus;
+            locale: string;
+            baselines: import("@generated/prisma/runtime/library").JsonValue | null;
+            submittedAt: Date | null;
         })[];
         meta: import("../common/dto/pagination.dto").PaginationMetaDto;
     }>>;
@@ -55,28 +57,30 @@ export declare class ApplicationsController {
         total: number;
     }>>;
     findOne(id: string, req: any): Promise<BaseResponseDto<{
-        status: import("@generated/prisma").$Enums.ApplicationStatus;
+        id: string;
+        applicantId: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
-        submittedAt: Date | null;
-        id: string;
         title: string;
-        locale: string;
         userId: string;
-        applicantId: string;
+        status: import("@generated/prisma").$Enums.ApplicationStatus;
+        locale: string;
+        baselines: import("@generated/prisma/runtime/library").JsonValue | null;
+        submittedAt: Date | null;
     }>>;
     update(id: string, updateApplicationDto: UpdateApplicationDto, req: any): Promise<BaseResponseDto<{
-        status: import("@generated/prisma").$Enums.ApplicationStatus;
+        id: string;
+        applicantId: string;
         createdAt: Date;
         updatedAt: Date;
         deletedAt: Date | null;
-        submittedAt: Date | null;
-        id: string;
         title: string;
-        locale: string;
         userId: string;
-        applicantId: string;
+        status: import("@generated/prisma").$Enums.ApplicationStatus;
+        locale: string;
+        baselines: import("@generated/prisma/runtime/library").JsonValue | null;
+        submittedAt: Date | null;
     }>>;
     remove(id: string, req: any): Promise<BaseResponseDto<any>>;
     generateApplication(id: string, generateDto: GenerateApplicationDto, req: any): Promise<BaseResponseDto<import("./dto").GenerationResponseDto>>;

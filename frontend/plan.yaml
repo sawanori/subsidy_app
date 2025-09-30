@@ -1,0 +1,545 @@
+
+# --- append to: plan.yaml (tickets:) -----------------------------------------
+# FE Tickets for worker1 (Next.js + Tailwind/shadcn + MSW + Playwright)
+
+# Epic: fe-skeleton
+- id: APP-400
+  epic: fe-skeleton
+  title: OpenAPI同期と型自動生成（openapi-typescript / zod-interop）
+  owner: worker1
+  deps: [APP-320, APP-321]
+  estimate_h: 4
+  status: todo
+
+- id: APP-401
+  epic: fe-skeleton
+  title: PlanEditorLayout（左右2ペイン：フォーム/プレビュー）
+  owner: worker1
+  deps: [APP-400]
+  estimate_h: 6
+  status: todo
+
+- id: APP-402
+  epic: fe-skeleton
+  title: APIクライアント層（fetch wrapper・Idempotency-Key付与）
+  owner: worker1
+  deps: [APP-371]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-intake
+- id: APP-403
+  epic: fe-intake
+  title: FileDropZone（PDFドラッグ&ドロップ/拡張子検査/進捗UI）
+  owner: worker1
+  deps: [APP-358]
+  estimate_h: 4
+  status: todo
+
+- id: APP-404
+  epic: fe-intake
+  title: UploadFromTaxReturnModal（確定申告書アップロード）
+  owner: worker1
+  deps: [APP-403, APP-328]
+  estimate_h: 6
+  status: todo
+
+- id: APP-405
+  epic: fe-intake
+  title: UploadFromTeihonModal（謄本アップロード）
+  owner: worker1
+  deps: [APP-403, APP-328]
+  estimate_h: 5
+  status: todo
+
+# Epic: fe-extraction-review
+- id: APP-406
+  epic: fe-extraction-review
+  title: ExtractionReviewModal（confidence色分け・A/B候補選択）
+  owner: worker1
+  deps: [APP-404, APP-405]
+  estimate_h: 6
+  status: todo
+
+- id: APP-407
+  epic: fe-extraction-review
+  title: PDFプレビュー＋抽出箇所ハイライト（bbox座標レイヤ）
+  owner: worker1
+  deps: [APP-406, APP-359]
+  estimate_h: 6
+  status: todo
+
+- id: APP-408
+  epic: fe-extraction-review
+  title: 一括適用（PATCH /applications/:id/applicant）＆差分サマリ
+  owner: worker1
+  deps: [APP-406]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-preview
+- id: APP-409
+  epic: fe-preview
+  title: PreviewTabs（プレビュー/検証レポ/差分）
+  owner: worker1
+  deps: [APP-401]
+  estimate_h: 4
+  status: todo
+
+- id: APP-410
+  epic: fe-preview
+  title: PdfPreview（/preview 画像レンダ・ページナビゲーション）
+  owner: worker1
+  deps: [APP-359]
+  estimate_h: 5
+  status: todo
+
+- id: APP-411
+  epic: fe-preview
+  title: プリフライトBadges（ページ/フォント/禁則/押印）
+  owner: worker1
+  deps: [APP-341]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-forms
+- id: APP-412
+  epic: fe-forms
+  title: ApplicantCard（氏名/住所/法人名/代表者 等）
+  owner: worker1
+  deps: [APP-408]
+  estimate_h: 4
+  status: todo
+
+- id: APP-413
+  epic: fe-forms
+  title: ContextCard（領域/地域/制約）
+  owner: worker1
+  deps: [APP-401]
+  estimate_h: 4
+  status: todo
+
+- id: APP-414
+  epic: fe-forms
+  title: BackgroundForm + 自動生成ボタン
+  owner: worker1
+  deps: [APP-332, APP-337]
+  estimate_h: 5
+  status: todo
+
+- id: APP-415
+  epic: fe-forms
+  title: SolutionForm + 自動生成ボタン
+  owner: worker1
+  deps: [APP-333, APP-337]
+  estimate_h: 5
+  status: todo
+
+- id: APP-416
+  epic: fe-forms
+  title: KPIForm（/generate/kpis + /validate/kpis）
+  owner: worker1
+  deps: [APP-334, APP-338]
+  estimate_h: 6
+  status: todo
+
+- id: APP-417
+  epic: fe-forms
+  title: BudgetForm（/generate/budget + /validate/budget）
+  owner: worker1
+  deps: [APP-335, APP-339, APP-376]
+  estimate_h: 6
+  status: todo
+
+- id: APP-418
+  epic: fe-forms
+  title: ScheduleForm（/generate/schedule + /validate/schedule）
+  owner: worker1
+  deps: [APP-336, APP-340, APP-381]
+  estimate_h: 7
+  status: todo
+
+# Epic: fe-evidence
+- id: APP-419
+  epic: fe-evidence
+  title: EvidenceSection（検索→選択→/fetch→/ingest）
+  owner: worker1
+  deps: [APP-329, APP-330, APP-331]
+  estimate_h: 6
+  status: todo
+
+- id: APP-420
+  epic: fe-evidence
+  title: EvidencePickerModal（段落別の引用チェック）
+  owner: worker1
+  deps: [APP-419]
+  estimate_h: 5
+  status: todo
+
+# Epic: fe-export
+- id: APP-421
+  epic: fe-export
+  title: ExportBar（validate→preflight→export 連鎖実行）
+  owner: worker1
+  deps: [APP-411, APP-347]
+  estimate_h: 5
+  status: todo
+
+- id: APP-422
+  epic: fe-export
+  title: DownloadButtons（PDF/監査JSON/一式ZIP）
+  owner: worker1
+  deps: [APP-347, APP-348]
+  estimate_h: 3
+  status: todo
+
+# Epic: fe-errors
+- id: APP-423
+  epic: fe-errors
+  title: エラーコード表（ERR_*）とトースト/再試行UI（/jobs連動）
+  owner: worker1
+  deps: [APP-370, APP-372]
+  estimate_h: 4
+  status: todo
+
+- id: APP-424
+  epic: fe-errors
+  title: コスト超過/レート超過の警告UI
+  owner: worker1
+  deps: [APP-378]
+  estimate_h: 3
+  status: todo
+
+# Epic: fe-observability
+- id: APP-425
+  epic: fe-observability
+  title: UX計測（TTI/成功率）とSentry/Analytics配線
+  owner: worker1
+  deps: [APP-351, APP-383]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-accessibility
+- id: APP-426
+  epic: fe-accessibility
+  title: A11y対応（キーボード/ARIA/コントラスト）
+  owner: worker1
+  deps: [APP-401]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-i18n
+- id: APP-427
+  epic: fe-i18n
+  title: i18nフレーム（ja基準/和暦表示オプション）
+  owner: worker1
+  deps: [APP-401]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-design-system
+- id: APP-428
+  epic: fe-design-system
+  title: shadcn/ui基盤・テーマ・トークン
+  owner: worker1
+  deps: [APP-401]
+  estimate_h: 4
+  status: todo
+
+- id: APP-429
+  epic: fe-design-system
+  title: Formコンポーネント（ラベル/エラーメッセージ）
+  owner: worker1
+  deps: [APP-428]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-security
+- id: APP-430
+  epic: fe-security
+  title: PII可視化（黒塗りレイヤ・マイナンバー非表示バナー）
+  owner: worker1
+  deps: [APP-382, APP-349]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-feature-flags
+- id: APP-431
+  epic: fe-feature-flags
+  title: FeatureFlagProvider（docx/ocr/citations）
+  owner: worker1
+  deps: [APP-380]
+  estimate_h: 3
+  status: todo
+
+# Epic: fe-testing
+- id: APP-432
+  epic: fe-testing
+  title: MSWモック（/intake /generate /validate /export /jobs）
+  owner: worker1
+  deps: [APP-320, APP-321]
+  estimate_h: 4
+  status: todo
+
+- id: APP-433
+  epic: fe-testing
+  title: 見た目スナップショット（Storybook/Chromatic）
+  owner: worker1
+  deps: [APP-428]
+  estimate_h: 4
+  status: todo
+
+- id: APP-434
+  epic: fe-testing
+  title: E2E：アップ→確認→確定→プレビュー→出力
+  owner: worker1
+  deps: [APP-432, APP-421, APP-422]
+  estimate_h: 6
+  status: todo
+
+# Epic: fe-ux-fixer
+- id: APP-435
+  epic: fe-ux-fixer
+  title: AutoFixProposalModal（短文化/再配分）
+  owner: worker1
+  deps: [APP-360, APP-361, APP-362]
+  estimate_h: 5
+  status: todo
+
+# Epic: fe-templates
+- id: APP-436
+  epic: fe-templates
+  title: TemplateSelector（template_id選択・有効版表示）
+  owner: worker1
+  deps: [APP-342, APP-343]
+  estimate_h: 3
+  status: todo
+
+- id: APP-437
+  epic: fe-templates
+  title: Preflight違反の行内ハイライト（rule_id→UI）
+  owner: worker1
+  deps: [APP-374, APP-411]
+  estimate_h: 5
+  status: todo
+
+# Epic: fe-progress
+- id: APP-438
+  epic: fe-progress
+  title: JobProgressToast（/jobs監視・再試行/キャンセル）
+  owner: worker1
+  deps: [APP-372]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-kpi-widgets
+- id: APP-439
+  epic: fe-kpi-widgets
+  title: KPIカード＆小型チャート表示
+  owner: worker1
+  deps: [APP-416]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-schedule-viz
+- id: APP-440
+  epic: fe-schedule-viz
+  title: ガントSVG表示（ズーム/スクロール）
+  owner: worker1
+  deps: [APP-418]
+  estimate_h: 5
+  status: todo
+
+- id: APP-441
+  epic: fe-schedule-viz
+  title: 体制図（Dagre）表示・役割ツールチップ
+  owner: worker1
+  deps: [APP-418]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-auth
+- id: APP-442
+  epic: fe-auth
+  title: セッション管理/ロール制御（Admin/Editor/Viewer）
+  owner: worker1
+  deps: [APP-358]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-notify
+- id: APP-443
+  epic: fe-notify
+  title: 完了/失敗/コスト超過の通知バナー・履歴
+  owner: worker1
+  deps: [APP-424, APP-438]
+  estimate_h: 3
+  status: todo
+
+# Epic: fe-performance
+- id: APP-444
+  epic: fe-performance
+  title: コード分割/Prefetch/楽観UI（TTI短縮）
+  owner: worker1
+  deps: [APP-401]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-docs
+- id: APP-445
+  epic: fe-docs
+  title: 初回チュートリアル（自動入力→確認→出力）
+  owner: worker1
+  deps: [APP-404, APP-421]
+  estimate_h: 3
+  status: todo
+
+# Epic: fe-guardrails
+- id: APP-446
+  epic: fe-guardrails
+  title: ページ/文字数ガード（liveカウント・短文化ボタン）
+  owner: worker1
+  deps: [APP-411, APP-435]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-rbac-views
+- id: APP-447
+  epic: fe-rbac-views
+  title: 監査情報・出典の閲覧権限分離
+  owner: worker1
+  deps: [APP-352]
+  estimate_h: 4
+  status: todo
+
+# Epic: fe-ux-polish
+- id: APP-448
+  epic: fe-ux-polish
+  title: 入力補完（住所/郵便/和暦→西暦/氏名かな推定）
+  owner: worker1
+  deps: [APP-327]
+  estimate_h: 4
+  status: todo
+
+- id: APP-449
+  epic: fe-ux-polish
+  title: 差分ビュー（Draft vs Frozen の文面差分）
+  owner: worker1
+  deps: [APP-421]
+  estimate_h: 5
+  status: todo
+
+# --- FE hardening (追加提案の実装) ---
+- id: APP-450
+  epic: fe-progress
+  title: Job操作（キャンセル/再試行/再開）UIとタイムアウト警告
+  owner: worker1
+  deps: [APP-438, APP-372]
+  estimate_h: 5
+  status: todo
+
+- id: APP-451
+  epic: fe-intake
+  title: 大容量アップロード（chunk/tus・リトライ・一時保存）
+  owner: worker1
+  deps: [APP-403, APP-385]
+  estimate_h: 6
+  status: todo
+
+- id: APP-452
+  epic: fe-preview
+  title: 安全なPDFレンダリング（sandboxed iframe + CSP）
+  owner: worker1
+  deps: [APP-410, APP-350]
+  estimate_h: 4
+  status: todo
+
+- id: APP-453
+  epic: fe-errors
+  title: エラー辞書（ERR_* → 人間可読）共通フック
+  owner: worker1
+  deps: [APP-370]
+  estimate_h: 3
+  status: todo
+
+- id: APP-454
+  epic: fe-export
+  title: コスト見積プリフライト（超過ブロックUI）
+  owner: worker1
+  deps: [APP-424, APP-378, APP-366]
+  estimate_h: 4
+  status: todo
+
+- id: APP-455
+  epic: fe-accessibility
+  title: 自動A11y検査（axe-core/jest-axe）CI統合
+  owner: worker1
+  deps: [APP-426]
+  estimate_h: 3
+  status: todo
+
+- id: APP-456
+  epic: fe-i18n
+  title: 和暦/西暦・休日フォーマッタの単一化
+  owner: worker1
+  deps: [APP-427, APP-381]
+  estimate_h: 4
+  status: todo
+
+- id: APP-457
+  epic: fe-testing
+  title: OpenAPIドリフト検知（MSW/型を自動再生成＆CI Fail）
+  owner: worker1
+  deps: [APP-400, APP-432]
+  estimate_h: 4
+  status: todo
+
+- id: APP-458
+  epic: fe-performance
+  title: Lighthouse CIとPerformance Budget
+  owner: worker1
+  deps: [APP-444]
+  estimate_h: 3
+  status: todo
+
+- id: APP-459
+  epic: fe-security
+  title: CSP/Trusted Types/DOMPurifyポリシー
+  owner: worker1
+  deps: [APP-452]
+  estimate_h: 4
+  status: todo
+
+# --- Tax autofill UX 仕上げ ---
+- id: APP-503
+  epic: tax-autofill-robustness
+  title: チャンクアップロードとAVスキャン待機UI連動
+  owner: worker1
+  deps: [APP-451, APP-385, APP-403]
+  estimate_h: 6
+  status: todo
+
+- id: APP-510
+  epic: tax-autofill-ux
+  title: 抽出ハイライト→候補クリックで原本フォーカス
+  owner: worker1
+  deps: [APP-407, APP-452]
+  estimate_h: 5
+  status: todo
+
+- id: APP-511
+  epic: tax-autofill-ux
+  title: 低confidence強制確認＋一括適用前の差分サマリ
+  owner: worker1
+  deps: [APP-406, APP-408]
+  estimate_h: 4
+  status: todo
+
+- id: APP-512
+  epic: tax-autofill-ux
+  title: 採用後の派生補完（カナ/郵便/和暦→西暦）と編集ガード
+  owner: worker1
+  deps: [APP-327, APP-412]
+  estimate_h: 4
+  status: todo
+# ----------------------------------------------------------------------------- 

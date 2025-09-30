@@ -5,14 +5,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var OCRService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OCRService = void 0;
 const common_1 = require("@nestjs/common");
 const tesseract_js_1 = require("tesseract.js");
-const sharp = require("sharp");
+const sharp_1 = __importDefault(require("sharp"));
+const prisma_service_1 = require("@prisma/prisma.service");
+const ocr_config_1 = require("./ocr/ocr.config");
 let OCRService = OCRService_1 = class OCRService {
-    constructor() {
+    constructor(prisma) {
+        this.prisma = prisma;
         this.logger = new common_1.Logger(OCRService_1.name);
         this.MAX_IMAGE_SIZE = 4000;
         this.MAX_FILE_SIZE = 10 * 1024 * 1024;
@@ -28,8 +37,9 @@ let OCRService = OCRService_1 = class OCRService {
             const preprocessed = options.preprocessImage
                 ? await this.preprocessImage(imageBuffer)
                 : imageBuffer;
-            const worker = await (0, tesseract_js_1.createWorker)(languages, tesseract_js_1.OEM.LSTM_ONLY, {
-                logger: (m) => this.logger.debug(`Tesseract: ${JSON.stringify(m)}`)
+            const worker = await (0, tesseract_js_1.createWorker)(languages.join('+'), undefined, {
+                logger: (m) => this.logger.debug(`Tesseract: ${JSON.stringify(m)}`),
+                langPath: process.env.TESSERACT_LANG_PATH || undefined,
             });
             try {
                 await worker.setParameters({
@@ -52,18 +62,27 @@ let OCRService = OCRService_1 = class OCRService {
                 return ocrResult;
             }
             finally {
-                await worker.terminate();
+                try {
+                    await worker.terminate();
+                }
+                catch { }
             }
         }
         catch (error) {
             const processingTime = Date.now() - startTime;
-            this.logger.error(`OCR failed after ${processingTime}ms: ${error.message}`);
-            throw new Error(`OCR processing failed: ${error.message}`);
+            this.logger.warn(`OCR failed after ${processingTime}ms: ${error?.message || error}`);
+            return {
+                language: 'unknown',
+                confidence: 0,
+                text: '',
+                words: [],
+                boundingBoxes: []
+            };
         }
     }
     async preprocessImage(imageBuffer) {
         try {
-            const image = sharp(imageBuffer);
+            const image = (0, sharp_1.default)(imageBuffer);
             const metadata = await image.metadata();
             let processedImage = image;
             if (metadata.width > this.MAX_IMAGE_SIZE || metadata.height > this.MAX_IMAGE_SIZE) {
@@ -179,9 +198,32 @@ let OCRService = OCRService_1 = class OCRService {
                 : 'low';
         return { quality, issues, recommendations };
     }
+    async saveOCRResult(evidenceId, ocrResult, userId) {
+        try {
+            const cost = (0, ocr_config_1.calculateOCRCost)(ocrResult.fileSize || 0, ocrResult.processing?.duration || 0);
+            await this.prisma.evidence.update({
+                where: { id: evidenceId },
+                data: {
+                    metadata: {
+                        ...ocrResult,
+                        costEstimate: cost,
+                        classification: 'internal',
+                        processedAt: new Date().toISOString()
+                    }
+                }
+            });
+            this.logger.log(`OCR処理完了: Evidence=${evidenceId}, User=${userId}, ` +
+                `Cost=${cost}円, Duration=${ocrResult.processing?.duration}ms`);
+        }
+        catch (error) {
+            this.logger.error(`OCR結果保存失敗: ${error?.message || error}`);
+            throw error;
+        }
+    }
 };
 exports.OCRService = OCRService;
 exports.OCRService = OCRService = OCRService_1 = __decorate([
-    (0, common_1.Injectable)()
+    (0, common_1.Injectable)(),
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
 ], OCRService);
 //# sourceMappingURL=ocr.service.js.map

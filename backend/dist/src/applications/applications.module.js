@@ -12,12 +12,13 @@ const applications_service_1 = require("./applications.service");
 const applications_controller_1 = require("./applications.controller");
 const i18n_module_1 = require("../common/i18n/i18n.module");
 const template_module_1 = require("../template/template.module");
+const supabase_module_1 = require("../supabase/supabase.module");
 let ApplicationsModule = class ApplicationsModule {
 };
 exports.ApplicationsModule = ApplicationsModule;
 exports.ApplicationsModule = ApplicationsModule = __decorate([
     (0, common_1.Module)({
-        imports: [i18n_module_1.I18nModule, template_module_1.TemplateModule],
+        imports: [i18n_module_1.I18nModule, template_module_1.TemplateModule, supabase_module_1.SupabaseModule],
         controllers: [applications_controller_1.ApplicationsController],
         providers: [applications_service_1.ApplicationsService],
         exports: [applications_service_1.ApplicationsService],

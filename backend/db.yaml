@@ -1,0 +1,108 @@
+
+# --- append to: plan.yaml (tickets:) -----------------------------------------
+# Epic: db-setup（基盤セットアップ）
+- id: APP-600
+  epic: db-setup
+  title: DBインフラ選定と接続プール（Postgres + PgBouncer）
+  owner: worker3
+  deps: [APP-358]
+  estimate_h: 4
+  status: todo
+
+- id: APP-601
+  epic: db-setup
+  title: 環境変数/シークレット管理（DATABASE_URL, KMS鍵, S3バケット）
+  owner: worker3
+  deps: [APP-350]
+  estimate_h: 3
+  status: todo
+
+# Epic: db-schema（スキーマ/マイグレーション）
+- id: APP-602
+  epic: db-schema
+  title: Prismaスキーマ確定（Application/Applicant/Source/Evidence/FieldMerge ほか）
+  owner: worker3
+  deps: [APP-363]
+  estimate_h: 5
+  status: todo
+
+- id: APP-603
+  epic: db-schema
+  title: マイグレーションパイプライン（dev→stg→prod、非破壊ガイド）
+  owner: worker3
+  deps: [APP-602]
+  estimate_h: 4
+  status: todo
+
+- id: APP-604
+  epic: db-schema
+  title: 主要インデックス設計（複合/GIN/部分Index）
+  owner: worker3
+  deps: [APP-602]
+  estimate_h: 4
+  status: todo
+
+# Epic: db-security（PII/監査）
+- id: APP-605
+  epic: db-security
+  title: PII分離テーブルと透過暗号化（KMS）※マイナンバー列は持たない
+  owner: worker3
+  deps: [APP-349, APP-327]
+  estimate_h: 6
+  status: todo
+
+- id: APP-606
+  epic: db-security
+  title: 監査テーブル（append-only）とRBAC（Admin/Editor/Viewer）
+  owner: worker3
+  deps: [APP-352, APP-364]
+  estimate_h: 5
+  status: todo
+
+# Epic: db-backup（バックアップ/復旧）
+- id: APP-607
+  epic: db-backup
+  title: 自動バックアップ + PITR 設定（保持期間/復旧手順）
+  owner: worker3
+  deps: []
+  estimate_h: 4
+  status: todo
+
+- id: APP-608
+  epic: db-backup
+  title: 復元演習（stgへ復旧→E2E通電）Runbook整備
+  owner: worker3
+  deps: [APP-607, APP-355]
+  estimate_h: 4
+  status: todo
+
+# Epic: db-seed（初期データ/フラグ）
+- id: APP-609
+  epic: db-seed
+  title: templates 初期投入（template_id/sha256/meta）と整合チェック
+  owner: worker3
+  deps: [APP-342, APP-343]
+  estimate_h: 3
+  status: todo
+
+- id: APP-610
+  epic: db-seed
+  title: feature_flags 初期化（enable_cloud_ocr 等）
+  owner: worker3
+  deps: [APP-380]
+  estimate_h: 2
+  status: todo
+
+# Epic: db-observability（可観測性）
+- id: APP-611
+  epic: db-observability
+  title: 長クエリ/接続/replica_lag のダッシュボードとアラート
+  owner: worker3
+  deps: [APP-351, APP-383]
+  estimate_h: 4
+  status: todo
+# ----------------------------------------------------------------------------- 
+  #
+
+
+

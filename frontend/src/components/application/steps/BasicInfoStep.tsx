@@ -9,6 +9,10 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { FileText, Upload } from 'lucide-react';
+import { UploadFromTaxReturnModal } from '@/components/intake/upload-from-tax-return-modal';
+import { ExtractResponse } from '@/lib/api/types';
 
 const basicInfoSchema = z.object({
   companyName: z.string().min(1, '会社名を入力してください'),
@@ -42,6 +46,7 @@ const BUSINESS_TYPES = [
 ];
 
 export function BasicInfoStep({ data, onComplete }: BasicInfoStepProps) {
+  const [showTaxReturnModal, setShowTaxReturnModal] = useState(false);
   const form = useForm<BasicInfoFormData>({
     resolver: zodResolver(basicInfoSchema),
     defaultValues: data,
@@ -51,10 +56,94 @@ export function BasicInfoStep({ data, onComplete }: BasicInfoStepProps) {
     onComplete(formData);
   };
 
+  const handleTaxReturnExtract = (extractData: ExtractResponse) => {
+    const fields = extractData.extracted_fields;
+
+    // 抽出されたデータをフォームに反映
+    // 会社名・屋号: companyName > businessName > corporateName > name
+    const companyLike =
+      fields.companyName || fields.businessName || fields.corporateName || fields.name;
+    if (companyLike) {
+      form.setValue('companyName', companyLike);
+    }
+
+    // 代表者名: representativeName > representative > name
+    const representativeLike =
+      fields.representativeName || fields.representative || fields.name;
+    if (representativeLike) {
+      form.setValue('representativeName', representativeLike);
+    }
+    if (fields.postalCode) {
+      form.setValue('postalCode', fields.postalCode);
+    }
+    if (fields.address) {
+      form.setValue('address', fields.address);
+    }
+    if (fields.phoneNumber || fields.phone) {
+      form.setValue('phone', fields.phoneNumber || fields.phone || '');
+    }
+    if (fields.email) {
+      form.setValue('email', fields.email);
+    }
+    // 従業員数: employeeCount > employees
+    if (fields.employeeCount != null || fields.employees != null) {
+      const ec = (fields.employeeCount ?? fields.employees) as any;
+      const parsed = typeof ec === 'number' ? ec : parseInt(ec) || 0;
+      form.setValue('employeeCount', parsed);
+    }
+    // 資本金
+    if (fields.capital != null) {
+      const c = fields.capital as any;
+      const parsed = typeof c === 'number' ? c : parseInt(c) || 0;
+      form.setValue('capital', parsed);
+    }
+    // 設立年: establishedYear > establishedDate > fiscalYearFrom
+    if (fields.establishedYear || fields.establishedDate || fields.fiscalYearFrom) {
+      const year = ((): number => {
+        if (fields.establishedYear) return Number(fields.establishedYear);
+        if (fields.establishedDate) return new Date(fields.establishedDate).getFullYear();
+        if (fields.fiscalYearFrom) return new Date(fields.fiscalYearFrom).getFullYear();
+        return new Date().getFullYear();
+      })();
+      form.setValue('establishedYear', year);
+    }
+  };
+
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-6">
+    <>
+      <UploadFromTaxReturnModal
+        isOpen={showTaxReturnModal}
+        onClose={() => setShowTaxReturnModal(false)}
+        onExtractComplete={handleTaxReturnExtract}
+      />
+
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          {/* 確定申告書から取り込むカード */}
+          <Card className="border-dashed">
+            <CardHeader>
+              <CardTitle className="text-base flex items-center gap-2">
+                <FileText className="h-4 w-4" />
+                確定申告書から自動入力
+              </CardTitle>
+              <CardDescription>
+                確定申告書をアップロードして、基本情報を自動で抽出できます
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setShowTaxReturnModal(true)}
+                className="w-full"
+              >
+                <Upload className="mr-2 h-4 w-4" />
+                確定申告書から取り込む
+              </Button>
+            </CardContent>
+          </Card>
+
+          <div className="grid md:grid-cols-2 gap-6">
           <FormField
             control={form.control}
             name="companyName"
@@ -222,10 +311,11 @@ export function BasicInfoStep({ data, onComplete }: BasicInfoStepProps) {
           />
         </div>
 
-        <div className="flex justify-end">
-          <Button type="submit">次へ進む</Button>
-        </div>
-      </form>
-    </Form>
+          <div className="flex justify-end">
+            <Button type="submit">次へ進む</Button>
+          </div>
+        </form>
+      </Form>
+    </>
   );
 }

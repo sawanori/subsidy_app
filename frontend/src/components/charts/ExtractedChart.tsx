@@ -85,8 +85,8 @@ export function ExtractedChart({
         datasets: [{
           label: chartData.title || 'データ',
           data: chartData.extractedValues || chartData.data.map(d => d.value),
-          backgroundColor: finalType === 'pie' || finalType === 'unknown' ? backgroundColors : backgroundColors[0],
-          borderColor: finalType === 'pie' || finalType === 'unknown' ? borderColors : borderColors[0],
+          backgroundColor: (finalType === 'pie' || finalType === 'unknown' ? backgroundColors : backgroundColors[0]) as any,
+          borderColor: (finalType === 'pie' || finalType === 'unknown' ? borderColors : borderColors[0]) as any,
           borderWidth: 2,
         }]
       },

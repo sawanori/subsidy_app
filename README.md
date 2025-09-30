@@ -1,165 +1,255 @@
-# 🤖 Tmux Multi-Agent Communication Demo
+# 申請ドキュメント自動生成アプリ / Subsidy Application Document Auto-Generation App
 
-Agent同士がやり取りするtmux環境のデモシステム
+> 日本の補助金申請書類を自動生成する多機能Webアプリケーション
 
-**📖 Read this in other languages:** [English](README-en.md)
+**📖 Read this in other languages:** [日本語](#) | [English](README-en.md)
 
-## 🎯 デモ概要
+## 🎯 プロジェクト概要
 
-PRESIDENT → BOSS → Workers の階層型指示システムを体感できます
+補助金申請に必要な複雑な書類作成を効率化するためのフルスタックWebアプリケーションです。AIを活用した自動生成、OCR処理、PDF出力機能を備え、申請業務を大幅に効率化します。
 
-### 👥 エージェント構成
+### 主要機能
+
+- 📝 **申請書ウィザード**: ステップバイステップで申請情報を入力
+- 🤖 **AI自動生成**: OpenAI APIを活用した計画書・KPI自動生成
+- 📄 **PDF/DOCX出力**: 様式に合わせた高品質ドキュメント生成
+- 🔍 **OCR処理**: 日本語対応のテキスト抽出（Tesseract.js）
+- 📊 **データ可視化**: ガントチャート、組織図、KPIグラフ自動生成
+- 🔐 **セキュリティ**: AES256暗号化、ファイルスキャン、監査ログ
+- 🌏 **多言語対応**: 日本語・英語・中国語・韓国語サポート（計画中）
+
+## 🏗️ アーキテクチャ
+
+### 技術スタック
+
+**Frontend**
+- Next.js 15.5.2（App Router）
+- React 19.1.0 + TypeScript
+- Tailwind CSS 4 + shadcn/ui
+- React Hook Form + Zod
+- Playwright（E2E） + Jest/Vitest（単体テスト）
+
+**Backend**
+- NestJS 11.1.6 + TypeScript
+- Prisma ORM 6.15.0
+- PostgreSQL（Supabase）
+- Puppeteer（PDF生成）
+- Tesseract.js（OCR）
+- OpenAI API
+
+**Infrastructure**
+- Vercel（Frontend）
+- Railway/Render（Backend）
+- Supabase（Database + Auth）
+- S3互換ストレージ
+
+### プロジェクト構成
 
 ```
-📊 PRESIDENT セッション (1ペイン)
-└── PRESIDENT: プロジェクト統括責任者
-
-📊 multiagent セッション (4ペイン)  
-├── boss1: チームリーダー
-├── worker1: 実行担当者A
-├── worker2: 実行担当者B
-└── worker3: 実行担当者C
+subsidyApp/
+├── frontend/          # Next.js フロントエンド
+│   ├── src/
+│   │   ├── app/      # App Router ページ
+│   │   ├── components/ # UIコンポーネント
+│   │   └── lib/      # ユーティリティ
+│   └── e2e/          # Playwright E2Eテスト
+├── backend/          # NestJS バックエンド
+│   ├── src/
+│   │   ├── applications/ # 申請管理
+│   │   ├── evidence/  # 証跡処理（OCR）
+│   │   ├── modules/   # 各種モジュール
+│   │   └── prisma/    # Prisma設定
+│   └── prisma/       # DB スキーマ
+├── plan.yaml         # プロジェクト計画
+└── governance.yaml   # 品質基準
 ```
 
 ## 🚀 クイックスタート
 
-### 0. リポジトリのクローン
+### 前提条件
+
+- Node.js 18+ / npm 9+
+- PostgreSQL（またはSupabase）
+- OpenAI APIキー（任意）
+
+### 1. インストール
 
 ```bash
-git clone https://github.com/nishimoto265/Claude-Code-Communication.git
-cd Claude-Code-Communication
+# リポジトリをクローン
+git clone https://github.com/yourusername/subsidyapp.git
+cd subsidyApp
+
+# 全依存関係をインストール（npm workspaces使用）
+npm run install:all
 ```
 
-### 1. tmux環境構築
-
-⚠️ **注意**: 既存の `multiagent` と `president` セッションがある場合は自動的に削除されます。
+### 2. 環境変数の設定
 
 ```bash
-./setup.sh
+# Backendの環境変数
+cp backend/.env.local.example backend/.env.local
+# エディタで backend/.env.local を編集
+
+# Frontendの環境変数
+cp frontend/.env.local.example frontend/.env.local
+# エディタで frontend/.env.local を編集
 ```
 
-### 2. セッションアタッチ
+必要な環境変数:
+- `DATABASE_URL`: PostgreSQL接続URL
+- `SUPABASE_URL`, `SUPABASE_ANON_KEY`: Supabase設定
+- `OPENAI_API_KEY`: OpenAI APIキー（任意）
+
+### 3. データベースのセットアップ
 
 ```bash
-# マルチエージェント確認
-tmux attach-session -t multiagent
-
-# プレジデント確認（別ターミナルで）
-tmux attach-session -t president
+cd backend
+npx prisma generate
+npx prisma migrate dev
 ```
 
-### 3. Claude Code起動
-
-**手順1: President認証**
-```bash
-# まずPRESIDENTで認証を実施
-tmux send-keys -t president 'claude' C-m
-```
-認証プロンプトに従って許可を与えてください。
-
-**手順2: Multiagent一括起動**
-```bash
-# 認証完了後、multiagentセッションを一括起動
-for i in {0..3}; do tmux send-keys -t multiagent:0.$i 'claude' C-m; done
-```
-
-### 4. デモ実行
-
-PRESIDENTセッションで直接入力：
-```
-あなたはpresidentです。指示書に従って
-```
-
-## 📜 指示書について
-
-各エージェントの役割別指示書：
-- **PRESIDENT**: `instructions/president.md`
-- **boss1**: `instructions/boss.md` 
-- **worker1,2,3**: `instructions/worker.md`
-
-**Claude Code参照**: `CLAUDE.md` でシステム構造を確認
-
-**要点:**
-- **PRESIDENT**: 「あなたはpresidentです。指示書に従って」→ boss1に指示送信
-- **boss1**: PRESIDENT指示受信 → workers全員に指示 → 完了報告
-- **workers**: Hello World実行 → 完了ファイル作成 → 最後の人が報告
-
-## 🎬 期待される動作フロー
-
-```
-1. PRESIDENT → boss1: "あなたはboss1です。Hello World プロジェクト開始指示"
-2. boss1 → workers: "あなたはworker[1-3]です。Hello World 作業開始"  
-3. workers → ./tmp/ファイル作成 → 最後のworker → boss1: "全員作業完了しました"
-4. boss1 → PRESIDENT: "全員完了しました"
-```
-
-## 🔧 手動操作
-
-### agent-send.shを使った送信
+### 4. 開発サーバーの起動
 
 ```bash
-# 基本送信
-./agent-send.sh [エージェント名] [メッセージ]
+# ルートから両方を同時起動
+npm run dev
 
-# 例
-./agent-send.sh boss1 "緊急タスクです"
-./agent-send.sh worker1 "作業完了しました"
-./agent-send.sh president "最終報告です"
-
-# エージェント一覧確認
-./agent-send.sh --list
+# または個別に起動
+npm run dev:backend  # http://localhost:3001
+npm run dev:frontend # http://localhost:3000
 ```
 
-## 🧪 確認・デバッグ
+## 📚 コマンド一覧
 
-### ログ確認
+### ルートレベル
 
 ```bash
-# 送信ログ確認
-cat logs/send_log.txt
-
-# 特定エージェントのログ
-grep "boss1" logs/send_log.txt
-
-# 完了ファイル確認
-ls -la ./tmp/worker*_done.txt
+npm run dev           # Frontend + Backend同時起動
+npm run build         # 両方をビルド
+npm run test          # 全テスト実行
+npm run lint          # 全Lint実行
+npm run clean         # ビルド成果物削除
 ```
 
-### セッション状態確認
+### Backend
 
 ```bash
-# セッション一覧
-tmux list-sessions
-
-# ペイン一覧
-tmux list-panes -t multiagent
-tmux list-panes -t president
+cd backend
+npm run start:dev     # 開発サーバー（ts-node）
+npm run build         # TypeScript コンパイル
+npm run start:prod    # 本番サーバー
+npm test              # Jestテスト
+npm run test:cov      # カバレッジレポート
+npm run lint          # ESLint
+npx prisma studio     # データベースブラウザ
 ```
 
-## 🔄 環境リセット
+### Frontend
 
 ```bash
-# セッション削除
-tmux kill-session -t multiagent
-tmux kill-session -t president
-
-# 完了ファイル削除
-rm -f ./tmp/worker*_done.txt
-
-# 再構築（自動クリア付き）
-./setup.sh
+cd frontend
+npm run dev           # 開発サーバー
+npm run build         # 本番ビルド
+npm run test:unit     # Jest単体テスト
+npm run test:e2e      # Playwright E2E
+npm run test:accessibility # アクセシビリティテスト
+npm run lint          # ESLint
+npm run storybook     # Storybook起動
 ```
 
----
+## 🧪 テスト
 
-## 📄 ライセンス
+プロジェクトはgovernance.yamlで定義された品質基準に従います。
 
-このプロジェクトは[MIT License](LICENSE)の下で公開されています。
+```bash
+# Backend: 単体 + 統合テスト
+cd backend && npm test
+
+# Frontend: 単体テスト
+cd frontend && npm run test:unit
+
+# Frontend: E2Eテスト
+cd frontend && npm run test:e2e
+
+# カバレッジレポート
+npm run test:coverage
+```
+
+**品質ゲート**:
+- テストカバレッジ: 70%以上（目標）
+- アクセシビリティ: WCAG 2.1 AA準拠
+- パフォーマンス: プレビュー生成 ≤2秒
+
+## 📖 ドキュメント
+
+- [プロジェクト計画書](plan.yaml) - 全チケット・スプリント情報
+- [品質基準](governance.yaml) - DoR/DoD・セキュリティ基準
+- [Backend README](backend/README.md) - API詳細
+- [Frontend README](frontend/README.md) - UI/UX詳細
+- [CLAUDE.md](CLAUDE.md) - AI開発アシスタント向けガイド
+
+## 🔒 セキュリティ
+
+- **認証**: Supabase Auth（Email OTP / OAuth）
+- **暗号化**: AES256（保存時）、TLS1.2+（通信時）
+- **ファイルスキャン**: ClamAV統合
+- **監査ログ**: 全操作記録
+- **Rate Limiting**: 100 req/5min/IP
+
+詳細は[SECURITY_WARNING.md](SECURITY_WARNING.md)を参照してください。
 
 ## 🤝 コントリビューション
 
-プルリクエストやIssueでのコントリビューションを歓迎いたします！
+1. このリポジトリをFork
+2. フィーチャーブランチを作成 (`git checkout -b feature/amazing-feature`)
+3. 変更をコミット (`git commit -m 'Add amazing feature'`)
+4. ブランチにPush (`git push origin feature/amazing-feature`)
+5. Pull Requestを作成
+
+**開発ガイドライン**:
+- Definition of Ready (DoR)を満たすこと
+- テストカバレッジ70%以上を維持
+- ESLintルールに従う
+- コミットメッセージは[Conventional Commits](https://www.conventionalcommits.org/)形式
+
+## 📜 ライセンス
+
+MIT License - 詳細は[LICENSE](LICENSE)を参照
+
+## 👥 作成者
+
+- **プロジェクトリード**: [Your Name]
+- **Frontend**: worker1
+- **Backend**: worker2
+- **Database**: worker3
+
+## 📞 サポート
+
+- 🐛 バグ報告: [GitHub Issues](https://github.com/yourusername/subsidyapp/issues)
+- 💬 質問・相談: [GitHub Discussions](https://github.com/yourusername/subsidyapp/discussions)
+- 📧 Email: support@example.com
+
+## 🗺️ ロードマップ
+
+### 完了 ✅
+- [x] 基本インフラ構築
+- [x] 申請ウィザードUI
+- [x] PDF生成機能
+
+### 進行中 🚧
+- [ ] テストカバレッジ改善（3% → 70%）
+- [ ] CI/CDパイプライン
+- [ ] 多言語化（i18n）
+
+### 計画中 📋
+- [ ] AI自動入力補助
+- [ ] モバイルアプリ対応
+- [ ] ブロックチェーン証明
+
+詳細は[plan.yaml](plan.yaml)のチケット管理を参照。
 
 ---
 
-🚀 **Agent Communication を体感してください！** 🤖✨ 
+**Status**: 🚧 Active Development (Prototype Stage)
+**Version**: 0.2.0
+**Last Updated**: 2025年9月30日

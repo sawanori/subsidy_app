@@ -11,7 +11,14 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@generated/*": ["generated/*"]
+      "@/*": ["src/*"],
+      "@generated/*": ["generated/*"],
+      "@common/*": ["src/common/*"],
+      "@modules/*": ["src/modules/*"],
+      "@prisma/*": ["src/prisma/*"],
+      "@evidence/*": ["src/evidence/*"],
+      "@applications/*": ["src/applications/*"],
+      "@plans/*": ["src/plans/*"]
     },
     "incremental": true,
     "skipLibCheck": true,
@@ -19,6 +26,15 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.spec.ts",
+    "**/*.e2e-spec.ts",
+    "test"
+  ]
 }

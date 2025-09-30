@@ -25,10 +25,11 @@ import { Roles } from '../common/decorators/roles.decorator';
 import { Role } from '../common/enums/role.enum';
 import { RolesGuard } from '../common/guards/roles.guard';
 import { CustomThrottlerGuard } from '../common/guards/throttler.guard';
+import { SupabaseAuthGuard } from '../common/guards/supabase-auth.guard';
 
 @ApiTags('applications')
 @Controller('applications')
-@UseGuards(CustomThrottlerGuard, RolesGuard)
+@UseGuards(CustomThrottlerGuard, SupabaseAuthGuard, RolesGuard)
 @ApiBearerAuth()
 export class ApplicationsController {
   constructor(private readonly applicationsService: ApplicationsService) {}
@@ -47,7 +48,7 @@ export class ApplicationsController {
     @Request() req: any
   ) {
     const application = await this.applicationsService.create(
-      req.user?.id || 'anonymous', // TODO: Implement proper auth
+      req.user.id,
       createApplicationDto,
       req
     );
@@ -68,9 +69,9 @@ export class ApplicationsController {
     @Request() req: any
   ) {
     const result = await this.applicationsService.findAll(
-      req.user?.id || 'anonymous',
+      req.user.id,
       pagination,
-      req.user?.role || Role.VIEWER
+      req.user.role || Role.VIEWER
     );
 
     return new BaseResponseDto(result, 'Applications retrieved successfully');
@@ -84,8 +85,8 @@ export class ApplicationsController {
   })
   async getStatistics(@Request() req: any) {
     const stats = await this.applicationsService.getStatistics(
-      req.user?.id || 'anonymous',
-      req.user?.role || Role.VIEWER
+      req.user.id,
+      req.user.role || Role.VIEWER
     );
 
     return new BaseResponseDto(stats, 'Statistics retrieved successfully');
@@ -102,8 +103,8 @@ export class ApplicationsController {
   async findOne(@Param('id') id: string, @Request() req: any) {
     const application = await this.applicationsService.findOne(
       id,
-      req.user?.id || 'anonymous',
-      req.user?.role || Role.VIEWER,
+      req.user.id,
+      req.user.role || Role.VIEWER,
       req
     );
 
@@ -126,9 +127,9 @@ export class ApplicationsController {
   ) {
     const application = await this.applicationsService.update(
       id,
-      req.user?.id || 'anonymous',
+      req.user.id,
       updateApplicationDto,
-      req.user?.role || Role.EDITOR,
+      req.user.role || Role.EDITOR,
       req
     );
 
@@ -147,8 +148,8 @@ export class ApplicationsController {
   async remove(@Param('id') id: string, @Request() req: any) {
     await this.applicationsService.remove(
       id,
-      req.user?.id || 'anonymous',
-      req.user?.role || Role.ADMIN,
+      req.user.id,
+      req.user.role || Role.ADMIN,
       req
     );
 
@@ -171,8 +172,8 @@ export class ApplicationsController {
   ) {
     const generationResult = await this.applicationsService.generateApplication(
       id,
-      req.user?.id || 'anonymous',
-      req.user?.role || Role.VIEWER,
+      req.user.id,
+      req.user.role || Role.VIEWER,
       generateDto,
       req
     );

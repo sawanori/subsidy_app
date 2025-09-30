@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsOptional, IsBoolean, IsArray, IsEnum, IsNumber, Min, Max } from 'class-validator';
-import { ProcessedEvidence, EvidenceType, EvidenceSource } from '../interfaces/evidence.interface';
+import { EvidenceType, EvidenceSource } from '../interfaces/evidence.interface';
 
 export class UploadEvidenceDto {
   @ApiProperty({

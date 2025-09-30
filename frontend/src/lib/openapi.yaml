@@ -1,0 +1,978 @@
+openapi: 3.1.0
+info:
+  title: 補助金申請書自動生成API
+  version: 1.0.0
+  description: 補助金申請書類の自動生成、検証、エクスポートを行うAPI
+  contact:
+    name: API Support
+  license:
+    name: MIT
+servers:
+  - url: http://localhost:3000
+    description: Development server
+  - url: https://api.subsidy-app.example.com
+    description: Production server
+tags:
+  - name: intake
+    description: 書類取り込み・抽出
+  - name: research
+    description: エビデンス検索・取得
+  - name: generate
+    description: 申請書生成
+  - name: validate
+    description: 検証
+  - name: export
+    description: エクスポート
+  - name: templates
+    description: テンプレート管理
+  - name: health
+    description: ヘルスチェック
+paths:
+  /health:
+    get:
+      tags:
+        - health
+      summary: ヘルスチェック
+      operationId: healthCheck
+      responses:
+        '200':
+          description: サービス正常
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [healthy]
+                  timestamp:
+                    type: string
+                    format: date-time
+                  version:
+                    type: string
+
+  /intake/upload:
+    post:
+      tags:
+        - intake
+      summary: ファイルアップロード
+      operationId: uploadFile
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+                - type
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: アップロードファイル（PDF、画像等）
+                type:
+                  type: string
+                  enum: [certificate, tax_return, other]
+                  description: 書類種別
+      responses:
+        '200':
+          description: アップロード成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntakeResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '413':
+          $ref: '#/components/responses/PayloadTooLarge'
+
+  /intake/extract:
+    post:
+      tags:
+        - intake
+      summary: データ抽出
+      operationId: extractData
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - file_id
+              properties:
+                file_id:
+                  type: string
+                  description: アップロードファイルID
+                ocr_provider:
+                  type: string
+                  enum: [tesseract, cloud]
+                  default: tesseract
+      responses:
+        '200':
+          description: 抽出成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExtractResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /research/search:
+    post:
+      tags:
+        - research
+      summary: エビデンス検索
+      operationId: searchEvidence
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                  description: 検索クエリ
+                provider:
+                  type: string
+                  enum: [bing, google]
+                  default: bing
+                max_results:
+                  type: integer
+                  minimum: 1
+                  maximum: 50
+                  default: 10
+      responses:
+        '200':
+          description: 検索成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /research/fetch:
+    post:
+      tags:
+        - research
+      summary: コンテンツ取得
+      operationId: fetchContent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - url
+              properties:
+                url:
+                  type: string
+                  format: uri
+                  description: 取得対象URL
+      responses:
+        '200':
+          description: 取得成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FetchResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /research/ingest:
+    post:
+      tags:
+        - research
+      summary: エビデンス取り込み
+      operationId: ingestEvidence
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - content_id
+                - application_id
+              properties:
+                content_id:
+                  type: string
+                application_id:
+                  type: string
+      responses:
+        '200':
+          description: 取り込み成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IngestResponse'
+
+  /generate/background:
+    post:
+      tags:
+        - generate
+      summary: 背景生成
+      operationId: generateBackground
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - application_id
+              properties:
+                application_id:
+                  type: string
+                evidence_ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: 生成成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateResponse'
+
+  /generate/solution:
+    post:
+      tags:
+        - generate
+      summary: 解決策生成
+      operationId: generateSolution
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - application_id
+                - background_id
+              properties:
+                application_id:
+                  type: string
+                background_id:
+                  type: string
+      responses:
+        '200':
+          description: 生成成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateResponse'
+
+  /generate/kpis:
+    post:
+      tags:
+        - generate
+      summary: KPI生成
+      operationId: generateKpis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - application_id
+                - solution_id
+              properties:
+                application_id:
+                  type: string
+                solution_id:
+                  type: string
+      responses:
+        '200':
+          description: 生成成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KpiResponse'
+
+  /generate/budget:
+    post:
+      tags:
+        - generate
+      summary: 経費計画生成
+      operationId: generateBudget
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - application_id
+                - solution_id
+              properties:
+                application_id:
+                  type: string
+                solution_id:
+                  type: string
+      responses:
+        '200':
+          description: 生成成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BudgetResponse'
+
+  /generate/schedule:
+    post:
+      tags:
+        - generate
+      summary: スケジュール生成
+      operationId: generateSchedule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - application_id
+                - solution_id
+              properties:
+                application_id:
+                  type: string
+                solution_id:
+                  type: string
+      responses:
+        '200':
+          description: 生成成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleResponse'
+
+  /validate/text:
+    post:
+      tags:
+        - validate
+      summary: テキスト検証
+      operationId: validateText
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - content
+                - rules
+              properties:
+                content:
+                  type: string
+                rules:
+                  type: array
+                  items:
+                    type: string
+                    enum: [char_count, forbidden_words, redundancy]
+      responses:
+        '200':
+          description: 検証完了
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationResponse'
+
+  /validate/kpis:
+    post:
+      tags:
+        - validate
+      summary: KPI検証
+      operationId: validateKpis
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - kpis
+              properties:
+                kpis:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Kpi'
+      responses:
+        '200':
+          description: 検証完了
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationResponse'
+
+  /validate/budget:
+    post:
+      tags:
+        - validate
+      summary: 予算検証
+      operationId: validateBudget
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - budget
+              properties:
+                budget:
+                  $ref: '#/components/schemas/Budget'
+      responses:
+        '200':
+          description: 検証完了
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationResponse'
+
+  /validate/schedule:
+    post:
+      tags:
+        - validate
+      summary: スケジュール検証
+      operationId: validateSchedule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - schedule
+              properties:
+                schedule:
+                  $ref: '#/components/schemas/Schedule'
+      responses:
+        '200':
+          description: 検証完了
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationResponse'
+
+  /validate/preflight:
+    post:
+      tags:
+        - validate
+      summary: PDF事前検証
+      operationId: validatePreflight
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - file_id
+              properties:
+                file_id:
+                  type: string
+      responses:
+        '200':
+          description: 検証完了
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreflightResponse'
+
+  /export/pdf:
+    post:
+      tags:
+        - export
+      summary: PDF出力
+      operationId: exportPdf
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - application_id
+                - template_id
+              properties:
+                application_id:
+                  type: string
+                template_id:
+                  type: string
+                method:
+                  type: string
+                  enum: [overlay, docx]
+                  default: overlay
+      responses:
+        '202':
+          description: ジョブ受付
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+
+  /export/zip:
+    post:
+      tags:
+        - export
+      summary: ZIP出力
+      operationId: exportZip
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - application_id
+                - files
+              properties:
+                application_id:
+                  type: string
+                files:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '202':
+          description: ジョブ受付
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+
+  /templates/import:
+    post:
+      tags:
+        - templates
+      summary: テンプレート取り込み
+      operationId: importTemplate
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+                - metadata
+              properties:
+                file:
+                  type: string
+                  format: binary
+                metadata:
+                  type: string
+                  description: JSON形式のメタデータ
+      responses:
+        '200':
+          description: 取り込み成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemplateResponse'
+
+  /templates/{id}/mapping:
+    post:
+      tags:
+        - templates
+      summary: テンプレートマッピング設定
+      operationId: setTemplateMapping
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - mappings
+              properties:
+                mappings:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/FieldMapping'
+      responses:
+        '200':
+          description: 設定成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TemplateResponse'
+
+components:
+  schemas:
+    IntakeResponse:
+      type: object
+      properties:
+        file_id:
+          type: string
+        sha256:
+          type: string
+        mime_type:
+          type: string
+        size:
+          type: integer
+        status:
+          type: string
+          enum: [uploaded, scanning, ready, rejected]
+
+    ExtractResponse:
+      type: object
+      properties:
+        extraction_id:
+          type: string
+        file_id:
+          type: string
+        document_type:
+          type: string
+          enum: [certificate, tax_return_personal, tax_return_corporate, unknown]
+        extracted_fields:
+          type: object
+          additionalProperties: true
+        confidence_scores:
+          type: object
+          additionalProperties:
+            type: number
+            minimum: 0
+            maximum: 1
+
+    SearchResponse:
+      type: object
+      properties:
+        search_id:
+          type: string
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              url:
+                type: string
+              snippet:
+                type: string
+              score:
+                type: number
+
+    FetchResponse:
+      type: object
+      properties:
+        content_id:
+          type: string
+        url:
+          type: string
+        content_type:
+          type: string
+        content:
+          type: string
+        extracted_at:
+          type: string
+          format: date-time
+
+    IngestResponse:
+      type: object
+      properties:
+        evidence_id:
+          type: string
+        content_id:
+          type: string
+        application_id:
+          type: string
+        metadata:
+          type: object
+          additionalProperties: true
+
+    GenerateResponse:
+      type: object
+      properties:
+        generation_id:
+          type: string
+        content:
+          type: string
+        citations:
+          type: array
+          items:
+            type: object
+            properties:
+              evidence_id:
+                type: string
+              text:
+                type: string
+              url:
+                type: string
+
+    Kpi:
+      type: object
+      required:
+        - name
+        - baseline
+        - target
+        - unit
+      properties:
+        name:
+          type: string
+        baseline:
+          type: number
+        target:
+          type: number
+        unit:
+          type: string
+        measurement_method:
+          type: string
+        frequency:
+          type: string
+
+    KpiResponse:
+      type: object
+      properties:
+        kpi_set_id:
+          type: string
+        kpis:
+          type: array
+          items:
+            $ref: '#/components/schemas/Kpi'
+
+    Budget:
+      type: object
+      required:
+        - items
+        - total_amount
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              category:
+                type: string
+              name:
+                type: string
+              amount:
+                type: number
+              is_eligible:
+                type: boolean
+              subsidy_rate:
+                type: number
+        total_amount:
+          type: number
+        subsidy_amount:
+          type: number
+        self_funding:
+          type: number
+
+    BudgetResponse:
+      type: object
+      properties:
+        budget_id:
+          type: string
+        budget:
+          $ref: '#/components/schemas/Budget'
+
+    Schedule:
+      type: object
+      required:
+        - tasks
+        - start_date
+        - end_date
+      properties:
+        tasks:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              start:
+                type: string
+                format: date
+              end:
+                type: string
+                format: date
+              dependencies:
+                type: array
+                items:
+                  type: string
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        critical_path:
+          type: array
+          items:
+            type: string
+
+    ScheduleResponse:
+      type: object
+      properties:
+        schedule_id:
+          type: string
+        schedule:
+          $ref: '#/components/schemas/Schedule'
+        gantt_svg:
+          type: string
+
+    ValidationResponse:
+      type: object
+      properties:
+        is_valid:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+              message:
+                type: string
+              field:
+                type: string
+              severity:
+                type: string
+                enum: [error, warning, info]
+        suggestions:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              message:
+                type: string
+              proposed_fix:
+                type: string
+
+    PreflightResponse:
+      type: object
+      properties:
+        is_valid:
+          type: boolean
+        page_count:
+          type: integer
+        page_size:
+          type: string
+        fonts_embedded:
+          type: boolean
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              rule_id:
+                type: string
+              message:
+                type: string
+
+    JobResponse:
+      type: object
+      properties:
+        job_id:
+          type: string
+        status:
+          type: string
+          enum: [queued, running, succeeded, failed]
+        progress:
+          type: number
+          minimum: 0
+          maximum: 100
+        result_url:
+          type: string
+
+    TemplateResponse:
+      type: object
+      properties:
+        template_id:
+          type: string
+        name:
+          type: string
+        version:
+          type: string
+        sha256:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+
+    FieldMapping:
+      type: object
+      required:
+        - field_key
+        - position
+      properties:
+        field_key:
+          type: string
+        position:
+          type: object
+          properties:
+            x:
+              type: number
+            y:
+              type: number
+            width:
+              type: number
+            height:
+              type: number
+        max_chars:
+          type: integer
+        format:
+          type: string
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: object
+          required:
+            - code
+            - message
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            details:
+              type: object
+              additionalProperties: true
+
+  responses:
+    BadRequest:
+      description: リクエスト不正
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    PayloadTooLarge:
+      description: ファイルサイズ超過
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { prisma } from '../../database/client';
+import { prisma } from '@/database/client';
 
 /**
  * governance.yaml準拠 コスト・パフォーマンス監視サービス

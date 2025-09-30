@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsNotEmpty, IsOptional, IsEmail, IsEnum, MaxLength, MinLength } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsEnum, MaxLength } from 'class-validator';
 import { ApplicationStatus } from '@generated/prisma';
 
 export class CreateApplicationDto {

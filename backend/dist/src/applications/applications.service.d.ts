@@ -16,8 +16,8 @@ export declare class ApplicationsService {
         data: ({
             user: {
                 id: string;
-                email: string;
                 role: import("@generated/prisma").$Enums.UserRole;
+                email: string;
             };
             applicant: {
                 id: string;
@@ -28,16 +28,17 @@ export declare class ApplicationsService {
                 evidences: number;
             };
         } & {
-            status: import("@generated/prisma").$Enums.ApplicationStatus;
+            id: string;
+            applicantId: string;
             createdAt: Date;
             updatedAt: Date;
             deletedAt: Date | null;
-            submittedAt: Date | null;
-            id: string;
             title: string;
-            locale: string;
             userId: string;
-            applicantId: string;
+            status: import("@generated/prisma").$Enums.ApplicationStatus;
+            locale: string;
+            baselines: import("@generated/prisma/runtime/library").JsonValue | null;
+            submittedAt: Date | null;
         })[];
         meta: PaginationMetaDto;
     }>;

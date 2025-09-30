@@ -1,19 +1,36 @@
 {
   "permissions": {
     "allow": [
+      "Bash(for i in {0..3})",
+      "Bash(do tmux send-keys -t multiagent:0.$i 'claude' C-m)",
+      "Bash(done)",
       "Bash(./agent-send.sh:*)",
       "Bash(mkdir:*)",
       "Bash(touch:*)",
-      "Bash(echo:*)",
-      "Bash(if:*)",
-      "Bash([ -f ./tmp/worker*_done.txt ]*)",
-      "Bash(*worker*_done.txt*)",
-      "Bash(mkdir:*)",
+      "Bash(if [ -f ./tmp/worker1_done.txt ])",
+      "Bash([ -f ./tmp/worker2_done.txt ])",
+      "Bash([ -f ./tmp/worker3_done.txt ])",
       "Bash(then)",
       "Bash(else)",
-      "Bash(tmux show-options:*)",
-      "Bash(ls:*)"
+      "Bash(fi)",
+      "Bash(npm run start:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm install)",
+      "Bash(npx prisma generate:*)",
+      "Read(//Users/noritakasawada/**)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(tree:*)",
+      "Bash(npx prisma:*)",
+      "Bash(cat:*)",
+      "Bash(npm run start:dev:*)",
+      "Bash(grep:*)",
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(lsof:*)",
+      "Bash(npm search:*)"
     ],
-    "deny": []
+    "deny": [],
+    "ask": []
   }
 }

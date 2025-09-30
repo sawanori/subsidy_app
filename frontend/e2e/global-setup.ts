@@ -14,7 +14,7 @@ async function globalSetup(config: FullConfig) {
   
   try {
     // ベースURLアクセス確認
-    await page.goto(config.use?.baseURL || 'http://localhost:3000', {
+    await page.goto('http://localhost:3000', {
       timeout: 30000
     });
     
@@ -22,11 +22,11 @@ async function globalSetup(config: FullConfig) {
     await page.waitForSelector('body', { timeout: 10000 });
     
     console.log('✅ Development server is ready');
-    console.log(`📍 Base URL: ${config.use?.baseURL || 'http://localhost:3000'}`);
+    console.log(`📍 Base URL: http://localhost:3000`);
     
     // governance.yaml準拠チェック
     const startTime = Date.now();
-    await page.goto(`${config.use?.baseURL || 'http://localhost:3000'}/ja/preview-demo`);
+    await page.goto(`http://localhost:3000/ja/preview-demo`);
     const loadTime = Date.now() - startTime;
     
     if (loadTime > 2000) {

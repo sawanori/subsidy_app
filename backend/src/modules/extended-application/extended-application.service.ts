@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
-import { PrismaService } from '../../prisma/prisma.service';
+import { PrismaService } from '@prisma/prisma.service';
 import {
   CreatePurposeBackgroundDto,
   UpdatePurposeBackgroundDto,
@@ -17,7 +17,7 @@ import {
   ChartType,
   TaskType,
 } from './dto';
-import { Prisma } from '../../../generated/prisma';
+import { Prisma } from '@generated/prisma';
 
 @Injectable()
 export class ExtendedApplicationService {

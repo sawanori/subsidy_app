@@ -1,0 +1,601 @@
+6ae22030e1e870b172c99ab19806cd2c
+'use client';
+"use strict";
+
+/* istanbul ignore next */
+function cov_lmg22zron() {
+  var path = "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/app/[locale]/ui-width-test/page.tsx";
+  var hash = "dc5a8457ac32a1d4c4c66d157dce3fa7a713cf39";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/app/[locale]/ui-width-test/page.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 11,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 9,
+          column: 8
+        },
+        end: {
+          line: 9,
+          column: 31
+        }
+      },
+      "3": {
+        start: {
+          line: 12,
+          column: 20
+        },
+        end: {
+          line: 12,
+          column: 48
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 18
+        },
+        end: {
+          line: 13,
+          column: 38
+        }
+      },
+      "5": {
+        start: {
+          line: 14,
+          column: 16
+        },
+        end: {
+          line: 14,
+          column: 56
+        }
+      },
+      "6": {
+        start: {
+          line: 15,
+          column: 14
+        },
+        end: {
+          line: 15,
+          column: 52
+        }
+      },
+      "7": {
+        start: {
+          line: 16,
+          column: 15
+        },
+        end: {
+          line: 16,
+          column: 54
+        }
+      },
+      "8": {
+        start: {
+          line: 17,
+          column: 15
+        },
+        end: {
+          line: 17,
+          column: 54
+        }
+      },
+      "9": {
+        start: {
+          line: 18,
+          column: 15
+        },
+        end: {
+          line: 18,
+          column: 54
+        }
+      },
+      "10": {
+        start: {
+          line: 19,
+          column: 18
+        },
+        end: {
+          line: 19,
+          column: 60
+        }
+      },
+      "11": {
+        start: {
+          line: 20,
+          column: 16
+        },
+        end: {
+          line: 20,
+          column: 56
+        }
+      },
+      "12": {
+        start: {
+          line: 21,
+          column: 19
+        },
+        end: {
+          line: 21,
+          column: 66
+        }
+      },
+      "13": {
+        start: {
+          line: 23,
+          column: 14
+        },
+        end: {
+          line: 23,
+          column: 46
+        }
+      },
+      "14": {
+        start: {
+          line: 24,
+          column: 4
+        },
+        end: {
+          line: 443,
+          column: 7
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 8,
+            column: 9
+          },
+          end: {
+            line: 8,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 20
+          },
+          end: {
+            line: 10,
+            column: 5
+          }
+        },
+        line: 8
+      },
+      "1": {
+        name: "UIWidthTestPage",
+        decl: {
+          start: {
+            line: 22,
+            column: 9
+          },
+          end: {
+            line: 22,
+            column: 24
+          }
+        },
+        loc: {
+          start: {
+            line: 22,
+            column: 27
+          },
+          end: {
+            line: 444,
+            column: 1
+          }
+        },
+        line: 22
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {},
+    inputSourceMap: {
+      version: 3,
+      sources: ["/Users/noritakasawada/AI_P/subsidyApp/frontend/src/app/[locale]/ui-width-test/page.tsx"],
+      sourcesContent: ["'use client';\n\nimport { useTranslations } from 'next-intl';\nimport { Button } from '@/components/ui/button';\nimport { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';\nimport { Badge } from '@/components/ui/badge';\nimport { Input } from '@/components/ui/input';\nimport { Label } from '@/components/ui/label';\nimport { Textarea } from '@/components/ui/textarea';\nimport { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';\nimport { AppLayout } from '@/components/layout/AppLayout';\n\nexport default function UIWidthTestPage() {\n  const t = useTranslations();\n\n  return (\n    <AppLayout>\n      <main className=\"container mx-auto px-4 py-8\">\n        <div className=\"max-w-4xl mx-auto space-y-8\">\n          {/* Test Header */}\n          <section className=\"text-center\">\n            <h1 className=\"text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4\">\n              UI Width Verification Test\n            </h1>\n            <p className=\"text-lg text-gray-600 dark:text-gray-300 mb-6\">\n              Testing UI component layouts with various text lengths\n            </p>\n          </section>\n\n          {/* Buttons Test */}\n          <Card>\n            <CardHeader>\n              <CardTitle>Button Width Tests</CardTitle>\n              <CardDescription>Various button sizes with different text lengths</CardDescription>\n            </CardHeader>\n            <CardContent>\n              <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4\">\n                <Button variant=\"default\">\n                  {t('common.submit')}\n                </Button>\n                <Button variant=\"secondary\">\n                  {t('common.cancel')}\n                </Button>\n                <Button variant=\"destructive\">\n                  {t('common.delete')}\n                </Button>\n                <Button variant=\"outline\">\n                  {t('subsidy.search')}\n                </Button>\n                <Button variant=\"ghost\">\n                  {t('subsidy.apply')}\n                </Button>\n                <Button variant=\"link\">\n                  {t('subsidy.details')}\n                </Button>\n              </div>\n            </CardContent>\n          </Card>\n\n          {/* Navigation Test */}\n          <Card>\n            <CardHeader>\n              <CardTitle>Navigation Width Tests</CardTitle>\n              <CardDescription>Testing navigation items with varying lengths</CardDescription>\n            </CardHeader>\n            <CardContent>\n              <div className=\"flex flex-wrap gap-4\">\n                <Badge variant=\"default\">{t('navigation.home')}</Badge>\n                <Badge variant=\"secondary\">{t('navigation.dashboard')}</Badge>\n                <Badge variant=\"outline\">{t('navigation.subsidies')}</Badge>\n                <Badge variant=\"destructive\">{t('navigation.applications')}</Badge>\n                <Badge variant=\"default\">{t('navigation.profile')}</Badge>\n                <Badge variant=\"secondary\">{t('navigation.settings')}</Badge>\n              </div>\n            </CardContent>\n          </Card>\n\n          {/* Form Elements Test */}\n          <Card>\n            <CardHeader>\n              <CardTitle>Form Elements Width Tests</CardTitle>\n              <CardDescription>Testing form fields with long labels and placeholders</CardDescription>\n            </CardHeader>\n            <CardContent>\n              <div className=\"space-y-6\">\n                <div className=\"grid grid-cols-1 md:grid-cols-2 gap-4\">\n                  <div className=\"space-y-2\">\n                    <Label htmlFor=\"required-field\">\n                      {t('form.required')} - {t('subsidy.title')}\n                    </Label>\n                    <Input \n                      id=\"required-field\"\n                      placeholder={t('form.invalidEmail')}\n                    />\n                  </div>\n                  \n                  <div className=\"space-y-2\">\n                    <Label htmlFor=\"optional-field\">\n                      {t('form.optional')} - {t('subsidy.requirements')}\n                    </Label>\n                    <Select>\n                      <SelectTrigger>\n                        <SelectValue placeholder={t('subsidy.category')} />\n                      </SelectTrigger>\n                      <SelectContent>\n                        <SelectItem value=\"option1\">{t('subsidy.status')}</SelectItem>\n                        <SelectItem value=\"option2\">{t('subsidy.deadline')}</SelectItem>\n                        <SelectItem value=\"option3\">{t('subsidy.amount')}</SelectItem>\n                      </SelectContent>\n                    </Select>\n                  </div>\n                </div>\n\n                <div className=\"space-y-2\">\n                  <Label htmlFor=\"description\">\n                    {t('subsidy.description')}\n                  </Label>\n                  <Textarea \n                    id=\"description\"\n                    placeholder={t('form.tooLong', { max: '500' })}\n                    rows={4}\n                  />\n                </div>\n              </div>\n            </CardContent>\n          </Card>\n\n          {/* Error Messages Test */}\n          <Card>\n            <CardHeader>\n              <CardTitle>Error Messages Width Tests</CardTitle>\n              <CardDescription>Testing various error message lengths</CardDescription>\n            </CardHeader>\n            <CardContent>\n              <div className=\"space-y-4\">\n                <div className=\"p-4 border border-red-200 bg-red-50 rounded-lg\">\n                  <p className=\"text-red-600 font-medium\">{t('errors.notFound')}</p>\n                </div>\n                <div className=\"p-4 border border-red-200 bg-red-50 rounded-lg\">\n                  <p className=\"text-red-600 font-medium\">{t('errors.unauthorized')}</p>\n                </div>\n                <div className=\"p-4 border border-red-200 bg-red-50 rounded-lg\">\n                  <p className=\"text-red-600 font-medium\">{t('errors.validationError')}</p>\n                </div>\n                <div className=\"p-4 border border-red-200 bg-red-50 rounded-lg\">\n                  <p className=\"text-red-600 font-medium\">{t('form.tooShort', { min: '10' })}</p>\n                </div>\n              </div>\n            </CardContent>\n          </Card>\n\n          {/* Accessibility Labels Test */}\n          <Card>\n            <CardHeader>\n              <CardTitle>Accessibility Labels Width Tests</CardTitle>\n              <CardDescription>Testing screen reader and accessibility text lengths</CardDescription>\n            </CardHeader>\n            <CardContent>\n              <div className=\"space-y-4\">\n                <div className=\"flex flex-wrap gap-2\">\n                  <Button aria-label={t('accessibility.toggleTheme')}>\n                    \uD83C\uDFA8 Theme\n                  </Button>\n                  <Button aria-label={t('accessibility.toggleLanguage')}>\n                    \uD83C\uDF10 Language\n                  </Button>\n                  <Button aria-label={t('accessibility.expandMenu')}>\n                    \u2630 Menu\n                  </Button>\n                </div>\n                \n                <div className=\"grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600\">\n                  <div>\n                    <strong>Skip Links:</strong>\n                    <ul className=\"list-disc list-inside space-y-1 mt-2\">\n                      <li>{t('navigation.skipToContent')}</li>\n                      <li>{t('navigation.skipToNavigation')}</li>\n                    </ul>\n                  </div>\n                  <div>\n                    <strong>Status Messages:</strong>\n                    <ul className=\"list-disc list-inside space-y-1 mt-2\">\n                      <li>{t('form.uploadSuccess')}</li>\n                      <li>{t('form.uploadError')}</li>\n                      <li>{t('errors.sessionExpired')}</li>\n                    </ul>\n                  </div>\n                </div>\n              </div>\n            </CardContent>\n          </Card>\n\n          {/* Layout Stress Test */}\n          <Card>\n            <CardHeader>\n              <CardTitle>Layout Stress Test</CardTitle>\n              <CardDescription>Testing extreme text lengths in constrained layouts</CardDescription>\n            </CardHeader>\n            <CardContent>\n              <div className=\"grid grid-cols-1 md:grid-cols-3 gap-4\">\n                <div className=\"bg-gray-100 dark:bg-gray-800 p-4 rounded-lg\">\n                  <h3 className=\"font-semibold truncate\">{t('subsidy.title')}</h3>\n                  <p className=\"text-sm text-gray-600 mt-2 line-clamp-3\">{t('subsidy.description')}</p>\n                  <Button size=\"sm\" className=\"mt-4 w-full\">\n                    {t('subsidy.apply')}\n                  </Button>\n                </div>\n                \n                <div className=\"bg-gray-100 dark:bg-gray-800 p-4 rounded-lg\">\n                  <h3 className=\"font-semibold truncate\">{t('form.invalidEmail')}</h3>\n                  <p className=\"text-sm text-gray-600 mt-2 line-clamp-3\">{t('form.tooLong', { max: '1000' })}</p>\n                  <Button size=\"sm\" className=\"mt-4 w-full\">\n                    {t('common.confirm')}\n                  </Button>\n                </div>\n                \n                <div className=\"bg-gray-100 dark:bg-gray-800 p-4 rounded-lg\">\n                  <h3 className=\"font-semibold truncate\">{t('accessibility.skipToNavigation')}</h3>\n                  <p className=\"text-sm text-gray-600 mt-2 line-clamp-3\">{t('errors.genericError')}</p>\n                  <Button size=\"sm\" className=\"mt-4 w-full\">\n                    {t('common.close')}\n                  </Button>\n                </div>\n              </div>\n            </CardContent>\n          </Card>\n        </div>\n      </main>\n    </AppLayout>\n  );\n}"],
+      names: ["UIWidthTestPage", "t", "useTranslations", "AppLayout", "main", "className", "div", "section", "h1", "p", "Card", "CardHeader", "CardTitle", "CardDescription", "CardContent", "Button", "variant", "Badge", "Label", "htmlFor", "Input", "id", "placeholder", "Select", "SelectTrigger", "SelectValue", "SelectContent", "SelectItem", "value", "Textarea", "max", "rows", "min", "aria-label", "strong", "ul", "li", "h3", "size"],
+      mappings: "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"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "dc5a8457ac32a1d4c4c66d157dce3fa7a713cf39"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_lmg22zron = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_lmg22zron();
+cov_lmg22zron().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_lmg22zron().s[1]++;
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    /* istanbul ignore next */
+    cov_lmg22zron().f[0]++;
+    cov_lmg22zron().s[2]++;
+    return UIWidthTestPage;
+  }
+});
+const _jsxruntime =
+/* istanbul ignore next */
+(cov_lmg22zron().s[3]++, require("react/jsx-runtime"));
+const _nextintl =
+/* istanbul ignore next */
+(cov_lmg22zron().s[4]++, require("next-intl"));
+const _button =
+/* istanbul ignore next */
+(cov_lmg22zron().s[5]++, require("../../../components/ui/button"));
+const _card =
+/* istanbul ignore next */
+(cov_lmg22zron().s[6]++, require("../../../components/ui/card"));
+const _badge =
+/* istanbul ignore next */
+(cov_lmg22zron().s[7]++, require("../../../components/ui/badge"));
+const _input =
+/* istanbul ignore next */
+(cov_lmg22zron().s[8]++, require("../../../components/ui/input"));
+const _label =
+/* istanbul ignore next */
+(cov_lmg22zron().s[9]++, require("../../../components/ui/label"));
+const _textarea =
+/* istanbul ignore next */
+(cov_lmg22zron().s[10]++, require("../../../components/ui/textarea"));
+const _select =
+/* istanbul ignore next */
+(cov_lmg22zron().s[11]++, require("../../../components/ui/select"));
+const _AppLayout =
+/* istanbul ignore next */
+(cov_lmg22zron().s[12]++, require("../../../components/layout/AppLayout"));
+function UIWidthTestPage() {
+  /* istanbul ignore next */
+  cov_lmg22zron().f[1]++;
+  const t =
+  /* istanbul ignore next */
+  (cov_lmg22zron().s[13]++, (0, _nextintl.useTranslations)());
+  /* istanbul ignore next */
+  cov_lmg22zron().s[14]++;
+  return /*#__PURE__*/(0, _jsxruntime.jsx)(_AppLayout.AppLayout, {
+    children: /*#__PURE__*/(0, _jsxruntime.jsx)("main", {
+      className: "container mx-auto px-4 py-8",
+      children: /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+        className: "max-w-4xl mx-auto space-y-8",
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("section", {
+          className: "text-center",
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h1", {
+            className: "text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4",
+            children: "UI Width Verification Test"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+            className: "text-lg text-gray-600 dark:text-gray-300 mb-6",
+            children: "Testing UI component layouts with various text lengths"
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+            children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+              children: "Button Width Tests"
+            }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardDescription, {
+              children: "Various button sizes with different text lengths"
+            })]
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+            children: /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+              className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                variant: "default",
+                children: t('common.submit')
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                variant: "secondary",
+                children: t('common.cancel')
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                variant: "destructive",
+                children: t('common.delete')
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                variant: "outline",
+                children: t('subsidy.search')
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                variant: "ghost",
+                children: t('subsidy.apply')
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                variant: "link",
+                children: t('subsidy.details')
+              })]
+            })
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+            children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+              children: "Navigation Width Tests"
+            }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardDescription, {
+              children: "Testing navigation items with varying lengths"
+            })]
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+            children: /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+              className: "flex flex-wrap gap-4",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_badge.Badge, {
+                variant: "default",
+                children: t('navigation.home')
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_badge.Badge, {
+                variant: "secondary",
+                children: t('navigation.dashboard')
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_badge.Badge, {
+                variant: "outline",
+                children: t('navigation.subsidies')
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_badge.Badge, {
+                variant: "destructive",
+                children: t('navigation.applications')
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_badge.Badge, {
+                variant: "default",
+                children: t('navigation.profile')
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)(_badge.Badge, {
+                variant: "secondary",
+                children: t('navigation.settings')
+              })]
+            })
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+            children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+              children: "Form Elements Width Tests"
+            }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardDescription, {
+              children: "Testing form fields with long labels and placeholders"
+            })]
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+            children: /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+              className: "space-y-6",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                className: "grid grid-cols-1 md:grid-cols-2 gap-4",
+                children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                  className: "space-y-2",
+                  children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_label.Label, {
+                    htmlFor: "required-field",
+                    children: [t('form.required'), " - ", t('subsidy.title')]
+                  }), /*#__PURE__*/(0, _jsxruntime.jsx)(_input.Input, {
+                    id: "required-field",
+                    placeholder: t('form.invalidEmail')
+                  })]
+                }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                  className: "space-y-2",
+                  children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_label.Label, {
+                    htmlFor: "optional-field",
+                    children: [t('form.optional'), " - ", t('subsidy.requirements')]
+                  }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_select.Select, {
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_select.SelectTrigger, {
+                      children: /*#__PURE__*/(0, _jsxruntime.jsx)(_select.SelectValue, {
+                        placeholder: t('subsidy.category')
+                      })
+                    }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_select.SelectContent, {
+                      children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_select.SelectItem, {
+                        value: "option1",
+                        children: t('subsidy.status')
+                      }), /*#__PURE__*/(0, _jsxruntime.jsx)(_select.SelectItem, {
+                        value: "option2",
+                        children: t('subsidy.deadline')
+                      }), /*#__PURE__*/(0, _jsxruntime.jsx)(_select.SelectItem, {
+                        value: "option3",
+                        children: t('subsidy.amount')
+                      })]
+                    })]
+                  })]
+                })]
+              }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                className: "space-y-2",
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_label.Label, {
+                  htmlFor: "description",
+                  children: t('subsidy.description')
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_textarea.Textarea, {
+                  id: "description",
+                  placeholder: t('form.tooLong', {
+                    max: '500'
+                  }),
+                  rows: 4
+                })]
+              })]
+            })
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+            children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+              children: "Error Messages Width Tests"
+            }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardDescription, {
+              children: "Testing various error message lengths"
+            })]
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+            children: /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+              className: "space-y-4",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+                className: "p-4 border border-red-200 bg-red-50 rounded-lg",
+                children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-red-600 font-medium",
+                  children: t('errors.notFound')
+                })
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+                className: "p-4 border border-red-200 bg-red-50 rounded-lg",
+                children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-red-600 font-medium",
+                  children: t('errors.unauthorized')
+                })
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+                className: "p-4 border border-red-200 bg-red-50 rounded-lg",
+                children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-red-600 font-medium",
+                  children: t('errors.validationError')
+                })
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+                className: "p-4 border border-red-200 bg-red-50 rounded-lg",
+                children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-red-600 font-medium",
+                  children: t('form.tooShort', {
+                    min: '10'
+                  })
+                })
+              })]
+            })
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+            children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+              children: "Accessibility Labels Width Tests"
+            }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardDescription, {
+              children: "Testing screen reader and accessibility text lengths"
+            })]
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+            children: /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+              className: "space-y-4",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                className: "flex flex-wrap gap-2",
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                  "aria-label": t('accessibility.toggleTheme'),
+                  children: "\uD83C\uDFA8 Theme"
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                  "aria-label": t('accessibility.toggleLanguage'),
+                  children: "\uD83C\uDF10 Language"
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                  "aria-label": t('accessibility.expandMenu'),
+                  children: "☰ Menu"
+                })]
+              }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                className: "grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600",
+                children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                  children: [/*#__PURE__*/(0, _jsxruntime.jsx)("strong", {
+                    children: "Skip Links:"
+                  }), /*#__PURE__*/(0, _jsxruntime.jsxs)("ul", {
+                    className: "list-disc list-inside space-y-1 mt-2",
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)("li", {
+                      children: t('navigation.skipToContent')
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("li", {
+                      children: t('navigation.skipToNavigation')
+                    })]
+                  })]
+                }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                  children: [/*#__PURE__*/(0, _jsxruntime.jsx)("strong", {
+                    children: "Status Messages:"
+                  }), /*#__PURE__*/(0, _jsxruntime.jsxs)("ul", {
+                    className: "list-disc list-inside space-y-1 mt-2",
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)("li", {
+                      children: t('form.uploadSuccess')
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("li", {
+                      children: t('form.uploadError')
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("li", {
+                      children: t('errors.sessionExpired')
+                    })]
+                  })]
+                })]
+              })]
+            })
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+            children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+              children: "Layout Stress Test"
+            }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardDescription, {
+              children: "Testing extreme text lengths in constrained layouts"
+            })]
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+            children: /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+              className: "grid grid-cols-1 md:grid-cols-3 gap-4",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                className: "bg-gray-100 dark:bg-gray-800 p-4 rounded-lg",
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h3", {
+                  className: "font-semibold truncate",
+                  children: t('subsidy.title')
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-sm text-gray-600 mt-2 line-clamp-3",
+                  children: t('subsidy.description')
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                  size: "sm",
+                  className: "mt-4 w-full",
+                  children: t('subsidy.apply')
+                })]
+              }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                className: "bg-gray-100 dark:bg-gray-800 p-4 rounded-lg",
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h3", {
+                  className: "font-semibold truncate",
+                  children: t('form.invalidEmail')
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-sm text-gray-600 mt-2 line-clamp-3",
+                  children: t('form.tooLong', {
+                    max: '1000'
+                  })
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                  size: "sm",
+                  className: "mt-4 w-full",
+                  children: t('common.confirm')
+                })]
+              }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                className: "bg-gray-100 dark:bg-gray-800 p-4 rounded-lg",
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h3", {
+                  className: "font-semibold truncate",
+                  children: t('accessibility.skipToNavigation')
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-sm text-gray-600 mt-2 line-clamp-3",
+                  children: t('errors.genericError')
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)(_button.Button, {
+                  size: "sm",
+                  className: "mt-4 w-full",
+                  children: t('common.close')
+                })]
+              })]
+            })
+          })]
+        })]
+      })
+    })
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJVSVdpZHRoVGVzdFBhZ2UiLCJjb3ZfbG1nMjJ6cm9uIiwiZiIsInQiLCJzIiwiX25leHRpbnRsIiwidXNlVHJhbnNsYXRpb25zIiwiX2pzeHJ1bnRpbWUiLCJqc3giLCJfQXBwTGF5b3V0IiwiQXBwTGF5b3V0IiwiY2xhc3NOYW1lIiwianN4cyIsIl9jYXJkIiwiQ2FyZCIsIkNhcmRIZWFkZXIiLCJDYXJkVGl0bGUiLCJDYXJkRGVzY3JpcHRpb24iLCJDYXJkQ29udGVudCIsIl9idXR0b24iLCJCdXR0b24iLCJ2YXJpYW50IiwiX2JhZGdlIiwiQmFkZ2UiLCJfbGFiZWwiLCJMYWJlbCIsImh0bWxGb3IiLCJfaW5wdXQiLCJJbnB1dCIsImlkIiwicGxhY2Vob2xkZXIiLCJfc2VsZWN0IiwiU2VsZWN0IiwiU2VsZWN0VHJpZ2dlciIsIlNlbGVjdFZhbHVlIiwiU2VsZWN0Q29udGVudCIsIlNlbGVjdEl0ZW0iLCJ2YWx1ZSIsIl90ZXh0YXJlYSIsIlRleHRhcmVhIiwibWF4Iiwicm93cyIsIm1pbiIsInNpemUiXSwic291cmNlcyI6WyIvVXNlcnMvbm9yaXRha2FzYXdhZGEvQUlfUC9zdWJzaWR5QXBwL2Zyb250ZW5kL3NyYy9hcHAvW2xvY2FsZV0vdWktd2lkdGgtdGVzdC9wYWdlLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIGNsaWVudCc7XG5cbmltcG9ydCB7IHVzZVRyYW5zbGF0aW9ucyB9IGZyb20gJ25leHQtaW50bCc7XG5pbXBvcnQgeyBCdXR0b24gfSBmcm9tICdAL2NvbXBvbmVudHMvdWkvYnV0dG9uJztcbmltcG9ydCB7IENhcmQsIENhcmRDb250ZW50LCBDYXJkRGVzY3JpcHRpb24sIENhcmRIZWFkZXIsIENhcmRUaXRsZSB9IGZyb20gJ0AvY29tcG9uZW50cy91aS9jYXJkJztcbmltcG9ydCB7IEJhZGdlIH0gZnJvbSAnQC9jb21wb25lbnRzL3VpL2JhZGdlJztcbmltcG9ydCB7IElucHV0IH0gZnJvbSAnQC9jb21wb25lbnRzL3VpL2lucHV0JztcbmltcG9ydCB7IExhYmVsIH0gZnJvbSAnQC9jb21wb25lbnRzL3VpL2xhYmVsJztcbmltcG9ydCB7IFRleHRhcmVhIH0gZnJvbSAnQC9jb21wb25lbnRzL3VpL3RleHRhcmVhJztcbmltcG9ydCB7IFNlbGVjdCwgU2VsZWN0Q29udGVudCwgU2VsZWN0SXRlbSwgU2VsZWN0VHJpZ2dlciwgU2VsZWN0VmFsdWUgfSBmcm9tICdAL2NvbXBvbmVudHMvdWkvc2VsZWN0JztcbmltcG9ydCB7IEFwcExheW91dCB9IGZyb20gJ0AvY29tcG9uZW50cy9sYXlvdXQvQXBwTGF5b3V0JztcblxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gVUlXaWR0aFRlc3RQYWdlKCkge1xuICBjb25zdCB0ID0gdXNlVHJhbnNsYXRpb25zKCk7XG5cbiAgcmV0dXJuIChcbiAgICA8QXBwTGF5b3V0PlxuICAgICAgPG1haW4gY2xhc3NOYW1lPVwiY29udGFpbmVyIG14LWF1dG8gcHgtNCBweS04XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWF4LXctNHhsIG14LWF1dG8gc3BhY2UteS04XCI+XG4gICAgICAgICAgey8qIFRlc3QgSGVhZGVyICovfVxuICAgICAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cInRleHQtY2VudGVyXCI+XG4gICAgICAgICAgICA8aDEgY2xhc3NOYW1lPVwidGV4dC00eGwgZm9udC1ib2xkIHRleHQtZ3JheS05MDAgZGFyazp0ZXh0LWdyYXktMTAwIG1iLTRcIj5cbiAgICAgICAgICAgICAgVUkgV2lkdGggVmVyaWZpY2F0aW9uIFRlc3RcbiAgICAgICAgICAgIDwvaDE+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LWxnIHRleHQtZ3JheS02MDAgZGFyazp0ZXh0LWdyYXktMzAwIG1iLTZcIj5cbiAgICAgICAgICAgICAgVGVzdGluZyBVSSBjb21wb25lbnQgbGF5b3V0cyB3aXRoIHZhcmlvdXMgdGV4dCBsZW5ndGhzXG4gICAgICAgICAgICA8L3A+XG4gICAgICAgICAgPC9zZWN0aW9uPlxuXG4gICAgICAgICAgey8qIEJ1dHRvbnMgVGVzdCAqL31cbiAgICAgICAgICA8Q2FyZD5cbiAgICAgICAgICAgIDxDYXJkSGVhZGVyPlxuICAgICAgICAgICAgICA8Q2FyZFRpdGxlPkJ1dHRvbiBXaWR0aCBUZXN0czwvQ2FyZFRpdGxlPlxuICAgICAgICAgICAgICA8Q2FyZERlc2NyaXB0aW9uPlZhcmlvdXMgYnV0dG9uIHNpemVzIHdpdGggZGlmZmVyZW50IHRleHQgbGVuZ3RoczwvQ2FyZERlc2NyaXB0aW9uPlxuICAgICAgICAgICAgPC9DYXJkSGVhZGVyPlxuICAgICAgICAgICAgPENhcmRDb250ZW50PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTIgbGc6Z3JpZC1jb2xzLTMgZ2FwLTRcIj5cbiAgICAgICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9XCJkZWZhdWx0XCI+XG4gICAgICAgICAgICAgICAgICB7dCgnY29tbW9uLnN1Ym1pdCcpfVxuICAgICAgICAgICAgICAgIDwvQnV0dG9uPlxuICAgICAgICAgICAgICAgIDxCdXR0b24gdmFyaWFudD1cInNlY29uZGFyeVwiPlxuICAgICAgICAgICAgICAgICAge3QoJ2NvbW1vbi5jYW5jZWwnKX1cbiAgICAgICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9XCJkZXN0cnVjdGl2ZVwiPlxuICAgICAgICAgICAgICAgICAge3QoJ2NvbW1vbi5kZWxldGUnKX1cbiAgICAgICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9XCJvdXRsaW5lXCI+XG4gICAgICAgICAgICAgICAgICB7dCgnc3Vic2lkeS5zZWFyY2gnKX1cbiAgICAgICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9XCJnaG9zdFwiPlxuICAgICAgICAgICAgICAgICAge3QoJ3N1YnNpZHkuYXBwbHknKX1cbiAgICAgICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9XCJsaW5rXCI+XG4gICAgICAgICAgICAgICAgICB7dCgnc3Vic2lkeS5kZXRhaWxzJyl9XG4gICAgICAgICAgICAgICAgPC9CdXR0b24+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9DYXJkQ29udGVudD5cbiAgICAgICAgICA8L0NhcmQ+XG5cbiAgICAgICAgICB7LyogTmF2aWdhdGlvbiBUZXN0ICovfVxuICAgICAgICAgIDxDYXJkPlxuICAgICAgICAgICAgPENhcmRIZWFkZXI+XG4gICAgICAgICAgICAgIDxDYXJkVGl0bGU+TmF2aWdhdGlvbiBXaWR0aCBUZXN0czwvQ2FyZFRpdGxlPlxuICAgICAgICAgICAgICA8Q2FyZERlc2NyaXB0aW9uPlRlc3RpbmcgbmF2aWdhdGlvbiBpdGVtcyB3aXRoIHZhcnlpbmcgbGVuZ3RoczwvQ2FyZERlc2NyaXB0aW9uPlxuICAgICAgICAgICAgPC9DYXJkSGVhZGVyPlxuICAgICAgICAgICAgPENhcmRDb250ZW50PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggZmxleC13cmFwIGdhcC00XCI+XG4gICAgICAgICAgICAgICAgPEJhZGdlIHZhcmlhbnQ9XCJkZWZhdWx0XCI+e3QoJ25hdmlnYXRpb24uaG9tZScpfTwvQmFkZ2U+XG4gICAgICAgICAgICAgICAgPEJhZGdlIHZhcmlhbnQ9XCJzZWNvbmRhcnlcIj57dCgnbmF2aWdhdGlvbi5kYXNoYm9hcmQnKX08L0JhZGdlPlxuICAgICAgICAgICAgICAgIDxCYWRnZSB2YXJpYW50PVwib3V0bGluZVwiPnt0KCduYXZpZ2F0aW9uLnN1YnNpZGllcycpfTwvQmFkZ2U+XG4gICAgICAgICAgICAgICAgPEJhZGdlIHZhcmlhbnQ9XCJkZXN0cnVjdGl2ZVwiPnt0KCduYXZpZ2F0aW9uLmFwcGxpY2F0aW9ucycpfTwvQmFkZ2U+XG4gICAgICAgICAgICAgICAgPEJhZGdlIHZhcmlhbnQ9XCJkZWZhdWx0XCI+e3QoJ25hdmlnYXRpb24ucHJvZmlsZScpfTwvQmFkZ2U+XG4gICAgICAgICAgICAgICAgPEJhZGdlIHZhcmlhbnQ9XCJzZWNvbmRhcnlcIj57dCgnbmF2aWdhdGlvbi5zZXR0aW5ncycpfTwvQmFkZ2U+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9DYXJkQ29udGVudD5cbiAgICAgICAgICA8L0NhcmQ+XG5cbiAgICAgICAgICB7LyogRm9ybSBFbGVtZW50cyBUZXN0ICovfVxuICAgICAgICAgIDxDYXJkPlxuICAgICAgICAgICAgPENhcmRIZWFkZXI+XG4gICAgICAgICAgICAgIDxDYXJkVGl0bGU+Rm9ybSBFbGVtZW50cyBXaWR0aCBUZXN0czwvQ2FyZFRpdGxlPlxuICAgICAgICAgICAgICA8Q2FyZERlc2NyaXB0aW9uPlRlc3RpbmcgZm9ybSBmaWVsZHMgd2l0aCBsb25nIGxhYmVscyBhbmQgcGxhY2Vob2xkZXJzPC9DYXJkRGVzY3JpcHRpb24+XG4gICAgICAgICAgICA8L0NhcmRIZWFkZXI+XG4gICAgICAgICAgICA8Q2FyZENvbnRlbnQ+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS02XCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0xIG1kOmdyaWQtY29scy0yIGdhcC00XCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktMlwiPlxuICAgICAgICAgICAgICAgICAgICA8TGFiZWwgaHRtbEZvcj1cInJlcXVpcmVkLWZpZWxkXCI+XG4gICAgICAgICAgICAgICAgICAgICAge3QoJ2Zvcm0ucmVxdWlyZWQnKX0gLSB7dCgnc3Vic2lkeS50aXRsZScpfVxuICAgICAgICAgICAgICAgICAgICA8L0xhYmVsPlxuICAgICAgICAgICAgICAgICAgICA8SW5wdXQgXG4gICAgICAgICAgICAgICAgICAgICAgaWQ9XCJyZXF1aXJlZC1maWVsZFwiXG4gICAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9e3QoJ2Zvcm0uaW52YWxpZEVtYWlsJyl9XG4gICAgICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTJcIj5cbiAgICAgICAgICAgICAgICAgICAgPExhYmVsIGh0bWxGb3I9XCJvcHRpb25hbC1maWVsZFwiPlxuICAgICAgICAgICAgICAgICAgICAgIHt0KCdmb3JtLm9wdGlvbmFsJyl9IC0ge3QoJ3N1YnNpZHkucmVxdWlyZW1lbnRzJyl9XG4gICAgICAgICAgICAgICAgICAgIDwvTGFiZWw+XG4gICAgICAgICAgICAgICAgICAgIDxTZWxlY3Q+XG4gICAgICAgICAgICAgICAgICAgICAgPFNlbGVjdFRyaWdnZXI+XG4gICAgICAgICAgICAgICAgICAgICAgICA8U2VsZWN0VmFsdWUgcGxhY2Vob2xkZXI9e3QoJ3N1YnNpZHkuY2F0ZWdvcnknKX0gLz5cbiAgICAgICAgICAgICAgICAgICAgICA8L1NlbGVjdFRyaWdnZXI+XG4gICAgICAgICAgICAgICAgICAgICAgPFNlbGVjdENvbnRlbnQ+XG4gICAgICAgICAgICAgICAgICAgICAgICA8U2VsZWN0SXRlbSB2YWx1ZT1cIm9wdGlvbjFcIj57dCgnc3Vic2lkeS5zdGF0dXMnKX08L1NlbGVjdEl0ZW0+XG4gICAgICAgICAgICAgICAgICAgICAgICA8U2VsZWN0SXRlbSB2YWx1ZT1cIm9wdGlvbjJcIj57dCgnc3Vic2lkeS5kZWFkbGluZScpfTwvU2VsZWN0SXRlbT5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxTZWxlY3RJdGVtIHZhbHVlPVwib3B0aW9uM1wiPnt0KCdzdWJzaWR5LmFtb3VudCcpfTwvU2VsZWN0SXRlbT5cbiAgICAgICAgICAgICAgICAgICAgICA8L1NlbGVjdENvbnRlbnQ+XG4gICAgICAgICAgICAgICAgICAgIDwvU2VsZWN0PlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktMlwiPlxuICAgICAgICAgICAgICAgICAgPExhYmVsIGh0bWxGb3I9XCJkZXNjcmlwdGlvblwiPlxuICAgICAgICAgICAgICAgICAgICB7dCgnc3Vic2lkeS5kZXNjcmlwdGlvbicpfVxuICAgICAgICAgICAgICAgICAgPC9MYWJlbD5cbiAgICAgICAgICAgICAgICAgIDxUZXh0YXJlYSBcbiAgICAgICAgICAgICAgICAgICAgaWQ9XCJkZXNjcmlwdGlvblwiXG4gICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPXt0KCdmb3JtLnRvb0xvbmcnLCB7IG1heDogJzUwMCcgfSl9XG4gICAgICAgICAgICAgICAgICAgIHJvd3M9ezR9XG4gICAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvQ2FyZENvbnRlbnQ+XG4gICAgICAgICAgPC9DYXJkPlxuXG4gICAgICAgICAgey8qIEVycm9yIE1lc3NhZ2VzIFRlc3QgKi99XG4gICAgICAgICAgPENhcmQ+XG4gICAgICAgICAgICA8Q2FyZEhlYWRlcj5cbiAgICAgICAgICAgICAgPENhcmRUaXRsZT5FcnJvciBNZXNzYWdlcyBXaWR0aCBUZXN0czwvQ2FyZFRpdGxlPlxuICAgICAgICAgICAgICA8Q2FyZERlc2NyaXB0aW9uPlRlc3RpbmcgdmFyaW91cyBlcnJvciBtZXNzYWdlIGxlbmd0aHM8L0NhcmREZXNjcmlwdGlvbj5cbiAgICAgICAgICAgIDwvQ2FyZEhlYWRlcj5cbiAgICAgICAgICAgIDxDYXJkQ29udGVudD5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTRcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBib3JkZXIgYm9yZGVyLXJlZC0yMDAgYmctcmVkLTUwIHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtcmVkLTYwMCBmb250LW1lZGl1bVwiPnt0KCdlcnJvcnMubm90Rm91bmQnKX08L3A+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJwLTQgYm9yZGVyIGJvcmRlci1yZWQtMjAwIGJnLXJlZC01MCByb3VuZGVkLWxnXCI+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXJlZC02MDAgZm9udC1tZWRpdW1cIj57dCgnZXJyb3JzLnVuYXV0aG9yaXplZCcpfTwvcD5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNCBib3JkZXIgYm9yZGVyLXJlZC0yMDAgYmctcmVkLTUwIHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtcmVkLTYwMCBmb250LW1lZGl1bVwiPnt0KCdlcnJvcnMudmFsaWRhdGlvbkVycm9yJyl9PC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicC00IGJvcmRlciBib3JkZXItcmVkLTIwMCBiZy1yZWQtNTAgcm91bmRlZC1sZ1wiPlxuICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1yZWQtNjAwIGZvbnQtbWVkaXVtXCI+e3QoJ2Zvcm0udG9vU2hvcnQnLCB7IG1pbjogJzEwJyB9KX08L3A+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9DYXJkQ29udGVudD5cbiAgICAgICAgICA8L0NhcmQ+XG5cbiAgICAgICAgICB7LyogQWNjZXNzaWJpbGl0eSBMYWJlbHMgVGVzdCAqL31cbiAgICAgICAgICA8Q2FyZD5cbiAgICAgICAgICAgIDxDYXJkSGVhZGVyPlxuICAgICAgICAgICAgICA8Q2FyZFRpdGxlPkFjY2Vzc2liaWxpdHkgTGFiZWxzIFdpZHRoIFRlc3RzPC9DYXJkVGl0bGU+XG4gICAgICAgICAgICAgIDxDYXJkRGVzY3JpcHRpb24+VGVzdGluZyBzY3JlZW4gcmVhZGVyIGFuZCBhY2Nlc3NpYmlsaXR5IHRleHQgbGVuZ3RoczwvQ2FyZERlc2NyaXB0aW9uPlxuICAgICAgICAgICAgPC9DYXJkSGVhZGVyPlxuICAgICAgICAgICAgPENhcmRDb250ZW50PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNFwiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBmbGV4LXdyYXAgZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICAgIDxCdXR0b24gYXJpYS1sYWJlbD17dCgnYWNjZXNzaWJpbGl0eS50b2dnbGVUaGVtZScpfT5cbiAgICAgICAgICAgICAgICAgICAg8J+OqCBUaGVtZVxuICAgICAgICAgICAgICAgICAgPC9CdXR0b24+XG4gICAgICAgICAgICAgICAgICA8QnV0dG9uIGFyaWEtbGFiZWw9e3QoJ2FjY2Vzc2liaWxpdHkudG9nZ2xlTGFuZ3VhZ2UnKX0+XG4gICAgICAgICAgICAgICAgICAgIPCfjJAgTGFuZ3VhZ2VcbiAgICAgICAgICAgICAgICAgIDwvQnV0dG9uPlxuICAgICAgICAgICAgICAgICAgPEJ1dHRvbiBhcmlhLWxhYmVsPXt0KCdhY2Nlc3NpYmlsaXR5LmV4cGFuZE1lbnUnKX0+XG4gICAgICAgICAgICAgICAgICAgIOKYsCBNZW51XG4gICAgICAgICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTIgZ2FwLTQgdGV4dC1zbSB0ZXh0LWdyYXktNjAwXCI+XG4gICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICA8c3Ryb25nPlNraXAgTGlua3M6PC9zdHJvbmc+XG4gICAgICAgICAgICAgICAgICAgIDx1bCBjbGFzc05hbWU9XCJsaXN0LWRpc2MgbGlzdC1pbnNpZGUgc3BhY2UteS0xIG10LTJcIj5cbiAgICAgICAgICAgICAgICAgICAgICA8bGk+e3QoJ25hdmlnYXRpb24uc2tpcFRvQ29udGVudCcpfTwvbGk+XG4gICAgICAgICAgICAgICAgICAgICAgPGxpPnt0KCduYXZpZ2F0aW9uLnNraXBUb05hdmlnYXRpb24nKX08L2xpPlxuICAgICAgICAgICAgICAgICAgICA8L3VsPlxuICAgICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgICAgICA8c3Ryb25nPlN0YXR1cyBNZXNzYWdlczo8L3N0cm9uZz5cbiAgICAgICAgICAgICAgICAgICAgPHVsIGNsYXNzTmFtZT1cImxpc3QtZGlzYyBsaXN0LWluc2lkZSBzcGFjZS15LTEgbXQtMlwiPlxuICAgICAgICAgICAgICAgICAgICAgIDxsaT57dCgnZm9ybS51cGxvYWRTdWNjZXNzJyl9PC9saT5cbiAgICAgICAgICAgICAgICAgICAgICA8bGk+e3QoJ2Zvcm0udXBsb2FkRXJyb3InKX08L2xpPlxuICAgICAgICAgICAgICAgICAgICAgIDxsaT57dCgnZXJyb3JzLnNlc3Npb25FeHBpcmVkJyl9PC9saT5cbiAgICAgICAgICAgICAgICAgICAgPC91bD5cbiAgICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvQ2FyZENvbnRlbnQ+XG4gICAgICAgICAgPC9DYXJkPlxuXG4gICAgICAgICAgey8qIExheW91dCBTdHJlc3MgVGVzdCAqL31cbiAgICAgICAgICA8Q2FyZD5cbiAgICAgICAgICAgIDxDYXJkSGVhZGVyPlxuICAgICAgICAgICAgICA8Q2FyZFRpdGxlPkxheW91dCBTdHJlc3MgVGVzdDwvQ2FyZFRpdGxlPlxuICAgICAgICAgICAgICA8Q2FyZERlc2NyaXB0aW9uPlRlc3RpbmcgZXh0cmVtZSB0ZXh0IGxlbmd0aHMgaW4gY29uc3RyYWluZWQgbGF5b3V0czwvQ2FyZERlc2NyaXB0aW9uPlxuICAgICAgICAgICAgPC9DYXJkSGVhZGVyPlxuICAgICAgICAgICAgPENhcmRDb250ZW50PlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgbWQ6Z3JpZC1jb2xzLTMgZ2FwLTRcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLWdyYXktMTAwIGRhcms6YmctZ3JheS04MDAgcC00IHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJmb250LXNlbWlib2xkIHRydW5jYXRlXCI+e3QoJ3N1YnNpZHkudGl0bGUnKX08L2gzPlxuICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSB0ZXh0LWdyYXktNjAwIG10LTIgbGluZS1jbGFtcC0zXCI+e3QoJ3N1YnNpZHkuZGVzY3JpcHRpb24nKX08L3A+XG4gICAgICAgICAgICAgICAgICA8QnV0dG9uIHNpemU9XCJzbVwiIGNsYXNzTmFtZT1cIm10LTQgdy1mdWxsXCI+XG4gICAgICAgICAgICAgICAgICAgIHt0KCdzdWJzaWR5LmFwcGx5Jyl9XG4gICAgICAgICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLWdyYXktMTAwIGRhcms6YmctZ3JheS04MDAgcC00IHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJmb250LXNlbWlib2xkIHRydW5jYXRlXCI+e3QoJ2Zvcm0uaW52YWxpZEVtYWlsJyl9PC9oMz5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1ncmF5LTYwMCBtdC0yIGxpbmUtY2xhbXAtM1wiPnt0KCdmb3JtLnRvb0xvbmcnLCB7IG1heDogJzEwMDAnIH0pfTwvcD5cbiAgICAgICAgICAgICAgICAgIDxCdXR0b24gc2l6ZT1cInNtXCIgY2xhc3NOYW1lPVwibXQtNCB3LWZ1bGxcIj5cbiAgICAgICAgICAgICAgICAgICAge3QoJ2NvbW1vbi5jb25maXJtJyl9XG4gICAgICAgICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgICBcbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJnLWdyYXktMTAwIGRhcms6YmctZ3JheS04MDAgcC00IHJvdW5kZWQtbGdcIj5cbiAgICAgICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJmb250LXNlbWlib2xkIHRydW5jYXRlXCI+e3QoJ2FjY2Vzc2liaWxpdHkuc2tpcFRvTmF2aWdhdGlvbicpfTwvaDM+XG4gICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS02MDAgbXQtMiBsaW5lLWNsYW1wLTNcIj57dCgnZXJyb3JzLmdlbmVyaWNFcnJvcicpfTwvcD5cbiAgICAgICAgICAgICAgICAgIDxCdXR0b24gc2l6ZT1cInNtXCIgY2xhc3NOYW1lPVwibXQtNCB3LWZ1bGxcIj5cbiAgICAgICAgICAgICAgICAgICAge3QoJ2NvbW1vbi5jbG9zZScpfVxuICAgICAgICAgICAgICAgICAgPC9CdXR0b24+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9DYXJkQ29udGVudD5cbiAgICAgICAgICA8L0NhcmQ+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9tYWluPlxuICAgIDwvQXBwTGF5b3V0PlxuICApO1xufSJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OytCQVlBOzs7Ozs7V0FBd0JBLGVBQUE7Ozs7Ozs7O2lDQVZROzs7aUNBQ1Q7OztpQ0FDbUQ7OztpQ0FDcEQ7OztpQ0FDQTs7O2lDQUNBOzs7a0NBQ0c7OztrQ0FDcUQ7OztrQ0FDcEQ7QUFFWCxTQUFTQSxnQkFBQTtFQUFBO0VBQUFDLGFBQUEsR0FBQUMsQ0FBQTtFQUN0QixNQUFNQyxDQUFBO0VBQUE7RUFBQSxDQUFBRixhQUFBLEdBQUFHLENBQUEsUUFBSSxJQUFBQyxTQUFBLENBQUFDLGVBQWU7RUFBQTtFQUFBTCxhQUFBLEdBQUFHLENBQUE7RUFFekIsb0JBQ0UsSUFBQUcsV0FBQSxDQUFBQyxHQUFBLEVBQUNDLFVBQUEsQ0FBQUMsU0FBUztjQUNSLGlCQUFBSCxXQUFBLENBQUFDLEdBQUEsRUFBQztNQUFLRyxTQUFBLEVBQVU7Z0JBQ2QsaUJBQUFKLFdBQUEsQ0FBQUssSUFBQSxFQUFDO1FBQUlELFNBQUEsRUFBVTtnQ0FFYixJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQztVQUFRRCxTQUFBLEVBQVU7a0NBQ2pCLElBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO1lBQUdHLFNBQUEsRUFBVTtzQkFBMkQ7MkJBR3pFLElBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO1lBQUVHLFNBQUEsRUFBVTtzQkFBZ0Q7O3lCQU0vRCxJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQ0MsS0FBQSxDQUFBQyxJQUFJO2tDQUNILElBQUFQLFdBQUEsQ0FBQUssSUFBQSxFQUFDQyxLQUFBLENBQUFFLFVBQVU7b0NBQ1QsSUFBQVIsV0FBQSxDQUFBQyxHQUFBLEVBQUNLLEtBQUEsQ0FBQUcsU0FBUzt3QkFBQzs2QkFDWCxJQUFBVCxXQUFBLENBQUFDLEdBQUEsRUFBQ0ssS0FBQSxDQUFBSSxlQUFlO3dCQUFDOzsyQkFFbkIsSUFBQVYsV0FBQSxDQUFBQyxHQUFBLEVBQUNLLEtBQUEsQ0FBQUssV0FBVztzQkFDVixpQkFBQVgsV0FBQSxDQUFBSyxJQUFBLEVBQUM7Y0FBSUQsU0FBQSxFQUFVO3NDQUNiLElBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDVyxPQUFBLENBQUFDLE1BQU07Z0JBQUNDLE9BQUEsRUFBUTswQkFDYmxCLENBQUEsQ0FBRTsrQkFFTCxJQUFBSSxXQUFBLENBQUFDLEdBQUEsRUFBQ1csT0FBQSxDQUFBQyxNQUFNO2dCQUFDQyxPQUFBLEVBQVE7MEJBQ2JsQixDQUFBLENBQUU7K0JBRUwsSUFBQUksV0FBQSxDQUFBQyxHQUFBLEVBQUNXLE9BQUEsQ0FBQUMsTUFBTTtnQkFBQ0MsT0FBQSxFQUFROzBCQUNibEIsQ0FBQSxDQUFFOytCQUVMLElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDVyxPQUFBLENBQUFDLE1BQU07Z0JBQUNDLE9BQUEsRUFBUTswQkFDYmxCLENBQUEsQ0FBRTsrQkFFTCxJQUFBSSxXQUFBLENBQUFDLEdBQUEsRUFBQ1csT0FBQSxDQUFBQyxNQUFNO2dCQUFDQyxPQUFBLEVBQVE7MEJBQ2JsQixDQUFBLENBQUU7K0JBRUwsSUFBQUksV0FBQSxDQUFBQyxHQUFBLEVBQUNXLE9BQUEsQ0FBQUMsTUFBTTtnQkFBQ0MsT0FBQSxFQUFROzBCQUNibEIsQ0FBQSxDQUFFOzs7O3lCQU9YLElBQUFJLFdBQUEsQ0FBQUssSUFBQSxFQUFDQyxLQUFBLENBQUFDLElBQUk7a0NBQ0gsSUFBQVAsV0FBQSxDQUFBSyxJQUFBLEVBQUNDLEtBQUEsQ0FBQUUsVUFBVTtvQ0FDVCxJQUFBUixXQUFBLENBQUFDLEdBQUEsRUFBQ0ssS0FBQSxDQUFBRyxTQUFTO3dCQUFDOzZCQUNYLElBQUFULFdBQUEsQ0FBQUMsR0FBQSxFQUFDSyxLQUFBLENBQUFJLGVBQWU7d0JBQUM7OzJCQUVuQixJQUFBVixXQUFBLENBQUFDLEdBQUEsRUFBQ0ssS0FBQSxDQUFBSyxXQUFXO3NCQUNWLGlCQUFBWCxXQUFBLENBQUFLLElBQUEsRUFBQztjQUFJRCxTQUFBLEVBQVU7c0NBQ2IsSUFBQUosV0FBQSxDQUFBQyxHQUFBLEVBQUNjLE1BQUEsQ0FBQUMsS0FBSztnQkFBQ0YsT0FBQSxFQUFROzBCQUFXbEIsQ0FBQSxDQUFFOytCQUM1QixJQUFBSSxXQUFBLENBQUFDLEdBQUEsRUFBQ2MsTUFBQSxDQUFBQyxLQUFLO2dCQUFDRixPQUFBLEVBQVE7MEJBQWFsQixDQUFBLENBQUU7K0JBQzlCLElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDYyxNQUFBLENBQUFDLEtBQUs7Z0JBQUNGLE9BQUEsRUFBUTswQkFBV2xCLENBQUEsQ0FBRTsrQkFDNUIsSUFBQUksV0FBQSxDQUFBQyxHQUFBLEVBQUNjLE1BQUEsQ0FBQUMsS0FBSztnQkFBQ0YsT0FBQSxFQUFROzBCQUFlbEIsQ0FBQSxDQUFFOytCQUNoQyxJQUFBSSxXQUFBLENBQUFDLEdBQUEsRUFBQ2MsTUFBQSxDQUFBQyxLQUFLO2dCQUFDRixPQUFBLEVBQVE7MEJBQVdsQixDQUFBLENBQUU7K0JBQzVCLElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDYyxNQUFBLENBQUFDLEtBQUs7Z0JBQUNGLE9BQUEsRUFBUTswQkFBYWxCLENBQUEsQ0FBRTs7Ozt5QkFNcEMsSUFBQUksV0FBQSxDQUFBSyxJQUFBLEVBQUNDLEtBQUEsQ0FBQUMsSUFBSTtrQ0FDSCxJQUFBUCxXQUFBLENBQUFLLElBQUEsRUFBQ0MsS0FBQSxDQUFBRSxVQUFVO29DQUNULElBQUFSLFdBQUEsQ0FBQUMsR0FBQSxFQUFDSyxLQUFBLENBQUFHLFNBQVM7d0JBQUM7NkJBQ1gsSUFBQVQsV0FBQSxDQUFBQyxHQUFBLEVBQUNLLEtBQUEsQ0FBQUksZUFBZTt3QkFBQzs7MkJBRW5CLElBQUFWLFdBQUEsQ0FBQUMsR0FBQSxFQUFDSyxLQUFBLENBQUFLLFdBQVc7c0JBQ1YsaUJBQUFYLFdBQUEsQ0FBQUssSUFBQSxFQUFDO2NBQUlELFNBQUEsRUFBVTtzQ0FDYixJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQztnQkFBSUQsU0FBQSxFQUFVO3dDQUNiLElBQUFKLFdBQUEsQ0FBQUssSUFBQSxFQUFDO2tCQUFJRCxTQUFBLEVBQVU7MENBQ2IsSUFBQUosV0FBQSxDQUFBSyxJQUFBLEVBQUNZLE1BQUEsQ0FBQUMsS0FBSztvQkFBQ0MsT0FBQSxFQUFROytCQUNadkIsQ0FBQSxDQUFFLGtCQUFpQixPQUFJQSxDQUFBLENBQUU7bUNBRTVCLElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDbUIsTUFBQSxDQUFBQyxLQUFLO29CQUNKQyxFQUFBLEVBQUc7b0JBQ0hDLFdBQUEsRUFBYTNCLENBQUEsQ0FBRTs7aUNBSW5CLElBQUFJLFdBQUEsQ0FBQUssSUFBQSxFQUFDO2tCQUFJRCxTQUFBLEVBQVU7MENBQ2IsSUFBQUosV0FBQSxDQUFBSyxJQUFBLEVBQUNZLE1BQUEsQ0FBQUMsS0FBSztvQkFBQ0MsT0FBQSxFQUFROytCQUNadkIsQ0FBQSxDQUFFLGtCQUFpQixPQUFJQSxDQUFBLENBQUU7bUNBRTVCLElBQUFJLFdBQUEsQ0FBQUssSUFBQSxFQUFDbUIsT0FBQSxDQUFBQyxNQUFNOzRDQUNMLElBQUF6QixXQUFBLENBQUFDLEdBQUEsRUFBQ3VCLE9BQUEsQ0FBQUUsYUFBYTtnQ0FDWixpQkFBQTFCLFdBQUEsQ0FBQUMsR0FBQSxFQUFDdUIsT0FBQSxDQUFBRyxXQUFXO3dCQUFDSixXQUFBLEVBQWEzQixDQUFBLENBQUU7O3FDQUU5QixJQUFBSSxXQUFBLENBQUFLLElBQUEsRUFBQ21CLE9BQUEsQ0FBQUksYUFBYTs4Q0FDWixJQUFBNUIsV0FBQSxDQUFBQyxHQUFBLEVBQUN1QixPQUFBLENBQUFLLFVBQVU7d0JBQUNDLEtBQUEsRUFBTTtrQ0FBV2xDLENBQUEsQ0FBRTt1Q0FDL0IsSUFBQUksV0FBQSxDQUFBQyxHQUFBLEVBQUN1QixPQUFBLENBQUFLLFVBQVU7d0JBQUNDLEtBQUEsRUFBTTtrQ0FBV2xDLENBQUEsQ0FBRTt1Q0FDL0IsSUFBQUksV0FBQSxDQUFBQyxHQUFBLEVBQUN1QixPQUFBLENBQUFLLFVBQVU7d0JBQUNDLEtBQUEsRUFBTTtrQ0FBV2xDLENBQUEsQ0FBRTs7Ozs7K0JBTXZDLElBQUFJLFdBQUEsQ0FBQUssSUFBQSxFQUFDO2dCQUFJRCxTQUFBLEVBQVU7d0NBQ2IsSUFBQUosV0FBQSxDQUFBQyxHQUFBLEVBQUNnQixNQUFBLENBQUFDLEtBQUs7a0JBQUNDLE9BQUEsRUFBUTs0QkFDWnZCLENBQUEsQ0FBRTtpQ0FFTCxJQUFBSSxXQUFBLENBQUFDLEdBQUEsRUFBQzhCLFNBQUEsQ0FBQUMsUUFBUTtrQkFDUFYsRUFBQSxFQUFHO2tCQUNIQyxXQUFBLEVBQWEzQixDQUFBLENBQUUsZ0JBQWdCO29CQUFFcUMsR0FBQSxFQUFLO2tCQUFNO2tCQUM1Q0MsSUFBQSxFQUFNOzs7Ozt5QkFRaEIsSUFBQWxDLFdBQUEsQ0FBQUssSUFBQSxFQUFDQyxLQUFBLENBQUFDLElBQUk7a0NBQ0gsSUFBQVAsV0FBQSxDQUFBSyxJQUFBLEVBQUNDLEtBQUEsQ0FBQUUsVUFBVTtvQ0FDVCxJQUFBUixXQUFBLENBQUFDLEdBQUEsRUFBQ0ssS0FBQSxDQUFBRyxTQUFTO3dCQUFDOzZCQUNYLElBQUFULFdBQUEsQ0FBQUMsR0FBQSxFQUFDSyxLQUFBLENBQUFJLGVBQWU7d0JBQUM7OzJCQUVuQixJQUFBVixXQUFBLENBQUFDLEdBQUEsRUFBQ0ssS0FBQSxDQUFBSyxXQUFXO3NCQUNWLGlCQUFBWCxXQUFBLENBQUFLLElBQUEsRUFBQztjQUFJRCxTQUFBLEVBQVU7c0NBQ2IsSUFBQUosV0FBQSxDQUFBQyxHQUFBLEVBQUM7Z0JBQUlHLFNBQUEsRUFBVTswQkFDYixpQkFBQUosV0FBQSxDQUFBQyxHQUFBLEVBQUM7a0JBQUVHLFNBQUEsRUFBVTs0QkFBNEJSLENBQUEsQ0FBRTs7K0JBRTdDLElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2dCQUFJRyxTQUFBLEVBQVU7MEJBQ2IsaUJBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2tCQUFFRyxTQUFBLEVBQVU7NEJBQTRCUixDQUFBLENBQUU7OytCQUU3QyxJQUFBSSxXQUFBLENBQUFDLEdBQUEsRUFBQztnQkFBSUcsU0FBQSxFQUFVOzBCQUNiLGlCQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztrQkFBRUcsU0FBQSxFQUFVOzRCQUE0QlIsQ0FBQSxDQUFFOzsrQkFFN0MsSUFBQUksV0FBQSxDQUFBQyxHQUFBLEVBQUM7Z0JBQUlHLFNBQUEsRUFBVTswQkFDYixpQkFBQUosV0FBQSxDQUFBQyxHQUFBLEVBQUM7a0JBQUVHLFNBQUEsRUFBVTs0QkFBNEJSLENBQUEsQ0FBRSxpQkFBaUI7b0JBQUV1QyxHQUFBLEVBQUs7a0JBQUs7Ozs7O3lCQU9oRixJQUFBbkMsV0FBQSxDQUFBSyxJQUFBLEVBQUNDLEtBQUEsQ0FBQUMsSUFBSTtrQ0FDSCxJQUFBUCxXQUFBLENBQUFLLElBQUEsRUFBQ0MsS0FBQSxDQUFBRSxVQUFVO29DQUNULElBQUFSLFdBQUEsQ0FBQUMsR0FBQSxFQUFDSyxLQUFBLENBQUFHLFNBQVM7d0JBQUM7NkJBQ1gsSUFBQVQsV0FBQSxDQUFBQyxHQUFBLEVBQUNLLEtBQUEsQ0FBQUksZUFBZTt3QkFBQzs7MkJBRW5CLElBQUFWLFdBQUEsQ0FBQUMsR0FBQSxFQUFDSyxLQUFBLENBQUFLLFdBQVc7c0JBQ1YsaUJBQUFYLFdBQUEsQ0FBQUssSUFBQSxFQUFDO2NBQUlELFNBQUEsRUFBVTtzQ0FDYixJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQztnQkFBSUQsU0FBQSxFQUFVO3dDQUNiLElBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDVyxPQUFBLENBQUFDLE1BQU07a0JBQUMsY0FBWWpCLENBQUEsQ0FBRTs0QkFBOEI7aUNBR3BELElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDVyxPQUFBLENBQUFDLE1BQU07a0JBQUMsY0FBWWpCLENBQUEsQ0FBRTs0QkFBaUM7aUNBR3ZELElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDVyxPQUFBLENBQUFDLE1BQU07a0JBQUMsY0FBWWpCLENBQUEsQ0FBRTs0QkFBNkI7OytCQUtyRCxJQUFBSSxXQUFBLENBQUFLLElBQUEsRUFBQztnQkFBSUQsU0FBQSxFQUFVO3dDQUNiLElBQUFKLFdBQUEsQ0FBQUssSUFBQSxFQUFDOzBDQUNDLElBQUFMLFdBQUEsQ0FBQUMsR0FBQSxFQUFDOzhCQUFPO21DQUNSLElBQUFELFdBQUEsQ0FBQUssSUFBQSxFQUFDO29CQUFHRCxTQUFBLEVBQVU7NENBQ1osSUFBQUosV0FBQSxDQUFBQyxHQUFBLEVBQUM7Z0NBQUlMLENBQUEsQ0FBRTtxQ0FDUCxJQUFBSSxXQUFBLENBQUFDLEdBQUEsRUFBQztnQ0FBSUwsQ0FBQSxDQUFFOzs7aUNBR1gsSUFBQUksV0FBQSxDQUFBSyxJQUFBLEVBQUM7MENBQ0MsSUFBQUwsV0FBQSxDQUFBQyxHQUFBLEVBQUM7OEJBQU87bUNBQ1IsSUFBQUQsV0FBQSxDQUFBSyxJQUFBLEVBQUM7b0JBQUdELFNBQUEsRUFBVTs0Q0FDWixJQUFBSixXQUFBLENBQUFDLEdBQUEsRUFBQztnQ0FBSUwsQ0FBQSxDQUFFO3FDQUNQLElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2dDQUFJTCxDQUFBLENBQUU7cUNBQ1AsSUFBQUksV0FBQSxDQUFBQyxHQUFBLEVBQUM7Z0NBQUlMLENBQUEsQ0FBRTs7Ozs7Ozt5QkFTbkIsSUFBQUksV0FBQSxDQUFBSyxJQUFBLEVBQUNDLEtBQUEsQ0FBQUMsSUFBSTtrQ0FDSCxJQUFBUCxXQUFBLENBQUFLLElBQUEsRUFBQ0MsS0FBQSxDQUFBRSxVQUFVO29DQUNULElBQUFSLFdBQUEsQ0FBQUMsR0FBQSxFQUFDSyxLQUFBLENBQUFHLFNBQVM7d0JBQUM7NkJBQ1gsSUFBQVQsV0FBQSxDQUFBQyxHQUFBLEVBQUNLLEtBQUEsQ0FBQUksZUFBZTt3QkFBQzs7MkJBRW5CLElBQUFWLFdBQUEsQ0FBQUMsR0FBQSxFQUFDSyxLQUFBLENBQUFLLFdBQVc7c0JBQ1YsaUJBQUFYLFdBQUEsQ0FBQUssSUFBQSxFQUFDO2NBQUlELFNBQUEsRUFBVTtzQ0FDYixJQUFBSixXQUFBLENBQUFLLElBQUEsRUFBQztnQkFBSUQsU0FBQSxFQUFVO3dDQUNiLElBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2tCQUFHRyxTQUFBLEVBQVU7NEJBQTBCUixDQUFBLENBQUU7aUNBQzFDLElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2tCQUFFRyxTQUFBLEVBQVU7NEJBQTJDUixDQUFBLENBQUU7aUNBQzFELElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDVyxPQUFBLENBQUFDLE1BQU07a0JBQUN1QixJQUFBLEVBQUs7a0JBQUtoQyxTQUFBLEVBQVU7NEJBQ3pCUixDQUFBLENBQUU7OytCQUlQLElBQUFJLFdBQUEsQ0FBQUssSUFBQSxFQUFDO2dCQUFJRCxTQUFBLEVBQVU7d0NBQ2IsSUFBQUosV0FBQSxDQUFBQyxHQUFBLEVBQUM7a0JBQUdHLFNBQUEsRUFBVTs0QkFBMEJSLENBQUEsQ0FBRTtpQ0FDMUMsSUFBQUksV0FBQSxDQUFBQyxHQUFBLEVBQUM7a0JBQUVHLFNBQUEsRUFBVTs0QkFBMkNSLENBQUEsQ0FBRSxnQkFBZ0I7b0JBQUVxQyxHQUFBLEVBQUs7a0JBQU87aUNBQ3hGLElBQUFqQyxXQUFBLENBQUFDLEdBQUEsRUFBQ1csT0FBQSxDQUFBQyxNQUFNO2tCQUFDdUIsSUFBQSxFQUFLO2tCQUFLaEMsU0FBQSxFQUFVOzRCQUN6QlIsQ0FBQSxDQUFFOzsrQkFJUCxJQUFBSSxXQUFBLENBQUFLLElBQUEsRUFBQztnQkFBSUQsU0FBQSxFQUFVO3dDQUNiLElBQUFKLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2tCQUFHRyxTQUFBLEVBQVU7NEJBQTBCUixDQUFBLENBQUU7aUNBQzFDLElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO2tCQUFFRyxTQUFBLEVBQVU7NEJBQTJDUixDQUFBLENBQUU7aUNBQzFELElBQUFJLFdBQUEsQ0FBQUMsR0FBQSxFQUFDVyxPQUFBLENBQUFDLE1BQU07a0JBQUN1QixJQUFBLEVBQUs7a0JBQUtoQyxTQUFBLEVBQVU7NEJBQ3pCUixDQUFBLENBQUU7Ozs7Ozs7OztBQVV2QiIsImlnbm9yZUxpc3QiOltdfQ==

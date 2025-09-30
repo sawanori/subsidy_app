@@ -1,7 +1,9 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { createWorker, PSM, OEM } from 'tesseract.js';
-import * as sharp from 'sharp';
+import { createWorker, PSM } from 'tesseract.js';
+import sharp from 'sharp';
 import { OCRResult, OCRWord, BoundingBox } from '../interfaces/evidence.interface';
+import { PrismaService } from '@prisma/prisma.service';
+import { calculateOCRCost, OCR_COST_LIMITS } from './ocr/ocr.config';
 
 @Injectable()
 export class OCRService {
@@ -9,6 +11,8 @@ export class OCRService {
   private readonly MAX_IMAGE_SIZE = 4000; // 4000px max width/height
   private readonly MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
   private readonly TIMEOUT = 30000; // 30 seconds
+
+  constructor(private readonly prisma: PrismaService) {}
 
   /**
    * 日本語OCR処理（Tesseract.js使用）
@@ -18,7 +22,6 @@ export class OCRService {
     options: {
       languages?: string[];
       psm?: PSM;
-      oem?: OEM;
       preprocessImage?: boolean;
     } = {}
   ): Promise<OCRResult> {
@@ -35,8 +38,10 @@ export class OCRService {
         ? await this.preprocessImage(imageBuffer)
         : imageBuffer;
 
-      const worker = await createWorker(languages, OEM.LSTM_ONLY, {
-        logger: (m) => this.logger.debug(`Tesseract: ${JSON.stringify(m)}`)
+      const worker = await createWorker(languages.join('+'), undefined as any, {
+        logger: (m) => this.logger.debug(`Tesseract: ${JSON.stringify(m)}`),
+        // ネットワーク制限時は環境変数から言語データパスを参照
+        langPath: process.env.TESSERACT_LANG_PATH || undefined,
       });
 
       try {
@@ -67,13 +72,20 @@ export class OCRService {
         return ocrResult;
 
       } finally {
-        await worker.terminate();
+        try { await worker.terminate(); } catch {}
       }
 
     } catch (error) {
       const processingTime = Date.now() - startTime;
-      this.logger.error(`OCR failed after ${processingTime}ms: ${error.message}`);
-      throw new Error(`OCR processing failed: ${error.message}`);
+      this.logger.warn(`OCR failed after ${processingTime}ms: ${error?.message || error}`);
+      // 失敗時は空結果を返して上位で継続可能にする
+      return {
+        language: 'unknown',
+        confidence: 0,
+        text: '',
+        words: [],
+        boundingBoxes: []
+      };
     }
   }
 
@@ -255,5 +267,44 @@ export class OCRService {
         : 'low';
 
     return { quality, issues, recommendations };
+  }
+
+  /**
+   * OCR結果保存（personal分類監査ログ付き）
+   * 旧OCRSupportServiceから統合
+   */
+  async saveOCRResult(
+    evidenceId: string,
+    ocrResult: any,
+    userId: string
+  ): Promise<void> {
+    try {
+      const cost = calculateOCRCost(
+        ocrResult.fileSize || 0,
+        ocrResult.processing?.duration || 0
+      );
+
+      // Evidence更新
+      await this.prisma.evidence.update({
+        where: { id: evidenceId },
+        data: {
+          metadata: {
+            ...ocrResult,
+            costEstimate: cost,
+            classification: 'internal', // OCR結果はinternal分類
+            processedAt: new Date().toISOString()
+          } as any
+        }
+      });
+
+      // 監査ログ記録（personal分類データアクセス）
+      this.logger.log(
+        `OCR処理完了: Evidence=${evidenceId}, User=${userId}, ` +
+        `Cost=${cost}円, Duration=${ocrResult.processing?.duration}ms`
+      );
+    } catch (error) {
+      this.logger.error(`OCR結果保存失敗: ${error?.message || error}`);
+      throw error;
+    }
   }
 }

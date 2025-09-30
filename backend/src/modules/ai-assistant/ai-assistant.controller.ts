@@ -30,7 +30,7 @@ import {
 import { ThrottlerGuard } from '@nestjs/throttler';
 
 @ApiTags('AI Assistant')
-@Controller('api/ai-assistant')
+@Controller('ai-assistant')
 @UseGuards(ThrottlerGuard)
 export class AIAssistantController {
   constructor(private readonly aiService: AIAssistantService) {}

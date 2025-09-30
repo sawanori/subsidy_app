@@ -1,0 +1,1019 @@
+77b4900305143aa1b760a11a6d961f4e
+'use client';
+"use strict";
+
+/* istanbul ignore next */
+function cov_1xd9cttect() {
+  var path = "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/components/preview/forms/FormTwoPreview.tsx";
+  var hash = "e068406224978554105d985bd27ec410f72fd869";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/components/preview/forms/FormTwoPreview.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 11,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 9,
+          column: 8
+        },
+        end: {
+          line: 9,
+          column: 30
+        }
+      },
+      "3": {
+        start: {
+          line: 12,
+          column: 20
+        },
+        end: {
+          line: 12,
+          column: 48
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 29
+        },
+        end: {
+          line: 13,
+          column: 71
+        }
+      },
+      "5": {
+        start: {
+          line: 14,
+          column: 15
+        },
+        end: {
+          line: 14,
+          column: 44
+        }
+      },
+      "6": {
+        start: {
+          line: 16,
+          column: 4
+        },
+        end: {
+          line: 18,
+          column: 6
+        }
+      },
+      "7": {
+        start: {
+          line: 21,
+          column: 4
+        },
+        end: {
+          line: 458,
+          column: 7
+        }
+      },
+      "8": {
+        start: {
+          line: 214,
+          column: 113
+        },
+        end: {
+          line: 237,
+          column: 76
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 8,
+            column: 9
+          },
+          end: {
+            line: 8,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 20
+          },
+          end: {
+            line: 10,
+            column: 5
+          }
+        },
+        line: 8
+      },
+      "1": {
+        name: "_interop_require_default",
+        decl: {
+          start: {
+            line: 15,
+            column: 9
+          },
+          end: {
+            line: 15,
+            column: 33
+          }
+        },
+        loc: {
+          start: {
+            line: 15,
+            column: 39
+          },
+          end: {
+            line: 19,
+            column: 1
+          }
+        },
+        line: 15
+      },
+      "2": {
+        name: "FormTwoPreview",
+        decl: {
+          start: {
+            line: 20,
+            column: 9
+          },
+          end: {
+            line: 20,
+            column: 23
+          }
+        },
+        loc: {
+          start: {
+            line: 20,
+            column: 62
+          },
+          end: {
+            line: 459,
+            column: 1
+          }
+        },
+        line: 20
+      },
+      "3": {
+        name: "(anonymous_3)",
+        decl: {
+          start: {
+            line: 214,
+            column: 84
+          },
+          end: {
+            line: 214,
+            column: 85
+          }
+        },
+        loc: {
+          start: {
+            line: 214,
+            column: 113
+          },
+          end: {
+            line: 237,
+            column: 76
+          }
+        },
+        line: 214
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 16,
+            column: 11
+          },
+          end: {
+            line: 18,
+            column: 5
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 16,
+            column: 35
+          },
+          end: {
+            line: 16,
+            column: 38
+          }
+        }, {
+          start: {
+            line: 16,
+            column: 41
+          },
+          end: {
+            line: 18,
+            column: 5
+          }
+        }],
+        line: 16
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 16,
+            column: 11
+          },
+          end: {
+            line: 16,
+            column: 32
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 16,
+            column: 11
+          },
+          end: {
+            line: 16,
+            column: 14
+          }
+        }, {
+          start: {
+            line: 16,
+            column: 18
+          },
+          end: {
+            line: 16,
+            column: 32
+          }
+        }],
+        line: 16
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 20,
+            column: 44
+          },
+          end: {
+            line: 20,
+            column: 58
+          }
+        },
+        type: "default-arg",
+        locations: [{
+          start: {
+            line: 20,
+            column: 56
+          },
+          end: {
+            line: 20,
+            column: 58
+          }
+        }],
+        line: 20
+      },
+      "3": {
+        loc: {
+          start: {
+            line: 58,
+            column: 50
+          },
+          end: {
+            line: 58,
+            column: 91
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 58,
+            column: 50
+          },
+          end: {
+            line: 58,
+            column: 71
+          }
+        }, {
+          start: {
+            line: 58,
+            column: 75
+          },
+          end: {
+            line: 58,
+            column: 91
+          }
+        }],
+        line: 58
+      },
+      "4": {
+        loc: {
+          start: {
+            line: 70,
+            column: 50
+          },
+          end: {
+            line: 70,
+            column: 112
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 70,
+            column: 50
+          },
+          end: {
+            line: 70,
+            column: 71
+          }
+        }, {
+          start: {
+            line: 70,
+            column: 75
+          },
+          end: {
+            line: 70,
+            column: 112
+          }
+        }],
+        line: 70
+      },
+      "5": {
+        loc: {
+          start: {
+            line: 82,
+            column: 50
+          },
+          end: {
+            line: 82,
+            column: 122
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 82,
+            column: 50
+          },
+          end: {
+            line: 82,
+            column: 80
+          }
+        }, {
+          start: {
+            line: 82,
+            column: 84
+          },
+          end: {
+            line: 82,
+            column: 122
+          }
+        }],
+        line: 82
+      },
+      "6": {
+        loc: {
+          start: {
+            line: 108,
+            column: 50
+          },
+          end: {
+            line: 108,
+            column: 112
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 108,
+            column: 50
+          },
+          end: {
+            line: 108,
+            column: 73
+          }
+        }, {
+          start: {
+            line: 108,
+            column: 77
+          },
+          end: {
+            line: 108,
+            column: 112
+          }
+        }],
+        line: 108
+      },
+      "7": {
+        loc: {
+          start: {
+            line: 165,
+            column: 44
+          },
+          end: {
+            line: 165,
+            column: 82
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 165,
+            column: 44
+          },
+          end: {
+            line: 165,
+            column: 71
+          }
+        }, {
+          start: {
+            line: 165,
+            column: 75
+          },
+          end: {
+            line: 165,
+            column: 82
+          }
+        }],
+        line: 165
+      },
+      "8": {
+        loc: {
+          start: {
+            line: 168,
+            column: 44
+          },
+          end: {
+            line: 168,
+            column: 75
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 168,
+            column: 44
+          },
+          end: {
+            line: 168,
+            column: 64
+          }
+        }, {
+          start: {
+            line: 168,
+            column: 68
+          },
+          end: {
+            line: 168,
+            column: 75
+          }
+        }],
+        line: 168
+      },
+      "9": {
+        loc: {
+          start: {
+            line: 175,
+            column: 28
+          },
+          end: {
+            line: 254,
+            column: 30
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 175,
+            column: 94
+          },
+          end: {
+            line: 243,
+            column: 30
+          }
+        }, {
+          start: {
+            line: 243,
+            column: 47
+          },
+          end: {
+            line: 254,
+            column: 30
+          }
+        }],
+        line: 175
+      },
+      "10": {
+        loc: {
+          start: {
+            line: 175,
+            column: 28
+          },
+          end: {
+            line: 175,
+            column: 77
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 175,
+            column: 28
+          },
+          end: {
+            line: 175,
+            column: 45
+          }
+        }, {
+          start: {
+            line: 175,
+            column: 49
+          },
+          end: {
+            line: 175,
+            column: 77
+          }
+        }],
+        line: 175
+      },
+      "11": {
+        loc: {
+          start: {
+            line: 237,
+            column: 59
+          },
+          end: {
+            line: 237,
+            column: 75
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 237,
+            column: 59
+          },
+          end: {
+            line: 237,
+            column: 66
+          }
+        }, {
+          start: {
+            line: 237,
+            column: 70
+          },
+          end: {
+            line: 237,
+            column: 75
+          }
+        }],
+        line: 237
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0],
+      "2": [0],
+      "3": [0, 0],
+      "4": [0, 0],
+      "5": [0, 0],
+      "6": [0, 0],
+      "7": [0, 0],
+      "8": [0, 0],
+      "9": [0, 0],
+      "10": [0, 0],
+      "11": [0, 0]
+    },
+    inputSourceMap: {
+      version: 3,
+      sources: ["/Users/noritakasawada/AI_P/subsidyApp/frontend/src/components/preview/forms/FormTwoPreview.tsx"],
+      sourcesContent: ["'use client';\n\nimport React from 'react';\nimport { SubsidyFormData, PreviewConfig } from '@/types/preview';\nimport { formatCurrency, formatDate } from '@/lib/utils';\n\ninterface FormTwoPreviewProps {\n  formData: SubsidyFormData;\n  config: PreviewConfig;\n  className?: string;\n}\n\nexport function FormTwoPreview({ formData, config, className = '' }: FormTwoPreviewProps) {\n  return (\n    <div className={`${className} bg-white p-8 overflow-auto`}>\n      {/* \u30D8\u30C3\u30C0\u30FC */}\n      <div className=\"text-center mb-8\">\n        <h1 className=\"text-2xl font-bold mb-2\">\n          \u4E8B\u696D\u8A08\u753B\u66F8\uFF08\u69D8\u5F0F\u7B2C2\u53F7\uFF09\n        </h1>\n        <div className=\"text-right text-sm text-gray-600\">\n          \u4F5C\u6210\u65E5\uFF1A{formatDate(new Date().toISOString())}\n        </div>\n      </div>\n\n      {/* \u4E8B\u696D\u6982\u8981 */}\n      <section className=\"mb-8\">\n        <h2 className=\"text-lg font-semibold mb-4 border-b border-gray-300 pb-2\">\n          1. \u4E8B\u696D\u6982\u8981\n        </h2>\n        \n        <div className=\"space-y-6\">\n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-2\">\n              \u4E8B\u696D\u540D\n            </label>\n            <div className=\"border border-gray-300 p-4 bg-yellow-50 min-h-12\">\n              {formData.projectTitle || '\uFF08\u4E8B\u696D\u540D\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\uFF09'}\n            </div>\n          </div>\n          \n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-2\">\n              \u4E8B\u696D\u306E\u80CC\u666F\u30FB\u76EE\u7684\n            </label>\n            <div className=\"border border-gray-300 p-4 min-h-32 bg-gray-50\">\n              {formData.businessPlan || \n                '\uFF08\u4E8B\u696D\u3092\u5B9F\u65BD\u3059\u308B\u80CC\u666F\u3001\u89E3\u6C7A\u3057\u305F\u3044\u8AB2\u984C\u3001\u76EE\u7684\u3092\u5177\u4F53\u7684\u306B\u8A18\u8F09\u3057\u3066\u304F\u3060\u3055\u3044\uFF09'\n              }\n            </div>\n          </div>\n          \n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-2\">\n              \u6280\u8853\u7684\u5185\u5BB9\u30FB\u9769\u65B0\u6027\n            </label>\n            <div className=\"border border-gray-300 p-4 min-h-32 bg-gray-50\">\n              {formData.technologyDescription || \n                '\uFF08\u4F7F\u7528\u3059\u308B\u6280\u8853\u3001\u6280\u8853\u7684\u306A\u9769\u65B0\u6027\u3001\u5F93\u6765\u6280\u8853\u3068\u306E\u5DEE\u5225\u5316\u70B9\u3092\u8A18\u8F09\u3057\u3066\u304F\u3060\u3055\u3044\uFF09'\n              }\n            </div>\n          </div>\n        </div>\n      </section>\n\n      {/* \u5E02\u5834\u5206\u6790\u30FB\u7AF6\u4E89\u512A\u4F4D\u6027 */}\n      <section className=\"mb-8\">\n        <h2 className=\"text-lg font-semibold mb-4 border-b border-gray-300 pb-2\">\n          2. \u5E02\u5834\u5206\u6790\u30FB\u7AF6\u4E89\u512A\u4F4D\u6027\n        </h2>\n        \n        <div className=\"space-y-6\">\n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-2\">\n              \u5BFE\u8C61\u5E02\u5834\u30FB\u9867\u5BA2\u5C64\n            </label>\n            <div className=\"border border-gray-300 p-4 min-h-24 bg-gray-50\">\n              {formData.marketAnalysis || \n                '\uFF08\u60F3\u5B9A\u3059\u308B\u9867\u5BA2\u5C64\u3001\u5E02\u5834\u898F\u6A21\u3001\u5E02\u5834\u306E\u6210\u9577\u6027\u306B\u3064\u3044\u3066\u8A18\u8F09\u3057\u3066\u304F\u3060\u3055\u3044\uFF09'\n              }\n            </div>\n          </div>\n          \n          <div className=\"grid grid-cols-2 gap-6\">\n            <div>\n              <label className=\"block text-sm font-medium text-gray-700 mb-2\">\n                \u7AF6\u5408\u4ED6\u793E\u30FB\u30B5\u30FC\u30D3\u30B9\n              </label>\n              <div className=\"border border-gray-300 p-4 min-h-24 bg-gray-50 text-sm\">\n                \uFF08\u4E3B\u8981\u306A\u7AF6\u5408\u4ED6\u793E\u30FB\u7AF6\u5408\u30B5\u30FC\u30D3\u30B9\u3092\u8A18\u8F09\uFF09\n              </div>\n            </div>\n            \n            <div>\n              <label className=\"block text-sm font-medium text-gray-700 mb-2\">\n                \u5DEE\u5225\u5316\u30FB\u512A\u4F4D\u6027\n              </label>\n              <div className=\"border border-gray-300 p-4 min-h-24 bg-gray-50 text-sm\">\n                \uFF08\u7AF6\u5408\u306B\u5BFE\u3059\u308B\u512A\u4F4D\u6027\u3001\u5DEE\u5225\u5316\u8981\u56E0\u3092\u8A18\u8F09\uFF09\n              </div>\n            </div>\n          </div>\n        </div>\n      </section>\n\n      {/* \u5B9F\u65BD\u4F53\u5236\u30FB\u30B9\u30B1\u30B8\u30E5\u30FC\u30EB */}\n      <section className=\"mb-8\">\n        <h2 className=\"text-lg font-semibold mb-4 border-b border-gray-300 pb-2\">\n          3. \u5B9F\u65BD\u4F53\u5236\u30FB\u30B9\u30B1\u30B8\u30E5\u30FC\u30EB\n        </h2>\n        \n        <div className=\"space-y-6\">\n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-2\">\n              \u5B9F\u65BD\u4F53\u5236\n            </label>\n            <div className=\"border border-gray-300 p-4 min-h-24 bg-gray-50\">\n              \u30D7\u30ED\u30B8\u30A7\u30AF\u30C8\u30DE\u30CD\u30FC\u30B8\u30E3\u30FC\uFF1A{formData.representativeName || '\uFF08\u672A\u8A2D\u5B9A\uFF09'}\n              <br />\n              \u5B9F\u65BD\u4F53\u5236\uFF1A{formData.companyName || '\uFF08\u672A\u8A2D\u5B9A\uFF09'}\n              <br />\n              \uFF08\u5F79\u5272\u5206\u62C5\u3001\u5916\u90E8\u59D4\u8A17\u5148\u7B49\u3092\u8A18\u8F09\u3057\u3066\u304F\u3060\u3055\u3044\uFF09\n            </div>\n          </div>\n          \n          {formData.timeline && formData.timeline.length > 0 ? (\n            <div>\n              <label className=\"block text-sm font-medium text-gray-700 mb-2\">\n                \u5B9F\u65BD\u30B9\u30B1\u30B8\u30E5\u30FC\u30EB\n              </label>\n              <div className=\"overflow-x-auto\">\n                <table className=\"w-full border-collapse border border-gray-300\">\n                  <thead>\n                    <tr className=\"bg-gray-50\">\n                      <th className=\"border border-gray-300 px-4 py-2 text-left\">\u30D5\u30A7\u30FC\u30BA</th>\n                      <th className=\"border border-gray-300 px-4 py-2 text-left\">\u5185\u5BB9</th>\n                      <th className=\"border border-gray-300 px-4 py-2 text-center\">\u958B\u59CB</th>\n                      <th className=\"border border-gray-300 px-4 py-2 text-center\">\u5B8C\u4E86</th>\n                      <th className=\"border border-gray-300 px-4 py-2 text-left\">\u6210\u679C\u7269</th>\n                    </tr>\n                  </thead>\n                  <tbody>\n                    {formData.timeline.map((item, index) => (\n                      <tr key={item.id || index}>\n                        <td className=\"border border-gray-300 px-4 py-2 font-medium\">\n                          {item.phase}\n                        </td>\n                        <td className=\"border border-gray-300 px-4 py-2\">\n                          {item.description}\n                        </td>\n                        <td className=\"border border-gray-300 px-4 py-2 text-center text-sm\">\n                          {formatDate(item.startDate)}\n                        </td>\n                        <td className=\"border border-gray-300 px-4 py-2 text-center text-sm\">\n                          {formatDate(item.endDate)}\n                        </td>\n                        <td className=\"border border-gray-300 px-4 py-2 text-sm\">\n                          {item.deliverables.join('\u3001')}\n                        </td>\n                      </tr>\n                    ))}\n                  </tbody>\n                </table>\n              </div>\n            </div>\n          ) : (\n            <div>\n              <label className=\"block text-sm font-medium text-gray-700 mb-2\">\n                \u5B9F\u65BD\u30B9\u30B1\u30B8\u30E5\u30FC\u30EB\n              </label>\n              <div className=\"border border-gray-300 p-4 min-h-32 bg-gray-50 text-center text-gray-500\">\n                \uFF08\u30B9\u30B1\u30B8\u30E5\u30FC\u30EB\u3092\u8A2D\u5B9A\u3057\u3066\u304F\u3060\u3055\u3044\uFF09\n              </div>\n            </div>\n          )}\n        </div>\n      </section>\n\n      {/* \u671F\u5F85\u52B9\u679C\u30FB\u6210\u679C */}\n      <section className=\"mb-8\">\n        <h2 className=\"text-lg font-semibold mb-4 border-b border-gray-300 pb-2\">\n          4. \u671F\u5F85\u52B9\u679C\u30FB\u6210\u679C\u76EE\u6A19\n        </h2>\n        \n        <div className=\"grid grid-cols-2 gap-6\">\n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-2\">\n              \u5B9A\u91CF\u7684\u52B9\u679C\n            </label>\n            <div className=\"space-y-3\">\n              <div className=\"border border-gray-300 p-3 bg-blue-50\">\n                <div className=\"text-sm font-medium\">\u58F2\u4E0A\u76EE\u6A19</div>\n                <div className=\"text-lg font-bold text-blue-600\">\n                  {formatCurrency(formData.requestAmount * 5)}\u5186/\u5E74\n                </div>\n              </div>\n              <div className=\"border border-gray-300 p-3 bg-green-50\">\n                <div className=\"text-sm font-medium\">\u96C7\u7528\u5275\u51FA</div>\n                <div className=\"text-lg font-bold text-green-600\">5\u540D</div>\n              </div>\n            </div>\n          </div>\n          \n          <div>\n            <label className=\"block text-sm font-medium text-gray-700 mb-2\">\n              \u5B9A\u6027\u7684\u52B9\u679C\n            </label>\n            <div className=\"border border-gray-300 p-4 min-h-32 bg-gray-50 text-sm\">\n              \u30FB\u5730\u57DF\u7D4C\u6E08\u306E\u6D3B\u6027\u5316\n              <br />\n              \u30FB\u6280\u8853\u529B\u5411\u4E0A\u30FB\u4EBA\u6750\u80B2\u6210\n              <br />\n              \u30FB\u65B0\u305F\u306A\u30D3\u30B8\u30CD\u30B9\u30E2\u30C7\u30EB\u306E\u78BA\u7ACB\n              <br />\n              \u30FB\u7523\u5B66\u5B98\u9023\u643A\u306E\u4FC3\u9032\n            </div>\n          </div>\n        </div>\n      </section>\n\n      {/* \u30EA\u30B9\u30AF\u7BA1\u7406 */}\n      <section className=\"mb-8\">\n        <h2 className=\"text-lg font-semibold mb-4 border-b border-gray-300 pb-2\">\n          5. \u30EA\u30B9\u30AF\u7BA1\u7406\u30FB\u5BFE\u5FDC\u7B56\n        </h2>\n        \n        <div className=\"overflow-x-auto\">\n          <table className=\"w-full border-collapse border border-gray-300\">\n            <thead>\n              <tr className=\"bg-red-50\">\n                <th className=\"border border-gray-300 px-4 py-2 text-left\">\u30EA\u30B9\u30AF\u9805\u76EE</th>\n                <th className=\"border border-gray-300 px-4 py-2 text-center\">\u5F71\u97FF\u5EA6</th>\n                <th className=\"border border-gray-300 px-4 py-2 text-center\">\u767A\u751F\u78BA\u7387</th>\n                <th className=\"border border-gray-300 px-4 py-2 text-left\">\u5BFE\u5FDC\u7B56</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr>\n                <td className=\"border border-gray-300 px-4 py-2\">\u6280\u8853\u958B\u767A\u306E\u9045\u5EF6</td>\n                <td className=\"border border-gray-300 px-4 py-2 text-center\">\u9AD8</td>\n                <td className=\"border border-gray-300 px-4 py-2 text-center\">\u4E2D</td>\n                <td className=\"border border-gray-300 px-4 py-2 text-sm\">\n                  \u6BB5\u968E\u7684\u958B\u767A\u3001\u5916\u90E8\u5C02\u9580\u5BB6\u306E\u6D3B\u7528\n                </td>\n              </tr>\n              <tr>\n                <td className=\"border border-gray-300 px-4 py-2\">\u5E02\u5834\u74B0\u5883\u306E\u5909\u5316</td>\n                <td className=\"border border-gray-300 px-4 py-2 text-center\">\u4E2D</td>\n                <td className=\"border border-gray-300 px-4 py-2 text-center\">\u4F4E</td>\n                <td className=\"border border-gray-300 px-4 py-2 text-sm\">\n                  \u5B9A\u671F\u7684\u306A\u5E02\u5834\u8ABF\u67FB\u3001\u8A08\u753B\u306E\u67D4\u8EDF\u306A\u4FEE\u6B63\n                </td>\n              </tr>\n              <tr>\n                <td className=\"border border-gray-300 px-4 py-2\">\u4EBA\u6750\u78BA\u4FDD\u306E\u56F0\u96E3</td>\n                <td className=\"border border-gray-300 px-4 py-2 text-center\">\u4E2D</td>\n                <td className=\"border border-gray-300 px-4 py-2 text-center\">\u4E2D</td>\n                <td className=\"border border-gray-300 px-4 py-2 text-sm\">\n                  \u65E9\u671F\u63A1\u7528\u6D3B\u52D5\u3001\u6559\u80B2\u7814\u4FEE\u306E\u5145\u5B9F\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      {/* \u30D5\u30C3\u30BF\u30FC */}\n      <div className=\"text-center mt-12 pt-8 border-t border-gray-300\">\n        <div className=\"text-sm text-gray-600\">\n          \u3053\u306E\u4E8B\u696D\u8A08\u753B\u66F8\u306F\u96FB\u5B50\u7533\u8ACB\u30B7\u30B9\u30C6\u30E0\u306B\u3088\u308A\u4F5C\u6210\u3055\u308C\u307E\u3057\u305F\u3002\n        </div>\n        <div className=\"text-xs text-gray-500 mt-2\">\n          \u6700\u7D42\u66F4\u65B0\uFF1A{formatDate(formData.lastUpdated)} | \u30D0\u30FC\u30B8\u30E7\u30F3\uFF1A{formData.version}\n        </div>\n      </div>\n    </div>\n  );\n}"],
+      names: ["FormTwoPreview", "formData", "config", "className", "div", "h1", "formatDate", "Date", "toISOString", "section", "h2", "label", "projectTitle", "businessPlan", "technologyDescription", "marketAnalysis", "representativeName", "br", "companyName", "timeline", "length", "table", "thead", "tr", "th", "tbody", "map", "item", "index", "td", "phase", "description", "startDate", "endDate", "deliverables", "join", "id", "formatCurrency", "requestAmount", "lastUpdated", "version"],
+      mappings: "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"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "e068406224978554105d985bd27ec410f72fd869"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1xd9cttect = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_1xd9cttect();
+cov_1xd9cttect().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_1xd9cttect().s[1]++;
+Object.defineProperty(exports, "FormTwoPreview", {
+  enumerable: true,
+  get: function () {
+    /* istanbul ignore next */
+    cov_1xd9cttect().f[0]++;
+    cov_1xd9cttect().s[2]++;
+    return FormTwoPreview;
+  }
+});
+const _jsxruntime =
+/* istanbul ignore next */
+(cov_1xd9cttect().s[3]++, require("react/jsx-runtime"));
+const _react =
+/* istanbul ignore next */
+(/*#__PURE__*/cov_1xd9cttect().s[4]++, _interop_require_default(require("react")));
+const _utils =
+/* istanbul ignore next */
+(cov_1xd9cttect().s[5]++, require("../../../lib/utils"));
+function _interop_require_default(obj) {
+  /* istanbul ignore next */
+  cov_1xd9cttect().f[1]++;
+  cov_1xd9cttect().s[6]++;
+  return /* istanbul ignore next */(cov_1xd9cttect().b[1][0]++, obj) &&
+  /* istanbul ignore next */
+  (cov_1xd9cttect().b[1][1]++, obj.__esModule) ?
+  /* istanbul ignore next */
+  (cov_1xd9cttect().b[0][0]++, obj) :
+  /* istanbul ignore next */
+  (cov_1xd9cttect().b[0][1]++, {
+    default: obj
+  });
+}
+function FormTwoPreview({
+  formData,
+  config,
+  className =
+  /* istanbul ignore next */
+  (cov_1xd9cttect().b[2][0]++, '')
+}) {
+  /* istanbul ignore next */
+  cov_1xd9cttect().f[2]++;
+  cov_1xd9cttect().s[7]++;
+  return /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+    className: `${className} bg-white p-8 overflow-auto`,
+    children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+      className: "text-center mb-8",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h1", {
+        className: "text-2xl font-bold mb-2",
+        children: "事業計画書（様式第2号）"
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+        className: "text-right text-sm text-gray-600",
+        children: ["作成日：", (0, _utils.formatDate)(new Date().toISOString())]
+      })]
+    }), /*#__PURE__*/(0, _jsxruntime.jsxs)("section", {
+      className: "mb-8",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h2", {
+        className: "text-lg font-semibold mb-4 border-b border-gray-300 pb-2",
+        children: "1. 事業概要"
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+        className: "space-y-6",
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("label", {
+            className: "block text-sm font-medium text-gray-700 mb-2",
+            children: "事業名"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "border border-gray-300 p-4 bg-yellow-50 min-h-12",
+            children:
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[3][0]++, formData.projectTitle) ||
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[3][1]++, '（事業名を入力してください）')
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("label", {
+            className: "block text-sm font-medium text-gray-700 mb-2",
+            children: "事業の背景・目的"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "border border-gray-300 p-4 min-h-32 bg-gray-50",
+            children:
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[4][0]++, formData.businessPlan) ||
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[4][1]++, '（事業を実施する背景、解決したい課題、目的を具体的に記載してください）')
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("label", {
+            className: "block text-sm font-medium text-gray-700 mb-2",
+            children: "技術的内容・革新性"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "border border-gray-300 p-4 min-h-32 bg-gray-50",
+            children:
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[5][0]++, formData.technologyDescription) ||
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[5][1]++, '（使用する技術、技術的な革新性、従来技術との差別化点を記載してください）')
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0, _jsxruntime.jsxs)("section", {
+      className: "mb-8",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h2", {
+        className: "text-lg font-semibold mb-4 border-b border-gray-300 pb-2",
+        children: "2. 市場分析・競争優位性"
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+        className: "space-y-6",
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("label", {
+            className: "block text-sm font-medium text-gray-700 mb-2",
+            children: "対象市場・顧客層"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "border border-gray-300 p-4 min-h-24 bg-gray-50",
+            children:
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[6][0]++, formData.marketAnalysis) ||
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[6][1]++, '（想定する顧客層、市場規模、市場の成長性について記載してください）')
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+          className: "grid grid-cols-2 gap-6",
+          children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+            children: [/*#__PURE__*/(0, _jsxruntime.jsx)("label", {
+              className: "block text-sm font-medium text-gray-700 mb-2",
+              children: "競合他社・サービス"
+            }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+              className: "border border-gray-300 p-4 min-h-24 bg-gray-50 text-sm",
+              children: "（主要な競合他社・競合サービスを記載）"
+            })]
+          }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+            children: [/*#__PURE__*/(0, _jsxruntime.jsx)("label", {
+              className: "block text-sm font-medium text-gray-700 mb-2",
+              children: "差別化・優位性"
+            }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+              className: "border border-gray-300 p-4 min-h-24 bg-gray-50 text-sm",
+              children: "（競合に対する優位性、差別化要因を記載）"
+            })]
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0, _jsxruntime.jsxs)("section", {
+      className: "mb-8",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h2", {
+        className: "text-lg font-semibold mb-4 border-b border-gray-300 pb-2",
+        children: "3. 実施体制・スケジュール"
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+        className: "space-y-6",
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("label", {
+            className: "block text-sm font-medium text-gray-700 mb-2",
+            children: "実施体制"
+          }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+            className: "border border-gray-300 p-4 min-h-24 bg-gray-50",
+            children: ["プロジェクトマネージャー：",
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[7][0]++, formData.representativeName) ||
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[7][1]++, '（未設定）'), /*#__PURE__*/(0, _jsxruntime.jsx)("br", {}), "実施体制：",
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[8][0]++, formData.companyName) ||
+            /* istanbul ignore next */
+            (cov_1xd9cttect().b[8][1]++, '（未設定）'), /*#__PURE__*/(0, _jsxruntime.jsx)("br", {}), "（役割分担、外部委託先等を記載してください）"]
+          })]
+        }),
+        /* istanbul ignore next */
+        (cov_1xd9cttect().b[10][0]++, formData.timeline) &&
+        /* istanbul ignore next */
+        (cov_1xd9cttect().b[10][1]++, formData.timeline.length > 0) ?
+        /* istanbul ignore next */
+        (/*#__PURE__*/cov_1xd9cttect().b[9][0]++, (0, _jsxruntime.jsxs)("div", {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("label", {
+            className: "block text-sm font-medium text-gray-700 mb-2",
+            children: "実施スケジュール"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "overflow-x-auto",
+            children: /*#__PURE__*/(0, _jsxruntime.jsxs)("table", {
+              className: "w-full border-collapse border border-gray-300",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)("thead", {
+                children: /*#__PURE__*/(0, _jsxruntime.jsxs)("tr", {
+                  className: "bg-gray-50",
+                  children: [/*#__PURE__*/(0, _jsxruntime.jsx)("th", {
+                    className: "border border-gray-300 px-4 py-2 text-left",
+                    children: "フェーズ"
+                  }), /*#__PURE__*/(0, _jsxruntime.jsx)("th", {
+                    className: "border border-gray-300 px-4 py-2 text-left",
+                    children: "内容"
+                  }), /*#__PURE__*/(0, _jsxruntime.jsx)("th", {
+                    className: "border border-gray-300 px-4 py-2 text-center",
+                    children: "開始"
+                  }), /*#__PURE__*/(0, _jsxruntime.jsx)("th", {
+                    className: "border border-gray-300 px-4 py-2 text-center",
+                    children: "完了"
+                  }), /*#__PURE__*/(0, _jsxruntime.jsx)("th", {
+                    className: "border border-gray-300 px-4 py-2 text-left",
+                    children: "成果物"
+                  })]
+                })
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("tbody", {
+                children: formData.timeline.map((item, index) => {
+                  /* istanbul ignore next */
+                  cov_1xd9cttect().f[3]++;
+                  cov_1xd9cttect().s[8]++;
+                  return /*#__PURE__*/(0, _jsxruntime.jsxs)("tr", {
+                    children: [/*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                      className: "border border-gray-300 px-4 py-2 font-medium",
+                      children: item.phase
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                      className: "border border-gray-300 px-4 py-2",
+                      children: item.description
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                      className: "border border-gray-300 px-4 py-2 text-center text-sm",
+                      children: (0, _utils.formatDate)(item.startDate)
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                      className: "border border-gray-300 px-4 py-2 text-center text-sm",
+                      children: (0, _utils.formatDate)(item.endDate)
+                    }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                      className: "border border-gray-300 px-4 py-2 text-sm",
+                      children: item.deliverables.join('、')
+                    })]
+                  },
+                  /* istanbul ignore next */
+                  (cov_1xd9cttect().b[11][0]++, item.id) ||
+                  /* istanbul ignore next */
+                  (cov_1xd9cttect().b[11][1]++, index));
+                })
+              })]
+            })
+          })]
+        })) :
+        /* istanbul ignore next */
+        (/*#__PURE__*/cov_1xd9cttect().b[9][1]++, (0, _jsxruntime.jsxs)("div", {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("label", {
+            className: "block text-sm font-medium text-gray-700 mb-2",
+            children: "実施スケジュール"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "border border-gray-300 p-4 min-h-32 bg-gray-50 text-center text-gray-500",
+            children: "（スケジュールを設定してください）"
+          })]
+        }))]
+      })]
+    }), /*#__PURE__*/(0, _jsxruntime.jsxs)("section", {
+      className: "mb-8",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h2", {
+        className: "text-lg font-semibold mb-4 border-b border-gray-300 pb-2",
+        children: "4. 期待効果・成果目標"
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+        className: "grid grid-cols-2 gap-6",
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("label", {
+            className: "block text-sm font-medium text-gray-700 mb-2",
+            children: "定量的効果"
+          }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+            className: "space-y-3",
+            children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+              className: "border border-gray-300 p-3 bg-blue-50",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+                className: "text-sm font-medium",
+                children: "売上目標"
+              }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                className: "text-lg font-bold text-blue-600",
+                children: [(0, _utils.formatCurrency)(formData.requestAmount * 5), "円/年"]
+              })]
+            }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+              className: "border border-gray-300 p-3 bg-green-50",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+                className: "text-sm font-medium",
+                children: "雇用創出"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+                className: "text-lg font-bold text-green-600",
+                children: "5名"
+              })]
+            })]
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("label", {
+            className: "block text-sm font-medium text-gray-700 mb-2",
+            children: "定性的効果"
+          }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+            className: "border border-gray-300 p-4 min-h-32 bg-gray-50 text-sm",
+            children: ["・地域経済の活性化", /*#__PURE__*/(0, _jsxruntime.jsx)("br", {}), "・技術力向上・人材育成", /*#__PURE__*/(0, _jsxruntime.jsx)("br", {}), "・新たなビジネスモデルの確立", /*#__PURE__*/(0, _jsxruntime.jsx)("br", {}), "・産学官連携の促進"]
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0, _jsxruntime.jsxs)("section", {
+      className: "mb-8",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h2", {
+        className: "text-lg font-semibold mb-4 border-b border-gray-300 pb-2",
+        children: "5. リスク管理・対応策"
+      }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+        className: "overflow-x-auto",
+        children: /*#__PURE__*/(0, _jsxruntime.jsxs)("table", {
+          className: "w-full border-collapse border border-gray-300",
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("thead", {
+            children: /*#__PURE__*/(0, _jsxruntime.jsxs)("tr", {
+              className: "bg-red-50",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)("th", {
+                className: "border border-gray-300 px-4 py-2 text-left",
+                children: "リスク項目"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("th", {
+                className: "border border-gray-300 px-4 py-2 text-center",
+                children: "影響度"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("th", {
+                className: "border border-gray-300 px-4 py-2 text-center",
+                children: "発生確率"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("th", {
+                className: "border border-gray-300 px-4 py-2 text-left",
+                children: "対応策"
+              })]
+            })
+          }), /*#__PURE__*/(0, _jsxruntime.jsxs)("tbody", {
+            children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("tr", {
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2",
+                children: "技術開発の遅延"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2 text-center",
+                children: "高"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2 text-center",
+                children: "中"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2 text-sm",
+                children: "段階的開発、外部専門家の活用"
+              })]
+            }), /*#__PURE__*/(0, _jsxruntime.jsxs)("tr", {
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2",
+                children: "市場環境の変化"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2 text-center",
+                children: "中"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2 text-center",
+                children: "低"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2 text-sm",
+                children: "定期的な市場調査、計画の柔軟な修正"
+              })]
+            }), /*#__PURE__*/(0, _jsxruntime.jsxs)("tr", {
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2",
+                children: "人材確保の困難"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2 text-center",
+                children: "中"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2 text-center",
+                children: "中"
+              }), /*#__PURE__*/(0, _jsxruntime.jsx)("td", {
+                className: "border border-gray-300 px-4 py-2 text-sm",
+                children: "早期採用活動、教育研修の充実"
+              })]
+            })]
+          })]
+        })
+      })]
+    }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+      className: "text-center mt-12 pt-8 border-t border-gray-300",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+        className: "text-sm text-gray-600",
+        children: "この事業計画書は電子申請システムにより作成されました。"
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+        className: "text-xs text-gray-500 mt-2",
+        children: ["最終更新：", (0, _utils.formatDate)(formData.lastUpdated), " | バージョン：", formData.version]
+      })]
+    })]
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJGb3JtVHdvUHJldmlldyIsImZvcm1EYXRhIiwiY29uZmlnIiwiY2xhc3NOYW1lIiwiY292XzF4ZDljdHRlY3QiLCJiIiwiZiIsInMiLCJfanN4cnVudGltZSIsImpzeHMiLCJqc3giLCJfdXRpbHMiLCJmb3JtYXREYXRlIiwiRGF0ZSIsInRvSVNPU3RyaW5nIiwicHJvamVjdFRpdGxlIiwiYnVzaW5lc3NQbGFuIiwidGVjaG5vbG9neURlc2NyaXB0aW9uIiwibWFya2V0QW5hbHlzaXMiLCJyZXByZXNlbnRhdGl2ZU5hbWUiLCJjb21wYW55TmFtZSIsInRpbWVsaW5lIiwibGVuZ3RoIiwibWFwIiwiaXRlbSIsImluZGV4IiwicGhhc2UiLCJkZXNjcmlwdGlvbiIsInN0YXJ0RGF0ZSIsImVuZERhdGUiLCJkZWxpdmVyYWJsZXMiLCJqb2luIiwiaWQiLCJmb3JtYXRDdXJyZW5jeSIsInJlcXVlc3RBbW91bnQiLCJsYXN0VXBkYXRlZCIsInZlcnNpb24iXSwic291cmNlcyI6WyIvVXNlcnMvbm9yaXRha2FzYXdhZGEvQUlfUC9zdWJzaWR5QXBwL2Zyb250ZW5kL3NyYy9jb21wb25lbnRzL3ByZXZpZXcvZm9ybXMvRm9ybVR3b1ByZXZpZXcudHN4Il0sInNvdXJjZXNDb250ZW50IjpbIid1c2UgY2xpZW50JztcblxuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IFN1YnNpZHlGb3JtRGF0YSwgUHJldmlld0NvbmZpZyB9IGZyb20gJ0AvdHlwZXMvcHJldmlldyc7XG5pbXBvcnQgeyBmb3JtYXRDdXJyZW5jeSwgZm9ybWF0RGF0ZSB9IGZyb20gJ0AvbGliL3V0aWxzJztcblxuaW50ZXJmYWNlIEZvcm1Ud29QcmV2aWV3UHJvcHMge1xuICBmb3JtRGF0YTogU3Vic2lkeUZvcm1EYXRhO1xuICBjb25maWc6IFByZXZpZXdDb25maWc7XG4gIGNsYXNzTmFtZT86IHN0cmluZztcbn1cblxuZXhwb3J0IGZ1bmN0aW9uIEZvcm1Ud29QcmV2aWV3KHsgZm9ybURhdGEsIGNvbmZpZywgY2xhc3NOYW1lID0gJycgfTogRm9ybVR3b1ByZXZpZXdQcm9wcykge1xuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPXtgJHtjbGFzc05hbWV9IGJnLXdoaXRlIHAtOCBvdmVyZmxvdy1hdXRvYH0+XG4gICAgICB7Lyog44OY44OD44OA44O8ICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LWNlbnRlciBtYi04XCI+XG4gICAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgbWItMlwiPlxuICAgICAgICAgIOS6i+alreioiOeUu+abuO+8iOanmOW8j+esrDLlj7fvvIlcbiAgICAgICAgPC9oMT5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXJpZ2h0IHRleHQtc20gdGV4dC1ncmF5LTYwMFwiPlxuICAgICAgICAgIOS9nOaIkOaXpe+8mntmb3JtYXREYXRlKG5ldyBEYXRlKCkudG9JU09TdHJpbmcoKSl9XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiDkuovmpa3mpoLopoEgKi99XG4gICAgICA8c2VjdGlvbiBjbGFzc05hbWU9XCJtYi04XCI+XG4gICAgICAgIDxoMiBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgbWItNCBib3JkZXItYiBib3JkZXItZ3JheS0zMDAgcGItMlwiPlxuICAgICAgICAgIDEuIOS6i+alreamguimgVxuICAgICAgICA8L2gyPlxuICAgICAgICBcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTZcIj5cbiAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTcwMCBtYi0yXCI+XG4gICAgICAgICAgICAgIOS6i+alreWQjVxuICAgICAgICAgICAgPC9sYWJlbD5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBwLTQgYmcteWVsbG93LTUwIG1pbi1oLTEyXCI+XG4gICAgICAgICAgICAgIHtmb3JtRGF0YS5wcm9qZWN0VGl0bGUgfHwgJ++8iOS6i+alreWQjeOCkuWFpeWKm+OBl+OBpuOBj+OBoOOBleOBhO+8iSd9XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICBcbiAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTcwMCBtYi0yXCI+XG4gICAgICAgICAgICAgIOS6i+alreOBruiDjOaZr+ODu+ebrueahFxuICAgICAgICAgICAgPC9sYWJlbD5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBwLTQgbWluLWgtMzIgYmctZ3JheS01MFwiPlxuICAgICAgICAgICAgICB7Zm9ybURhdGEuYnVzaW5lc3NQbGFuIHx8IFxuICAgICAgICAgICAgICAgICfvvIjkuovmpa3jgpLlrp/mlr3jgZnjgovog4zmma/jgIHop6PmsbrjgZfjgZ/jgYToqrLpoYzjgIHnm67nmoTjgpLlhbfkvZPnmoTjgavoqJjovInjgZfjgabjgY/jgaDjgZXjgYTvvIknXG4gICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIFxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNzAwIG1iLTJcIj5cbiAgICAgICAgICAgICAg5oqA6KGT55qE5YaF5a6544O76Z2p5paw5oCnXG4gICAgICAgICAgICA8L2xhYmVsPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHAtNCBtaW4taC0zMiBiZy1ncmF5LTUwXCI+XG4gICAgICAgICAgICAgIHtmb3JtRGF0YS50ZWNobm9sb2d5RGVzY3JpcHRpb24gfHwgXG4gICAgICAgICAgICAgICAgJ++8iOS9v+eUqOOBmeOCi+aKgOihk+OAgeaKgOihk+eahOOBqumdqeaWsOaAp+OAgeW+k+adpeaKgOihk+OBqOOBruW3ruWIpeWMlueCueOCkuiomOi8ieOBl+OBpuOBj+OBoOOBleOBhO+8iSdcbiAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9zZWN0aW9uPlxuXG4gICAgICB7Lyog5biC5aC05YiG5p6Q44O756u25LqJ5YSq5L2N5oCnICovfVxuICAgICAgPHNlY3Rpb24gY2xhc3NOYW1lPVwibWItOFwiPlxuICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIG1iLTQgYm9yZGVyLWIgYm9yZGVyLWdyYXktMzAwIHBiLTJcIj5cbiAgICAgICAgICAyLiDluILloLTliIbmnpDjg7vnq7bkuonlhKrkvY3mgKdcbiAgICAgICAgPC9oMj5cbiAgICAgICAgXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS02XCI+XG4gICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS03MDAgbWItMlwiPlxuICAgICAgICAgICAgICDlr77osaHluILloLTjg7vpoaflrqLlsaRcbiAgICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJvcmRlciBib3JkZXItZ3JheS0zMDAgcC00IG1pbi1oLTI0IGJnLWdyYXktNTBcIj5cbiAgICAgICAgICAgICAge2Zvcm1EYXRhLm1hcmtldEFuYWx5c2lzIHx8IFxuICAgICAgICAgICAgICAgICfvvIjmg7PlrprjgZnjgovpoaflrqLlsaTjgIHluILloLTopo/mqKHjgIHluILloLTjga7miJDplbfmgKfjgavjgaTjgYTjgaboqJjovInjgZfjgabjgY/jgaDjgZXjgYTvvIknXG4gICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIFxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMiBnYXAtNlwiPlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTcwMCBtYi0yXCI+XG4gICAgICAgICAgICAgICAg56u25ZCI5LuW56S+44O744K144O844OT44K5XG4gICAgICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBwLTQgbWluLWgtMjQgYmctZ3JheS01MCB0ZXh0LXNtXCI+XG4gICAgICAgICAgICAgICAg77yI5Li76KaB44Gq56u25ZCI5LuW56S+44O756u25ZCI44K144O844OT44K544KS6KiY6LyJ77yJXG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS03MDAgbWItMlwiPlxuICAgICAgICAgICAgICAgIOW3ruWIpeWMluODu+WEquS9jeaAp1xuICAgICAgICAgICAgICA8L2xhYmVsPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJvcmRlciBib3JkZXItZ3JheS0zMDAgcC00IG1pbi1oLTI0IGJnLWdyYXktNTAgdGV4dC1zbVwiPlxuICAgICAgICAgICAgICAgIO+8iOertuWQiOOBq+WvvuOBmeOCi+WEquS9jeaAp+OAgeW3ruWIpeWMluimgeWboOOCkuiomOi8ie+8iVxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvc2VjdGlvbj5cblxuICAgICAgey8qIOWun+aWveS9k+WItuODu+OCueOCseOCuOODpeODvOODqyAqL31cbiAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cIm1iLThcIj5cbiAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQtbGcgZm9udC1zZW1pYm9sZCBtYi00IGJvcmRlci1iIGJvcmRlci1ncmF5LTMwMCBwYi0yXCI+XG4gICAgICAgICAgMy4g5a6f5pa95L2T5Yi244O744K544Kx44K444Ol44O844OrXG4gICAgICAgIDwvaDI+XG4gICAgICAgIFxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNlwiPlxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNzAwIG1iLTJcIj5cbiAgICAgICAgICAgICAg5a6f5pa95L2T5Yi2XG4gICAgICAgICAgICA8L2xhYmVsPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHAtNCBtaW4taC0yNCBiZy1ncmF5LTUwXCI+XG4gICAgICAgICAgICAgIOODl+ODreOCuOOCp+OCr+ODiOODnuODjeODvOOCuOODo+ODvO+8mntmb3JtRGF0YS5yZXByZXNlbnRhdGl2ZU5hbWUgfHwgJ++8iOacquioreWumu+8iSd9XG4gICAgICAgICAgICAgIDxiciAvPlxuICAgICAgICAgICAgICDlrp/mlr3kvZPliLbvvJp7Zm9ybURhdGEuY29tcGFueU5hbWUgfHwgJ++8iOacquioreWumu+8iSd9XG4gICAgICAgICAgICAgIDxiciAvPlxuICAgICAgICAgICAgICDvvIjlvbnlibLliIbmi4XjgIHlpJbpg6jlp5ToqJflhYjnrYnjgpLoqJjovInjgZfjgabjgY/jgaDjgZXjgYTvvIlcbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIFxuICAgICAgICAgIHtmb3JtRGF0YS50aW1lbGluZSAmJiBmb3JtRGF0YS50aW1lbGluZS5sZW5ndGggPiAwID8gKFxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTcwMCBtYi0yXCI+XG4gICAgICAgICAgICAgICAg5a6f5pa944K544Kx44K444Ol44O844OrXG4gICAgICAgICAgICAgIDwvbGFiZWw+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwib3ZlcmZsb3cteC1hdXRvXCI+XG4gICAgICAgICAgICAgICAgPHRhYmxlIGNsYXNzTmFtZT1cInctZnVsbCBib3JkZXItY29sbGFwc2UgYm9yZGVyIGJvcmRlci1ncmF5LTMwMFwiPlxuICAgICAgICAgICAgICAgICAgPHRoZWFkPlxuICAgICAgICAgICAgICAgICAgICA8dHIgY2xhc3NOYW1lPVwiYmctZ3JheS01MFwiPlxuICAgICAgICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHB4LTQgcHktMiB0ZXh0LWxlZnRcIj7jg5Xjgqfjg7zjgro8L3RoPlxuICAgICAgICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHB4LTQgcHktMiB0ZXh0LWxlZnRcIj7lhoXlrrk8L3RoPlxuICAgICAgICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHB4LTQgcHktMiB0ZXh0LWNlbnRlclwiPumWi+WnizwvdGg+XG4gICAgICAgICAgICAgICAgICAgICAgPHRoIGNsYXNzTmFtZT1cImJvcmRlciBib3JkZXItZ3JheS0zMDAgcHgtNCBweS0yIHRleHQtY2VudGVyXCI+5a6M5LqGPC90aD5cbiAgICAgICAgICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBweC00IHB5LTIgdGV4dC1sZWZ0XCI+5oiQ5p6c54mpPC90aD5cbiAgICAgICAgICAgICAgICAgICAgPC90cj5cbiAgICAgICAgICAgICAgICAgIDwvdGhlYWQ+XG4gICAgICAgICAgICAgICAgICA8dGJvZHk+XG4gICAgICAgICAgICAgICAgICAgIHtmb3JtRGF0YS50aW1lbGluZS5tYXAoKGl0ZW0sIGluZGV4KSA9PiAoXG4gICAgICAgICAgICAgICAgICAgICAgPHRyIGtleT17aXRlbS5pZCB8fCBpbmRleH0+XG4gICAgICAgICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBweC00IHB5LTIgZm9udC1tZWRpdW1cIj5cbiAgICAgICAgICAgICAgICAgICAgICAgICAge2l0ZW0ucGhhc2V9XG4gICAgICAgICAgICAgICAgICAgICAgICA8L3RkPlxuICAgICAgICAgICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cImJvcmRlciBib3JkZXItZ3JheS0zMDAgcHgtNCBweS0yXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgIHtpdGVtLmRlc2NyaXB0aW9ufVxuICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHB4LTQgcHktMiB0ZXh0LWNlbnRlciB0ZXh0LXNtXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgIHtmb3JtYXREYXRlKGl0ZW0uc3RhcnREYXRlKX1cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvdGQ+XG4gICAgICAgICAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBweC00IHB5LTIgdGV4dC1jZW50ZXIgdGV4dC1zbVwiPlxuICAgICAgICAgICAgICAgICAgICAgICAgICB7Zm9ybWF0RGF0ZShpdGVtLmVuZERhdGUpfVxuICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHB4LTQgcHktMiB0ZXh0LXNtXCI+XG4gICAgICAgICAgICAgICAgICAgICAgICAgIHtpdGVtLmRlbGl2ZXJhYmxlcy5qb2luKCfjgIEnKX1cbiAgICAgICAgICAgICAgICAgICAgICAgIDwvdGQ+XG4gICAgICAgICAgICAgICAgICAgICAgPC90cj5cbiAgICAgICAgICAgICAgICAgICAgKSl9XG4gICAgICAgICAgICAgICAgICA8L3Rib2R5PlxuICAgICAgICAgICAgICAgIDwvdGFibGU+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgKSA6IChcbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgIDxsYWJlbCBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS03MDAgbWItMlwiPlxuICAgICAgICAgICAgICAgIOWun+aWveOCueOCseOCuOODpeODvOODq1xuICAgICAgICAgICAgICA8L2xhYmVsPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJvcmRlciBib3JkZXItZ3JheS0zMDAgcC00IG1pbi1oLTMyIGJnLWdyYXktNTAgdGV4dC1jZW50ZXIgdGV4dC1ncmF5LTUwMFwiPlxuICAgICAgICAgICAgICAgIO+8iOOCueOCseOCuOODpeODvOODq+OCkuioreWumuOBl+OBpuOBj+OBoOOBleOBhO+8iVxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICl9XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9zZWN0aW9uPlxuXG4gICAgICB7Lyog5pyf5b6F5Yq55p6c44O75oiQ5p6cICovfVxuICAgICAgPHNlY3Rpb24gY2xhc3NOYW1lPVwibWItOFwiPlxuICAgICAgICA8aDIgY2xhc3NOYW1lPVwidGV4dC1sZyBmb250LXNlbWlib2xkIG1iLTQgYm9yZGVyLWIgYm9yZGVyLWdyYXktMzAwIHBiLTJcIj5cbiAgICAgICAgICA0LiDmnJ/lvoXlirnmnpzjg7vmiJDmnpznm67mqJlcbiAgICAgICAgPC9oMj5cbiAgICAgICAgXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMiBnYXAtNlwiPlxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNzAwIG1iLTJcIj5cbiAgICAgICAgICAgICAg5a6a6YeP55qE5Yq55p6cXG4gICAgICAgICAgICA8L2xhYmVsPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTNcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHAtMyBiZy1ibHVlLTUwXCI+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXNtIGZvbnQtbWVkaXVtXCI+5aOy5LiK55uu5qiZPC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtYm9sZCB0ZXh0LWJsdWUtNjAwXCI+XG4gICAgICAgICAgICAgICAgICB7Zm9ybWF0Q3VycmVuY3koZm9ybURhdGEucmVxdWVzdEFtb3VudCAqIDUpfeWGhi/lubRcbiAgICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBwLTMgYmctZ3JlZW4tNTBcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtc20gZm9udC1tZWRpdW1cIj7pm4fnlKjlibXlh7o8L2Rpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtbGcgZm9udC1ib2xkIHRleHQtZ3JlZW4tNjAwXCI+NeWQjTwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIFxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8bGFiZWwgY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWdyYXktNzAwIG1iLTJcIj5cbiAgICAgICAgICAgICAg5a6a5oCn55qE5Yq55p6cXG4gICAgICAgICAgICA8L2xhYmVsPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHAtNCBtaW4taC0zMiBiZy1ncmF5LTUwIHRleHQtc21cIj5cbiAgICAgICAgICAgICAg44O75Zyw5Z+f57WM5riI44Gu5rS75oCn5YyWXG4gICAgICAgICAgICAgIDxiciAvPlxuICAgICAgICAgICAgICDjg7vmioDooZPlipvlkJHkuIrjg7vkurrmnZDogrLmiJBcbiAgICAgICAgICAgICAgPGJyIC8+XG4gICAgICAgICAgICAgIOODu+aWsOOBn+OBquODk+OCuOODjeOCueODouODh+ODq+OBrueiuueri1xuICAgICAgICAgICAgICA8YnIgLz5cbiAgICAgICAgICAgICAg44O755Sj5a2m5a6Y6YCj5pC644Gu5L+D6YCyXG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L3NlY3Rpb24+XG5cbiAgICAgIHsvKiDjg6rjgrnjgq/nrqHnkIYgKi99XG4gICAgICA8c2VjdGlvbiBjbGFzc05hbWU9XCJtYi04XCI+XG4gICAgICAgIDxoMiBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgbWItNCBib3JkZXItYiBib3JkZXItZ3JheS0zMDAgcGItMlwiPlxuICAgICAgICAgIDUuIOODquOCueOCr+euoeeQhuODu+WvvuW/nOetllxuICAgICAgICA8L2gyPlxuICAgICAgICBcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJvdmVyZmxvdy14LWF1dG9cIj5cbiAgICAgICAgICA8dGFibGUgY2xhc3NOYW1lPVwidy1mdWxsIGJvcmRlci1jb2xsYXBzZSBib3JkZXIgYm9yZGVyLWdyYXktMzAwXCI+XG4gICAgICAgICAgICA8dGhlYWQ+XG4gICAgICAgICAgICAgIDx0ciBjbGFzc05hbWU9XCJiZy1yZWQtNTBcIj5cbiAgICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBweC00IHB5LTIgdGV4dC1sZWZ0XCI+44Oq44K544Kv6aCF55uuPC90aD5cbiAgICAgICAgICAgICAgICA8dGggY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBweC00IHB5LTIgdGV4dC1jZW50ZXJcIj7lvbHpn7/luqY8L3RoPlxuICAgICAgICAgICAgICAgIDx0aCBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHB4LTQgcHktMiB0ZXh0LWNlbnRlclwiPueZuueUn+eiuueOhzwvdGg+XG4gICAgICAgICAgICAgICAgPHRoIGNsYXNzTmFtZT1cImJvcmRlciBib3JkZXItZ3JheS0zMDAgcHgtNCBweS0yIHRleHQtbGVmdFwiPuWvvuW/nOetljwvdGg+XG4gICAgICAgICAgICAgIDwvdHI+XG4gICAgICAgICAgICA8L3RoZWFkPlxuICAgICAgICAgICAgPHRib2R5PlxuICAgICAgICAgICAgICA8dHI+XG4gICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cImJvcmRlciBib3JkZXItZ3JheS0zMDAgcHgtNCBweS0yXCI+5oqA6KGT6ZaL55m644Gu6YGF5bu2PC90ZD5cbiAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBweC00IHB5LTIgdGV4dC1jZW50ZXJcIj7pq5g8L3RkPlxuICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHB4LTQgcHktMiB0ZXh0LWNlbnRlclwiPuS4rTwvdGQ+XG4gICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cImJvcmRlciBib3JkZXItZ3JheS0zMDAgcHgtNCBweS0yIHRleHQtc21cIj5cbiAgICAgICAgICAgICAgICAgIOautemajueahOmWi+eZuuOAgeWklumDqOWwgumWgOWutuOBrua0u+eUqFxuICAgICAgICAgICAgICAgIDwvdGQ+XG4gICAgICAgICAgICAgIDwvdHI+XG4gICAgICAgICAgICAgIDx0cj5cbiAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBweC00IHB5LTJcIj7luILloLTnkrDlooPjga7lpInljJY8L3RkPlxuICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHB4LTQgcHktMiB0ZXh0LWNlbnRlclwiPuS4rTwvdGQ+XG4gICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cImJvcmRlciBib3JkZXItZ3JheS0zMDAgcHgtNCBweS0yIHRleHQtY2VudGVyXCI+5L2OPC90ZD5cbiAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBweC00IHB5LTIgdGV4dC1zbVwiPlxuICAgICAgICAgICAgICAgICAg5a6a5pyf55qE44Gq5biC5aC06Kq/5p+744CB6KiI55S744Gu5p+U6Luf44Gq5L+u5q2jXG4gICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgICAgPC90cj5cbiAgICAgICAgICAgICAgPHRyPlxuICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHB4LTQgcHktMlwiPuS6uuadkOeiuuS/neOBruWbsOmbozwvdGQ+XG4gICAgICAgICAgICAgICAgPHRkIGNsYXNzTmFtZT1cImJvcmRlciBib3JkZXItZ3JheS0zMDAgcHgtNCBweS0yIHRleHQtY2VudGVyXCI+5LitPC90ZD5cbiAgICAgICAgICAgICAgICA8dGQgY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBweC00IHB5LTIgdGV4dC1jZW50ZXJcIj7kuK08L3RkPlxuICAgICAgICAgICAgICAgIDx0ZCBjbGFzc05hbWU9XCJib3JkZXIgYm9yZGVyLWdyYXktMzAwIHB4LTQgcHktMiB0ZXh0LXNtXCI+XG4gICAgICAgICAgICAgICAgICDml6nmnJ/mjqHnlKjmtLvli5XjgIHmlZnogrLnoJTkv67jga7lhYXlrp9cbiAgICAgICAgICAgICAgICA8L3RkPlxuICAgICAgICAgICAgICA8L3RyPlxuICAgICAgICAgICAgPC90Ym9keT5cbiAgICAgICAgICA8L3RhYmxlPlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvc2VjdGlvbj5cblxuICAgICAgey8qIOODleODg+OCv+ODvCAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1jZW50ZXIgbXQtMTIgcHQtOCBib3JkZXItdCBib3JkZXItZ3JheS0zMDBcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtZ3JheS02MDBcIj5cbiAgICAgICAgICDjgZPjga7kuovmpa3oqIjnlLvmm7jjga/pm7vlrZDnlLPoq4vjgrfjgrnjg4bjg6DjgavjgojjgorkvZzmiJDjgZXjgozjgb7jgZfjgZ/jgIJcbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LWdyYXktNTAwIG10LTJcIj5cbiAgICAgICAgICDmnIDntYLmm7TmlrDvvJp7Zm9ybWF0RGF0ZShmb3JtRGF0YS5sYXN0VXBkYXRlZCl9IHwg44OQ44O844K444On44Oz77yae2Zvcm1EYXRhLnZlcnNpb259XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59Il0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OytCQVlnQjs7Ozs7O1dBQUFBLGNBQUE7Ozs7Ozs7O3dFQVZFOzs7a0NBRXlCOzs7Ozs7Ozs7Ozs7Ozs7QUFRcEMsU0FBU0EsZUFBZTtFQUFFQyxRQUFRO0VBQUVDLE1BQU07RUFBRUMsU0FBQTtFQUFBO0VBQUEsQ0FBQUMsY0FBQSxHQUFBQyxDQUFBLFVBQVksRUFBRTtBQUFBLENBQXVCO0VBQUE7RUFBQUQsY0FBQSxHQUFBRSxDQUFBO0VBQUFGLGNBQUEsR0FBQUcsQ0FBQTtFQUN0RixvQkFDRSxJQUFBQyxXQUFBLENBQUFDLElBQUEsRUFBQztJQUFJTixTQUFBLEVBQVcsR0FBR0EsU0FB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

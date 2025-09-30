@@ -17,4 +17,47 @@ Thumbs.db
 *.swo
 *~
 .vscode/
-.idea/ 
+.idea/
+
+# 依存関係
+node_modules/
+package-lock.json
+
+# ビルド成果物
+backend/dist/
+backend/generated/
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# 環境変数
+.env
+.env.local
+.env.production
+.env.development
+backend/.env
+frontend/.env
+
+# テスト関連
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+playwright-results.xml
+playwright-report.json
+
+# Prisma
+backend/prisma/migrations/*_*/
+backend/generated/
+
+# アップロードファイル（開発用）
+backend/uploads/
+uploads/
+
+# Storybook
+frontend/storybook-static/
+
+# デバッグ
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log* 

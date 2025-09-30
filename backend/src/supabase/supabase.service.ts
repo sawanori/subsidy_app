@@ -152,7 +152,11 @@ export class SupabaseService {
     allowedMimeTypes?: string[];
   }) {
     const { data, error } = await this.supabase.storage
-      .createBucket(name, options);
+      .createBucket(name, {
+        public: options?.public ?? false,
+        fileSizeLimit: options?.fileSizeLimit,
+        allowedMimeTypes: options?.allowedMimeTypes,
+      });
 
     if (error) {
       this.logger.error(`Failed to create bucket: ${error.message}`);
@@ -170,42 +174,49 @@ export class SupabaseService {
     operation: 'select' | 'insert' | 'update' | 'delete' | 'upsert',
     params?: any,
   ): Promise<T[]> {
-    let query = this.supabase.from(table);
+    const queryBuilder = this.supabase.from(table);
+    let result: any;
 
     switch (operation) {
-      case 'select':
-        query = query.select(params?.columns || '*');
+      case 'select': {
+        let selectQuery = queryBuilder.select(params?.columns || '*');
         if (params?.filters) {
           Object.entries(params.filters).forEach(([key, value]) => {
-            query = query.eq(key, value);
+            selectQuery = selectQuery.eq(key, value as any);
           });
         }
+        result = await selectQuery;
         break;
+      }
       case 'insert':
-        query = query.insert(params);
+        result = await queryBuilder.insert(params);
         break;
-      case 'update':
-        query = query.update(params.data);
+      case 'update': {
+        let updateQuery = queryBuilder.update(params.data);
         if (params?.filters) {
           Object.entries(params.filters).forEach(([key, value]) => {
-            query = query.eq(key, value);
+            updateQuery = updateQuery.eq(key, value as any);
           });
         }
+        result = await updateQuery;
         break;
-      case 'delete':
-        query = query.delete();
+      }
+      case 'delete': {
+        let deleteQuery = queryBuilder.delete();
         if (params?.filters) {
           Object.entries(params.filters).forEach(([key, value]) => {
-            query = query.eq(key, value);
+            deleteQuery = deleteQuery.eq(key, value as any);
           });
         }
+        result = await deleteQuery;
         break;
+      }
       case 'upsert':
-        query = query.upsert(params);
+        result = await queryBuilder.upsert(params);
         break;
     }
 
-    const { data, error } = await query;
+    const { data, error } = result;
 
     if (error) {
       this.logger.error(`Database operation failed: ${error.message}`);
@@ -226,7 +237,7 @@ export class SupabaseService {
     const channel = this.supabase
       .channel(`${table}_changes`)
       .on(
-        'postgres_changes',
+        'postgres_changes' as any,
         {
           event: filter?.event || '*',
           schema: 'public',

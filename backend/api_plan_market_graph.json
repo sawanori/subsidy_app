@@ -1,0 +1,194 @@
+{
+  "title": "市場調査を踏まえた事業展開のグラフ化：API方針",
+  "generated_at": "2025-09-30 12:45:05 UTC+09:00",
+  "decision": {
+    "openai_only_sufficient": false,
+    "reasoning_ja": [
+      "OpenAI API は文章生成・要約・説明文の作成には十分だが、最新の市場データの取得・検証・再現性の担保はできない。",
+      "『市場調査に基づく』数値グラフを出すには、公的統計や一次資料のデータ取得API（またはCSVアップロード）が必須。",
+      "再現性（どのデータセットのどの列・どの日付か）と監査可能性（出典・取得日時）のために、取得〜正規化〜指標化の自前パイプラインが必要。"
+    ]
+  },
+  "plans": {
+    "minimal_no_external_api": {
+      "description": "OpenAI + ユーザーCSVのみで運用。外部APIを使わず手動データ投入でグラフ化。",
+      "pros": [
+        "外部API契約不要",
+        "実装が最小"
+      ],
+      "cons": [
+        "自動収集・更新不可",
+        "出典管理が手作業",
+        "データ鮮度の保証が弱い"
+      ],
+      "required_components": [
+        "CSV/XLSXアップロード",
+        "正規化/指標化パイプライン",
+        "グラフ整形/レンダリング",
+        "OpenAI（説明文生成）"
+      ]
+    },
+    "recommended_with_public_stats_and_search": {
+      "description": "公的統計API（e-Stat or RESAS）＋検索API（Bing/Google CSE）の併用。",
+      "pros": [
+        "一次データに基づく数値の自動更新",
+        "引用・監査が容易",
+        "グラフの再現性が高い"
+      ],
+      "cons": [
+        "APIキー申請/レート制御が必要",
+        "実装は最小構成より増える"
+      ],
+      "required_components": [
+        "e-Stat or RESAS コネクタ",
+        "Web検索API（官公庁/業界団体PDFの発見）",
+        "本文・表抽出（HTML/PDF/CSV）",
+        "時系列正規化/名寄せ/単位統一",
+        "指標計算（TAM/SAM/SOM, CAGR, YoY, 移動平均, 指数化）",
+        "チャート用データ整形/レンダリング(SVG/PNG)",
+        "OpenAI（ナラティブ生成・解説・KPI提案）"
+      ]
+    }
+  },
+  "external_apis": [
+    {
+      "name": "OpenAI API",
+      "purpose": [
+        "KPI案生成",
+        "事業計画のドラフト",
+        "要約・説明文生成"
+      ],
+      "notes": "データ取得の真偽や数値の再現性は別API/自前処理で担保する。"
+    },
+    {
+      "name": "e-Stat API（総務省統計）",
+      "purpose": [
+        "日本の公的統計データ取得（時系列/地域/産業等）"
+      ],
+      "auth": "アプリID（無料申請）",
+      "usage_examples": [
+        "産業別小売販売額の時系列",
+        "地域別人口/事業所数"
+      ],
+      "alternatives": [
+        "RESAS API（地域経済、要申請）"
+      ]
+    },
+    {
+      "name": "検索API（Bing Web Search or Google Programmable Search）",
+      "purpose": [
+        "官公庁/業界団体/白書PDFの発見",
+        "出典URLの取得"
+      ],
+      "notes": "取得後はサーバ側で本文/表抽出を行い、スナップショットとともに保存する。"
+    }
+  ],
+  "internal_services_needed": [
+    {
+      "name": "datasets/normalize",
+      "desc": "年/四半期/月の統一、地域/業種コード名寄せ、単位変換"
+    },
+    {
+      "name": "metrics/compute",
+      "desc": "TAM/SAM/SOM、CAGR、YoY、移動平均、指数化(=100基準)"
+    },
+    {
+      "name": "forecast/run",
+      "desc": "簡易予測（Holt-Winters/ARIMA/Prophet相当のラッパ）"
+    },
+    {
+      "name": "charts/compose",
+      "desc": "複数系列と注釈・信頼区間をまとめてチャート用配列に整形"
+    },
+    {
+      "name": "charts/render",
+      "desc": "SVG/PNGレンダリング（日本語フォント埋め込み）"
+    },
+    {
+      "name": "dashboards/upsert",
+      "desc": "ウィジェット配置と再現レシピ保存"
+    },
+    {
+      "name": "export/report",
+      "desc": "PDF/PPTX出力（脚注に出典/取得日を自動挿入）"
+    }
+  ],
+  "openapi_paths_skeleton": [
+    "/v1/research/search",
+    "/v1/research/fetch",
+    "/v1/research/ingest",
+    "/v1/datasets/normalize",
+    "/v1/metrics/compute",
+    "/v1/forecast/run",
+    "/v1/charts/compose",
+    "/v1/charts/render",
+    "/v1/dashboards/upsert",
+    "/v1/export/report"
+  ],
+  "data_flow": [
+    "研究: search → fetch → ingest（出典とスナップショット保存）",
+    "加工: datasets.normalize → metrics.compute → forecast.run",
+    "可視化: charts.compose → charts.render（SVG/PNG）",
+    "説明文: OpenAIでナラティブ/KPI案を生成（数値は上流の結果を参照）",
+    "配布: dashboards.upsert → export.report（出典脚注付き）"
+  ],
+  "security_and_audit": {
+    "citations_required": true,
+    "store_snapshot": true,
+    "fields": [
+      "source.url",
+      "agency",
+      "fetched_at",
+      "dataset_id",
+      "transform_recipe",
+      "model_and_version"
+    ],
+    "rate_and_cost_controls": [
+      "検索回数上限",
+      "レンダ回数上限",
+      "OpenAIトークン見積とブレーキ"
+    ]
+  },
+  "phased_rollout": [
+    {
+      "phase": "0",
+      "name": "OpenAI + CSVのみ",
+      "goal": "最小動作",
+      "dependencies": [
+        "CSVアップロード",
+        "charts.*",
+        "export.report"
+      ]
+    },
+    {
+      "phase": "1",
+      "name": "e-Stat/RESAS連携",
+      "goal": "自動更新",
+      "dependencies": [
+        "research.*",
+        "datasets.normalize",
+        "metrics.compute"
+      ]
+    },
+    {
+      "phase": "2",
+      "name": "検索API追加",
+      "goal": "一次資料の引用",
+      "dependencies": [
+        "research.search",
+        "research.fetch",
+        "ingest"
+      ]
+    },
+    {
+      "phase": "3",
+      "name": "予測/シナリオ",
+      "goal": "将来計画の提示",
+      "dependencies": [
+        "forecast.run",
+        "scenario.whatif(任意)"
+      ]
+    }
+  ],
+  "quick_answer_summary": "OpenAIだけでは市場データの取得・再現性が不足。最小はCSV運用、推奨はe-Stat/RESAS＋検索APIを併用し、正規化/指標化/レンダの自前APIでグラフ化する。"
+}

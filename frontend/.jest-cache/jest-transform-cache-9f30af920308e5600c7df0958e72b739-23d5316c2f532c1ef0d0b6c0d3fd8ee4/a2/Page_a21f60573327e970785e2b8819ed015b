@@ -1,0 +1,553 @@
+173d874787e3b7e760fa8c49eda70970
+"use strict";
+
+/* istanbul ignore next */
+function cov_2oap87lngz() {
+  var path = "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/stories/Page.tsx";
+  var hash = "57a2a2be3cd1b0f4b7c6acbf8dd2b3e6f477a2cd";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/stories/Page.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 4,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 10,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 8,
+          column: 8
+        },
+        end: {
+          line: 8,
+          column: 20
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 20
+        },
+        end: {
+          line: 11,
+          column: 48
+        }
+      },
+      "4": {
+        start: {
+          line: 12,
+          column: 29
+        },
+        end: {
+          line: 12,
+          column: 71
+        }
+      },
+      "5": {
+        start: {
+          line: 13,
+          column: 16
+        },
+        end: {
+          line: 13,
+          column: 35
+        }
+      },
+      "6": {
+        start: {
+          line: 14,
+          column: 0
+        },
+        end: {
+          line: 14,
+          column: 22
+        }
+      },
+      "7": {
+        start: {
+          line: 16,
+          column: 4
+        },
+        end: {
+          line: 18,
+          column: 6
+        }
+      },
+      "8": {
+        start: {
+          line: 20,
+          column: 13
+        },
+        end: {
+          line: 121,
+          column: 1
+        }
+      },
+      "9": {
+        start: {
+          line: 21,
+          column: 28
+        },
+        end: {
+          line: 21,
+          column: 53
+        }
+      },
+      "10": {
+        start: {
+          line: 22,
+          column: 4
+        },
+        end: {
+          line: 120,
+          column: 7
+        }
+      },
+      "11": {
+        start: {
+          line: 26,
+          column: 29
+        },
+        end: {
+          line: 28,
+          column: 22
+        }
+      },
+      "12": {
+        start: {
+          line: 29,
+          column: 30
+        },
+        end: {
+          line: 29,
+          column: 48
+        }
+      },
+      "13": {
+        start: {
+          line: 30,
+          column: 37
+        },
+        end: {
+          line: 32,
+          column: 22
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 7,
+            column: 9
+          },
+          end: {
+            line: 7,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 7,
+            column: 20
+          },
+          end: {
+            line: 9,
+            column: 5
+          }
+        },
+        line: 7
+      },
+      "1": {
+        name: "_interop_require_default",
+        decl: {
+          start: {
+            line: 15,
+            column: 9
+          },
+          end: {
+            line: 15,
+            column: 33
+          }
+        },
+        loc: {
+          start: {
+            line: 15,
+            column: 39
+          },
+          end: {
+            line: 19,
+            column: 1
+          }
+        },
+        line: 15
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 20,
+            column: 13
+          },
+          end: {
+            line: 20,
+            column: 14
+          }
+        },
+        loc: {
+          start: {
+            line: 20,
+            column: 17
+          },
+          end: {
+            line: 121,
+            column: 1
+          }
+        },
+        line: 20
+      },
+      "3": {
+        name: "(anonymous_3)",
+        decl: {
+          start: {
+            line: 26,
+            column: 25
+          },
+          end: {
+            line: 26,
+            column: 26
+          }
+        },
+        loc: {
+          start: {
+            line: 26,
+            column: 29
+          },
+          end: {
+            line: 28,
+            column: 22
+          }
+        },
+        line: 26
+      },
+      "4": {
+        name: "(anonymous_4)",
+        decl: {
+          start: {
+            line: 29,
+            column: 26
+          },
+          end: {
+            line: 29,
+            column: 27
+          }
+        },
+        loc: {
+          start: {
+            line: 29,
+            column: 30
+          },
+          end: {
+            line: 29,
+            column: 48
+          }
+        },
+        line: 29
+      },
+      "5": {
+        name: "(anonymous_5)",
+        decl: {
+          start: {
+            line: 30,
+            column: 33
+          },
+          end: {
+            line: 30,
+            column: 34
+          }
+        },
+        loc: {
+          start: {
+            line: 30,
+            column: 37
+          },
+          end: {
+            line: 32,
+            column: 22
+          }
+        },
+        line: 30
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 16,
+            column: 11
+          },
+          end: {
+            line: 18,
+            column: 5
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 16,
+            column: 35
+          },
+          end: {
+            line: 16,
+            column: 38
+          }
+        }, {
+          start: {
+            line: 16,
+            column: 41
+          },
+          end: {
+            line: 18,
+            column: 5
+          }
+        }],
+        line: 16
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 16,
+            column: 11
+          },
+          end: {
+            line: 16,
+            column: 32
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 16,
+            column: 11
+          },
+          end: {
+            line: 16,
+            column: 14
+          }
+        }, {
+          start: {
+            line: 16,
+            column: 18
+          },
+          end: {
+            line: 16,
+            column: 32
+          }
+        }],
+        line: 16
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0]
+    },
+    inputSourceMap: {
+      version: 3,
+      sources: ["/Users/noritakasawada/AI_P/subsidyApp/frontend/src/stories/Page.tsx"],
+      sourcesContent: ["import React from 'react';\n\nimport { Header } from './Header';\nimport './page.css';\n\ntype User = {\n  name: string;\n};\n\nexport const Page: React.FC = () => {\n  const [user, setUser] = React.useState<User>();\n\n  return (\n    <article>\n      <Header\n        user={user}\n        onLogin={() => setUser({ name: 'Jane Doe' })}\n        onLogout={() => setUser(undefined)}\n        onCreateAccount={() => setUser({ name: 'Jane Doe' })}\n      />\n\n      <section className=\"storybook-page\">\n        <h2>Pages in Storybook</h2>\n        <p>\n          We recommend building UIs with a{' '}\n          <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n            <strong>component-driven</strong>\n          </a>{' '}\n          process starting with atomic components and ending with pages.\n        </p>\n        <p>\n          Render pages with mock data. This makes it easy to build and review page states without\n          needing to navigate to them in your app. Here are some handy patterns for managing page\n          data in Storybook:\n        </p>\n        <ul>\n          <li>\n            Use a higher-level connected component. Storybook helps you compose such data from the\n            &ldquo;args&rdquo; of child component stories\n          </li>\n          <li>\n            Assemble data in the page component from your services. You can mock these services out\n            using Storybook.\n          </li>\n        </ul>\n        <p>\n          Get a guided tutorial on component-driven development at{' '}\n          <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n            Storybook tutorials\n          </a>\n          . Read more in the{' '}\n          <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\">\n            docs\n          </a>\n          .\n        </p>\n        <div className=\"tip-wrapper\">\n          <span className=\"tip\">Tip</span> Adjust the width of the canvas with the{' '}\n          <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n            <g fill=\"none\" fillRule=\"evenodd\">\n              <path\n                d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n                id=\"a\"\n                fill=\"#999\"\n              />\n            </g>\n          </svg>\n          Viewports addon in the toolbar\n        </div>\n      </section>\n    </article>\n  );\n};\n"],
+      names: ["Page", "user", "setUser", "React", "useState", "article", "Header", "onLogin", "name", "onLogout", "undefined", "onCreateAccount", "section", "className", "h2", "p", "a", "href", "target", "rel", "strong", "ul", "li", "div", "span", "svg", "width", "height", "viewBox", "xmlns", "g", "fill", "fillRule", "path", "d", "id"],
+      mappings: ";;;;+BASaA;;;eAAAA;;;;8DATK;wBAEK;QAChB;;;;;;AAMA,MAAMA,OAAiB;IAC5B,MAAM,CAACC,MAAMC,QAAQ,GAAGC,cAAK,CAACC,QAAQ;IAEtC,qBACE,sBAACC;;0BACC,qBAACC,cAAM;gBACLL,MAAMA;gBACNM,SAAS,IAAML,QAAQ;wBAAEM,MAAM;oBAAW;gBAC1CC,UAAU,IAAMP,QAAQQ;gBACxBC,iBAAiB,IAAMT,QAAQ;wBAAEM,MAAM;oBAAW;;0BAGpD,sBAACI;gBAAQC,WAAU;;kCACjB,qBAACC;kCAAG;;kCACJ,sBAACC;;4BAAE;4BACgC;0CACjC,qBAACC;gCAAEC,MAAK;gCAA8BC,QAAO;gCAASC,KAAI;0CACxD,cAAA,qBAACC;8CAAO;;;4BACL;4BAAI;;;kCAGX,qBAACL;kCAAE;;kCAKH,sBAACM;;0CACC,qBAACC;0CAAG;;0CAIJ,qBAACA;0CAAG;;;;kCAKN,sBAACP;;4BAAE;4BACwD;0CACzD,qBAACC;gCAAEC,MAAK;gCAAsCC,QAAO;gCAASC,KAAI;0CAAsB;;4BAEpF;4BACe;0CACnB,qBAACH;gCAAEC,MAAK;gCAAgCC,QAAO;gCAASC,KAAI;0CAAsB;;4BAE9E;;;kCAGN,sBAACI;wBAAIV,WAAU;;0CACb,qBAACW;gCAAKX,WAAU;0CAAM;;4BAAU;4BAAyC;0CACzE,qBAACY;gCAAIC,OAAM;gCAAKC,QAAO;gCAAKC,SAAQ;gCAAYC,OAAM;0CACpD,cAAA,qBAACC;oCAAEC,MAAK;oCAAOC,UAAS;8CACtB,cAAA,qBAACC;wCACCC,GAAE;wCACFC,IAAG;wCACHJ,MAAK;;;;4BAGL;;;;;;;AAMhB"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "57a2a2be3cd1b0f4b7c6acbf8dd2b3e6f477a2cd"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2oap87lngz = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_2oap87lngz();
+cov_2oap87lngz().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_2oap87lngz().s[1]++;
+Object.defineProperty(exports, "Page", {
+  enumerable: true,
+  get: function () {
+    /* istanbul ignore next */
+    cov_2oap87lngz().f[0]++;
+    cov_2oap87lngz().s[2]++;
+    return Page;
+  }
+});
+const _jsxruntime =
+/* istanbul ignore next */
+(cov_2oap87lngz().s[3]++, require("react/jsx-runtime"));
+const _react =
+/* istanbul ignore next */
+(/*#__PURE__*/cov_2oap87lngz().s[4]++, _interop_require_default(require("react")));
+const _Header =
+/* istanbul ignore next */
+(cov_2oap87lngz().s[5]++, require("./Header"));
+/* istanbul ignore next */
+cov_2oap87lngz().s[6]++;
+require("./page.css");
+function _interop_require_default(obj) {
+  /* istanbul ignore next */
+  cov_2oap87lngz().f[1]++;
+  cov_2oap87lngz().s[7]++;
+  return /* istanbul ignore next */(cov_2oap87lngz().b[1][0]++, obj) &&
+  /* istanbul ignore next */
+  (cov_2oap87lngz().b[1][1]++, obj.__esModule) ?
+  /* istanbul ignore next */
+  (cov_2oap87lngz().b[0][0]++, obj) :
+  /* istanbul ignore next */
+  (cov_2oap87lngz().b[0][1]++, {
+    default: obj
+  });
+}
+/* istanbul ignore next */
+cov_2oap87lngz().s[8]++;
+const Page = () => {
+  /* istanbul ignore next */
+  cov_2oap87lngz().f[2]++;
+  const [user, setUser] =
+  /* istanbul ignore next */
+  (cov_2oap87lngz().s[9]++, _react.default.useState());
+  /* istanbul ignore next */
+  cov_2oap87lngz().s[10]++;
+  return /*#__PURE__*/(0, _jsxruntime.jsxs)("article", {
+    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_Header.Header, {
+      user: user,
+      onLogin: () => {
+        /* istanbul ignore next */
+        cov_2oap87lngz().f[3]++;
+        cov_2oap87lngz().s[11]++;
+        return setUser({
+          name: 'Jane Doe'
+        });
+      },
+      onLogout: () => {
+        /* istanbul ignore next */
+        cov_2oap87lngz().f[4]++;
+        cov_2oap87lngz().s[12]++;
+        return setUser(undefined);
+      },
+      onCreateAccount: () => {
+        /* istanbul ignore next */
+        cov_2oap87lngz().f[5]++;
+        cov_2oap87lngz().s[13]++;
+        return setUser({
+          name: 'Jane Doe'
+        });
+      }
+    }), /*#__PURE__*/(0, _jsxruntime.jsxs)("section", {
+      className: "storybook-page",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h2", {
+        children: "Pages in Storybook"
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)("p", {
+        children: ["We recommend building UIs with a", ' ', /*#__PURE__*/(0, _jsxruntime.jsx)("a", {
+          href: "https://componentdriven.org",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          children: /*#__PURE__*/(0, _jsxruntime.jsx)("strong", {
+            children: "component-driven"
+          })
+        }), ' ', "process starting with atomic components and ending with pages."]
+      }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+        children: "Render pages with mock data. This makes it easy to build and review page states without needing to navigate to them in your app. Here are some handy patterns for managing page data in Storybook:"
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)("ul", {
+        children: [/*#__PURE__*/(0, _jsxruntime.jsx)("li", {
+          children: "Use a higher-level connected component. Storybook helps you compose such data from the “args” of child component stories"
+        }), /*#__PURE__*/(0, _jsxruntime.jsx)("li", {
+          children: "Assemble data in the page component from your services. You can mock these services out using Storybook."
+        })]
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)("p", {
+        children: ["Get a guided tutorial on component-driven development at", ' ', /*#__PURE__*/(0, _jsxruntime.jsx)("a", {
+          href: "https://storybook.js.org/tutorials/",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          children: "Storybook tutorials"
+        }), ". Read more in the", ' ', /*#__PURE__*/(0, _jsxruntime.jsx)("a", {
+          href: "https://storybook.js.org/docs",
+          target: "_blank",
+          rel: "noopener noreferrer",
+          children: "docs"
+        }), "."]
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+        className: "tip-wrapper",
+        children: [/*#__PURE__*/(0, _jsxruntime.jsx)("span", {
+          className: "tip",
+          children: "Tip"
+        }), " Adjust the width of the canvas with the", ' ', /*#__PURE__*/(0, _jsxruntime.jsx)("svg", {
+          width: "10",
+          height: "10",
+          viewBox: "0 0 12 12",
+          xmlns: "http://www.w3.org/2000/svg",
+          children: /*#__PURE__*/(0, _jsxruntime.jsx)("g", {
+            fill: "none",
+            fillRule: "evenodd",
+            children: /*#__PURE__*/(0, _jsxruntime.jsx)("path", {
+              d: "M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z",
+              id: "a",
+              fill: "#999"
+            })
+          })
+        }), "Viewports addon in the toolbar"]
+      })]
+    })]
+  });
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJQYWdlIiwiY292XzJvYXA4N2xuZ3oiLCJzIiwiZiIsInVzZXIiLCJzZXRVc2VyIiwiX3JlYWN0IiwiZGVmYXVsdCIsInVzZVN0YXRlIiwiX2pzeHJ1bnRpbWUiLCJqc3hzIiwianN4IiwiX0hlYWRlciIsIkhlYWRlciIsIm9uTG9naW4iLCJuYW1lIiwib25Mb2dvdXQiLCJ1bmRlZmluZWQiLCJvbkNyZWF0ZUFjY291bnQiLCJjbGFzc05hbWUiLCJocmVmIiwidGFyZ2V0IiwicmVsIiwid2lkdGgiLCJoZWlnaHQiLCJ2aWV3Qm94IiwieG1sbnMiLCJmaWxsIiwiZmlsbFJ1bGUiLCJkIiwiaWQiXSwic291cmNlcyI6WyIvVXNlcnMvbm9yaXRha2FzYXdhZGEvQUlfUC9zdWJzaWR5QXBwL2Zyb250ZW5kL3NyYy9zdG9yaWVzL1BhZ2UudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5cbmltcG9ydCB7IEhlYWRlciB9IGZyb20gJy4vSGVhZGVyJztcbmltcG9ydCAnLi9wYWdlLmNzcyc7XG5cbnR5cGUgVXNlciA9IHtcbiAgbmFtZTogc3RyaW5nO1xufTtcblxuZXhwb3J0IGNvbnN0IFBhZ2U6IFJlYWN0LkZDID0gKCkgPT4ge1xuICBjb25zdCBbdXNlciwgc2V0VXNlcl0gPSBSZWFjdC51c2VTdGF0ZTxVc2VyPigpO1xuXG4gIHJldHVybiAoXG4gICAgPGFydGljbGU+XG4gICAgICA8SGVhZGVyXG4gICAgICAgIHVzZXI9e3VzZXJ9XG4gICAgICAgIG9uTG9naW49eygpID0+IHNldFVzZXIoeyBuYW1lOiAnSmFuZSBEb2UnIH0pfVxuICAgICAgICBvbkxvZ291dD17KCkgPT4gc2V0VXNlcih1bmRlZmluZWQpfVxuICAgICAgICBvbkNyZWF0ZUFjY291bnQ9eygpID0+IHNldFVzZXIoeyBuYW1lOiAnSmFuZSBEb2UnIH0pfVxuICAgICAgLz5cblxuICAgICAgPHNlY3Rpb24gY2xhc3NOYW1lPVwic3Rvcnlib29rLXBhZ2VcIj5cbiAgICAgICAgPGgyPlBhZ2VzIGluIFN0b3J5Ym9vazwvaDI+XG4gICAgICAgIDxwPlxuICAgICAgICAgIFdlIHJlY29tbWVuZCBidWlsZGluZyBVSXMgd2l0aCBheycgJ31cbiAgICAgICAgICA8YSBocmVmPVwiaHR0cHM6Ly9jb21wb25lbnRkcml2ZW4ub3JnXCIgdGFyZ2V0PVwiX2JsYW5rXCIgcmVsPVwibm9vcGVuZXIgbm9yZWZlcnJlclwiPlxuICAgICAgICAgICAgPHN0cm9uZz5jb21wb25lbnQtZHJpdmVuPC9zdHJvbmc+XG4gICAgICAgICAgPC9hPnsnICd9XG4gICAgICAgICAgcHJvY2VzcyBzdGFydGluZyB3aXRoIGF0b21pYyBjb21wb25lbnRzIGFuZCBlbmRpbmcgd2l0aCBwYWdlcy5cbiAgICAgICAgPC9wPlxuICAgICAgICA8cD5cbiAgICAgICAgICBSZW5kZXIgcGFnZXMgd2l0aCBtb2NrIGRhdGEuIFRoaXMgbWFrZXMgaXQgZWFzeSB0byBidWlsZCBhbmQgcmV2aWV3IHBhZ2Ugc3RhdGVzIHdpdGhvdXRcbiAgICAgICAgICBuZWVkaW5nIHRvIG5hdmlnYXRlIHRvIHRoZW0gaW4geW91ciBhcHAuIEhlcmUgYXJlIHNvbWUgaGFuZHkgcGF0dGVybnMgZm9yIG1hbmFnaW5nIHBhZ2VcbiAgICAgICAgICBkYXRhIGluIFN0b3J5Ym9vazpcbiAgICAgICAgPC9wPlxuICAgICAgICA8dWw+XG4gICAgICAgICAgPGxpPlxuICAgICAgICAgICAgVXNlIGEgaGlnaGVyLWxldmVsIGNvbm5lY3RlZCBjb21wb25lbnQuIFN0b3J5Ym9vayBoZWxwcyB5b3UgY29tcG9zZSBzdWNoIGRhdGEgZnJvbSB0aGVcbiAgICAgICAgICAgICZsZHF1bzthcmdzJnJkcXVvOyBvZiBjaGlsZCBjb21wb25lbnQgc3Rvcmllc1xuICAgICAgICAgIDwvbGk+XG4gICAgICAgICAgPGxpPlxuICAgICAgICAgICAgQXNzZW1ibGUgZGF0YSBpbiB0aGUgcGFnZSBjb21wb25lbnQgZnJvbSB5b3VyIHNlcnZpY2VzLiBZb3UgY2FuIG1vY2sgdGhlc2Ugc2VydmljZXMgb3V0XG4gICAgICAgICAgICB1c2luZyBTdG9yeWJvb2suXG4gICAgICAgICAgPC9saT5cbiAgICAgICAgPC91bD5cbiAgICAgICAgPHA+XG4gICAgICAgICAgR2V0IGEgZ3VpZGVkIHR1dG9yaWFsIG9uIGNvbXBvbmVudC1kcml2ZW4gZGV2ZWxvcG1lbnQgYXR7JyAnfVxuICAgICAgICAgIDxhIGhyZWY9XCJodHRwczovL3N0b3J5Ym9vay5qcy5vcmcvdHV0b3JpYWxzL1wiIHRhcmdldD1cIl9ibGFua1wiIHJlbD1cIm5vb3BlbmVyIG5vcmVmZXJyZXJcIj5cbiAgICAgICAgICAgIFN0b3J5Ym9vayB0dXRvcmlhbHNcbiAgICAgICAgICA8L2E+XG4gICAgICAgICAgLiBSZWFkIG1vcmUgaW4gdGhleycgJ31cbiAgICAgICAgICA8YSBocmVmPVwiaHR0cHM6Ly9zdG9yeWJvb2suanMub3JnL2RvY3NcIiB0YXJnZXQ9XCJfYmxhbmtcIiByZWw9XCJub29wZW5lciBub3JlZmVycmVyXCI+XG4gICAgICAgICAgICBkb2NzXG4gICAgICAgICAgPC9hPlxuICAgICAgICAgIC5cbiAgICAgICAgPC9wPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRpcC13cmFwcGVyXCI+XG4gICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGlwXCI+VGlwPC9zcGFuPiBBZGp1c3QgdGhlIHdpZHRoIG9mIHRoZSBjYW52YXMgd2l0aCB0aGV7JyAnfVxuICAgICAgICAgIDxzdmcgd2lkdGg9XCIxMFwiIGhlaWdodD1cIjEwXCIgdmlld0JveD1cIjAgMCAxMiAxMlwiIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIj5cbiAgICAgICAgICAgIDxnIGZpbGw9XCJub25lXCIgZmlsbFJ1bGU9XCJldmVub2RkXCI+XG4gICAgICAgICAgICAgIDxwYXRoXG4gICAgICAgICAgICAgICAgZD1cIk0xLjUgNS4yaDQuOGMuMyAwIC41LjIuNS40djUuMWMtLjEuMi0uMy4zLS40LjNIMS40YS41LjUgMCAwMS0uNS0uNFY1LjdjMC0uMy4yLS41LjUtLjV6bTAtMi4xaDYuOWMuMyAwIC41LjIuNS40djdhLjUuNSAwIDAxLTEgMFY0SDEuNWEuNS41IDAgMDEwLTF6bTAtMi4xaDljLjMgMCAuNS4yLjUuNHY5LjFhLjUuNSAwIDAxLTEgMFYySDEuNWEuNS41IDAgMDEwLTF6bTQuMyA1LjJIMlYxMGgzLjhWNi4yelwiXG4gICAgICAgICAgICAgICAgaWQ9XCJhXCJcbiAgICAgICAgICAgICAgICBmaWxsPVwiIzk5OVwiXG4gICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2c+XG4gICAgICAgICAgPC9zdmc+XG4gICAgICAgICAgVmlld3BvcnRzIGFkZG9uIGluIHRoZSB0b29sYmFyXG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9zZWN0aW9uPlxuICAgIDwvYXJ0aWNsZT5cbiAgKTtcbn07XG4iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7K0JBU2E7Ozs7OztXQUFBQSxJQUFBOzs7Ozs7Ozt3RUFUSzs7O2tDQUVLO0FBQUE7QUFB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

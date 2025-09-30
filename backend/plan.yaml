@@ -1,0 +1,604 @@
+
+# --- append to: plan.yaml (tickets:) -----------------------------------------
+# Epic: api-contract
+- id: APP-320
+  epic: api-contract
+  title: OpenAPI 3.1 初版作成（/intake, /research, /generate, /validate, /export）
+  owner: worker2
+  deps: []
+  estimate_h: 6
+  status: todo
+
+- id: APP-321
+  epic: api-contract
+  title: 型自動生成と契約テスト雛形（Schemathesis/Pact）
+  owner: worker2
+  deps: [APP-320]
+  estimate_h: 5
+  status: todo
+
+# Epic: intake-extract（取り込み・抽出：謄本/確定申告書）
+- id: APP-322
+  epic: intake-extract
+  title: ファイル検査（MIME/拡張子/サイズ/AV）＋SHA256算出
+  owner: worker2
+  deps: []
+  estimate_h: 4
+  status: todo
+
+- id: APP-323
+  epic: intake-extract
+  title: テキストPDF抽出（pdf-parse）座標抽出含む
+  owner: worker2
+  deps: [APP-322]
+  estimate_h: 6
+  status: todo
+
+- id: APP-324
+  epic: intake-extract
+  title: OCR抽象化 OcrProvider（tesseract 実装）＋将来差替えポイント
+  owner: worker2
+  deps: [APP-322]
+  estimate_h: 8
+  status: todo
+
+- id: APP-325
+  epic: intake-extract
+  title: フォーム種別判定（謄本/確定申告書_個人/法人）アンカー辞書
+  owner: worker2
+  deps: [APP-323, APP-324]
+  estimate_h: 5
+  status: todo
+
+- id: APP-326
+  epic: intake-extract
+  title: ルール抽出（氏名/住所/屋号/法人名/代表/年度/事業年度）
+  owner: worker2
+  deps: [APP-325]
+  estimate_h: 10
+  status: todo
+
+- id: APP-327
+  epic: intake-extract
+  title: 日本語正規化（全角半角/和暦→西暦/郵便番号/住所正規化/カナ推定）
+  owner: worker2
+  deps: [APP-326]
+  estimate_h: 6
+  status: todo
+
+- id: APP-328
+  epic: intake-extract
+  title: 抽出結果の保存（sources/extracted_fields/field_merges）API返却
+  owner: worker3
+  deps: [APP-322]
+  estimate_h: 5
+  status: todo
+
+# Epic: evidence-rag（検索→取得→要約→引用ID化）
+- id: APP-329
+  epic: evidence-rag
+  title: /research/search（Bing or Google CSE）クライアント実装
+  owner: worker2
+  deps: [APP-320]
+  estimate_h: 6
+  status: todo
+
+- id: APP-330
+  epic: evidence-rag
+  title: /research/fetch（HTML/PDF取得→本文抽出→スナップショット保存）
+  owner: worker2
+  deps: [APP-329]
+  estimate_h: 6
+  status: todo
+
+- id: APP-331
+  epic: evidence-rag
+  title: /research/ingest（埋め込み・メタ保存・evidence関連付け）
+  owner: worker2
+  deps: [APP-330]
+  estimate_h: 6
+  status: todo
+
+# Epic: generation（背景→解決策→KPI→経費→スケジュール）
+- id: APP-332
+  epic: generation
+  title: 背景生成 /generate/background（引用必須・脚注付き）
+  owner: worker2
+  deps: [APP-331]
+  estimate_h: 6
+  status: todo
+
+- id: APP-333
+  epic: generation
+  title: 解決策生成 /generate/solution（施策バンドル・制約考慮）
+  owner: worker2
+  deps: [APP-332]
+  estimate_h: 6
+  status: todo
+
+- id: APP-334
+  epic: generation
+  title: KPI生成 /generate/kpis（SMART・3〜5件・測定法/頻度）
+  owner: worker2
+  deps: [APP-333]
+  estimate_h: 6
+  status: todo
+
+- id: APP-335
+  epic: generation
+  title: 経費生成 /generate/budget（対象/対象外・補助率・自己負担）
+  owner: worker2
+  deps: [APP-333]
+  estimate_h: 8
+  status: todo
+
+- id: APP-336
+  epic: generation
+  title: スケジュール生成 /generate/schedule（WBS→依存→CPM→ガントSVG）
+  owner: worker2
+  deps: [APP-333]
+  estimate_h: 8
+  status: todo
+
+# Epic: validation（機械検証）
+- id: APP-337
+  epic: validation
+  title: /validate/text（文字数・禁則・用語辞書・冗長率）＋Fix提案
+  owner: worker2
+  deps: [APP-332, APP-333]
+  estimate_h: 6
+  status: todo
+
+- id: APP-338
+  epic: validation
+  title: /validate/kpis（単位/方向性/伸び率妥当性・期間整合）
+  owner: worker2
+  deps: [APP-334]
+  estimate_h: 5
+  status: todo
+
+- id: APP-339
+  epic: validation
+  title: /validate/budget（交付額=対象経費×補助率・科目合計・根拠）
+  owner: worker2
+  deps: [APP-335]
+  estimate_h: 6
+  status: todo
+
+- id: APP-340
+  epic: validation
+  title: /validate/schedule（期間上限・稼働率≤100%・祝日考慮・CPM整合）
+  owner: worker2
+  deps: [APP-336]
+  estimate_h: 6
+  status: todo
+
+- id: APP-341
+  epic: validation
+  title: /validate/preflight（ページ/フォント埋込/A4余白/押印座標）
+  owner: worker2
+  deps: [APP-344]
+  estimate_h: 6
+  status: todo
+
+# Epic: templates（様式テンプレ管理）
+- id: APP-342
+  epic: templates
+  title: /templates/import（PDF/DOCX + meta.json + SHA256）
+  owner: worker2
+  deps: []
+  estimate_h: 5
+  status: todo
+
+- id: APP-343
+  epic: templates
+  title: /templates/:id/mapping（共通キー→座標/表/折返し）
+  owner: worker2
+  deps: [APP-342]
+  estimate_h: 6
+  status: todo
+
+- id: APP-344
+  epic: templates
+  title: 画像回帰テスト（ダミーデータ→PDF→PNG差分<=0.5%）
+  owner: worker2
+  deps: [APP-343]
+  estimate_h: 8
+  status: todo
+
+# Epic: export（出力）
+- id: APP-345
+  epic: export
+  title: PDFオーバーレイ（pdf-lib + NotoCJK埋込・禁則描画）
+  owner: worker2
+  deps: [APP-343]
+  estimate_h: 8
+  status: todo
+
+- id: APP-346
+  epic: export
+  title: DOCX差し込み→PDF（docxtemplater + LibreOffice headless）
+  owner: worker2
+  deps: [APP-343]
+  estimate_h: 8
+  status: todo
+
+- id: APP-347
+  epic: export
+  title: /export/pdf（overlay/docx→pdf 切替 + 監査JSON）
+  owner: worker2
+  deps: [APP-345, APP-346, APP-341]
+  estimate_h: 6
+  status: todo
+
+- id: APP-348
+  epic: export
+  title: /export/zip（様式一式 + 付録 + 監査）命名規則とマニフェスト
+  owner: worker2
+  deps: [APP-347]
+  estimate_h: 5
+  status: todo
+
+# Epic: security（PII/マイナンバー/署名URL）
+- id: APP-349
+  epic: security
+  title: マイナンバー自動マスク（検知→黒塗り・保存禁止・プレビュー伏せ）
+  owner: worker2
+  deps: [APP-322, APP-323, APP-324]
+  estimate_h: 6
+  status: todo
+
+- id: APP-350
+  epic: security
+  title: 署名URL配布（15分有効）＋暗号化ストレージ保存
+  owner: worker2
+  deps: []
+  estimate_h: 4
+  status: todo
+
+# Epic: observability（可観測性）
+- id: APP-351
+  epic: observability
+  title: メトリクス送出（pdf_generate_time_ms, queue_depth, error_rate）
+  owner: worker2
+  deps: []
+  estimate_h: 4
+  status: todo
+
+- id: APP-352
+  epic: observability
+  title: 監査ログ（application_id/actor/event）ZIP同梱のaudit.json
+  owner: worker2
+  deps: [APP-347]
+  estimate_h: 4
+  status: todo
+
+# Epic: testing（契約/ゴールデン/E2E）
+- id: APP-353
+  epic: testing
+  title: 契約テストCI（OpenAPI→Schemathesis/Pact）
+  owner: worker2
+  deps: [APP-321]
+  estimate_h: 4
+  status: todo
+
+- id: APP-354
+  epic: testing
+  title: ゴールデンセット50（確定申告書・謄本）F1算出パイプライン
+  owner: worker2
+  deps: [APP-326, APP-327, APP-328]
+  estimate_h: 6
+  status: todo
+
+- id: APP-355
+  epic: testing
+  title: E2E（intake→generate→validate→preflight→export 縦スライス）
+  owner: worker2
+  deps: [APP-347]
+  estimate_h: 6
+  status: todo
+
+# Epic: admin-rules（補助率/対象判定ルール）
+- id: APP-356
+  epic: admin-rules
+  title: 補助対象/対象外ルールテーブル（制度別の版管理）
+  owner: worker3
+  deps: []
+  estimate_h: 5
+  status: todo
+
+- id: APP-357
+  epic: admin-rules
+  title: /rules/subsidy 取得・更新API（PRベース適用）
+  owner: worker2
+  deps: [APP-356]
+  estimate_h: 5
+  status: todo
+
+# Epic: be-skeleton（骨格 & レート制限）
+- id: APP-358
+  epic: be-skeleton
+  title: NestJS 基盤（認証・エラーハンドル・RateLimit・ヘルスチェック）
+  owner: worker2
+  deps: []
+  estimate_h: 6
+  status: todo
+
+# Epic: preview（軽量プレビュー）
+- id: APP-359
+  epic: preview
+  title: /preview 軽量PDF生成（72dpi画像・高速化）
+  owner: worker2
+  deps: [APP-345]
+  estimate_h: 4
+  status: todo
+
+# Epic: fixer（自動修正提案）
+- id: APP-360
+  epic: fixer
+  title: Text Fixer（要約/箇条書き化/語尾統一・文字数超過の自動短文化）
+  owner: worker2
+  deps: [APP-337]
+  estimate_h: 5
+  status: todo
+
+- id: APP-361
+  epic: fixer
+  title: KPI Fixer（過大/過少→段階目標M3/M6の自動提案）
+  owner: worker2
+  deps: [APP-338]
+  estimate_h: 4
+  status: todo
+
+- id: APP-362
+  epic: fixer
+  title: Budget Fixer（対象外→代替科目提案/再配分）
+  owner: worker2
+  deps: [APP-339]
+  estimate_h: 5
+  status: todo
+
+# Epic: storage-schema（DB/スキーマ）
+- id: APP-363
+  epic: storage-schema
+  title: Prisma モデル整備（Application/Applicant/Source/Evidence 等）
+  owner: worker3
+  deps: []
+  estimate_h: 6
+  status: todo
+
+- id: APP-364
+  epic: storage-schema
+  title: マイグレーション・シード・RBACポリシー初期設定
+  owner: worker3
+  deps: [APP-363]
+  estimate_h: 5
+  status: todo
+
+# Epic: queue（非同期処理）
+- id: APP-365
+  epic: queue
+  title: BullMQ 導入（OCR/回帰/ZIP生成のジョブ化）
+  owner: worker2
+  deps: [APP-324, APP-344, APP-348]
+  estimate_h: 5
+  status: todo
+
+# Epic: cost（APIコスト見積）
+- id: APP-366
+  epic: cost
+  title: /cost/estimate（トークン/検索回数からの概算API費計算）
+  owner: worker2
+  deps: []
+  estimate_h: 3
+  status: todo
+
+# Epic: governance-bridge（ガバナンス連携）
+- id: APP-367
+  epic: governance-bridge
+  title: governance.yaml 連携（review_gates と preflight の閾値同期）
+  owner: worker2
+  deps: [APP-341]
+  estimate_h: 4
+  status: todo
+
+# Epic: audit-zip（監査）
+- id: APP-368
+  epic: audit-zip
+  title: 監査JSON（出典URL/取得日/テンプレハッシュ/生成ログ）生成＆ZIP同梱
+  owner: worker2
+  deps: [APP-347, APP-352]
+  estimate_h: 4
+  status: todo
+
+# Epic: perf（性能）
+- id: APP-369
+  epic: perf
+  title: PDF生成性能チューニング（ttfp_preview_seconds <= 2.0）
+  owner: worker2
+  deps: [APP-359]
+  estimate_h: 5
+  status: todo
+
+
+
+# --- append to: plan.yaml (tickets:) -----------------------------------------
+# Epic: error-taxonomy（機械可読なエラー体系の確立）
+- id: APP-370
+  epic: error-taxonomy
+  title: エラーコード体系の定義と統一（ERR_* カタログ＋APIレスポンス仕様）
+  owner: worker2
+  deps: [APP-320, APP-321]
+  estimate_h: 6
+  status: todo
+  notes: |
+    例）ERR_INGEST_MIME / ERR_OCR_LOW_CONF / ERR_PREFLIGHT_PAGE_LIMIT / ERR_BUDGET_RULE_MISS / ERR_EXPORT_TIMEOUT
+    OpenAPIにoneOfで型定義、監査JSONにも同コードを記録。FEトーストと一致表示。
+
+# Epic: idempotency（多重送信・再実行の安全化）
+- id: APP-371
+  epic: idempotency
+  title: Idempotency-Key ミドルウェア（/ingest /generate /export）
+  owner: worker2
+  deps: [APP-358]
+  estimate_h: 5
+  status: todo
+  notes: |
+    ヘッダ Idempotency-Key を採用。重複リクエストは初回結果を再返却。ジョブ再実行はat-least-onceで整合性担保。
+
+# Epic: async-jobs（同期APIの非同期化と進捗管理）
+- id: APP-372
+  epic: async-jobs
+  title: 非同期ジョブAPI（202 Accepted＋/jobs/:id 進捗）導入（/export /ingest/OCR）
+  owner: worker2
+  deps: [APP-365, APP-347, APP-348]
+  estimate_h: 8
+  status: todo
+  notes: |
+    POSTは202 Accepted＋job_idを返却。GET /jobs/:id で status=queued|running|succeeded|failed, progress %, result_url。
+
+# Epic: environment-lock（ツールチェーンの固定）
+- id: APP-373
+  epic: environment-lock
+  title: PDF/LibreOffice/フォントの環境固定（Docker digest＋SHA256検証）
+  owner: worker2
+  deps: [APP-345, APP-346]
+  estimate_h: 6
+  status: todo
+  notes: |
+    本番と同一バージョンをCIで検証。NotoSansCJK のSHA256をpreflightで検査し不一致はERR_PREFLIGHT_FONT_MISMATCH。
+
+# Epic: template-contract（テンプレ互換の“契約化”）
+- id: APP-374
+  epic: template-contract
+  title: マッピングYAMLの必須フィールド集合・最大文字数を契約として宣言し preflight に詳細違反項目を出力
+  owner: worker2
+  deps: [APP-343, APP-341]
+  estimate_h: 6
+  status: todo
+  notes: |
+    preflightレスポンスに rules[].id と errors[].rule_id を含め、FEで違反箇所を特定表示可能に。
+
+# Epic: ocr-fallback-policy（品質/コストの自動トレードオフ）
+- id: APP-375
+  epic: ocr-fallback-policy
+  title: OCRフォールバックポリシー（avg_conf閾値/欠落率でクラウドOCRへ自動切替）
+  owner: worker2
+  deps: [APP-324, APP-322]
+  estimate_h: 6
+  status: todo
+  notes: |
+    例）avg_conf<0.88 または 必須フィールド未検出>2 → provider=cloud を再試行。コスト記録とフラグを監査へ。
+
+# Epic: budget-rule-engine（数式の単一化）
+- id: APP-376
+  epic: budget-rule-engine
+  title: 補助額計算ルールの単一エンジン化（端数処理/補助率/対象外の自動判定）
+  owner: worker2
+  deps: [APP-335, APP-339, APP-356]
+  estimate_h: 8
+  status: todo
+  notes: |
+    generate・validate・export が同実装を参照。ユニットテストで境界値（端数/上限制御）を網羅。
+
+# Epic: audit-schema（再現実験に耐える監査）
+- id: APP-377
+  epic: audit-schema
+  title: audit.json の JSON Schema 固定（inputs.hashes, llm.model, citations[], template.sha256 等）
+  owner: worker2
+  deps: [APP-352, APP-368]
+  estimate_h: 5
+  status: todo
+  notes: |
+    監査ZIPに schema_ver を埋め込み。スキーマ破壊変更はCIでFailさせる。
+
+# Epic: cost-guard（APIコスト/レートの自動ブレーキ）
+- id: APP-378
+  epic: cost-guard
+  title: コスト制御（/generate 見積→超過警告・/research 上限回数・月次予算アラート）
+  owner: worker2
+  deps: [APP-366]
+  estimate_h: 6
+  status: todo
+  notes: |
+    application_id単位でトークン/検索回数の上限を超えたらERR_COST_LIMIT。メトリクス/通知も併設。
+
+# Epic: backup-restore（復旧プレイブック）
+- id: APP-379
+  epic: backup-restore
+  title: S3原本/DBの世代バックアップと復元手順（Runbook化）
+  owner: worker3
+  deps: [APP-350, APP-363, APP-364]
+  estimate_h: 6
+  status: todo
+  notes: |
+    取得頻度・保持期間・演習手順（DRテスト）を文書化。復元検証ジョブを週次で実行。
+
+# Epic: feature-flags（段階導入のための切替）
+- id: APP-380
+  epic: feature-flags
+  title: 機能フラグ基盤（enable_docx_route / enable_cloud_ocr / enforce_citations）
+  owner: worker2
+  deps: [APP-358]
+  estimate_h: 4
+  status: todo
+
+# Epic: calendar-rules（祝日/稼働判定の外だし）
+- id: APP-381
+  epic: calendar-rules
+  title: /rules/calendar（JST祝日JSON）＋schedule検証への組込み
+  owner: worker2
+  deps: [APP-340]
+  estimate_h: 4
+  status: todo
+
+# Epic: pii-visualization（個人情報の見える化）
+- id: APP-382
+  epic: pii-visualization
+  title: PII検知の可視化（プレビュー上の黒塗りレイヤ＋ログ）
+  owner: worker2
+  deps: [APP-349]
+  estimate_h: 5
+  status: todo
+
+# Epic: observability-plus（上位指標と警報）
+- id: APP-383
+  epic: observability-plus
+  title: p95指標と閾値アラート（pdf_generate_time_ms p95<=4s 等）
+  owner: worker2
+  deps: [APP-351]
+  estimate_h: 4
+  status: todo
+
+# Epic: job-retry-policy（再試行戦略の明文化）
+- id: APP-384
+  epic: job-retry-policy
+  title: ジョブの指数バックオフ＋デッドレターキュー（OCR/EXPORT/REGRESSION）
+  owner: worker2
+  deps: [APP-365, APP-372]
+  estimate_h: 5
+  status: todo
+
+# Epic: security-hardening（追加の堅牢化）
+- id: APP-385
+  epic: security-hardening
+  title: 添付ファイルのAVスキャン＋MIMEスニッフィング二重化
+  owner: worker2
+  deps: [APP-322]
+  estimate_h: 4
+  status: todo
+
+# Epic: doc-ops（運用文書の自動整備）
+- id: APP-386
+  epic: doc-ops
+  title: API仕様(OpenAPI)・監査Schema・Runbookの自動生成パイプライン
+  owner: worker2
+  deps: [APP-320, APP-377, APP-379]
+  estimate_h: 5
+  status: todo
+# ----------------------------------------------------------------------------- 
+
+
+
+
+  # ----------------------------------------------------------------------------- 

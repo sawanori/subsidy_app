@@ -1,0 +1,548 @@
+721cd8dd30294e6b4741cac24bb78ed3
+'use client';
+"use strict";
+
+/* istanbul ignore next */
+function cov_1j3gm43q4o() {
+  var path = "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/components/ui/theme-toggle.tsx";
+  var hash = "65b1fea61359f9923b0d4a8bd4e26784c1a9f618";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/noritakasawada/AI_P/subsidyApp/frontend/src/components/ui/theme-toggle.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 11,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 9,
+          column: 8
+        },
+        end: {
+          line: 9,
+          column: 27
+        }
+      },
+      "3": {
+        start: {
+          line: 12,
+          column: 20
+        },
+        end: {
+          line: 12,
+          column: 48
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 29
+        },
+        end: {
+          line: 13,
+          column: 71
+        }
+      },
+      "5": {
+        start: {
+          line: 14,
+          column: 21
+        },
+        end: {
+          line: 14,
+          column: 44
+        }
+      },
+      "6": {
+        start: {
+          line: 15,
+          column: 16
+        },
+        end: {
+          line: 15,
+          column: 35
+        }
+      },
+      "7": {
+        start: {
+          line: 16,
+          column: 22
+        },
+        end: {
+          line: 16,
+          column: 48
+        }
+      },
+      "8": {
+        start: {
+          line: 17,
+          column: 23
+        },
+        end: {
+          line: 17,
+          column: 60
+        }
+      },
+      "9": {
+        start: {
+          line: 19,
+          column: 4
+        },
+        end: {
+          line: 21,
+          column: 6
+        }
+      },
+      "10": {
+        start: {
+          line: 23,
+          column: 20
+        },
+        end: {
+          line: 66,
+          column: 1
+        }
+      },
+      "11": {
+        start: {
+          line: 24,
+          column: 25
+        },
+        end: {
+          line: 24,
+          column: 55
+        }
+      },
+      "12": {
+        start: {
+          line: 25,
+          column: 4
+        },
+        end: {
+          line: 65,
+          column: 7
+        }
+      },
+      "13": {
+        start: {
+          line: 51,
+          column: 37
+        },
+        end: {
+          line: 51,
+          column: 54
+        }
+      },
+      "14": {
+        start: {
+          line: 55,
+          column: 37
+        },
+        end: {
+          line: 55,
+          column: 53
+        }
+      },
+      "15": {
+        start: {
+          line: 59,
+          column: 37
+        },
+        end: {
+          line: 59,
+          column: 55
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 8,
+            column: 9
+          },
+          end: {
+            line: 8,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 20
+          },
+          end: {
+            line: 10,
+            column: 5
+          }
+        },
+        line: 8
+      },
+      "1": {
+        name: "_interop_require_default",
+        decl: {
+          start: {
+            line: 18,
+            column: 9
+          },
+          end: {
+            line: 18,
+            column: 33
+          }
+        },
+        loc: {
+          start: {
+            line: 18,
+            column: 39
+          },
+          end: {
+            line: 22,
+            column: 1
+          }
+        },
+        line: 18
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 23,
+            column: 20
+          },
+          end: {
+            line: 23,
+            column: 21
+          }
+        },
+        loc: {
+          start: {
+            line: 23,
+            column: 24
+          },
+          end: {
+            line: 66,
+            column: 1
+          }
+        },
+        line: 23
+      },
+      "3": {
+        name: "(anonymous_3)",
+        decl: {
+          start: {
+            line: 51,
+            column: 33
+          },
+          end: {
+            line: 51,
+            column: 34
+          }
+        },
+        loc: {
+          start: {
+            line: 51,
+            column: 37
+          },
+          end: {
+            line: 51,
+            column: 54
+          }
+        },
+        line: 51
+      },
+      "4": {
+        name: "(anonymous_4)",
+        decl: {
+          start: {
+            line: 55,
+            column: 33
+          },
+          end: {
+            line: 55,
+            column: 34
+          }
+        },
+        loc: {
+          start: {
+            line: 55,
+            column: 37
+          },
+          end: {
+            line: 55,
+            column: 53
+          }
+        },
+        line: 55
+      },
+      "5": {
+        name: "(anonymous_5)",
+        decl: {
+          start: {
+            line: 59,
+            column: 33
+          },
+          end: {
+            line: 59,
+            column: 34
+          }
+        },
+        loc: {
+          start: {
+            line: 59,
+            column: 37
+          },
+          end: {
+            line: 59,
+            column: 55
+          }
+        },
+        line: 59
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 19,
+            column: 11
+          },
+          end: {
+            line: 21,
+            column: 5
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 19,
+            column: 35
+          },
+          end: {
+            line: 19,
+            column: 38
+          }
+        }, {
+          start: {
+            line: 19,
+            column: 41
+          },
+          end: {
+            line: 21,
+            column: 5
+          }
+        }],
+        line: 19
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 19,
+            column: 11
+          },
+          end: {
+            line: 19,
+            column: 32
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 19,
+            column: 11
+          },
+          end: {
+            line: 19,
+            column: 14
+          }
+        }, {
+          start: {
+            line: 19,
+            column: 18
+          },
+          end: {
+            line: 19,
+            column: 32
+          }
+        }],
+        line: 19
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0,
+      "15": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    b: {
+      "0": [0, 0],
+      "1": [0, 0]
+    },
+    inputSourceMap: {
+      version: 3,
+      sources: ["/Users/noritakasawada/AI_P/subsidyApp/frontend/src/components/ui/theme-toggle.tsx"],
+      sourcesContent: ["'use client';\n\nimport React from 'react';\nimport { Moon, Sun } from 'lucide-react';\nimport { Button } from '@/components/ui/button';\nimport {\n  DropdownMenu,\n  DropdownMenuContent,\n  DropdownMenuItem,\n  DropdownMenuTrigger,\n} from '@/components/ui/dropdown-menu';\nimport { useTheme } from '@/components/providers/ThemeProvider';\n\nexport const ThemeToggle: React.FC = () => {\n  const { setTheme } = useTheme();\n\n  return (\n    <DropdownMenu>\n      <DropdownMenuTrigger asChild>\n        <Button variant=\"outline\" size=\"icon\" className=\"min-target\">\n          <Sun className=\"h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0\" />\n          <Moon className=\"absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100\" />\n          <span className=\"sr-only\">\u30C6\u30FC\u30DE\u3092\u5207\u308A\u66FF\u3048</span>\n        </Button>\n      </DropdownMenuTrigger>\n      <DropdownMenuContent align=\"end\">\n        <DropdownMenuItem onClick={() => setTheme('light')}>\n          \u30E9\u30A4\u30C8\u30E2\u30FC\u30C9\n        </DropdownMenuItem>\n        <DropdownMenuItem onClick={() => setTheme('dark')}>\n          \u30C0\u30FC\u30AF\u30E2\u30FC\u30C9\n        </DropdownMenuItem>\n        <DropdownMenuItem onClick={() => setTheme('system')}>\n          \u30B7\u30B9\u30C6\u30E0\u8A2D\u5B9A\n        </DropdownMenuItem>\n      </DropdownMenuContent>\n    </DropdownMenu>\n  );\n};"],
+      names: ["ThemeToggle", "setTheme", "useTheme", "DropdownMenu", "DropdownMenuTrigger", "asChild", "Button", "variant", "size", "className", "Sun", "Moon", "span", "DropdownMenuContent", "align", "DropdownMenuItem", "onClick"],
+      mappings: "AAAA;;;;;+BAaaA;;;eAAAA;;;;8DAXK;6BACQ;wBACH;8BAMhB;+BACkB;;;;;;AAElB,MAAMA,cAAwB;IACnC,MAAM,EAAEC,QAAQ,EAAE,GAAGC,IAAAA,uBAAQ;IAE7B,qBACE,sBAACC,0BAAY;;0BACX,qBAACC,iCAAmB;gBAACC,OAAO;0BAC1B,cAAA,sBAACC,cAAM;oBAACC,SAAQ;oBAAUC,MAAK;oBAAOC,WAAU;;sCAC9C,qBAACC,gBAAG;4BAACD,WAAU;;sCACf,qBAACE,iBAAI;4BAACF,WAAU;;sCAChB,qBAACG;4BAAKH,WAAU;sCAAU;;;;;0BAG9B,sBAACI,iCAAmB;gBAACC,OAAM;;kCACzB,qBAACC,8BAAgB;wBAACC,SAAS,IAAMf,SAAS;kCAAU;;kCAGpD,qBAACc,8BAAgB;wBAACC,SAAS,IAAMf,SAAS;kCAAS;;kCAGnD,qBAACc,8BAAgB;wBAACC,SAAS,IAAMf,SAAS;kCAAW;;;;;;AAM7D"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "65b1fea61359f9923b0d4a8bd4e26784c1a9f618"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1j3gm43q4o = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_1j3gm43q4o();
+cov_1j3gm43q4o().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_1j3gm43q4o().s[1]++;
+Object.defineProperty(exports, "ThemeToggle", {
+  enumerable: true,
+  get: function () {
+    /* istanbul ignore next */
+    cov_1j3gm43q4o().f[0]++;
+    cov_1j3gm43q4o().s[2]++;
+    return ThemeToggle;
+  }
+});
+const _jsxruntime =
+/* istanbul ignore next */
+(cov_1j3gm43q4o().s[3]++, require("react/jsx-runtime"));
+const _react =
+/* istanbul ignore next */
+(/*#__PURE__*/cov_1j3gm43q4o().s[4]++, _interop_require_default(require("react")));
+const _lucidereact =
+/* istanbul ignore next */
+(cov_1j3gm43q4o().s[5]++, require("lucide-react"));
+const _button =
+/* istanbul ignore next */
+(cov_1j3gm43q4o().s[6]++, require("./button"));
+const _dropdownmenu =
+/* istanbul ignore next */
+(cov_1j3gm43q4o().s[7]++, require("./dropdown-menu"));
+const _ThemeProvider =
+/* istanbul ignore next */
+(cov_1j3gm43q4o().s[8]++, require("../providers/ThemeProvider"));
+function _interop_require_default(obj) {
+  /* istanbul ignore next */
+  cov_1j3gm43q4o().f[1]++;
+  cov_1j3gm43q4o().s[9]++;
+  return /* istanbul ignore next */(cov_1j3gm43q4o().b[1][0]++, obj) &&
+  /* istanbul ignore next */
+  (cov_1j3gm43q4o().b[1][1]++, obj.__esModule) ?
+  /* istanbul ignore next */
+  (cov_1j3gm43q4o().b[0][0]++, obj) :
+  /* istanbul ignore next */
+  (cov_1j3gm43q4o().b[0][1]++, {
+    default: obj
+  });
+}
+/* istanbul ignore next */
+cov_1j3gm43q4o().s[10]++;
+const ThemeToggle = () => {
+  /* istanbul ignore next */
+  cov_1j3gm43q4o().f[2]++;
+  const {
+    setTheme
+  } =
+  /* istanbul ignore next */
+  (cov_1j3gm43q4o().s[11]++, (0, _ThemeProvider.useTheme)());
+  /* istanbul ignore next */
+  cov_1j3gm43q4o().s[12]++;
+  return /*#__PURE__*/(0, _jsxruntime.jsxs)(_dropdownmenu.DropdownMenu, {
+    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_dropdownmenu.DropdownMenuTrigger, {
+      asChild: true,
+      children: /*#__PURE__*/(0, _jsxruntime.jsxs)(_button.Button, {
+        variant: "outline",
+        size: "icon",
+        className: "min-target",
+        children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.Sun, {
+          className: "h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+        }), /*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.Moon, {
+          className: "absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+        }), /*#__PURE__*/(0, _jsxruntime.jsx)("span", {
+          className: "sr-only",
+          children: "テーマを切り替え"
+        })]
+      })
+    }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_dropdownmenu.DropdownMenuContent, {
+      align: "end",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_dropdownmenu.DropdownMenuItem, {
+        onClick: () => {
+          /* istanbul ignore next */
+          cov_1j3gm43q4o().f[3]++;
+          cov_1j3gm43q4o().s[13]++;
+          return setTheme('light');
+        },
+        children: "ライトモード"
+      }), /*#__PURE__*/(0, _jsxruntime.jsx)(_dropdownmenu.DropdownMenuItem, {
+        onClick: () => {
+          /* istanbul ignore next */
+          cov_1j3gm43q4o().f[4]++;
+          cov_1j3gm43q4o().s[14]++;
+          return setTheme('dark');
+        },
+        children: "ダークモード"
+      }), /*#__PURE__*/(0, _jsxruntime.jsx)(_dropdownmenu.DropdownMenuItem, {
+        onClick: () => {
+          /* istanbul ignore next */
+          cov_1j3gm43q4o().f[5]++;
+          cov_1j3gm43q4o().s[15]++;
+          return setTheme('system');
+        },
+        children: "システム設定"
+      })]
+    })]
+  });
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJUaGVtZVRvZ2dsZSIsImNvdl8xajNnbTQzcTRvIiwiZiIsInNldFRoZW1lIiwicyIsIl9UaGVtZVByb3ZpZGVyIiwidXNlVGhlbWUiLCJfanN4cnVudGltZSIsImpzeHMiLCJfZHJvcGRvd25tZW51IiwiRHJvcGRvd25NZW51IiwianN4IiwiRHJvcGRvd25NZW51VHJpZ2dlciIsImFzQ2hpbGQiLCJfYnV0dG9uIiwiQnV0dG9uIiwidmFyaWFudCIsInNpemUiLCJjbGFzc05hbWUiLCJfbHVjaWRlcmVhY3QiLCJTdW4iLCJNb29uIiwiRHJvcGRvd25NZW51Q29udGVudCIsImFsaWduIiwiRHJvcGRvd25NZW51SXRlbSIsIm9uQ2xpY2siXSwic291cmNlcyI6WyIvVXNlcnMvbm9yaXRha2FzYXdhZGEvQUlfUC9zdWJzaWR5QXBwL2Zyb250ZW5kL3NyYy9jb21wb25lbnRzL3VpL3RoZW1lLXRvZ2dsZS50c3giXSwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBjbGllbnQnO1xuXG5pbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgTW9vbiwgU3VuIH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCB7IEJ1dHRvbiB9IGZyb20gJ0AvY29tcG9uZW50cy91aS9idXR0b24nO1xuaW1wb3J0IHtcbiAgRHJvcGRvd25NZW51LFxuICBEcm9wZG93bk1lbnVDb250ZW50LFxuICBEcm9wZG93bk1lbnVJdGVtLFxuICBEcm9wZG93bk1lbnVUcmlnZ2VyLFxufSBmcm9tICdAL2NvbXBvbmVudHMvdWkvZHJvcGRvd24tbWVudSc7XG5pbXBvcnQgeyB1c2VUaGVtZSB9IGZyb20gJ0AvY29tcG9uZW50cy9wcm92aWRlcnMvVGhlbWVQcm92aWRlcic7XG5cbmV4cG9ydCBjb25zdCBUaGVtZVRvZ2dsZTogUmVhY3QuRkMgPSAoKSA9PiB7XG4gIGNvbnN0IHsgc2V0VGhlbWUgfSA9IHVzZVRoZW1lKCk7XG5cbiAgcmV0dXJuIChcbiAgICA8RHJvcGRvd25NZW51PlxuICAgICAgPERyb3Bkb3duTWVudVRyaWdnZXIgYXNDaGlsZD5cbiAgICAgICAgPEJ1dHRvbiB2YXJpYW50PVwib3V0bGluZVwiIHNpemU9XCJpY29uXCIgY2xhc3NOYW1lPVwibWluLXRhcmdldFwiPlxuICAgICAgICAgIDxTdW4gY2xhc3NOYW1lPVwiaC1bMS4ycmVtXSB3LVsxLjJyZW1dIHJvdGF0ZS0wIHNjYWxlLTEwMCB0cmFuc2l0aW9uLWFsbCBkYXJrOi1yb3RhdGUtOTAgZGFyazpzY2FsZS0wXCIgLz5cbiAgICAgICAgICA8TW9vbiBjbGFzc05hbWU9XCJhYnNvbHV0ZSBoLVsxLjJyZW1dIHctWzEuMnJlbV0gcm90YXRlLTkwIHNjYWxlLTAgdHJhbnNpdGlvbi1hbGwgZGFyazpyb3RhdGUtMCBkYXJrOnNjYWxlLTEwMFwiIC8+XG4gICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwic3Itb25seVwiPuODhuODvOODnuOCkuWIh+OCiuabv+OBiDwvc3Bhbj5cbiAgICAgICAgPC9CdXR0b24+XG4gICAgICA8L0Ryb3Bkb3duTWVudVRyaWdnZXI+XG4gICAgICA8RHJvcGRvd25NZW51Q29udGVudCBhbGlnbj1cImVuZFwiPlxuICAgICAgICA8RHJvcGRvd25NZW51SXRlbSBvbkNsaWNrPXsoKSA9PiBzZXRUaGVtZSgnbGlnaHQnKX0+XG4gICAgICAgICAg44Op44Kk44OI44Oi44O844OJXG4gICAgICAgIDwvRHJvcGRvd25NZW51SXRlbT5cbiAgICAgICAgPERyb3Bkb3duTWVudUl0ZW0gb25DbGljaz17KCkgPT4gc2V0VGhlbWUoJ2RhcmsnKX0+XG4gICAgICAgICAg44OA44O844Kv44Oi44O844OJXG4gICAgICAgIDwvRHJvcGRvd25NZW51SXRlbT5cbiAgICAgICAgPERyb3Bkb3duTWVudUl0ZW0gb25DbGljaz17KCkgPT4gc2V0VGhlbWUoJ3N5c3RlbScpfT5cbiAgICAgICAgICDjgrfjgrnjg4bjg6DoqK3lrppcbiAgICAgICAgPC9Ecm9wZG93bk1lbnVJdGVtPlxuICAgICAgPC9Ecm9wZG93bk1lbnVDb250ZW50PlxuICAgIDwvRHJvcGRvd25NZW51PlxuICApO1xufTsiXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7K0JBYWE7Ozs7OztXQUFBQSxXQUFBOzs7Ozs7Ozt3RUFYSzs7O2tDQUNROzs7a0NBQ0g7OztrQ0FNaEI7OztrQ0FDa0I7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBRWxCLE1BQU1BLFdBQUEsR0FBd0JBLENBQUE7RUFBQTtFQUFBQyxjQUFBLEdBQUFDLENBQUE7RUFDbkMsTUFBTTtJQUFFQztFQUFRLENBQUU7RUFBQTtFQUFBLENBQUFGLGNBQUEsR0FBQUcsQ0FBQSxRQUFHLElBQUFDLGNBQUEsQ0FBQUMsUUFBUTtFQUFBO0VBQUFMLGNBQUEsR0FBQUcsQ0FBQTtFQUU3QixvQkFDRSxJQUFBRyxXQUFBLENBQUFDLElBQUEsRUFBQ0MsYUFBQSxDQUFBQyxZQUFZOzRCQUNYLElBQUFILFdBQUEsQ0FBQUksR0FBQSxFQUFDRixhQUFBLENBQUFHLG1CQUFtQjtNQUFDQyxPQUFPO2dCQUMxQixpQkFBQU4sV0FBQSxDQUFBQyxJQUFBLEVBQUNNLE9BQUEsQ0FBQUMsTUFBTTtRQUFDQyxPQUFBLEVBQVE7UUFBVUMsSUFBQSxFQUFLO1FBQU9DLFNBQUEsRUFBVTtnQ0FDOUMsSUFBQVgsV0FBQSxDQUFBSSxHQUFBLEVBQUNRLFlBQUEsQ0FBQUMsR0FBRztVQUFDRixTQUFBLEVBQVU7eUJBQ2YsSUFBQVgsV0FBQSxDQUFBSSxHQUFBLEVBQUNRLFlBQUEsQ0FBQUUsSUFBSTtVQUFDSCxTQUFBLEVBQVU7eUJBQ2hCLElBQUFYLFdBQUEsQ0FBQUksR0FBQSxFQUFDO1VBQUtPLFNBQUEsRUFBVTtvQkFBVTs7O3FCQUc5QixJQUFBWCxXQUFBLENBQUFDLElBQUEsRUFBQ0MsYUFBQSxDQUFBYSxtQkFBbUI7TUFBQ0MsS0FBQSxFQUFNOzhCQUN6QixJQUFBaEIsV0FBQSxDQUFBSSxHQUFBLEVBQUNGLGFBQUEsQ0FBQWUsZ0JBQWdCO1FBQUNDLE9BQUEsRUFBU0EsQ0FBQSxLQUFNO1VBQUE7VUFBQXhCLGNBQUEsR0FBQUMsQ0FBQTtVQUFBRCxjQUFBLEdBQUFHLENBQUE7VUFBQSxPQUFBRCxRQUFBLENBQVM7UUFBQTtrQkFBVTt1QkFHcEQsSUFBQUksV0FBQSxDQUFBSSxHQUFBLEVBQUNGLGFBQUEsQ0FBQWUsZ0JBQWdCO1FBQUNDLE9BQUEsRUFBU0EsQ0FBQSxLQUFNO1VBQUE7VUFBQXhCLGNBQUEsR0FBQUMsQ0FBQTtVQUFBRCxjQUFBLEdBQUFHLENBQUE7VUFBQSxPQUFBRCxRQUFBLENBQVM7UUFBQTtrQkFBUzt1QkFHbkQsSUFBQUksV0FBQSxDQUFBSSxHQUFBLEVBQUNGLGFBQUEsQ0FBQWUsZ0JBQWdCO1FBQUNDLE9BQUEsRUFBU0EsQ0FBQSxLQUFNO1VBQUE7VUFBQXhCLGNBQUEsR0FBQUMsQ0FBQTtVQUFBRCxjQUFBLEdBQUFHLENBQUE7VUFBQSxPQUFBRCxRQUFBLENBQVM7UUFBQTtrQkFBVzs7OztBQU03RCIsImlnbm9yZUxpc3QiOltdfQ==

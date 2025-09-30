@@ -23,36 +23,37 @@ const roles_decorator_1 = require("../common/decorators/roles.decorator");
 const role_enum_1 = require("../common/enums/role.enum");
 const roles_guard_1 = require("../common/guards/roles.guard");
 const throttler_guard_1 = require("../common/guards/throttler.guard");
+const supabase_auth_guard_1 = require("../common/guards/supabase-auth.guard");
 let ApplicationsController = class ApplicationsController {
     constructor(applicationsService) {
         this.applicationsService = applicationsService;
     }
     async create(createApplicationDto, req) {
-        const application = await this.applicationsService.create(req.user?.id || 'anonymous', createApplicationDto, req);
+        const application = await this.applicationsService.create(req.user.id, createApplicationDto, req);
         return new base_response_dto_1.BaseResponseDto(application, 'Application created successfully');
     }
     async findAll(pagination, req) {
-        const result = await this.applicationsService.findAll(req.user?.id || 'anonymous', pagination, req.user?.role || role_enum_1.Role.VIEWER);
+        const result = await this.applicationsService.findAll(req.user.id, pagination, req.user.role || role_enum_1.Role.VIEWER);
         return new base_response_dto_1.BaseResponseDto(result, 'Applications retrieved successfully');
     }
     async getStatistics(req) {
-        const stats = await this.applicationsService.getStatistics(req.user?.id || 'anonymous', req.user?.role || role_enum_1.Role.VIEWER);
+        const stats = await this.applicationsService.getStatistics(req.user.id, req.user.role || role_enum_1.Role.VIEWER);
         return new base_response_dto_1.BaseResponseDto(stats, 'Statistics retrieved successfully');
     }
     async findOne(id, req) {
-        const application = await this.applicationsService.findOne(id, req.user?.id || 'anonymous', req.user?.role || role_enum_1.Role.VIEWER, req);
+        const application = await this.applicationsService.findOne(id, req.user.id, req.user.role || role_enum_1.Role.VIEWER, req);
         return new base_response_dto_1.BaseResponseDto(application, 'Application retrieved successfully');
     }
     async update(id, updateApplicationDto, req) {
-        const application = await this.applicationsService.update(id, req.user?.id || 'anonymous', updateApplicationDto, req.user?.role || role_enum_1.Role.EDITOR, req);
+        const application = await this.applicationsService.update(id, req.user.id, updateApplicationDto, req.user.role || role_enum_1.Role.EDITOR, req);
         return new base_response_dto_1.BaseResponseDto(application, 'Application updated successfully');
     }
     async remove(id, req) {
-        await this.applicationsService.remove(id, req.user?.id || 'anonymous', req.user?.role || role_enum_1.Role.ADMIN, req);
+        await this.applicationsService.remove(id, req.user.id, req.user.role || role_enum_1.Role.ADMIN, req);
         return new base_response_dto_1.BaseResponseDto(null, 'Application deleted successfully');
     }
     async generateApplication(id, generateDto, req) {
-        const generationResult = await this.applicationsService.generateApplication(id, req.user?.id || 'anonymous', req.user?.role || role_enum_1.Role.VIEWER, generateDto, req);
+        const generationResult = await this.applicationsService.generateApplication(id, req.user.id, req.user.role || role_enum_1.Role.VIEWER, generateDto, req);
         return new base_response_dto_1.BaseResponseDto(generationResult, 'Generation job created successfully');
     }
 };
@@ -168,7 +169,7 @@ __decorate([
 exports.ApplicationsController = ApplicationsController = __decorate([
     (0, swagger_1.ApiTags)('applications'),
     (0, common_1.Controller)('applications'),
-    (0, common_1.UseGuards)(throttler_guard_1.CustomThrottlerGuard, roles_guard_1.RolesGuard),
+    (0, common_1.UseGuards)(throttler_guard_1.CustomThrottlerGuard, supabase_auth_guard_1.SupabaseAuthGuard, roles_guard_1.RolesGuard),
     (0, swagger_1.ApiBearerAuth)(),
     __metadata("design:paramtypes", [applications_service_1.ApplicationsService])
 ], ApplicationsController);

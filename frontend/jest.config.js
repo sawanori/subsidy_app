@@ -68,8 +68,8 @@ const customJestConfig = {
     }
   },
   
-  // モジュールマッピング
-  moduleNameMapping: {
+  // モジュールマッピング (正しいオプション名: moduleNameMapper)
+  moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^.+\\.(css|sass|scss)$': 'identity-obj-proxy'
   },

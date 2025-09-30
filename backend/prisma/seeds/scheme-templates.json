@@ -1,0 +1,120 @@
+[
+  {
+    "schemeId": "jizokuka-2025-v1",
+    "name": "小規模事業者持続化補助金",
+    "type": "html",
+    "path": "/templates/jizokuka-2025-v1.html",
+    "version": "1.0.0",
+    "requirements": {
+      "sections": [
+        {
+          "id": "background",
+          "name": "背景",
+          "required": true,
+          "minChars": 500,
+          "maxChars": 2000
+        },
+        {
+          "id": "problemSolution",
+          "name": "課題と解決策",
+          "required": true,
+          "minChars": 800,
+          "maxChars": 3000
+        },
+        {
+          "id": "plan5w1h",
+          "name": "事業計画（5W1H）",
+          "required": true,
+          "fields": ["what", "why", "how", "who", "when", "where"]
+        },
+        {
+          "id": "kpi",
+          "name": "数値目標・KPI",
+          "required": true,
+          "minItems": 3,
+          "maxItems": 10
+        },
+        {
+          "id": "roadmap",
+          "name": "ロードマップ・スケジュール",
+          "required": true,
+          "minItems": 3
+        },
+        {
+          "id": "budget",
+          "name": "予算・費用内訳",
+          "required": true,
+          "minItems": 1,
+          "validations": ["totalAmount", "subsidyRate"]
+        },
+        {
+          "id": "team",
+          "name": "体制",
+          "required": true,
+          "minItems": 2
+        },
+        {
+          "id": "risks",
+          "name": "リスクと対策",
+          "required": true,
+          "minItems": 3
+        },
+        {
+          "id": "differentiation",
+          "name": "競合・差別化",
+          "required": true,
+          "minChars": 300,
+          "maxChars": 1500
+        }
+      ],
+      "budget": {
+        "maxTotal": 8000000,
+        "subsidyRate": 0.5,
+        "eligibleCategories": [
+          "機械装置等費",
+          "広報費",
+          "ウェブサイト関連費",
+          "展示会等出展費",
+          "旅費",
+          "開発費",
+          "資料購入費",
+          "雑役務費",
+          "借料",
+          "設備処分費",
+          "委託・外注費"
+        ],
+        "excludedCategories": [
+          "人件費",
+          "不動産購入費",
+          "自動車購入費",
+          "既存設備の修繕費"
+        ]
+      },
+      "citations": {
+        "required": true,
+        "minSources": 2,
+        "acceptedTypes": ["公的統計", "業界団体", "学術論文", "白書"]
+      },
+      "prohibitedTerms": [
+        "確実に",
+        "必ず",
+        "絶対に",
+        "100%",
+        "無条件で"
+      ],
+      "formatting": {
+        "pageLimit": 15,
+        "fontSize": {
+          "min": 10,
+          "max": 12
+        },
+        "margins": {
+          "top": 20,
+          "bottom": 20,
+          "left": 20,
+          "right": 20
+        }
+      }
+    }
+  }
+]

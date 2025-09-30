@@ -1,14 +1,16 @@
-import { PSM, OEM } from 'tesseract.js';
+import { PSM } from 'tesseract.js';
 import { OCRResult } from '../interfaces/evidence.interface';
+import { PrismaService } from '@prisma/prisma.service';
 export declare class OCRService {
+    private readonly prisma;
     private readonly logger;
     private readonly MAX_IMAGE_SIZE;
     private readonly MAX_FILE_SIZE;
     private readonly TIMEOUT;
+    constructor(prisma: PrismaService);
     extractTextFromImage(imageBuffer: Buffer, options?: {
         languages?: string[];
         psm?: PSM;
-        oem?: OEM;
         preprocessImage?: boolean;
     }): Promise<OCRResult>;
     private preprocessImage;
@@ -24,4 +26,5 @@ export declare class OCRService {
         issues: string[];
         recommendations: string[];
     };
+    saveOCRResult(evidenceId: string, ocrResult: any, userId: string): Promise<void>;
 }

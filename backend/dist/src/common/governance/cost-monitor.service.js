@@ -9,7 +9,7 @@ var CostMonitorService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CostMonitorService = void 0;
 const common_1 = require("@nestjs/common");
-const client_1 = require("../../database/client");
+const client_1 = require("@/database/client");
 let CostMonitorService = CostMonitorService_1 = class CostMonitorService {
     async monitorOCRCosts(processingData) {
         const warnings = [];

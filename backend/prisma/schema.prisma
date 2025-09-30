@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -25,6 +24,8 @@ model User {
 
   // Relations
   applications Application[]
+  costTrackings CostTracking[]
+  auditLogs    AuditLog[]
 
   @@map("users")
 }
@@ -91,6 +92,7 @@ model Application {
   title       String
   status      ApplicationStatus @default(DRAFT)
   locale      String            @default("ja") @db.VarChar(10) // personal classification - i18n support, 12 months retention
+  baselines   Json?             // KPI/plan auto-generation baseline data
   submittedAt DateTime?
   createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
@@ -104,7 +106,7 @@ model Application {
   plan        Plan?
   evidences   Evidence[]
   competitors Competitor[]
-  
+
   // Phase 1 Extension Relations
   purposeBackground    PurposeBackground?
   detailedPlans        DetailedPlan[]
@@ -113,6 +115,15 @@ model Application {
   organizationStructure OrganizationStructure?
   riskAssessments      RiskAssessment[]
   supplementaryMaterials SupplementaryMaterial[]
+
+  // Phase 2 Extension Relations - Added for frontend/backend integration
+  generationResults   GenerationResult[]
+  validationResults   ValidationResult[]
+  preflightResults    PreflightResult[]
+  costTrackings       CostTracking[]
+  exportHistories     ExportHistory[]
+  auditLogs          AuditLog[]
+  jobs               Job[]
 
   @@map("applications")
 }
@@ -337,6 +348,7 @@ model Evidence {
 
   // Relations
   application Application? @relation(fields: [applicationId], references: [id])
+  citations   Citation[]
 
   @@index([type, source])
   @@index([status])
@@ -735,4 +747,420 @@ enum MaterialType {
   FINANCIAL_PROJECTION // 財務予測
   TECHNICAL_SPEC      // 技術仕様
   CUSTOM              // カスタム
+}
+
+// ====== PHASE 2 EXTENSION: Frontend/Backend Integration Tables ======
+
+// AI Generation Results - AI生成結果管理
+model GenerationResult {
+  id            String   @id @default(cuid())
+  applicationId String
+  type          GenerationType
+  content       String   @db.Text
+  prompt        String?  @db.Text
+  model         String   // gpt-4-turbo-preview
+  tokensUsed    Int
+  cost          Decimal
+  metadata      Json?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  application   Application @relation(fields: [applicationId], references: [id])
+  citations     Citation[]
+
+  @@index([applicationId, type, createdAt])
+  @@map("generation_results")
+}
+
+enum GenerationType {
+  BACKGROUND
+  PURPOSE
+  PLAN
+  KPI
+  BUDGET
+  SCHEDULE
+  ORGANIZATION
+  RISK
+  SUMMARY
+}
+
+// Citations - 引用管理
+model Citation {
+  id              String   @id @default(cuid())
+  generationId    String
+  evidenceId      String?
+  citationNumber  Int
+  citedText       String   @db.Text
+  url             String
+  title           String
+  confidence      Float?
+  pageNumber      Int?
+  createdAt       DateTime @default(now())
+
+  // Relations
+  generation      GenerationResult @relation(fields: [generationId], references: [id])
+  evidence        Evidence? @relation(fields: [evidenceId], references: [id])
+
+  @@index([generationId])
+  @@index([evidenceId])
+  @@map("citations")
+}
+
+// Jobs - 非同期ジョブ管理
+model Job {
+  id            String   @id @default(cuid())
+  applicationId String?
+  type          JobType
+  status        JobStatus @default(PENDING)
+  progress      Int?     @default(0)
+  message       String?
+  startedAt     DateTime?
+  completedAt   DateTime?
+  error         String?  @db.Text
+  retryCount    Int      @default(0)
+  maxRetries    Int      @default(3)
+  payload       Json
+  result        Json?
+  metadata      Json?
+  idempotencyKey String? @unique
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  application   Application? @relation(fields: [applicationId], references: [id])
+
+  @@index([type, status])
+  @@index([idempotencyKey])
+  @@index([applicationId, createdAt])
+  @@map("jobs")
+}
+
+enum JobType {
+  OCR
+  GENERATE
+  VALIDATE
+  EXPORT
+  PREFLIGHT
+  REGRESSION
+  UPLOAD
+  PROCESS
+  FETCH
+  INGEST
+}
+
+enum JobStatus {
+  PENDING
+  QUEUED
+  RUNNING
+  PAUSED
+  COMPLETED
+  FAILED
+  CANCELLED
+  RETRYING
+}
+
+// Validation Results - 検証結果
+model ValidationResult {
+  id            String   @id @default(cuid())
+  applicationId String
+  type          ValidationType
+  passed        Boolean
+  score         Float?
+  errors        Json     // ValidationError[]
+  warnings      Json     // ValidationWarning[]
+  metadata      Json?
+  createdAt     DateTime @default(now())
+
+  // Relations
+  application   Application @relation(fields: [applicationId], references: [id])
+
+  @@index([applicationId, type])
+  @@map("validation_results")
+}
+
+enum ValidationType {
+  FIELD
+  PREFLIGHT
+  BUSINESS_RULE
+  SCHEMA
+  CONSISTENCY
+  COMPLETENESS
+}
+
+// Preflight Results - プリフライトチェック結果
+model PreflightResult {
+  id              String   @id @default(cuid())
+  applicationId   String
+  documentId      String?
+  passed          Boolean
+  pageCount       Int
+  hasEmbeddedFonts Boolean
+  hasMargins      Boolean
+  hasStampSpace   Boolean
+  fontSize        Float?
+  resolution      Int?
+  colorSpace      String?
+  pdfVersion      String?
+  errors          Json     // PreflightError[]
+  warnings        Json     // PreflightWarning[]
+  metadata        Json?
+  createdAt       DateTime @default(now())
+
+  // Relations
+  application     Application @relation(fields: [applicationId], references: [id])
+
+  @@index([applicationId, createdAt])
+  @@map("preflight_results")
+}
+
+// Cost Tracking - コスト追跡
+model CostTracking {
+  id            String   @id @default(cuid())
+  applicationId String?
+  userId        String
+  service       String   // OPENAI, GOOGLE_CSE, OCR_CLOUD, STORAGE
+  operation     String   // generate, search, ocr, upload
+  units         Int      // tokens, requests, pages, bytes
+  unitCost      Decimal
+  totalCost     Decimal
+  currency      String   @default("JPY")
+  metadata      Json?
+  createdAt     DateTime @default(now())
+
+  // Relations
+  application   Application? @relation(fields: [applicationId], references: [id])
+  user          User @relation(fields: [userId], references: [id])
+
+  @@index([userId, createdAt])
+  @@index([applicationId, service])
+  @@index([createdAt])
+  @@map("cost_trackings")
+}
+
+// Export History - エクスポート履歴
+model ExportHistory {
+  id            String   @id @default(cuid())
+  applicationId String
+  format        ExportFormat
+  fileUrl       String?
+  downloadUrl   String?
+  size          Int      // bytes
+  metadata      Json?
+  downloadCount Int      @default(0)
+  expiresAt     DateTime?
+  createdAt     DateTime @default(now())
+
+  // Relations
+  application   Application @relation(fields: [applicationId], references: [id])
+
+  @@index([applicationId, createdAt])
+  @@index([expiresAt])
+  @@map("export_histories")
+}
+
+enum ExportFormat {
+  PDF
+  DOCX
+  XLSX
+  ZIP
+  JSON
+  CSV
+  HTML
+}
+
+// Audit Logs - 監査ログ
+model AuditLog {
+  id            String   @id @default(cuid())
+  applicationId String?
+  userId        String
+  actor         String   // user email or system identifier
+  action        String   // CREATE, UPDATE, DELETE, EXPORT, GENERATE, VIEW
+  resource      String   // application, document, evidence, user
+  resourceId    String?
+  details       Json?
+  ipAddress     String?
+  userAgent     String?
+  createdAt     DateTime @default(now())
+
+  // Relations
+  application   Application? @relation(fields: [applicationId], references: [id])
+  user          User @relation(fields: [userId], references: [id])
+
+  @@index([applicationId, createdAt])
+  @@index([userId, action])
+  @@index([resource, resourceId])
+  @@index([createdAt])
+  @@map("audit_logs")
+}
+
+// Feature Flags - 機能フラグ
+model FeatureFlag {
+  id            String   @id @default(cuid())
+  key           String   @unique // enable_docx_route, enable_cloud_ocr
+  enabled       Boolean  @default(false)
+  description   String?
+  metadata      Json?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("feature_flags")
+}
+
+// Templates - テンプレート管理
+model Template {
+  id            String   @id @default(cuid())
+  name          String
+  type          TemplateType
+  version       String
+  content       String?  @db.Text
+  fileUrl       String?
+  sha256        String
+  mappings      Json     // field mappings
+  metadata      Json?
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([name, version])
+  @@index([type, isActive])
+  @@map("templates")
+}
+
+enum TemplateType {
+  PDF_OVERLAY
+  DOCX
+  HTML
+  XLSX
+}
+
+// Subsidy Rules - 補助金ルール管理
+model SubsidyRule {
+  id            String   @id @default(cuid())
+  category      String
+  name          String
+  version       String
+  conditions    Json     // rule conditions
+  subsidyRate   Decimal
+  maxAmount     Decimal?
+  targetExpenses Json
+  exclusions    Json?
+  isActive      Boolean  @default(true)
+  validFrom     DateTime
+  validUntil    DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@unique([category, name, version])
+  @@index([isActive, validFrom])
+  @@map("subsidy_rules")
+}
+
+// ====== SITE RENEWAL: AI Auto-Generation System ======
+
+// Projects - プロジェクト（新規草案生成の親エンティティ）
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  schemeId    String   // 制度ID (例: jizokuka-2025-v1)
+  userId      String?  // オプション: ユーザー紐付け
+  goal        String   @db.Text // 何をしたいか
+  constraints Json     // {budgetMax, deadline, staff, etc.}
+  market      Json     // {region, industry}
+  assets      Json     // 既存の強み・資産
+  status      ProjectStatus @default(ACTIVE)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  drafts      Draft[]
+  artifacts   Artifact[]
+  chartSpecs  ChartSpec[]
+
+  @@index([schemeId, status])
+  @@index([createdAt])
+  @@map("projects")
+}
+
+enum ProjectStatus {
+  ACTIVE
+  ARCHIVED
+  COMPLETED
+  CANCELLED
+}
+
+// Drafts - 草案・版管理
+model Draft {
+  id          String   @id @default(cuid())
+  projectId   String
+  version     Int      // 版番号
+  sections    Json     // {background, problemSolution, plan5w1h, kpi, roadmap, budget, team, risks, differentiation}
+  references  Json     // 出典リスト [{title, source, url, year}]
+  metadata    Json?    // 生成メタデータ（モデル、トークン数など）
+  createdAt   DateTime @default(now())
+
+  // Relations
+  project     Project  @relation(fields: [projectId], references: [id])
+
+  @@unique([projectId, version])
+  @@index([projectId, createdAt])
+  @@map("drafts")
+}
+
+// Artifacts - 成果物（PDF/PNG/XLSX等）
+model Artifact {
+  id          String   @id @default(cuid())
+  projectId   String
+  type        ArtifactType
+  path        String   // ファイルパス or URL
+  meta        Json     // {filename, size, mimeType, etc.}
+  createdAt   DateTime @default(now())
+
+  // Relations
+  project     Project  @relation(fields: [projectId], references: [id])
+
+  @@index([projectId, type])
+  @@index([createdAt])
+  @@map("artifacts")
+}
+
+enum ArtifactType {
+  PDF
+  PNG
+  XLSX
+  DOCX
+  SVG
+}
+
+// ChartSpecs - 図表仕様＋生成画像
+model ChartSpec {
+  id          String   @id @default(cuid())
+  projectId   String
+  spec        Json     // {type, title, xLabel, yLabel, footer}
+  data        Json     // {labels, series}
+  imagePath   String?  // 生成済み画像のパス
+  format      String   @default("png") // png, svg
+  createdAt   DateTime @default(now())
+
+  // Relations
+  project     Project  @relation(fields: [projectId], references: [id])
+
+  @@index([projectId, createdAt])
+  @@map("chart_specs")
+}
+
+// SchemeTemplates - 制度別テンプレート（jizokuka-2025-v1等）
+model SchemeTemplate {
+  id          String   @id @default(cuid())
+  schemeId    String   @unique // jizokuka-2025-v1
+  name        String   // 小規模事業者持続化補助金
+  type        String   // html, docx
+  path        String   // テンプレートファイルパス
+  version     String
+  requirements Json    // 様式要件（語数、セクション、数値制約）
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([schemeId, version])
+  @@map("scheme_templates")
 }
