@@ -124,7 +124,7 @@ describe('AIAssistantService', () => {
     it('should suggest KPI targets based on business plan', async () => {
       const dto: SuggestKPIsDto = {
         businessPlan: 'Digital transformation project',
-        expectedEffects: ['Increase sales', 'Improve efficiency'],
+        expectedEffects: 'Increase sales, Improve efficiency',
       };
 
       mockConfigService.get.mockReturnValue(undefined);

@@ -1,5 +1,5 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
-import { PrismaService } from '@prisma/prisma.service';
+import { PrismaService } from '@/modules/prisma/prisma.service';
 import { OpenAIProvider } from './llm/openai.provider';
 import { PromptBuilderService } from './prompts/prompt-builder.service';
 import { Draft } from '@generated/prisma';

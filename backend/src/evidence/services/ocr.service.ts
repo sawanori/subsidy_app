@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { createWorker, PSM } from 'tesseract.js';
 import sharp from 'sharp';
 import { OCRResult, OCRWord, BoundingBox } from '../interfaces/evidence.interface';
-import { PrismaService } from '@prisma/prisma.service';
+import { PrismaService } from '@/modules/prisma/prisma.service';
 import { calculateOCRCost, OCR_COST_LIMITS } from './ocr/ocr.config';
 
 @Injectable()

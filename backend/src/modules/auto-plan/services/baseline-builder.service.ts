@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { BaselineBuildResponseDto, BaselineValue } from '../dto/auto-plan.dto';
-import { PrismaService } from '@prisma/prisma.service';
+import { PrismaService } from '@/modules/prisma/prisma.service';
 
 @Injectable()
 export class BaselineBuilderService {
