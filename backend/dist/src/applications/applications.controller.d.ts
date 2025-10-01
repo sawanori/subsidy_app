@@ -7,22 +7,22 @@ export declare class ApplicationsController {
     constructor(applicationsService: ApplicationsService);
     create(createApplicationDto: CreateApplicationDto, req: any): Promise<BaseResponseDto<{
         id: string;
-        applicantId: string;
+        status: import("@generated/prisma").$Enums.ApplicationStatus;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
-        title: string;
         userId: string;
-        status: import("@generated/prisma").$Enums.ApplicationStatus;
+        applicantId: string;
+        title: string;
         locale: string;
         baselines: import("@generated/prisma/runtime/library").JsonValue | null;
         submittedAt: Date | null;
+        deletedAt: Date | null;
     }>>;
     findAll(pagination: PaginationDto, req: any): Promise<BaseResponseDto<{
         data: ({
             user: {
                 id: string;
-                role: import("@generated/prisma").$Enums.UserRole;
+                role: import(".prisma/client").$Enums.UserRole;
                 email: string;
             };
             applicant: {
@@ -35,21 +35,21 @@ export declare class ApplicationsController {
             };
         } & {
             id: string;
-            applicantId: string;
+            status: import(".prisma/client").$Enums.ApplicationStatus;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
-            title: string;
             userId: string;
-            status: import("@generated/prisma").$Enums.ApplicationStatus;
+            applicantId: string;
+            title: string;
             locale: string;
-            baselines: import("@generated/prisma/runtime/library").JsonValue | null;
+            baselines: import("@prisma/client/runtime/library").JsonValue | null;
             submittedAt: Date | null;
+            deletedAt: Date | null;
         })[];
         meta: import("../common/dto/pagination.dto").PaginationMetaDto;
     }>>;
     getStatistics(req: any): Promise<BaseResponseDto<{
-        stats: (import("@generated/prisma").Prisma.PickEnumerable<import("@generated/prisma").Prisma.ApplicationGroupByOutputType, "status"[]> & {
+        stats: (import(".prisma/client").Prisma.PickEnumerable<import(".prisma/client").Prisma.ApplicationGroupByOutputType, "status"[]> & {
             _count: {
                 status: number;
             };
@@ -58,29 +58,29 @@ export declare class ApplicationsController {
     }>>;
     findOne(id: string, req: any): Promise<BaseResponseDto<{
         id: string;
-        applicantId: string;
+        status: import("@generated/prisma").$Enums.ApplicationStatus;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
-        title: string;
         userId: string;
-        status: import("@generated/prisma").$Enums.ApplicationStatus;
+        applicantId: string;
+        title: string;
         locale: string;
         baselines: import("@generated/prisma/runtime/library").JsonValue | null;
         submittedAt: Date | null;
+        deletedAt: Date | null;
     }>>;
     update(id: string, updateApplicationDto: UpdateApplicationDto, req: any): Promise<BaseResponseDto<{
         id: string;
-        applicantId: string;
+        status: import("@generated/prisma").$Enums.ApplicationStatus;
         createdAt: Date;
         updatedAt: Date;
-        deletedAt: Date | null;
-        title: string;
         userId: string;
-        status: import("@generated/prisma").$Enums.ApplicationStatus;
+        applicantId: string;
+        title: string;
         locale: string;
         baselines: import("@generated/prisma/runtime/library").JsonValue | null;
         submittedAt: Date | null;
+        deletedAt: Date | null;
     }>>;
     remove(id: string, req: any): Promise<BaseResponseDto<any>>;
     generateApplication(id: string, generateDto: GenerateApplicationDto, req: any): Promise<BaseResponseDto<import("./dto").GenerationResponseDto>>;

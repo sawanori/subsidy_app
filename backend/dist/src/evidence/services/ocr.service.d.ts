@@ -1,6 +1,6 @@
 import { PSM } from 'tesseract.js';
 import { OCRResult } from '../interfaces/evidence.interface';
-import { PrismaService } from '@prisma/prisma.service';
+import { PrismaService } from '@/modules/prisma/prisma.service';
 export declare class OCRService {
     private readonly prisma;
     private readonly logger;

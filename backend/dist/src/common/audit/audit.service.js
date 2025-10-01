@@ -12,7 +12,7 @@ var AuditService_1;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuditService = void 0;
 const common_1 = require("@nestjs/common");
-const prisma_service_1 = require("@prisma/prisma.service");
+const prisma_service_1 = require("@/modules/prisma/prisma.service");
 let AuditService = AuditService_1 = class AuditService {
     constructor(prisma) {
         this.prisma = prisma;

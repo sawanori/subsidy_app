@@ -11,9 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PrismaService = void 0;
 const common_1 = require("@nestjs/common");
-const prisma_1 = require("@generated/prisma");
+const client_1 = require("@prisma/client");
 const i18n_service_1 = require("../common/i18n/i18n.service");
-let PrismaService = class PrismaService extends prisma_1.PrismaClient {
+let PrismaService = class PrismaService extends client_1.PrismaClient {
     constructor(i18nService) {
         super();
         this.i18nService = i18nService;

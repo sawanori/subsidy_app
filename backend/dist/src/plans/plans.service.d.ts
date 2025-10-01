@@ -12,69 +12,69 @@ export declare class PlansService {
     update(id: string, userId: string, updatePlanDto: UpdatePlanDto, userRole?: string): Promise<Plan>;
     remove(id: string, userId: string, userRole?: string): Promise<void>;
     addAction(planId: string, userId: string, actionData: any, userRole?: string): Promise<{
-        evidence: string;
-        name: string;
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        status: import("@generated/prisma").$Enums.ActionStatus;
-        assignee: string;
+        name: string;
         purpose: string;
         deliverable: string;
+        evidence: string;
+        assignee: string;
         location: string | null;
         scheduledAt: Date | null;
         method: string | null;
+        status: import(".prisma/client").$Enums.ActionStatus;
+        createdAt: Date;
+        updatedAt: Date;
         planId: string;
     }>;
     updateAction(actionId: string, userId: string, actionData: any, userRole?: string): Promise<{
-        evidence: string;
-        name: string;
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
-        status: import("@generated/prisma").$Enums.ActionStatus;
-        assignee: string;
+        name: string;
         purpose: string;
         deliverable: string;
+        evidence: string;
+        assignee: string;
         location: string | null;
         scheduledAt: Date | null;
         method: string | null;
+        status: import(".prisma/client").$Enums.ActionStatus;
+        createdAt: Date;
+        updatedAt: Date;
         planId: string;
     }>;
     addSchedule(planId: string, userId: string, scheduleData: any, userRole?: string): Promise<{
         id: string;
+        assignee: string;
         createdAt: Date;
         updatedAt: Date;
+        planId: string;
         taskName: string;
         startDate: Date;
         endDate: Date;
         duration: number;
+        dependencies: import("@prisma/client/runtime/library").JsonValue | null;
         progress: number;
-        dependencies: import("@generated/prisma/runtime/library").JsonValue | null;
-        assignee: string;
-        planId: string;
     }>;
     addRisk(planId: string, userId: string, riskData: any, userRole?: string): Promise<{
         id: string;
+        status: import(".prisma/client").$Enums.RiskStatus;
         createdAt: Date;
         updatedAt: Date;
-        status: import("@generated/prisma").$Enums.RiskStatus;
         planId: string;
         content: string;
-        probability: import("@generated/prisma").$Enums.RiskLevel;
-        impact: import("@generated/prisma").$Enums.RiskLevel;
+        probability: import(".prisma/client").$Enums.RiskLevel;
+        impact: import(".prisma/client").$Enums.RiskLevel;
         mitigation: string;
         owner: string;
     }>;
     updateOrganization(planId: string, userId: string, orgData: any, userRole?: string): Promise<{
         members: {
-            name: string;
             id: string;
+            name: string;
             createdAt: Date;
             updatedAt: Date;
             organizationId: string;
             role: string;
-            workloadPercent: import("@generated/prisma/runtime/library").Decimal;
+            workloadPercent: import("@prisma/client/runtime/library").Decimal;
             responsibilities: string | null;
         }[];
     } & {
@@ -82,6 +82,6 @@ export declare class PlansService {
         createdAt: Date;
         updatedAt: Date;
         planId: string;
-        structure: import("@generated/prisma/runtime/library").JsonValue;
+        structure: import("@prisma/client/runtime/library").JsonValue;
     }>;
 }

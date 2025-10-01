@@ -16,7 +16,7 @@ export declare class ApplicationsService {
         data: ({
             user: {
                 id: string;
-                role: import("@generated/prisma").$Enums.UserRole;
+                role: import(".prisma/client").$Enums.UserRole;
                 email: string;
             };
             applicant: {
@@ -29,16 +29,16 @@ export declare class ApplicationsService {
             };
         } & {
             id: string;
-            applicantId: string;
+            status: import(".prisma/client").$Enums.ApplicationStatus;
             createdAt: Date;
             updatedAt: Date;
-            deletedAt: Date | null;
-            title: string;
             userId: string;
-            status: import("@generated/prisma").$Enums.ApplicationStatus;
+            applicantId: string;
+            title: string;
             locale: string;
-            baselines: import("@generated/prisma/runtime/library").JsonValue | null;
+            baselines: import("@prisma/client/runtime/library").JsonValue | null;
             submittedAt: Date | null;
+            deletedAt: Date | null;
         })[];
         meta: PaginationMetaDto;
     }>;
@@ -46,7 +46,7 @@ export declare class ApplicationsService {
     update(id: string, userId: string, updateApplicationDto: UpdateApplicationDto, userRole?: string, req?: any): Promise<Application>;
     remove(id: string, userId: string, userRole?: string, req?: any): Promise<void>;
     getStatistics(userId: string, userRole?: string): Promise<{
-        stats: (import("@generated/prisma").Prisma.PickEnumerable<import("@generated/prisma").Prisma.ApplicationGroupByOutputType, "status"[]> & {
+        stats: (import(".prisma/client").Prisma.PickEnumerable<import(".prisma/client").Prisma.ApplicationGroupByOutputType, "status"[]> & {
             _count: {
                 status: number;
             };

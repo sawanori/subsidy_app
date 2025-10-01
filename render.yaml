@@ -1,0 +1,72 @@
+# Render Blueprint for Subsidy App
+# https://render.com/docs/blueprint-spec
+
+services:
+  # Backend API Service
+  - type: web
+    name: subsidy-app-backend
+    runtime: node
+    region: singapore
+    plan: free  # Change to 'starter' for production ($7/month)
+    branch: main
+    rootDir: backend
+    buildCommand: npm ci && npx prisma generate && npm run build
+    startCommand: npm run start:prod
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: DATABASE_URL
+        sync: false  # Set manually in Render Dashboard
+      - key: DIRECT_URL
+        sync: false  # Set manually in Render Dashboard
+      - key: SUPABASE_URL
+        sync: false  # Set manually in Render Dashboard
+      - key: SUPABASE_ANON_KEY
+        sync: false  # Set manually in Render Dashboard
+      - key: SUPABASE_SERVICE_KEY
+        sync: false  # Set manually in Render Dashboard
+      - key: OPENAI_API_KEY
+        sync: false  # Set manually in Render Dashboard
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+      - key: ESTAT_APP_ID
+        sync: false  # Set manually in Render Dashboard
+      - key: RESAS_API_KEY
+        sync: false  # Set manually in Render Dashboard
+      - key: USE_MOCK_LLM
+        value: false
+      - key: SKIP_DB_CONNECTION
+        value: false
+      - key: CORS_ALLOW_ALL
+        value: false
+      - key: FRONTEND_URL
+        fromService:
+          type: web
+          name: subsidy-app
+          envVarKey: RENDER_EXTERNAL_URL
+
+  # Frontend Web Service
+  - type: web
+    name: subsidy-app
+    runtime: node
+    region: singapore
+    plan: free  # Change to 'starter' for production ($7/month)
+    branch: main
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: subsidy-app-backend
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false  # Set manually in Render Dashboard
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false  # Set manually in Render Dashboard

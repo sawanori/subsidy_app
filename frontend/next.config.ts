@@ -22,31 +22,34 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   async rewrites() {
+    // 本番環境ではNEXT_PUBLIC_API_URLを使用、開発環境ではlocalhost
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+
     return [
       // Catch-all: proxy all API requests to backend
       {
         source: '/api/:path*',
-        destination: 'http://localhost:3001/:path*',
+        destination: `${apiUrl}/:path*`,
       },
       {
         source: '/api/intake/:path*',
-        destination: 'http://localhost:3001/intake/:path*',
+        destination: `${apiUrl}/intake/:path*`,
       },
       {
         source: '/api/health/:path*',
-        destination: 'http://localhost:3001/health/:path*',
+        destination: `${apiUrl}/health/:path*`,
       },
       {
         source: '/api/evidence/:path*',
-        destination: 'http://localhost:3001/evidence/:path*',
+        destination: `${apiUrl}/evidence/:path*`,
       },
       {
         source: '/api/applications/:path*',
-        destination: 'http://localhost:3001/applications/:path*',
+        destination: `${apiUrl}/applications/:path*`,
       },
       {
         source: '/api/plans/:path*',
-        destination: 'http://localhost:3001/plans/:path*',
+        destination: `${apiUrl}/plans/:path*`,
       },
     ];
   },

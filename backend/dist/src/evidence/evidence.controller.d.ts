@@ -132,7 +132,7 @@ export declare class EvidenceController {
     getJobStatus(jobId: string): Promise<BaseResponseDto<{
         job: {
             id: string;
-            type: "ocr" | "transform" | "compress" | "storage";
+            type: "ocr" | "storage" | "compress" | "transform";
             priority: "high" | "medium" | "low";
             status: string;
             progress: number;

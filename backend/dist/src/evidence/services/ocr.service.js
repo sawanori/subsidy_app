@@ -17,7 +17,7 @@ exports.OCRService = void 0;
 const common_1 = require("@nestjs/common");
 const tesseract_js_1 = require("tesseract.js");
 const sharp_1 = __importDefault(require("sharp"));
-const prisma_service_1 = require("@prisma/prisma.service");
+const prisma_service_1 = require("@/modules/prisma/prisma.service");
 const ocr_config_1 = require("./ocr/ocr.config");
 let OCRService = OCRService_1 = class OCRService {
     constructor(prisma) {

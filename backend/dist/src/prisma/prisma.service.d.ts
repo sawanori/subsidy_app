@@ -1,5 +1,5 @@
 import { OnModuleInit } from '@nestjs/common';
-import { PrismaClient } from '@generated/prisma';
+import { PrismaClient } from '@prisma/client';
 import { I18nService } from '../common/i18n/i18n.service';
 export declare class PrismaService extends PrismaClient implements OnModuleInit {
     private readonly i18nService?;
